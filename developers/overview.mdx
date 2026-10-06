@@ -1,10 +1,10 @@
 ---
-title: "개발자 허브 개요"
-sidebarTitle: "개발자 허브"
-description: "CONNEX Cloud OS 공개 연동 인터페이스, REST API, WebSocket 스트리밍 및 MCP 표준"
+title: "Developer Hub Overview"
+sidebarTitle: "Developer Overview"
+description: "Integration architecture, public REST interfaces, WebSocket streaming, and MCP protocols"
 ---
 
-CONNEX는 외부 엔터프라이즈 시스템과 사내 인프라를 지능형 에이전트 생태계와 결합할 수 있는 다양한 공개 인터페이스를 제공합니다.
+The CONNEX Developer Hub provides the tools and protocols required to embed agentic intelligence and virtual file storage into third-party enterprise applications.
 
 ```mermaid
 graph LR
@@ -12,7 +12,7 @@ graph LR
     classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
     classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
 
-    Client["외부 시스템 / 클라이언트"]:::primary --> API["공개 REST / Webhook API"]:::enterprise
+    Client["External Client / Service"]:::primary --> API["Public REST & Webhook APIs"]:::enterprise
     Client --> MCP["Model Context Protocol (MCP)"]:::ai
-    MCP --> OS["CONNEX Cloud OS 4대 엔진"]:::primary
+    MCP --> OS["CONNEX Cloud OS Engines"]:::primary
 ```

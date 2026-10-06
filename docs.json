@@ -46,7 +46,7 @@
         "tab": "CONNEX",
         "groups": [
           {
-            "group": "시작하기 (Get Started)",
+            "group": "Get Started",
             "pages": [
               "index",
               "get-started/overview",
@@ -55,7 +55,7 @@
             ]
           },
           {
-            "group": "4대 핵심 엔진 (Core Engines)",
+            "group": "Core Engines",
             "pages": [
               "features/agent",
               "features/coworx",
@@ -64,7 +64,7 @@
             ]
           },
           {
-            "group": "5대 핵심 사용자 매뉴얼",
+            "group": "User Manuals & Guides",
             "pages": [
               "guide/workspace/manual",
               "guide/agent/manual",
@@ -76,10 +76,10 @@
         ]
       },
       {
-        "tab": "활용사례",
+        "tab": "Use Cases",
         "groups": [
           {
-            "group": "산업별 엔터프라이즈 솔루션",
+            "group": "Enterprise Solutions",
             "pages": [
               "use-cases/business-management",
               "use-cases/legal-and-tax",
@@ -89,7 +89,7 @@
             ]
           },
           {
-            "group": "5대 핵심 사용자 매뉴얼",
+            "group": "User Manuals & Guides",
             "pages": [
               "guide/workspace/manual",
               "guide/agent/manual",
@@ -101,10 +101,10 @@
         ]
       },
       {
-        "tab": "이용가격",
+        "tab": "Pricing",
         "groups": [
           {
-            "group": "요금제 및 토큰 자본 할당",
+            "group": "Plans & Capital Allocation",
             "pages": [
               "pricing/subscription-plans",
               "pricing/pay-as-you-go",
@@ -112,7 +112,7 @@
             ]
           },
           {
-            "group": "5대 핵심 사용자 매뉴얼",
+            "group": "User Manuals & Guides",
             "pages": [
               "guide/workspace/manual",
               "guide/agent/manual",
@@ -124,10 +124,10 @@
         ]
       },
       {
-        "tab": "리소스",
+        "tab": "Resources",
         "groups": [
           {
-            "group": "고객지원 & 문서센터",
+            "group": "Support & Knowledge",
             "pages": [
               "resources/docs-center-guide",
               "resources/support-desk",
@@ -137,7 +137,7 @@
             ]
           },
           {
-            "group": "5대 핵심 사용자 매뉴얼",
+            "group": "User Manuals & Guides",
             "pages": [
               "guide/workspace/manual",
               "guide/agent/manual",
@@ -149,10 +149,10 @@
         ]
       },
       {
-        "tab": "컴플라이언스",
+        "tab": "Compliance",
         "groups": [
           {
-            "group": "보안 & 데이터 주권 (SOC 2)",
+            "group": "Trust & Sovereignty (SOC 2)",
             "pages": [
               "governance/compliance",
               "governance/data-sovereignty",
@@ -161,7 +161,7 @@
             ]
           },
           {
-            "group": "서비스 법적 규정",
+            "group": "Legal & Terms",
             "pages": [
               "governance/terms-of-service",
               "governance/privacy-policy",
@@ -170,7 +170,7 @@
             ]
           },
           {
-            "group": "5대 핵심 사용자 매뉴얼",
+            "group": "User Manuals & Guides",
             "pages": [
               "guide/workspace/manual",
               "guide/agent/manual",
@@ -185,7 +185,7 @@
         "tab": "Developers",
         "groups": [
           {
-            "group": "공개 개발자 API & 웹훅",
+            "group": "Public APIs & Protocols",
             "pages": [
               "developers/overview",
               "developers/authentication-api",
@@ -202,7 +202,7 @@
             ]
           },
           {
-            "group": "5대 핵심 사용자 매뉴얼",
+            "group": "User Manuals & Guides",
             "pages": [
               "guide/workspace/manual",
               "guide/agent/manual",

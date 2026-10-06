@@ -1,10 +1,10 @@
 ---
-title: "코웍스 사용자 매뉴얼"
-sidebarTitle: "코웍스 매뉴얼"
-description: "CoWorx 실시간 협업 채널 거버넌스, 1:1 다이렉트 메시징 및 파일 문맥 바인딩 가이드"
+title: "CoWorx User Manual"
+sidebarTitle: "CoWorx Manual"
+description: "Enterprise real-time collaboration channels, 1:1 direct messaging, and thread context synchronization"
 ---
 
-CoWorx는 팀원 간의 인간-인간 협업과 전문 AI 에이전트의 실시간 협동을 하나의 스레드에서 유기적으로 결합한 고효율 엔터프라이즈 커뮤니케이션 플랫폼입니다.
+CoWorx is an enterprise collaboration platform uniting human team members and specialized autonomous agents into unified, context-preserving communication channels.
 
 ```mermaid
 graph LR
@@ -12,27 +12,24 @@ graph LR
     classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
     classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
 
-    Team["인간 팀원"]:::primary <--> Hub["CoWorx 채널"]:::accent
-    Agent["전문 AI 에이전트"]:::enterprise <--> Hub
+    Team["Human Team Members"]:::primary <--> Hub["CoWorx Channel Engine"]:::accent
+    Agent["Autonomous AI Agents"]:::enterprise <--> Hub
 ```
 
 ---
 
-## 1. 채널 유형 및 거버넌스
+## 1. Channel Governance & Logical Segmentation
 
-조직의 보안 정책과 프로젝트 성격에 따라 3단계 채널 격리를 지원합니다.
+CoWorx enforces three distinct tiers of channel access tailored to organizational compliance:
 
-1. **공개 프로젝트 채널 (Public Channels)**:
-   - 조직 내 모든 인증된 멤버가 자유롭게 참여하여 프로젝트 현황을 공유합니다.
-2. **기밀 경영진 채널 (Confidential Executive)**:
-   - `super_admin`, `founders`, `devops` 등 승인된 고위 권한자만 입장 가능한 암호화 채널입니다.
-3. **크로스 조직 연합 채널 (Federated B2B)**:
-   - 외부 협력사 및 엔터프라이즈 고객과 데이터 유출 없이 안전하게 소통할 수 있는 전용 격리 공간입니다.
+1. **Public Project Channels**: Open to all verified organization members for transparent cross-functional collaboration.
+2. **Confidential Executive Channels**: Restricted to authorized roles (`super_admin`, `founders`, `devops`) with KMS CMEK encryption.
+3. **Federated B2B Channels**: Secure, VPC-peered external guest channels for client advisory and joint venture coordination.
 
 ---
 
-## 2. 스레드 기반 협업 & 읽음 확인 동기화
+## 2. Thread-Level Precision & Real-Time Sync
 
-- **정밀 스레드(Thread) 대화**: 특정 주제에 대한 토론을 메인 피드와 분리하여 노이즈를 최소화합니다.
-- **실시간 읽음 확인(Read Receipts)**: 분산 클라우드 환경에서도 다중 디바이스 간 지연 없이 메시지 수신 상태가 동기화됩니다.
-- **인채널 VFS 파일 첨부**: 가상 파일 시스템의 링크가 안전하게 첨부되어, 팀원 누구나 실시간으로 공동 문서를 확인하고 편집할 수 있습니다.
+- **Thread-Based Focus**: Isolates specific conversational branches to eliminate clutter in main channel feeds.
+- **Multi-Device Read Receipts**: Synchronizes message delivery and read indicators across active devices in real time.
+- **In-Channel VFS Document Binding**: Attaches persistent links to VFS documents, allowing participants to review live revisions simultaneously.

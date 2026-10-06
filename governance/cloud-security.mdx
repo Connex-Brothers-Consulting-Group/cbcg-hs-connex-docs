@@ -1,10 +1,10 @@
 ---
-title: "서버 및 데이터 보안 정책"
-sidebarTitle: "클라우드 보안"
-description: "GKE L7 Gateway API, Cloud Armor WAF, Cloud KMS 및 Workload Identity 기반 다계층 방어"
+title: "Cloud Infrastructure & Data Security"
+sidebarTitle: "Cloud Security"
+description: "Defense-in-depth architecture leveraging GKE L7 Gateway API, Cloud Armor WAF, and Cloud KMS CMEK"
 ---
 
-CONNEX Cloud OS는 Google Cloud Platform(GCP) 상의 무결점 보안 인프라를 바탕으로 가동됩니다.
+CONNEX Cloud OS is hosted on Google Cloud Platform (GCP) private infrastructures built to the highest enterprise security standards.
 
 ```mermaid
 graph TD
@@ -12,15 +12,15 @@ graph TD
     classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
     classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
 
-    Ingress["Cloud Armor WAF L7 검사"]:::primary --> GW["GKE L7 Managed Gateway API"]:::enterprise
-    GW --> Pod["Private GKE 워커 노드"]:::enterprise
-    Pod --> KMS["Cloud KMS CMEK 암호화 (At-Rest)"]:::storage
+    Ingress["Cloud Armor WAF L7 Inspection"]:::primary --> GW["GKE L7 External Managed Gateway"]:::enterprise
+    GW --> Pod["Private GKE Workload Pods"]:::enterprise
+    Pod --> KMS["Cloud KMS CMEK Encryption At-Rest"]:::storage
 ```
 
 ---
 
-## 핵심 보안 원칙
+## Core Security Pillars
 
-1. **정적 서비스 계정 JSON 키 영구 금지**: 모든 워크로드는 Workload Identity Federation(WIF)을 통해 일시적 토큰으로만 인증합니다.
-2. **L7 WAF 방어선**: SQL 인젝션, XSS, 무차별 대입 공격을 인그레스 게이트웨이 전면에서 차단합니다.
-3. **CMEK 봉투 암호화**: 저장되는 모든 데이터는 고객 관리 암호화 키를 통해 하드웨어 레벨에서 보호됩니다.
+1. **Zero Static JSON Keys**: All application pods authenticate via Workload Identity Federation (WIF) with ephemeral tokens.
+2. **L7 Perimeter Defense**: Google Cloud Armor inspects inbound traffic to block SQL injection, cross-site scripting (XSS), and DDoS attacks.
+3. **CMEK Hardware Protection**: Data at rest is encrypted with Customer-Managed Encryption Keys backed by hardware security modules (HSMs).
