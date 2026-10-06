@@ -8,18 +8,12 @@ description: "The NEXUS LAB 126 AI Era Constitution and the flagship agentic ope
 
 ```mermaid
 graph TD
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
-    classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
-
-    subgraph Architecture ["CONNEX Agentic Cloud OS"]
-        OS["Unified Workspace OS"]:::primary
-        Agent["CONNEX Agent"]:::ai
-        CoWorx["CoWorx Collaboration"]:::accent
-        BrainX["Brain X Knowledge Engine"]:::enterprise
-        Studio["Studio VFS"]:::storage
+subgraph Architecture ["CONNEX Agentic Cloud OS"]
+        OS["Unified Workspace OS"]
+        Agent["CONNEX Agent"]
+        CoWorx["CoWorx Collaboration"]
+        BrainX["Brain X Knowledge Engine"]
+        Studio["Studio VFS"]
     end
 
     OS --> Agent

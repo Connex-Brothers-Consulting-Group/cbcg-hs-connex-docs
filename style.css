@@ -375,6 +375,7 @@ html.light body #content-area a:not(.card):not([class*="btn"]):not([role="tab"])
 html:not(.dark) body a.card,
 html:not(.dark) body .card,
 html:not(.dark) body [data-component-name="card"],
+html:not(.dark) body div.rounded-xl.border,
 html.light body a.card,
 html.light body .card,
 html[data-theme="light"] body a.card,
@@ -389,6 +390,7 @@ html[data-theme="light"] body .card {
 html:not(.dark) body a.card:hover,
 html:not(.dark) body .card:hover,
 html:not(.dark) body [data-component-name="card"]:hover,
+html:not(.dark) body div.rounded-xl.border:hover,
 html.light body a.card:hover,
 html.light body .card:hover,
 html[data-theme="light"] body a.card:hover,
@@ -400,17 +402,46 @@ html[data-theme="light"] body .card:hover {
 
 html:not(.dark) body a.card:hover h2,
 html:not(.dark) body a.card:hover h3,
+html:not(.dark) body .card:hover h2,
+html:not(.dark) body .card:hover h3,
 html:not(.dark) body a.card:hover [data-component-part="card-title"],
 html.light body a.card:hover h2,
 html.light body a.card:hover h3 {
   color: #003db3 !important;
 }
 
+/* Light Mode Card Icon Container & Lucide SVGs */
+html:not(.dark) body [data-component-part="card-icon"],
+html:not(.dark) body div.card-icon,
+html:not(.dark) body .card > div:first-child:has(svg),
+html:not(.dark) body a.card > div:first-child:has(svg),
+html:not(.dark) body div[class*="rounded"]:has(> svg.lucide),
+html.light body [data-component-part="card-icon"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-bottom: 0.75rem !important;
+}
+
 html:not(.dark) body a.card svg,
 html:not(.dark) body .card svg,
-html:not(.dark) body [data-component-part="card-icon"],
-html.light body a.card svg {
+html:not(.dark) body [data-component-name="card"] svg,
+html:not(.dark) body [data-component-part="card-icon"] svg,
+html:not(.dark) body div.card-icon svg,
+html:not(.dark) body div.rounded-xl.border svg,
+html:not(.dark) body svg.lucide,
+html.light body a.card svg,
+html.light body .card svg,
+html.light body [data-component-part="card-icon"] svg {
   color: #003db3 !important;
+  stroke: #003db3 !important;
+  fill: none !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  display: inline-block !important;
+  margin: 0 !important;
 }
 
 /* Eyebrows & Category Badges in Light Mode */
@@ -493,6 +524,30 @@ html.light body :not(pre) > code {
   border-radius: 4px;
   padding: 1.5px 5px;
   font-size: 12px;
+}
+
+/* Light Mode Updates / Changelog */
+html:not(.dark) body [data-component-name="update"] [data-component-part="update-label"],
+html:not(.dark) body div.update span[class*="badge"],
+html:not(.dark) body [data-component-name="update"] span,
+html.light body [data-component-name="update"] [data-component-part="update-label"],
+html.light body div.update span[class*="badge"],
+html.light body [data-component-name="update"] span {
+  background: rgba(0, 61, 179, 0.08) !important;
+  background-color: rgba(0, 61, 179, 0.08) !important;
+  color: #003db3 !important;
+  border: 1px solid rgba(0, 61, 179, 0.22) !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 2px 8px !important;
+  display: inline-block !important;
+}
+
+html:not(.dark) body [data-component-name="update"] [data-component-part="update-dot"],
+html:not(.dark) body div.update div[class*="rounded-full"],
+html.light body [data-component-name="update"] [data-component-part="update-dot"] {
+  background-color: #003db3 !important;
+  border-color: #003db3 !important;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -629,6 +684,7 @@ html[data-theme="dark"] body #content-area a:not(.card):not([class*="btn"]):not(
 html.dark body a.card,
 html.dark body .card,
 html.dark body [data-component-name="card"],
+html.dark body div.rounded-xl.border,
 html[data-theme="dark"] body a.card,
 html[data-theme="dark"] body .card {
   border-radius: 8px !important;
@@ -643,6 +699,7 @@ html[data-theme="dark"] body .card {
 html.dark body a.card:hover,
 html.dark body .card:hover,
 html.dark body [data-component-name="card"]:hover,
+html.dark body div.rounded-xl.border:hover,
 html[data-theme="dark"] body a.card:hover,
 html[data-theme="dark"] body .card:hover {
   border-color: rgba(213, 94, 8, 0.52) !important;
@@ -653,17 +710,45 @@ html[data-theme="dark"] body .card:hover {
 
 html.dark body a.card:hover h2,
 html.dark body a.card:hover h3,
+html.dark body .card:hover h2,
+html.dark body .card:hover h3,
 html.dark body a.card:hover [data-component-part="card-title"],
 html[data-theme="dark"] body a.card:hover h2,
 html[data-theme="dark"] body a.card:hover h3 {
   color: #f97316 !important;
 }
 
+/* Dark Mode Card Icon Container & Lucide SVGs */
+html.dark body [data-component-part="card-icon"],
+html.dark body div.card-icon,
+html.dark body .card > div:first-child:has(svg),
+html.dark body a.card > div:first-child:has(svg),
+html.dark body div[class*="rounded"]:has(> svg.lucide),
+html[data-theme="dark"] body [data-component-part="card-icon"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-bottom: 0.75rem !important;
+}
+
 html.dark body a.card svg,
 html.dark body .card svg,
-html.dark body [data-component-part="card-icon"],
-html[data-theme="dark"] body a.card svg {
+html.dark body [data-component-name="card"] svg,
+html.dark body [data-component-part="card-icon"] svg,
+html.dark body div.card-icon svg,
+html.dark body div.rounded-xl.border svg,
+html[data-theme="dark"] body a.card svg,
+html[data-theme="dark"] body .card svg,
+html[data-theme="dark"] body [data-component-part="card-icon"] svg {
   color: #d55e08 !important;
+  stroke: #d55e08 !important;
+  fill: none !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  display: inline-block !important;
+  margin: 0 !important;
 }
 
 /* Eyebrows & Category Badges in Dark Mode */
@@ -751,10 +836,17 @@ html[data-theme="dark"] body :not(pre) > code {
 
 /* Dark Mode Updates / Changelog */
 html.dark body [data-component-name="update"] [data-component-part="update-label"],
-html.dark body div.update span[class*="badge"] {
-  background: rgba(213, 94, 8, 0.2) !important;
+html.dark body div.update span[class*="badge"],
+html.dark body [data-component-name="update"] span,
+html.dark body [data-component-name="update"] [class*="badge"] {
+  background: rgba(213, 94, 8, 0.15) !important;
+  background-color: rgba(213, 94, 8, 0.15) !important;
   color: #f97316 !important;
   border: 1px solid rgba(213, 94, 8, 0.45) !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 2px 8px !important;
+  display: inline-block !important;
 }
 
 html.dark body [data-component-name="update"] [data-component-part="update-dot"],
@@ -765,31 +857,33 @@ html.dark body div.update div[class*="rounded-full"] {
 
 /* ──────────────────────────────────────────────────────────────────────────
    4. MERMAID DIAGRAMS — 100% Transparent Background & Mode Highlight Line-Art
+   (Zero Background Behind Text Principle)
    ────────────────────────────────────────────────────────────────────────── */
-html body svg[id],
-html body #content-area svg,
 html body .mermaid svg,
-html body svg[id^="mermaid"] {
+html body svg[id^="mermaid"],
+html body div.mermaid svg,
+html body div[class*="mermaid"] svg {
   background: transparent !important;
   background-color: transparent !important;
   font-family: var(--font-family-base) !important;
-  display: block;
-  margin: 1.75rem auto;
+  display: block !important;
+  margin: 1.75rem auto !important;
 }
 
 /* 4.1 Light Mode Mermaid (Transparent Background + Solid Navy #003DB3 Line-Art) */
-html:not(.dark) body svg[id] g.node rect,
-html:not(.dark) body svg[id] g.node polygon,
-html:not(.dark) body svg[id] g.node circle,
-html:not(.dark) body svg[id] g.node ellipse,
-html:not(.dark) body svg[id] g.node path,
-html:not(.dark) body svg g.node rect,
-html:not(.dark) body svg g.node polygon,
-html:not(.dark) body svg g.node circle,
-html:not(.dark) body svg .node rect,
-html:not(.dark) body svg .node polygon,
-html:not(.dark) body .mermaid svg rect,
-html.light body svg g.node rect {
+html:not(.dark) body .mermaid svg g.node rect,
+html:not(.dark) body .mermaid svg g.node polygon,
+html:not(.dark) body .mermaid svg g.node circle,
+html:not(.dark) body .mermaid svg g.node ellipse,
+html:not(.dark) body .mermaid svg g.node path,
+html:not(.dark) body .mermaid svg .node rect,
+html:not(.dark) body .mermaid svg .node polygon,
+html:not(.dark) body svg[id^="mermaid"] g.node rect,
+html:not(.dark) body svg[id^="mermaid"] g.node polygon,
+html:not(.dark) body svg[id^="mermaid"] g.node circle,
+html:not(.dark) body svg[id^="mermaid"] g.node ellipse,
+html:not(.dark) body svg[id^="mermaid"] g.node path,
+html.light body .mermaid svg rect {
   fill: transparent !important;
   background: transparent !important;
   background-color: transparent !important;
@@ -799,64 +893,68 @@ html.light body svg g.node rect {
   ry: 8px !important;
 }
 
-html:not(.dark) body svg[id] g.cluster rect,
-html:not(.dark) body svg g.cluster rect,
-html:not(.dark) body .mermaid svg g.cluster rect {
+html:not(.dark) body .mermaid svg g.cluster rect,
+html:not(.dark) body svg[id^="mermaid"] g.cluster rect {
   fill: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
   stroke: rgba(0, 61, 179, 0.45) !important;
   stroke-width: 1px !important;
   rx: 10px !important;
   ry: 10px !important;
 }
 
-html:not(.dark) body svg[id] g.node text,
-html:not(.dark) body svg[id] g.node tspan,
-html:not(.dark) body svg[id] g.node span,
-html:not(.dark) body svg[id] g.node div,
-html:not(.dark) body svg g.node text,
-html:not(.dark) body svg g.node tspan,
-html:not(.dark) body svg g.node span,
-html:not(.dark) body svg g.node div,
-html:not(.dark) body svg .node text,
 html:not(.dark) body .mermaid svg g.node text,
-html:not(.dark) body svg .edgeLabel,
-html:not(.dark) body svg g.edgeLabel text,
-html:not(.dark) body svg g.edgeLabel span,
-html.light body svg g.node text {
+html:not(.dark) body .mermaid svg g.node tspan,
+html:not(.dark) body .mermaid svg g.node span,
+html:not(.dark) body .mermaid svg g.node div,
+html:not(.dark) body .mermaid svg .node text,
+html:not(.dark) body svg[id^="mermaid"] g.node text,
+html:not(.dark) body svg[id^="mermaid"] g.node tspan,
+html:not(.dark) body svg[id^="mermaid"] g.node span,
+html:not(.dark) body svg[id^="mermaid"] g.node div,
+html.light body .mermaid svg g.node text {
   fill: #003db3 !important;
   color: #003db3 !important;
   font-family: var(--font-family-base) !important;
   font-size: 11.5px !important;
   font-weight: 500 !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
-html:not(.dark) body svg .flowchart-link,
-html:not(.dark) body svg g.edgePath path,
-html:not(.dark) body svg path.flowchart-link,
 html:not(.dark) body .mermaid svg .flowchart-link,
-html:not(.dark) body .mermaid svg g.edgePath path {
+html:not(.dark) body .mermaid svg g.edgePath path,
+html:not(.dark) body .mermaid svg path.flowchart-link,
+html:not(.dark) body svg[id^="mermaid"] .flowchart-link,
+html:not(.dark) body svg[id^="mermaid"] g.edgePath path {
   stroke: #003db3 !important;
   stroke-width: 1.25px !important;
 }
 
-html:not(.dark) body svg marker path,
-html:not(.dark) body svg marker circle,
-html:not(.dark) body .mermaid svg marker path {
+html:not(.dark) body .mermaid svg marker path,
+html:not(.dark) body .mermaid svg marker circle,
+html:not(.dark) body svg[id^="mermaid"] marker path {
   fill: #003db3 !important;
   stroke: #003db3 !important;
 }
 
-html:not(.dark) body svg .edgeLabel,
-html:not(.dark) body svg g.edgeLabel,
-html:not(.dark) body svg g.edgeLabel *,
-html:not(.dark) body svg g.label,
-html:not(.dark) body svg g.label *,
-html:not(.dark) body svg foreignObject,
-html:not(.dark) body svg foreignObject div,
-html:not(.dark) body svg foreignObject span,
+/* Zero Background on Text & Edge Labels */
 html:not(.dark) body .mermaid svg .edgeLabel,
 html:not(.dark) body .mermaid svg g.edgeLabel,
-html:not(.dark) body .mermaid svg g.edgeLabel * {
+html:not(.dark) body .mermaid svg g.edgeLabel *,
+html:not(.dark) body .mermaid svg g.edgeLabel rect,
+html:not(.dark) body .mermaid svg g.label,
+html:not(.dark) body .mermaid svg g.label *,
+html:not(.dark) body .mermaid svg g.label rect,
+html:not(.dark) body .mermaid svg foreignObject,
+html:not(.dark) body .mermaid svg foreignObject div,
+html:not(.dark) body .mermaid svg foreignObject span,
+html:not(.dark) body svg[id^="mermaid"] .edgeLabel,
+html:not(.dark) body svg[id^="mermaid"] g.edgeLabel,
+html:not(.dark) body svg[id^="mermaid"] g.edgeLabel *,
+html:not(.dark) body svg[id^="mermaid"] g.edgeLabel rect,
+html:not(.dark) body svg[id^="mermaid"] foreignObject div {
   background: transparent !important;
   background-color: transparent !important;
   fill: transparent !important;
@@ -869,21 +967,18 @@ html:not(.dark) body .mermaid svg g.edgeLabel * {
 }
 
 /* 4.2 Dark Mode Mermaid (Transparent Background + Orange #D55E08 Line-Art) */
-html.dark body svg[id] g.node rect,
-html.dark body svg[id] g.node polygon,
-html.dark body svg[id] g.node circle,
-html.dark body svg[id] g.node ellipse,
-html.dark body svg[id] g.node path,
-html.dark body svg g.node rect,
-html.dark body svg g.node polygon,
-html.dark body svg g.node circle,
-html.dark body svg g.node ellipse,
-html.dark body svg g.node path,
-html.dark body svg .node rect,
-html.dark body svg .node polygon,
-html.dark body svg .node path,
 html.dark body .mermaid svg g.node rect,
-html.dark body .mermaid svg g.node polygon {
+html.dark body .mermaid svg g.node polygon,
+html.dark body .mermaid svg g.node circle,
+html.dark body .mermaid svg g.node ellipse,
+html.dark body .mermaid svg g.node path,
+html.dark body .mermaid svg .node rect,
+html.dark body .mermaid svg .node polygon,
+html.dark body svg[id^="mermaid"] g.node rect,
+html.dark body svg[id^="mermaid"] g.node polygon,
+html.dark body svg[id^="mermaid"] g.node circle,
+html.dark body svg[id^="mermaid"] g.node ellipse,
+html.dark body svg[id^="mermaid"] g.node path {
   fill: transparent !important;
   background: transparent !important;
   background-color: transparent !important;
@@ -893,57 +988,67 @@ html.dark body .mermaid svg g.node polygon {
   ry: 8px !important;
 }
 
-html.dark body svg g.cluster rect,
-html.dark body .mermaid svg g.cluster rect {
+html.dark body .mermaid svg g.cluster rect,
+html.dark body svg[id^="mermaid"] g.cluster rect {
   fill: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
   stroke: rgba(213, 94, 8, 0.45) !important;
   stroke-width: 1px !important;
   rx: 10px !important;
   ry: 10px !important;
 }
 
-html.dark body svg g.node text,
-html.dark body svg g.node tspan,
-html.dark body svg g.node span,
-html.dark body svg g.node div,
-html.dark body svg .node text,
 html.dark body .mermaid svg g.node text,
+html.dark body .mermaid svg g.node tspan,
 html.dark body .mermaid svg g.node span,
-html.dark body .mermaid svg g.node div {
+html.dark body .mermaid svg g.node div,
+html.dark body .mermaid svg .node text,
+html.dark body svg[id^="mermaid"] g.node text,
+html.dark body svg[id^="mermaid"] g.node tspan,
+html.dark body svg[id^="mermaid"] g.node span,
+html.dark body svg[id^="mermaid"] g.node div {
   fill: #d55e08 !important;
   color: #d55e08 !important;
   font-family: var(--font-family-base) !important;
   font-size: 11.5px !important;
   font-weight: 500 !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
-html.dark body svg .flowchart-link,
-html.dark body svg g.edgePath path,
-html.dark body svg path.flowchart-link,
 html.dark body .mermaid svg .flowchart-link,
-html.dark body .mermaid svg g.edgePath path {
+html.dark body .mermaid svg g.edgePath path,
+html.dark body .mermaid svg path.flowchart-link,
+html.dark body svg[id^="mermaid"] .flowchart-link,
+html.dark body svg[id^="mermaid"] g.edgePath path {
   stroke: #d55e08 !important;
   stroke-width: 1.25px !important;
 }
 
-html.dark body svg marker path,
-html.dark body svg marker circle,
-html.dark body .mermaid svg marker path {
+html.dark body .mermaid svg marker path,
+html.dark body .mermaid svg marker circle,
+html.dark body svg[id^="mermaid"] marker path {
   fill: #d55e08 !important;
   stroke: #d55e08 !important;
 }
 
-html.dark body svg .edgeLabel,
-html.dark body svg g.edgeLabel,
-html.dark body svg g.edgeLabel *,
-html.dark body svg g.label,
-html.dark body svg g.label *,
-html.dark body svg foreignObject,
-html.dark body svg foreignObject div,
-html.dark body svg foreignObject span,
+/* Zero Background on Text & Edge Labels */
 html.dark body .mermaid svg .edgeLabel,
 html.dark body .mermaid svg g.edgeLabel,
-html.dark body .mermaid svg g.edgeLabel * {
+html.dark body .mermaid svg g.edgeLabel *,
+html.dark body .mermaid svg g.edgeLabel rect,
+html.dark body .mermaid svg g.label,
+html.dark body .mermaid svg g.label *,
+html.dark body .mermaid svg g.label rect,
+html.dark body .mermaid svg foreignObject,
+html.dark body .mermaid svg foreignObject div,
+html.dark body .mermaid svg foreignObject span,
+html.dark body svg[id^="mermaid"] .edgeLabel,
+html.dark body svg[id^="mermaid"] g.edgeLabel,
+html.dark body svg[id^="mermaid"] g.edgeLabel *,
+html.dark body svg[id^="mermaid"] g.edgeLabel rect,
+html.dark body svg[id^="mermaid"] foreignObject div {
   background: transparent !important;
   background-color: transparent !important;
   fill: transparent !important;
@@ -1082,10 +1187,7 @@ html.dark body [class*="hover:dark:text-primary-light"]:hover {
 }
 
 html.dark body .bg-primary,
-html.dark body [class*="bg-primary"],
-html.dark body [class*="dark:bg-primary"],
-html.dark body [class*="dark:bg-primary-dark"],
-html.dark body [class*="dark:bg-primary-light"] {
+html.dark body [class="bg-primary"] {
   background-color: #d55e08 !important;
 }
 
@@ -1127,9 +1229,9 @@ html.light body [class*="hover:text-primary"]:hover {
 }
 
 html:not(.dark) body .bg-primary,
-html:not(.dark) body [class*="bg-primary"],
+html:not(.dark) body [class="bg-primary"],
 html.light body .bg-primary,
-html.light body [class*="bg-primary"] {
+html.light body [class="bg-primary"] {
   background-color: #003db3 !important;
 }
 

@@ -8,14 +8,10 @@ The CONNEX Agent transcends single-turn prompt-response interactions. It autonom
 
 ```mermaid
 graph LR
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
-
-    Q["Natural Language Query"]:::primary --> Gate["L1 Gatekeeper (0.1s)"]:::enterprise
-    Gate --> Planner["Sub-LLM Query Planner"]:::ai
-    Planner --> Exec["Flagship Reasoning Core"]:::ai
-    Exec --> Out["Streaming & 18 Visual Charts"]:::primary
+Q["Natural Language Query"] --> Gate["L1 Gatekeeper (0.1s)"]
+    Gate --> Planner["Sub-LLM Query Planner"]
+    Planner --> Exec["Flagship Reasoning Core"]
+    Exec --> Out["Streaming & 18 Visual Charts"]
 ```
 
 ---

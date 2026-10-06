@@ -259,5 +259,8 @@
       "github": "https://github.com/Connex-Brothers-Consulting-Group/cbcg-hs-connex-docs"
     }
   },
-  "description": "Enterprise Agentic Cloud Workspace OS Platform 2.0"
+  "description": "Enterprise Agentic Cloud Workspace OS Platform 2.0",
+  "icons": {
+    "library": "lucide"
+  }
 }

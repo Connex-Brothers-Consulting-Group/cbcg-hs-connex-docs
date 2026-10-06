@@ -8,13 +8,9 @@ Brain X transforms unstructured corporate data and institutional expertise into 
 
 ```mermaid
 graph TD
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
-
-    Doc["Corporate Documents (PDF/Word/Text)"]:::primary --> Parse["Atomic Parsing & Chunking"]:::enterprise
-    Parse --> Vec["Isolated Enterprise Vector Store"]:::storage
-    Vec --> Brain["Custom Brain X Persona"]:::primary
+Doc["Corporate Documents (PDF/Word/Text)"] --> Parse["Atomic Parsing & Chunking"]
+    Parse --> Vec["Isolated Enterprise Vector Store"]
+    Vec --> Brain["Custom Brain X Persona"]
 ```
 
 ---

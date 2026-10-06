@@ -10,10 +10,10 @@ The CONNEX Virtual File System (VFS) provides a cloud-native, hierarchical stora
   <Card title="Hierarchical Explorer" icon="folder-tree">
     Nested folder organization with zero frontend expansion overhead and seamless drag-and-drop ingestion.
   </Card>
-  <Card title="3-Tier Cache Hierarchy" icon="layer-group">
+  <Card title="3-Tier Cache Hierarchy" icon="layers">
     L1 In-Memory and L2 Redis caching intercept duplicate storage I/O, converging repeat query latency to near zero.
   </Card>
-  <Card title="Instant SSE Invalidation" icon="arrows-rotate">
+  <Card title="Instant SSE Invalidation" icon="rotate-cw">
     All 7 atomic mutation operations immediately broadcast `VFS_CHANGED` to synchronize client trees in real time.
   </Card>
   <Card title="Single-Badge Header Binding" icon="tags">
@@ -29,15 +29,11 @@ To ensure strict zero-drift synchronization across distributed sessions, all VFS
 
 ```mermaid
 graph TD
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
 
-    A["VFS Mutation Request"]:::primary --> B["Atomic Storage Handler"]:::enterprise
-    B --> C["Invalidate L2 Redis Keys"]:::storage
-    C --> D["Publish SSE VFS_CHANGED Event"]:::accent
-    D --> E["Client React/SWR Tree Revalidation"]:::primary
+    A["VFS Mutation Request"] --> B["Atomic Storage Handler"]
+    B --> C["Invalidate L2 Redis Keys"]
+    C --> D["Publish SSE VFS_CHANGED Event"]
+    D --> E["Client React/SWR Tree Revalidation"]
 ```
 
 | Operation | Action Trigger | Redis Invalidation | SSE Propagation |

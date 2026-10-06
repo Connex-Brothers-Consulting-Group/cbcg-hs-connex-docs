@@ -1,10 +1,10 @@
 ---
 title: "Multi-Region Data Sovereignty"
 sidebarTitle: "Data Sovereignty"
-description: "Physical database isolation complying with statutory Republic of Korea PIPA and US CCPA laws"
+description: "Physical database isolation and sovereign cryptographic control complying with statutory PIPA, CCPA, and GDPR frameworks"
 ---
 
-CONNEX Cloud OS strictly enforces **physical database isolation by statutory jurisdiction** to eliminate cross-border compliance risks.
+CONNEX Cloud OS strictly enforces **physical database isolation by statutory jurisdiction** coupled with sovereign key management to eliminate cross-border compliance risks.
 
 <CardGroup cols={2}>
   <Card title="Republic of Korea Jurisdiction (PIPA)" icon="landmark">
@@ -14,6 +14,16 @@ CONNEX Cloud OS strictly enforces **physical database isolation by statutory jur
     Data for US and international users resides exclusively within dedicated Firestore databases in **Iowa (`us-central1`)**, fully adhering to SOC 2 Type II and CCPA requirements.
   </Card>
 </CardGroup>
+
+---
+
+## Sovereign Key Control & Cryptographic Boundary
+
+In addition to physical multi-region database boundaries, enterprise tenants can maintain complete custody over their data through Customer-Managed Encryption Keys (CMEK) and the **Instant Cryptographic Kill Switch**:
+
+- **Customer-Managed Key Custody**: Enterprise clients host their Key Encryption Keys (KEKs) directly within their own cloud accounts (GCP Cloud KMS or AWS KMS).
+- **Instant Access Revocation (Kill Switch)**: By disabling the key within their own KMS console, all data reads across CONNEX VFS and Agentic RCAG pipelines immediately fail closed with **HTTP 423 Locked** (`KeyAccessRevokedError`).
+- **Zero Cross-Jurisdictional Contamination**: Cryptographic keys and encrypted payloads never transit outside their designated regulatory perimeter.
 
 <Warning>
   Users select their statutory country of residence upon registration. Once set, the jurisdictional binding is strictly permanent to prevent cross-border data leakage.

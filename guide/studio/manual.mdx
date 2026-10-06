@@ -8,12 +8,8 @@ Studio is the dedicated Virtual File System (VFS) workspace for CONNEX Cloud OS,
 
 ```mermaid
 graph LR
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-
-    Tree["VFS Directory Tree"]:::primary --> Action["7 Core Atomic Mutations"]:::enterprise
-    Action --> SSE["SSE VFS_CHANGED Broadcast"]:::accent
+Tree["VFS Directory Tree"] --> Action["7 Core Atomic Mutations"]
+    Action --> SSE["SSE VFS_CHANGED Broadcast"]
 ```
 
 ---

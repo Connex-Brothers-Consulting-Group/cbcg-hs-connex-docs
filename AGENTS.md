@@ -1,16 +1,13 @@
 # CONNEX Cloud OS Documentation Governance & Standards
 
-```
-========================================================================================
-   CONNEX CLOUD OS DOCUMENTATION CONSTITUTION: ENTERPRISE SSOT & AESTHETICS (V31.0)
-   NEXUS LAB 126 CONSTITUTIONAL & 88 MASTER ENGINEERING STANDARDS ALIGNED
-========================================================================================
-```
+> **CONNEX CLOUD OS DOCUMENTATION CONSTITUTION: ENTERPRISE SSOT & AESTHETICS (V31.0)**  
+> *NEXUS LAB 126 Constitutional & 88 Master Engineering Standards Aligned*  
+> *Flagship Ecosystem of HybridSphere | Connex Brothers Consulting Group Inc.*
 
 ## SECTION I. DOCUMENTATION ARCHITECTURE & ENGINE
 
 - **Engine**: [Mintlify](https://mintlify.com) `mint` theme.
-- **Root SSOT Config**: `docs.json`
+- **Root SSOT Config**: `docs.json` (`"icons": { "library": "lucide" }`)
 - **Global Design System**: `style.css` (Paired Dual-Theme: Solid Navy Mirage `#003DB3` in Light / Frost Glass `#D55E08` in Dark)
 - **Asset Directory**: `ci/` (Official active WebP branding assets only: `logo-light.webp`, `logo-dark.webp`, `favicon-light.webp`, `favicon-dark.webp`)
 
@@ -19,7 +16,7 @@
 ## SECTION II. ICONOGRAPHY & EMOJI GOVERNANCE (STANDARD 02-02)
 
 ### Article 1 (Raw Unicode Emoji Absolute Ban)
-1. **Raw Emoji Ban**: Crude raw unicode emojis (🚀, 💡, 🔄, 🔒, 📊, ⚡, ⚠️, etc.) in documentation headings, paragraphs, cards, steps, callouts, and table cells are **strictly prohibited**.
+1. **Raw Emoji Ban**: Crude raw unicode emojis in documentation headings, paragraphs, cards, steps, callouts, and table cells are **strictly prohibited**.
 2. **Enterprise Demeanor**: Maintain a clean, disciplined, and world-class quiet luxury enterprise tone across all technical pages.
 
 ### Article 2 (Lucide Vector Iconography SSOT)
@@ -29,7 +26,7 @@
    - **Steps**: `<Step title="..." icon="terminal">`
    - **Tabs**: `<Tab title="..." icon="code">`
    - **Inline Icons**: `<Icon icon="sparkles" />`, `<Icon icon="database" />`
-   - **Anchors (`docs.json`)**: `"icon": "globe"`, `"icon": "shield-check"`
+   - **Anchors (`docs.json`)**: `"icon": "globe"`, `"icon": "github"`
 3. **Fidelity Guarantee**: Mintlify natively resolves and renders all Lucide vector SVG icons at infinite resolution with zero distortion across Retina and 4K displays.
 
 ---
@@ -54,9 +51,13 @@
 cbcg-hs-docs/
 ├── ci/                          # Official CI & Branding Assets (WebP only)
 ├── get-started/                 # Quickstart, Architecture & Foundation
-├── features/                    # CoWorx, AI Agent, VFS Core Modules
-├── governance/                  # Data Sovereignty, Zero-Trust Auth, Compliance
+├── features/                    # CoWorx, AI Agent, Brain X, VFS Core Modules
+├── guide/                       # 5 Persistent User Manuals
+├── use-cases/                   # 5 Industry Solutions
+├── pricing/                     # Pricing & Token Capital Allocation
+├── governance/                  # Data Sovereignty, Cloud Security, Kill Switch, Terms
 ├── support/                     # Releases, Notices, FAQ
+├── developers/                  # Public APIs & MCP Server Protocols
 ├── docs.json                    # Mintlify Master Configuration
 ├── index.mdx                    # Canonical Landing Page (/)
 └── style.css                    # Master CSS Styling Sheet
@@ -64,51 +65,49 @@ cbcg-hs-docs/
 
 ---
 
-## SECTION V. ENTERPRISE MERMAID DIAGRAM STYLING STANDARD (METHOD 1 classDef SSOT)
+## SECTION V. ENTERPRISE MERMAID DIAGRAM STYLING STANDARD (PURE TRANSPARENT LINE-ART SSOT)
 
-### Article 4 (Unstyled Raw Diagrams Strictly Prohibited)
-1. **Raw Default Mermaid Ban**: Unstyled Mermaid diagrams that fall back to default pastel purple/lavender palettes (`#ECECFF`) are strictly prohibited in official documentation.
-2. **Quiet Luxury Enterprise Palette**: All architecture, sequence, and workflow diagrams must explicitly encode CONNEX design system tokens to ensure uniform aesthetic harmony across GitHub preview and Mintlify production.
+### Article 4 (Solid Fill Ban & Zero Text Background Principle)
+1. **Solid Color Fill Ban**: Heavy solid fill blocks (`fill:#1E293B`, `fill:#007CFF`) and colored subgraph backgrounds are strictly prohibited.
+2. **Pure Transparent Line-Art**: All diagram nodes, clusters, and containers must maintain 100% transparent backgrounds (`fill: transparent`).
+3. **Zero Background Behind Text**: Text elements, tspans, div labels, and edge labels must never display gray or colored background rectangles (`edgeLabelBackground: transparent`). All text renders directly and cleanly over the page background.
 
-### Article 5 (Standard classDef Palette & Semantic Tokens)
-All `graph TD` and `graph LR` flowcharts must declare and bind the following standardized `classDef` tokens:
-
-```mermaid
-classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
-classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
-classDef warning fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF;
-```
-
-- **`primary` (`#007CFF`, Cobalt)**: Client UIs, triggers, webhooks, ingress entry points, primary highlights.
-- **`enterprise` (`#1E293B`, Solid Navy)**: Core API gateways, backend thin orchestrators, session handlers.
-- **`accent` (`#0D9488`, Emerald/Teal)**: Event buses, Pub/Sub channels, SSE streams, broadcast routers.
-- **`storage` (`#334155`, Slate/Charcoal)**: Regional Firestore (`accounts-kr`/`accounts-us`), Redis clusters, KMS CMEK, GCS.
-- **`ai` (`#6366F1`, Indigo)**: Semantic Kernel, Gemini Flash/Pro LLMs, Agentic reasoning loops.
-- **`warning` (`#D97706`, Amber)**: Fallback searches, failovers, contingency notifications.
-
-### Article 6 (Sequence Diagram Theme Directive Standard)
-For `sequenceDiagram` blocks where `classDef` is not supported, the `%%{init}%%` directive must be prefixed:
+### Article 5 (Mode Highlight Line-Art & Base Theme Directive)
+For diagrams rendered on GitHub (such as `README.md`), declare the base theme init directive:
 
 ```mermaid
 %%{init: {
   'theme': 'base',
   'themeVariables': {
-    'actorBkg': '#1E293B',
-    'actorBorder': '#007CFF',
-    'actorTextColor': '#FFFFFF',
-    'actorLineColor': '#64748B',
-    'signalColor': '#007CFF',
-    'signalTextColor': '#F8FAFC',
-    'labelBoxBkgColor': '#1E293B',
-    'labelBoxBorderColor': '#007CFF',
-    'labelTextColor': '#FFFFFF',
-    'noteBkgColor': '#0F172A',
-    'noteBorderColor': '#007CFF',
-    'noteTextColor': '#F8FAFC',
-    'sequenceNumberColor': '#FFFFFF'
+    'background': 'transparent',
+    'primaryColor': 'transparent',
+    'primaryBorderColor': '#003DB3',
+    'primaryTextColor': '#003DB3',
+    'secondaryColor': 'transparent',
+    'secondaryBorderColor': '#003DB3',
+    'secondaryTextColor': '#003DB3',
+    'tertiaryColor': 'transparent',
+    'tertiaryBorderColor': '#003DB3',
+    'tertiaryTextColor': '#003DB3',
+    'clusterBkg': 'transparent',
+    'clusterBorder': '#003DB3',
+    'lineColor': '#003DB3',
+    'textColor': '#003DB3',
+    'edgeLabelBackground': 'transparent',
+    'nodeBorder': '#003DB3',
+    'nodeTextColor': '#003DB3',
+    'fontFamily': 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+    'fontSize': '12px'
   }
 }}%%
 ```
+
+---
+
+## SECTION VI. DATA SOVEREIGNTY & CRYPTOGRAPHIC KILL SWITCH GOVERNANCE
+
+### Article 6 (Zero-Knowledge Envelope Encryption & KMS Kill Switch Standard)
+1. **Two-Tier Envelope Key Architecture**: All sensitive files and VFS records are protected by random AES-256-GCM Data Encryption Keys (DEKs) wrapped by Customer-Managed Encryption Keys (CMEKs) residing in cloud KMS.
+2. **Hardware Kill Switch (`KeyAccessRevokedError` → HTTP 423)**: If a customer disables or revokes their key in Cloud KMS, all subsequent reads immediately fail closed with HTTP 423 Locked.
+3. **Zero Plaintext Lingering**: Plaintext DEKs are cached exclusively in ephemeral Python `ContextVar` per request and never persisted. Envelope-encrypted files explicitly bypass intermediate storage caches (GCS cache bypass) to guarantee zero-delay revocation enforcement.
+4. **Fail-Closed Write Invariant (`NoEncryptionContextError` → HTTP 412)**: Unencrypted plaintext writes are categorically prohibited.

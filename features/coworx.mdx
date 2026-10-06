@@ -7,16 +7,16 @@ description: "High-performance real-time collaboration channels, enterprise dire
 CoWorx is an enterprise-grade collaboration engine providing structured project channels, 1:1 direct messaging, and frictionless virtual file system integration designed for high-density business execution.
 
 <CardGroup cols={2}>
-  <Card title="Channel-Based Workspaces" icon="hashtag">
+  <Card title="Channel-Based Workspaces" icon="hash">
     Public and private channels segmented by project, department, and statutory security boundary.
   </Card>
-  <Card title="Direct Messaging (DM)" icon="envelope">
+  <Card title="Direct Messaging (DM)" icon="mail">
     End-to-end encrypted direct communication for peer-to-peer and executive collaboration.
   </Card>
   <Card title="Instant VFS File Binding" icon="paperclip">
     Inline document attachment from your isolated virtual file system directly within chat threads.
   </Card>
-  <Card title="Real-Time SSE Broadcast" icon="bolt">
+  <Card title="Real-Time SSE Broadcast" icon="zap">
     Zero-latency typing indicators and instant multi-device read-receipt synchronization.
   </Card>
 </CardGroup>
@@ -29,15 +29,11 @@ CoWorx integrates real-time messaging with the CONNEX 3-tier caching hierarchy t
 
 ```mermaid
 graph LR
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
 
-    A["Client UI (React/SWR)"]:::primary -->|"SSE / HTTP POST"| B["FastAPI Async Gateway"]:::enterprise
-    B -->|"L1 Memory / L2 Redis"| C["Pub/Sub Message Bus"]:::accent
-    C -->|"Persistent Sync"| D["Isolated Firestore (KR/US)"]:::storage
-    C -->|"Broadcast"| E["Active Session Streams"]:::enterprise
+    A["Client UI (React/SWR)"] -->|"SSE / HTTP POST"| B["FastAPI Async Gateway"]
+    B -->|"L1 Memory / L2 Redis"| C["Pub/Sub Message Bus"]
+    C -->|"Persistent Sync"| D["Isolated Firestore (KR/US)"]
+    C -->|"Broadcast"| E["Active Session Streams"]
 ```
 
 ---

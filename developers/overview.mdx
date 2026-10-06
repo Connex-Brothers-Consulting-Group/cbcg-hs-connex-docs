@@ -8,11 +8,7 @@ The CONNEX Developer Hub provides the tools and protocols required to embed agen
 
 ```mermaid
 graph LR
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
-
-    Client["External Client / Service"]:::primary --> API["Public REST & Webhook APIs"]:::enterprise
-    Client --> MCP["Model Context Protocol (MCP)"]:::ai
-    MCP --> OS["CONNEX Cloud OS Engines"]:::primary
+Client["External Client / Service"] --> API["Public REST & Webhook APIs"]
+    Client --> MCP["Model Context Protocol (MCP)"]
+    MCP --> OS["CONNEX Cloud OS Engines"]
 ```

@@ -1,12 +1,8 @@
 # CONNEX Cloud OS Documentation
 
-```
-========================================================================================
-   CONNEX CLOUD OS: ENTERPRISE AGENTIC CLOUD WORKSPACE PLATFORM (V31.0)
-   NEXUS LAB 126 CONSTITUTIONAL & 88 MASTER ENGINEERING STANDARDS ALIGNED
-   FLAGSHIP ECOSYSTEM OF HYBRIDSPHERE | CONNEX BROTHERS CONSULTING GROUP INC.
-========================================================================================
-```
+> **CONNEX CLOUD OS: ENTERPRISE AGENTIC CLOUD WORKSPACE PLATFORM (V31.0)**  
+> *NEXUS LAB 126 Constitutional & 88 Master Engineering Standards Aligned*  
+> *Flagship Ecosystem of HybridSphere | Connex Brothers Consulting Group Inc.*
 
 ## I. Constitutional Vision for the AI Era: NEXUS LAB 126 & ROIC Maximization
 
@@ -23,26 +19,44 @@ The apex achievement of this vision is the **CONNEX Agentic Cloud AI OS Platform
 CONNEX is not a monolithic chat box. It is an evolving, symbiotic workspace operating system uniting **four organic core applications: Agent, CoWorx, Brain X, and Studio**.
 
 ```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'background': 'transparent',
+    'primaryColor': 'transparent',
+    'primaryBorderColor': '#003DB3',
+    'primaryTextColor': '#003DB3',
+    'secondaryColor': 'transparent',
+    'secondaryBorderColor': '#003DB3',
+    'secondaryTextColor': '#003DB3',
+    'tertiaryColor': 'transparent',
+    'tertiaryBorderColor': '#003DB3',
+    'tertiaryTextColor': '#003DB3',
+    'clusterBkg': 'transparent',
+    'clusterBorder': '#003DB3',
+    'lineColor': '#003DB3',
+    'textColor': '#003DB3',
+    'edgeLabelBackground': 'transparent',
+    'nodeBorder': '#003DB3',
+    'nodeTextColor': '#003DB3',
+    'fontFamily': 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+    'fontSize': '12px'
+  }
+}}%%
 graph TD
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
-    classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
-
     subgraph UserLayer ["Human-In-The-Loop (HI)"]
-        User["Business Professionals & Enterprise Teams"]:::primary
+        User["Business Professionals & Enterprise Teams"]
     end
 
     subgraph CoreOS ["CONNEX Cloud OS Four Core Pillars"]
-        Agent["CONNEX Agent<br/>(Autonomous Orchestration)"]:::ai
-        CoWorx["CoWorx<br/>(Human-Agent Real-Time Collaboration)"]:::accent
-        BrainX["Brain X<br/>(Expertise & Experiential Intelligence)"]:::enterprise
-        Studio["Studio VFS<br/>(Zero-Hallucination Data Processing)"]:::storage
+        Agent["CONNEX Agent<br/>(Autonomous Orchestration)"]
+        CoWorx["CoWorx<br/>(Human-Agent Real-Time Collaboration)"]
+        BrainX["Brain X<br/>(Expertise & Experiential Intelligence)"]
+        Studio["Studio VFS<br/>(Zero-Hallucination Data Processing)"]
     end
 
     subgraph EnterpriseValue ["Business Impact"]
-        Value["ROIC Maximization & Flawless Executive Decisions"]:::primary
+        Value["ROIC Maximization & Flawless Executive Decisions"]
     end
 
     User <-->|High-Efficiency Collaboration| CoWorx

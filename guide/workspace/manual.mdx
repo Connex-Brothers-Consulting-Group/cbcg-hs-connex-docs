@@ -8,15 +8,11 @@ CONNEX Cloud OS is not an arbitrary collection of disjointed tools. It is an **E
 
 ```mermaid
 graph LR
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
 
-    Desk["Unified Desktop Launcher"]:::primary --> Agent["CONNEX Agent"]:::enterprise
-    Desk --> Coworx["CoWorx Collaboration"]:::accent
-    Desk --> Brains["Brain X Knowledge Hub"]:::enterprise
-    Desk --> Studio["Studio VFS Workspace"]:::storage
+    Desk["Unified Desktop Launcher"] --> Agent["CONNEX Agent"]
+    Desk --> Coworx["CoWorx Collaboration"]
+    Desk --> Brains["Brain X Knowledge Hub"]
+    Desk --> Studio["Studio VFS Workspace"]
 ```
 
 ---

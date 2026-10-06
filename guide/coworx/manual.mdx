@@ -8,12 +8,8 @@ CoWorx is an enterprise collaboration platform uniting human team members and sp
 
 ```mermaid
 graph LR
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-
-    Team["Human Team Members"]:::primary <--> Hub["CoWorx Channel Engine"]:::accent
-    Agent["Autonomous AI Agents"]:::enterprise <--> Hub
+Team["Human Team Members"] <--> Hub["CoWorx Channel Engine"]
+    Agent["Autonomous AI Agents"] <--> Hub
 ```
 
 ---

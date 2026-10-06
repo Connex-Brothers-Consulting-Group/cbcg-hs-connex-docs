@@ -8,19 +8,13 @@ CONNEX Cloud OS is built upon the **NEXUS LAB 126 Constitution** and **88 Master
 
 ```mermaid
 graph TD
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
-    classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
-
-    Client["Client (Browser / PWA)"]:::primary -->|HTTPS 443 / WSS| Gateway["GKE L7 Gateway API"]:::enterprise
-    Gateway --> FastRouter["FastAPI Thin Orchestrator"]:::enterprise
-    FastRouter --> Auth["Hybrid SSO / Firebase Auth"]:::storage
-    FastRouter --> L1Cache["L1 In-Memory LRU Cache"]:::storage
-    FastRouter --> L2Cache["L2 Redis Cluster"]:::storage
-    FastRouter --> L3Storage["L3 Firestore / GCS (Multi-Region)"]:::storage
-    FastRouter --> AI["Semantic Kernel / Gemini Models"]:::ai
+Client["Client (Browser / PWA)"] -->|HTTPS 443 / WSS| Gateway["GKE L7 Gateway API"]
+    Gateway --> FastRouter["FastAPI Thin Orchestrator"]
+    FastRouter --> Auth["Hybrid SSO / Firebase Auth"]
+    FastRouter --> L1Cache["L1 In-Memory LRU Cache"]
+    FastRouter --> L2Cache["L2 Redis Cluster"]
+    FastRouter --> L3Storage["L3 Firestore / GCS (Multi-Region)"]
+    FastRouter --> AI["Semantic Kernel / Gemini Models"]
 ```
 
 ---

@@ -8,15 +8,11 @@ Brain X elevates beyond simple Retrieval-Augmented Generation (RAG) by encoding 
 
 ```mermaid
 graph TD
-    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
-    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
-    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
-    classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
 
-    Raw["Corporate Knowledge Assets"]:::primary --> Ingest["Atomic Parsing & Semantic Indexing"]:::enterprise
-    Ingest --> Store["Isolated Enterprise Vector Store"]:::storage
-    Store --> Kernel["Semantic Kernel"]:::ai
-    Kernel --> Decision["Executive Decision Synthesis"]:::primary
+    Raw["Corporate Knowledge Assets"] --> Ingest["Atomic Parsing & Semantic Indexing"]
+    Ingest --> Store["Isolated Enterprise Vector Store"]
+    Store --> Kernel["Semantic Kernel"]
+    Kernel --> Decision["Executive Decision Synthesis"]
 ```
 
 ---
