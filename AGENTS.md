@@ -61,3 +61,54 @@ cbcg-hs-docs/
 ├── index.mdx                    # Canonical Landing Page (/)
 └── style.css                    # Master CSS Styling Sheet
 ```
+
+---
+
+## SECTION V. ENTERPRISE MERMAID DIAGRAM STYLING STANDARD (METHOD 1 classDef SSOT)
+
+### Article 4 (Unstyled Raw Diagrams Strictly Prohibited)
+1. **Raw Default Mermaid Ban**: Unstyled Mermaid diagrams that fall back to default pastel purple/lavender palettes (`#ECECFF`) are strictly prohibited in official documentation.
+2. **Quiet Luxury Enterprise Palette**: All architecture, sequence, and workflow diagrams must explicitly encode CONNEX design system tokens to ensure uniform aesthetic harmony across GitHub preview and Mintlify production.
+
+### Article 5 (Standard classDef Palette & Semantic Tokens)
+All `graph TD` and `graph LR` flowcharts must declare and bind the following standardized `classDef` tokens:
+
+```mermaid
+classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
+classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
+classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
+classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
+classDef ai fill:#6366F1,stroke:#4F46E5,stroke-width:1.5px,color:#FFFFFF;
+classDef warning fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF;
+```
+
+- **`primary` (`#007CFF`, Cobalt)**: Client UIs, triggers, webhooks, ingress entry points, primary highlights.
+- **`enterprise` (`#1E293B`, Solid Navy)**: Core API gateways, backend thin orchestrators, session handlers.
+- **`accent` (`#0D9488`, Emerald/Teal)**: Event buses, Pub/Sub channels, SSE streams, broadcast routers.
+- **`storage` (`#334155`, Slate/Charcoal)**: Regional Firestore (`accounts-kr`/`accounts-us`), Redis clusters, KMS CMEK, GCS.
+- **`ai` (`#6366F1`, Indigo)**: Semantic Kernel, Gemini Flash/Pro LLMs, Agentic reasoning loops.
+- **`warning` (`#D97706`, Amber)**: Fallback searches, failovers, contingency notifications.
+
+### Article 6 (Sequence Diagram Theme Directive Standard)
+For `sequenceDiagram` blocks where `classDef` is not supported, the `%%{init}%%` directive must be prefixed:
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'actorBkg': '#1E293B',
+    'actorBorder': '#007CFF',
+    'actorTextColor': '#FFFFFF',
+    'actorLineColor': '#64748B',
+    'signalColor': '#007CFF',
+    'signalTextColor': '#F8FAFC',
+    'labelBoxBkgColor': '#1E293B',
+    'labelBoxBorderColor': '#007CFF',
+    'labelTextColor': '#FFFFFF',
+    'noteBkgColor': '#0F172A',
+    'noteBorderColor': '#007CFF',
+    'noteTextColor': '#F8FAFC',
+    'sequenceNumberColor': '#FFFFFF'
+  }
+}}%%
+```

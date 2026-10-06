@@ -29,10 +29,15 @@ To ensure strict zero-drift synchronization across distributed sessions, all VFS
 
 ```mermaid
 graph TD
-    A["VFS Mutation Request"] --> B["Atomic Storage Handler"]
-    B --> C["Invalidate L2 Redis Keys"]
-    C --> D["Publish SSE VFS_CHANGED Event"]
-    D --> E["Client React/SWR Tree Revalidation"]
+    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
+    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
+    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
+    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
+
+    A["VFS Mutation Request"]:::primary --> B["Atomic Storage Handler"]:::enterprise
+    B --> C["Invalidate L2 Redis Keys"]:::storage
+    C --> D["Publish SSE VFS_CHANGED Event"]:::accent
+    D --> E["Client React/SWR Tree Revalidation"]:::primary
 ```
 
 | Operation | Action Trigger | Redis Invalidation | SSE Propagation |

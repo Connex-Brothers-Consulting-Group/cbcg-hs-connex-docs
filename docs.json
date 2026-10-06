@@ -43,43 +43,172 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
+        "tab": "CONNEX",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "시작하기 (Get Started)",
             "pages": [
               "index",
+              "get-started/overview",
               "get-started/quickstart",
               "get-started/architecture"
             ]
           },
           {
-            "group": "Core Features",
+            "group": "4대 핵심 엔진 (Core Engines)",
             "pages": [
-              "features/coworx",
               "features/agent",
+              "features/coworx",
+              "features/brains",
               "features/vfs"
             ]
           },
           {
-            "group": "Security & Tenancy",
+            "group": "5대 핵심 사용자 매뉴얼",
             "pages": [
-              "governance/data-sovereignty",
-              "governance/zero-trust-auth",
-              "governance/compliance"
+              "guide/workspace/manual",
+              "guide/agent/manual",
+              "guide/coworx/manual",
+              "guide/brains/manual",
+              "guide/studio/manual"
             ]
           }
         ]
       },
       {
-        "tab": "Releases & Support",
+        "tab": "활용사례",
         "groups": [
           {
-            "group": "Ecosystem Updates",
+            "group": "산업별 엔터프라이즈 솔루션",
             "pages": [
-              "support/releases",
+              "use-cases/business-management",
+              "use-cases/legal-and-tax",
+              "use-cases/rnd-and-patents",
+              "use-cases/education-and-training",
+              "use-cases/healthcare-and-lifestyle"
+            ]
+          },
+          {
+            "group": "5대 핵심 사용자 매뉴얼",
+            "pages": [
+              "guide/workspace/manual",
+              "guide/agent/manual",
+              "guide/coworx/manual",
+              "guide/brains/manual",
+              "guide/studio/manual"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "이용가격",
+        "groups": [
+          {
+            "group": "요금제 및 토큰 자본 할당",
+            "pages": [
+              "pricing/subscription-plans",
+              "pricing/pay-as-you-go",
+              "pricing/token-capital-allocation"
+            ]
+          },
+          {
+            "group": "5대 핵심 사용자 매뉴얼",
+            "pages": [
+              "guide/workspace/manual",
+              "guide/agent/manual",
+              "guide/coworx/manual",
+              "guide/brains/manual",
+              "guide/studio/manual"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "리소스",
+        "groups": [
+          {
+            "group": "고객지원 & 문서센터",
+            "pages": [
+              "resources/docs-center-guide",
+              "resources/support-desk",
               "support/notices",
-              "support/faq"
+              "support/faq",
+              "support/releases"
+            ]
+          },
+          {
+            "group": "5대 핵심 사용자 매뉴얼",
+            "pages": [
+              "guide/workspace/manual",
+              "guide/agent/manual",
+              "guide/coworx/manual",
+              "guide/brains/manual",
+              "guide/studio/manual"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "컴플라이언스",
+        "groups": [
+          {
+            "group": "보안 & 데이터 주권 (SOC 2)",
+            "pages": [
+              "governance/compliance",
+              "governance/data-sovereignty",
+              "governance/zero-trust-auth",
+              "governance/cloud-security"
+            ]
+          },
+          {
+            "group": "서비스 법적 규정",
+            "pages": [
+              "governance/terms-of-service",
+              "governance/privacy-policy",
+              "governance/billing-and-refund",
+              "governance/marketing-policy"
+            ]
+          },
+          {
+            "group": "5대 핵심 사용자 매뉴얼",
+            "pages": [
+              "guide/workspace/manual",
+              "guide/agent/manual",
+              "guide/coworx/manual",
+              "guide/brains/manual",
+              "guide/studio/manual"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developers",
+        "groups": [
+          {
+            "group": "공개 개발자 API & 웹훅",
+            "pages": [
+              "developers/overview",
+              "developers/authentication-api",
+              "developers/vfs-api",
+              "developers/coworx-webhooks",
+              "developers/streaming-protocol"
+            ]
+          },
+          {
+            "group": "Model Context Protocol (MCP)",
+            "pages": [
+              "developers/mcp-server-spec",
+              "developers/mcp-tool-catalog"
+            ]
+          },
+          {
+            "group": "5대 핵심 사용자 매뉴얼",
+            "pages": [
+              "guide/workspace/manual",
+              "guide/agent/manual",
+              "guide/coworx/manual",
+              "guide/brains/manual",
+              "guide/studio/manual"
             ]
           }
         ]
@@ -88,24 +217,20 @@
     "global": {
       "anchors": [
         {
-          "anchor": "CONNEX Web App",
-          "href": "https://connex.cloud",
+          "anchor": "Launch CONNEX",
+          "href": "https://connex.hybridsphere.io",
           "icon": "globe"
         },
         {
-          "anchor": "HybridSphere Portal",
-          "href": "https://hybridsphere.io",
-          "icon": "shield-check"
+          "anchor": "Docs GitHub",
+          "href": "https://github.com/Connex-Brothers-Consulting-Group/cbcg-hs-connex-docs",
+          "icon": "github"
         }
       ]
     }
   },
   "navbar": {
     "links": [
-      {
-        "label": "Releases",
-        "href": "/support/releases"
-      },
       {
         "label": "Notices",
         "href": "/support/notices"
@@ -115,20 +240,24 @@
         "href": "/support/faq"
       },
       {
+        "label": "Release Notes",
+        "href": "/support/releases"
+      },
+      {
         "label": "Support",
-        "href": "mailto:support@hybridsphere.io"
+        "href": "mailto:support@connexbrothers.com"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Launch CONNEX",
-      "href": "https://connex.cloud"
+      "href": "https://connex.hybridsphere.io"
     }
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/Connex-Brothers-Consulting-Group"
+      "github": "https://github.com/Connex-Brothers-Consulting-Group/cbcg-hs-connex-docs"
     }
   },
-  "description": "AGENTIC WORKSPACE AI OS PLATFORM 2.0"
+  "description": "Enterprise Agentic Cloud Workspace OS Platform 2.0"
 }

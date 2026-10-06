@@ -29,10 +29,15 @@ CoWorx integrates real-time messaging with the CONNEX 3-tier caching hierarchy t
 
 ```mermaid
 graph LR
-    A["Client UI (React/SWR)"] -->|"SSE / HTTP POST"| B["FastAPI Async Gateway"]
-    B -->|"L1 Memory / L2 Redis"| C["Pub/Sub Message Bus"]
-    C -->|"Persistent Sync"| D["Isolated Firestore (KR/US)"]
-    C -->|"Broadcast"| E["Active Session Streams"]
+    classDef primary fill:#007CFF,stroke:#0056B3,stroke-width:1.5px,color:#FFFFFF;
+    classDef enterprise fill:#1E293B,stroke:#334155,stroke-width:1.5px,color:#F8FAFC;
+    classDef accent fill:#0D9488,stroke:#0F766E,stroke-width:1.5px,color:#FFFFFF;
+    classDef storage fill:#334155,stroke:#475569,stroke-width:1.5px,color:#F1F5F9;
+
+    A["Client UI (React/SWR)"]:::primary -->|"SSE / HTTP POST"| B["FastAPI Async Gateway"]:::enterprise
+    B -->|"L1 Memory / L2 Redis"| C["Pub/Sub Message Bus"]:::accent
+    C -->|"Persistent Sync"| D["Isolated Firestore (KR/US)"]:::storage
+    C -->|"Broadcast"| E["Active Session Streams"]:::enterprise
 ```
 
 ---
