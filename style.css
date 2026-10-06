@@ -775,7 +775,7 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   4. CALLOUTS & ALERTS — Paired theme alerts (Warning / Note / Tip / Info)
+   4. CALLOUTS & ALERTS — Transparent Background & Mode Highlight Tone
    ────────────────────────────────────────────────────────────────────────── */
 @layer connex-callouts {
   html body [data-component-part="callout"],
@@ -788,56 +788,58 @@
   html body div[class*="bg-amber"],
   html body div[class*="bg-yellow"],
   html body div[class*="bg-blue"] {
-    border-radius: 10px;
+    border-radius: 10px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     transition: var(--cnx-transition);
   }
 
-  /* 4.1 Light Mode Standard Note / Info / Callout (Solid Navy #003DB3) */
+  /* 4.1 Light Mode Callouts & Warnings (Transparent + Solid Navy #003DB3) */
   html:not(.dark) body [data-component-part="callout"],
   html:not(.dark) body [data-component-name="callout"],
   html:not(.dark) body div.callout,
   html:not(.dark) body div[class*="callout"],
+  html:not(.dark) body div[class*="border-amber"],
+  html:not(.dark) body div[class*="border-yellow"],
   html:not(.dark) body div[class*="border-blue"],
+  html:not(.dark) body div[class*="bg-amber"],
+  html:not(.dark) body div[class*="bg-yellow"],
   html:not(.dark) body div[class*="bg-blue"] {
-    background-color: rgba(0, 61, 179, 0.04);
-    border: 1px solid rgba(0, 61, 179, 0.20);
-    border-left: 3px solid #003db3;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid rgba(0, 61, 179, 0.35) !important;
+    border-left: 3.5px solid #003db3 !important;
   }
 
   html:not(.dark) body [data-component-part="callout"] svg,
   html:not(.dark) body div.callout svg,
-  html:not(.dark) body div[class*="callout"] svg {
-    color: #003db3;
-    fill: #003db3;
+  html:not(.dark) body div[class*="callout"] svg,
+  html:not(.dark) body div[class*="border-amber"] svg,
+  html:not(.dark) body div[class*="border-yellow"] svg,
+  html:not(.dark) body div[class*="border-blue"] svg {
+    color: #003db3 !important;
+    fill: #003db3 !important;
+    stroke: #003db3 !important;
   }
 
   html:not(.dark) body [data-component-part="callout"] p,
   html:not(.dark) body [data-component-part="callout"] div,
+  html:not(.dark) body [data-component-part="callout"] span,
   html:not(.dark) body div.callout p,
-  html:not(.dark) body div[class*="callout"] p {
-    color: #0f172a;
-    font-size: 13px;
-    line-height: 1.6;
+  html:not(.dark) body div.callout div,
+  html:not(.dark) body div.callout span,
+  html:not(.dark) body div[class*="callout"] p,
+  html:not(.dark) body div[class*="callout"] div,
+  html:not(.dark) body div[class*="callout"] span {
+    color: #003db3 !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
   }
 
-  /* 4.1.1 Light Mode Warning Specific (Orange #D55E08) */
-  html:not(.dark) body div[class*="border-amber"],
-  html:not(.dark) body div[class*="border-yellow"],
-  html:not(.dark) body div[class*="bg-amber"],
-  html:not(.dark) body div[class*="bg-yellow"] {
-    background-color: rgba(213, 94, 8, 0.04);
-    border: 1px solid rgba(213, 94, 8, 0.25);
-    border-left: 3px solid #d55e08;
-  }
-
-  html:not(.dark) body div[class*="border-amber"] svg,
-  html:not(.dark) body div[class*="border-yellow"] svg {
-    color: #d55e08;
-    fill: #d55e08;
-  }
-
-  /* 4.2 Dark Mode Callout & Warning (Translucent Frost Glass + Orange #D55E08) */
+  /* 4.2 Dark Mode Callouts & Warnings (Transparent + Orange #D55E08) */
   html.dark body [data-component-part="callout"],
   html.dark body [data-component-name="callout"],
   html.dark body div.callout,
@@ -848,27 +850,34 @@
   html.dark body div[class*="bg-amber"],
   html.dark body div[class*="bg-yellow"],
   html.dark body div[class*="bg-blue"] {
-    background-color: rgba(213, 94, 8, 0.08);
-    border: 1px solid rgba(213, 94, 8, 0.35);
-    border-left: 3px solid #d55e08;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid rgba(213, 94, 8, 0.45) !important;
+    border-left: 3.5px solid #d55e08 !important;
   }
 
   html.dark body [data-component-part="callout"] svg,
   html.dark body div.callout svg,
-  html.dark body div[class*="callout"] svg {
-    color: #f97316;
-    fill: #f97316;
+  html.dark body div[class*="callout"] svg,
+  html.dark body div[class*="border-amber"] svg,
+  html.dark body div[class*="border-yellow"] svg,
+  html.dark body div[class*="border-blue"] svg {
+    color: #d55e08 !important;
+    fill: #d55e08 !important;
+    stroke: #d55e08 !important;
   }
 
   html.dark body [data-component-part="callout"] p,
   html.dark body [data-component-part="callout"] div,
+  html.dark body [data-component-part="callout"] span,
   html.dark body div.callout p,
-  html.dark body div[class*="callout"] p {
-    color: #f1f5f9;
-    font-size: 13px;
-    line-height: 1.6;
+  html.dark body div.callout div,
+  html.dark body div.callout span,
+  html.dark body div[class*="callout"] p,
+  html.dark body div[class*="callout"] div,
+  html.dark body div[class*="callout"] span {
+    color: #d55e08 !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
   }
 }
