@@ -2,10 +2,19 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "CONNEX Cloud OS",
+  "appearance": {
+    "default": "dark"
+  },
   "colors": {
     "primary": "#003DB3",
     "light": "#D55E08",
-    "dark": "#002266"
+    "dark": "#D55E08"
+  },
+  "background": {
+    "color": {
+      "light": "#F8FAFC",
+      "dark": "#0A0B0E"
+    }
   },
   "fonts": {
     "heading": {
