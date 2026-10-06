@@ -137,26 +137,26 @@ html body header#navbar #topbar-cta-button a {
   border: none;
 }
 
-/* Light Mode Header: Clean Light Gray Background (#f8fafc / #f1f5f9) */
+/* Light Mode Header: Toned-Down Cool Gray Background (#f1f5f9 / #e2e8f0) */
 html:not(.dark) body header#navbar,
 html.light body header#navbar,
 html[data-theme="light"] body header#navbar {
-  background-color: #f8fafc !important;
-  border-bottom: 1px solid #e2e8f0 !important;
+  background-color: #f1f5f9 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
 }
 
 html:not(.dark) body header#navbar .z-0,
 html:not(.dark) body header#navbar div[class*="bg-background-light"],
 html.light body header#navbar .z-0,
 html.light body header#navbar div[class*="bg-background-light"] {
-  background-color: #f8fafc !important;
+  background-color: #f1f5f9 !important;
 }
 
 html:not(.dark) body header#navbar div.bg-gray-50,
 html:not(.dark) body header#navbar div[class*="bg-gray-50"],
 html.light body header#navbar div[class*="bg-gray-50"] {
-  background-color: #f1f5f9 !important;
-  border-top: 1px solid #e2e8f0 !important;
+  background-color: #e2e8f0 !important;
+  border-top: 1px solid #cbd5e1 !important;
 }
 
 /* Dark Mode Header: Translucent Blur Standard */
@@ -381,22 +381,22 @@ html:not(.dark) body #search-bar-entry,
 html:not(.dark) body button:has(kbd),
 html.light body #search-bar-entry {
   background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
+  border: 1px solid #cbd5e1 !important;
   border-radius: 8px !important;
-  color: #475569 !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+  color: #334155 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
 }
 
 html:not(.dark) body #search-bar-entry:hover,
 html:not(.dark) body button:has(kbd):hover,
 html.light body #search-bar-entry:hover {
-  border-color: rgba(0, 61, 179, 0.4) !important;
+  border-color: rgba(0, 61, 179, 0.45) !important;
   color: #003db3 !important;
 }
 
 html:not(.dark) body kbd,
 html.light body kbd {
-  background: #f1f5f9 !important;
+  background: #e2e8f0 !important;
   border: 1px solid #cbd5e1 !important;
   color: #475569 !important;
   border-radius: 4px !important;
