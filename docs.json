@@ -3,16 +3,17 @@
   "theme": "mint",
   "name": "CONNEX Cloud OS",
   "appearance": {
-    "default": "dark"
+    "default": "dark",
+    "strict": true
   },
   "colors": {
-    "primary": "#003DB3",
+    "primary": "#D55E08",
     "light": "#D55E08",
     "dark": "#D55E08"
   },
   "background": {
     "color": {
-      "light": "#F8FAFC",
+      "light": "#0A0B0E",
       "dark": "#0A0B0E"
     }
   },
@@ -53,7 +54,7 @@
             ]
           },
           {
-            "group": "Governance & Security",
+            "group": "Security & Tenancy",
             "pages": [
               "governance/data-sovereignty",
               "governance/zero-trust-auth",
@@ -66,7 +67,7 @@
         "tab": "Releases & Support",
         "groups": [
           {
-            "group": "Updates & FAQ",
+            "group": "Ecosystem Updates",
             "pages": [
               "releases",
               "notices",

@@ -6,16 +6,59 @@ description: "High-performance distributed cloud virtual file system and 3-tier 
 
 # Virtual File System (VFS)
 
-The CONNEX Virtual File System (VFS) securely manages cloud documents in structured hierarchical folders, tightly integrated with real-time agent reasoning contexts.
+The CONNEX Virtual File System (VFS) provides a cloud-native, hierarchical storage layer engineered for real-time document context injection, multi-region data sovereignty, and sub-millisecond cache invalidation.
+
+<CardGroup cols={2}>
+  <Card title="Hierarchical Explorer" icon="folder-tree">
+    Nested folder organization with zero frontend expansion overhead and seamless drag-and-drop ingestion.
+  </Card>
+  <Card title="3-Tier Cache Hierarchy" icon="layer-group">
+    L1 In-Memory and L2 Redis caching intercept duplicate storage I/O, converging repeat query latency to near zero.
+  </Card>
+  <Card title="Instant SSE Invalidation" icon="arrows-rotate">
+    All 7 atomic mutation operations immediately broadcast `VFS_CHANGED` to synchronize client trees in real time.
+  </Card>
+  <Card title="Single-Badge Header Binding" icon="tags">
+    Folder and file badges inject authoritative metadata into AI reasoning contexts without token payload explosion.
+  </Card>
+</CardGroup>
+
+---
+
+## 7 Core Mutation Operations
+
+To ensure strict zero-drift synchronization across distributed sessions, all VFS mutations execute through atomic transactional handlers.
+
+```mermaid
+graph TD
+    A["VFS Mutation Request"] --> B["Atomic Storage Handler"]
+    B --> C["Invalidate L2 Redis Keys"]
+    C --> D["Publish SSE VFS_CHANGED Event"]
+    D --> E["Client React/SWR Tree Revalidation"]
+```
+
+| Operation | Action Trigger | Redis Invalidation | SSE Propagation |
+| :--- | :--- | :--- | :--- |
+| `create_folder` | New directory creation | Immediate (`user_id`) | `VFS_CHANGED` |
+| `upload_file` | Binary / Text document ingestion | Immediate (`user_id`) | `VFS_CHANGED` |
+| `delete_item_recursive` | Recursive deletion of items | Immediate (`user_id`) | `VFS_CHANGED` |
+| `rename_item` | Title & metadata modification | Immediate (`user_id`) | `VFS_CHANGED` |
+| `move_items` | Batch cross-folder relocation | Immediate (`user_id`) | `VFS_CHANGED` |
+| `move_item` | Single file relocation | Immediate (`user_id`) | `VFS_CHANGED` |
+| `clone_file` | Snapshot duplication | Immediate (`user_id`) | `VFS_CHANGED` |
+
+---
+
+## Context Injection & Single-Badge Governance
 
 <Steps>
-  <Step title="Document Ingestion & Parsing">
-    Drag and drop PDF, Word, Markdown, CSV, and code files directly into your isolated project directory.
+  <Step title="1. Select Document or Folder">
+    In the explorer interface, click a folder or individual document. When a folder is selected, the input header renders **strictly a single folder badge**.
   </Step>
-  <Step title="3-Tier Cache Invalidation">
-    All 7 mutation operations (create, upload, delete, rename, move, copy, clone) trigger instant L2 Redis cache eviction and SSE `VFS_CHANGED` broadcasts across all active client sessions.
+  <Step title="2. Dynamic Backend Expansion">
+    Frontends transmit the root folder identifier directly to the backend. The backend resolves child node pointers dynamically, avoiding payload bloat in client state.
   </Step>
-  <Step title="Single-Badge Context Binding">
-    Select individual files or full directory badges to inject authoritative grounding context directly into your AI prompt header.
+  <Step title="3. Grounded Citation Extraction">
+    During agent generation, documents are sliced into vector embeddings and chunked with explicit section anchors (`[ref:filename#section]`).
   </Step>
 </Steps>

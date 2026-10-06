@@ -54,7 +54,7 @@
     class="connex-mobius-track"
   />
 
-  <!-- 2. Animated Mobius Flow (Starts at C, draws extended C, flows through Mobius track into O, then loops back to C) -->
+  <!-- 2. Animated Mobius Flow -->
   <path
     d="M 78.9 19.6 A 43 43 0 1 0 78.9 80.4 C 94.9 64.4, 110.6 35.6, 126.6 19.6 A 43 43 0 1 1 126.6 80.4 C 110.6 64.4, 94.9 35.6, 78.9 19.6 Z"
     class="connex-mobius-flow"

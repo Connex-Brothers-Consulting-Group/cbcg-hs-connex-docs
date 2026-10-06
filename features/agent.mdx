@@ -1,21 +1,87 @@
 ---
 title: "CONNEX AI Agent"
 sidebarTitle: "CONNEX Agent"
-description: "Autonomous reasoning, artifact generation, and multimodal intelligence workspace"
+description: "Autonomous reasoning engine, multimodal artifact generation, and sub-100ms precision query routing"
 ---
 
 # CONNEX AI Agent
 
-CONNEX Agent is an autonomous reasoning engine designed to execute complex data synthesis, code generation, strategic analysis, and executive report authoring.
+The CONNEX AI Agent is an autonomous enterprise intelligence engine engineered for strategic reasoning, dynamic artifact generation, and multi-turn execution within strict token and security guardrails.
 
-<Tabs>
-  <Tab title="Deep Reasoning">
-    Leverages flagship multimodal LLM models to perform multi-step planning, tool chaining, and structured analytical synthesis.
-  </Tab>
-  <Tab title="Dynamic Artifacts">
-    Renders interactive code sandboxes, structured Markdown briefs, dynamic Recharts visualizations, and Mermaid workflow diagrams in real time.
-  </Tab>
-  <Tab title="Grounded Citations">
-    Directly anchors statements to source files using explicit chunk citations (`[ref:filename#section]`), eradicating speculative hallucinations.
-  </Tab>
-</Tabs>
+<CardGroup cols={2}>
+  <Card title="Multimodal Deep Reasoning" icon="brain-circuit">
+    Executes multi-step task planning, document synthesis, and domain logic resolution powered by flagship AI models.
+  </Card>
+  <Card title="Dynamic Artifact Sandboxes" icon="code">
+    Generates interactive live components, executable code snippets, Recharts analytical dashboards, and Mermaid diagrams.
+  </Card>
+  <Card title="Agentic RCAG Grounding" icon="quote-left">
+    In-text chunk citations (`[ref:filename#section]`) anchor all conclusions directly to verified enterprise source documents.
+  </Card>
+  <Card title="Sub-100ms Query Planner" icon="bolt-lightning">
+    1-turn 1-channel precision targeting minimizes latency and eliminates wasteful multi-turn reasoning loops.
+  </Card>
+</CardGroup>
+
+---
+
+## Agentic Reasoning Pipeline
+
+The cognitive architecture follows a strict 4-stage pipeline ensuring deterministic business boundary enforcement and capital efficiency.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as User Prompt
+    participant L1 as L1 Gatekeeper (0.1s)
+    participant Planner as Sub-LLM Planner
+    participant Engine as Flagship Reasoner
+    participant VFS as Isolated VFS
+    participant Output as Stream Typist
+
+    User->>L1: Natural Language Query
+    Note over L1: Intent & Safety Filter
+    L1->>Planner: Validated Intent
+    Planner->>VFS: Fetch Context Chunks
+    VFS-->>Planner: Authoritative Chunks
+    Planner->>Engine: Grounded Context + Prompt
+    Engine-->>Output: Bidirectional SSE Stream
+    Output-->>User: Dynamic UI & Artifacts
+```
+
+---
+
+## Technical Specifications
+
+### 1. Token Capital Allocation Guardrails
+All autonomous agent reasoning workflows operate within deterministic budgetary limits to eliminate infinite recursion and runaway compute costs.
+
+| Metric / Guardrail | Value | Enforcement Layer | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Max Turn Budget** | 5 Turns | Native Runtime Guard | Prevents runaway token bleed loops |
+| **L1 Gatekeeper SLA** | < 100ms | In-Memory / Flash LLM | Early escapes greetings and out-of-scope traffic |
+| **Prompt Max Size** | 70,000 chars | WebSocket Frame Boundary | Prevents 1007 CloseFrame socket disconnects |
+| **Citation Fidelity** | 100% Grounded | Post-Processor Filter | Eradicates speculative hallucinations |
+
+### 2. WebSocket Streaming Protocol
+Real-time bidirectional streaming delivers token updates directly to the client interface using structured event envelopes.
+
+```typescript
+// Example: Subscribing to CONNEX live session stream
+const socket = new WebSocket(`wss://connex.cloud/api/v1/agent/live?token=${sessionToken}`);
+
+socket.onmessage = (event) => {
+  const envelope = JSON.parse(event.data);
+  switch (envelope.type) {
+    case 'TEXT_DELTA':
+      streamTypist.append(envelope.payload.delta);
+      break;
+    case 'ARTIFACT_EMIT':
+      artifactRegistry.render(envelope.payload.artifact);
+      break;
+    case 'CITATIONS_RESOLVED':
+      citationBadge.update(envelope.payload.sources);
+      break;
+  }
+};
+```

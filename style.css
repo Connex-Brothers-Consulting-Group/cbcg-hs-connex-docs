@@ -2,9 +2,9 @@
  * ════════════════════════════════════════════════════════════════════════════════════════
  * CONNEX Cloud OS Documentation — Master Stylesheet SSOT (W3C @layer)
  * HybridSphere Enterprise System | Connex Brothers Consulting Group (CBCG)
- * NEXUS LAB 126 Engineering Architecture & Master Standards Aligned
+ * NEXUS LAB 126 Engineering Architecture & Gōsuto X Benchmark Standards Aligned
  * 
- * Standards: Zero !important Policy, W3C @layer 3-Tier Cascade, HTML5 Optimization
+ * Standards: Zero !important Policy, W3C @layer 3-Tier Cascade, Pitch-Dark Frost Glass
  * ════════════════════════════════════════════════════════════════════════════════════════
  */
 
@@ -18,9 +18,9 @@
    ═════════════════════════════════════════════════════════════════════════ */
 @layer base {
   :root {
-    /* 1.1 Master Typography Tokens */
+    /* 1.1 Master Typography Tokens (SSOT: 13px Base, 11px Meta) */
     --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-size-base: 14px;
+    --font-size-base: 13.5px;
     --font-size-sub: 11px;
     --font-weight-light: 300;
     --font-weight-regular: 350;
@@ -29,76 +29,39 @@
     --font-weight-bold: 700;
 
     /* 1.2 Global Transition Primitives */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.15s ease;
-  }
 
-  /* 1.3 Dark Mode Design Tokens (Default SSOT) */
-  :root,
-  :root[data-theme='dark'],
-  [data-theme='dark'],
-  html.dark,
-  body.dark {
-    --bg-canvas: #0a0b0e;
-    --bg-surface: rgba(255, 255, 255, 0.03);
-    --bg-surface-hover: rgba(255, 255, 255, 0.055);
-    --border-subtle: rgba(255, 255, 255, 0.07);
-    --border-subtle-hover: rgba(255, 255, 255, 0.14);
+    /* 1.3 Gōsuto X / Pitch Dark Master Design Tokens */
+    --bg-canvas: #000000;
+    --bg-surface: rgba(255, 255, 255, 0.04);
+    --bg-surface-hover: rgba(255, 255, 255, 0.07);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-subtle-hover: rgba(255, 255, 255, 0.16);
 
     --color-accent: #d55e08;
-    --color-accent-hover: #e06a14;
+    --color-accent-hover: #f97316;
+    --color-accent-deep: #b34c04;
     --color-accent-bg: rgba(213, 94, 8, 0.12);
-    --color-accent-frost-bg: rgba(213, 94, 8, 0.28);
-    --color-accent-frost-bg-hover: rgba(213, 94, 8, 0.42);
-    --color-accent-frost-border: rgba(213, 94, 8, 0.52);
+    --color-accent-frost-bg: rgba(213, 94, 8, 0.25);
+    --color-accent-frost-bg-hover: rgba(213, 94, 8, 0.4);
+    --color-accent-frost-border: rgba(213, 94, 8, 0.55);
 
     --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.82);
+    --text-secondary: rgba(255, 255, 255, 0.85);
     --text-muted: rgba(255, 255, 255, 0.45);
     --text-lead: rgba(255, 255, 255, 0.72);
 
-    --header-bg: rgba(10, 11, 14, 0.88);
-    --header-border: rgba(255, 255, 255, 0.06);
-    --code-bg: rgba(14, 15, 20, 0.95);
-    --code-border: rgba(255, 255, 255, 0.08);
+    --header-bg: rgba(0, 0, 0, 0.82);
+    --header-border: rgba(255, 255, 255, 0.08);
+    --code-bg: #08090c;
+    --code-border: rgba(255, 255, 255, 0.09);
 
     --selection-bg: rgba(213, 94, 8, 0.35);
     --selection-color: #ffffff;
   }
 
-  /* 1.4 Light Mode Design Tokens (1:1 Symmetrical Parity) */
-  :root[data-theme='light'],
-  [data-theme='light'],
-  html:not(.dark),
-  body:not(.dark) {
-    --bg-canvas: #f8fafc;
-    --bg-surface: rgba(255, 255, 255, 0.85);
-    --bg-surface-hover: #ffffff;
-    --border-subtle: rgba(0, 0, 0, 0.07);
-    --border-subtle-hover: rgba(0, 0, 0, 0.14);
-
-    --color-accent: #003db3;
-    --color-accent-hover: #002266;
-    --color-accent-bg: rgba(0, 61, 179, 0.08);
-    --color-accent-frost-bg: #003db3;
-    --color-accent-frost-bg-hover: #002266;
-    --color-accent-frost-border: transparent;
-
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
-    --text-muted: #64748b;
-    --text-lead: #475569;
-
-    --header-bg: rgba(248, 250, 252, 0.88);
-    --header-border: rgba(0, 0, 0, 0.06);
-    --code-bg: #f1f5f9;
-    --code-border: rgba(0, 0, 0, 0.08);
-
-    --selection-bg: rgba(0, 61, 179, 0.2);
-    --selection-color: #003db3;
-  }
-
-  /* 1.5 Global Element Resets & Selection */
+  /* 1.4 Global Element Resets & Selection */
   html {
     font-family: var(--font-family-base);
     background-color: var(--bg-canvas);
@@ -106,6 +69,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
@@ -145,8 +109,8 @@
   nav[class*='navbar'],
   [class*='sticky'] {
     background: var(--header-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--header-border);
   }
 
@@ -154,6 +118,8 @@
   nav a[class*='tab'],
   [class*='nav-tab'] {
     color: var(--text-muted);
+    font-size: 12.5px;
+    font-weight: var(--font-weight-medium);
     transition: var(--transition-fast);
     padding-bottom: 8px;
     text-decoration: none;
@@ -179,6 +145,7 @@
     border: 1px solid var(--border-subtle);
     border-radius: 9999px;
     color: var(--text-muted);
+    font-size: 12px;
     transition: var(--transition-smooth);
     box-shadow: none;
   }
@@ -190,7 +157,7 @@
     color: var(--text-primary);
   }
 
-  /* ── 2.4 Primary CTA Launch Button ── */
+  /* ── 2.4 Primary CTA Launch Button (Gōsuto X Frost Glass Style) ── */
   a[href*='connex.cloud'],
   button[class*='primary'] {
     background: var(--color-accent-frost-bg);
@@ -198,11 +165,12 @@
     color: #ffffff;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: none;
-    font-size: 12px;
+    box-shadow: 0 2px 12px rgba(213, 94, 8, 0.2);
+    font-size: 11.5px;
     font-weight: var(--font-weight-medium);
-    border-radius: 8px;
-    padding: 7px 14px;
+    letter-spacing: 0.02em;
+    border-radius: 7px;
+    padding: 6px 14px;
     text-decoration: none;
     transition: var(--transition-smooth);
     display: inline-flex;
@@ -214,7 +182,7 @@
   button[class*='primary']:hover {
     background: var(--color-accent-frost-bg-hover);
     border-color: var(--color-accent-hover);
-    filter: brightness(1.08);
+    box-shadow: 0 4px 20px rgba(213, 94, 8, 0.35);
     transform: translateY(-0.5px);
   }
 
@@ -228,14 +196,15 @@
     text-transform: uppercase;
     color: var(--text-muted);
     margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    padding-left: 8px;
   }
 
   [class*='sidebar'] a {
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: var(--font-weight-regular);
     color: var(--text-secondary);
-    padding: 6px 8px;
+    padding: 6px 10px;
     border-radius: 6px;
     transition: var(--transition-fast);
     display: flex;
@@ -252,7 +221,7 @@
   [class*='sidebar'] a[aria-current='page'],
   [class*='sidebar'] a.active {
     color: var(--color-accent);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-medium);
     background: var(--color-accent-bg);
     border-left: 2px solid var(--color-accent);
     border-radius: 0 6px 6px 0;
@@ -270,7 +239,7 @@
 
   [class*='table-of-contents'] a,
   [class*='toc'] a {
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--text-muted);
     line-height: 1.6;
     transition: var(--transition-fast);
@@ -293,13 +262,15 @@
     padding-left: 6px;
   }
 
-  /* ── 2.7 Cards, Accordions & Callouts ── */
+  /* ── 2.7 Cards, Accordions & Callouts (Gōsuto X Frost Glass Master) ── */
   [class*='card'],
   [class*='accordion'],
   [class*='callout'] {
     background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: 10px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 12px;
     box-shadow: none;
     transition: var(--transition-smooth);
   }
@@ -307,7 +278,8 @@
   [class*='card']:hover {
     background: var(--bg-surface-hover);
     border-color: var(--color-accent-frost-border);
-    transform: translateY(-1.5px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
   [class*='card']:hover [class*='title'],
@@ -326,25 +298,30 @@
     background: var(--code-bg);
     border: 1px solid var(--code-border);
     border-radius: 8px;
-    font-size: 12.5px;
+    font-size: 12px;
     line-height: 1.65;
   }
 
-  /* ── 2.9 Tables ── */
+  /* ── 2.9 Tables (Enterprise Frost Glass Density) ── */
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
-    font-size: 13.5px;
+    font-size: 13px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    overflow: hidden;
   }
 
   th {
     font-size: 11px;
     font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
     border-bottom: 1px solid var(--border-subtle);
     color: var(--text-muted);
     text-align: left;
@@ -354,6 +331,15 @@
     padding: 12px 14px;
     border-bottom: 1px solid var(--border-subtle);
     line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
   }
 }
 
@@ -377,12 +363,12 @@
   h1,
   .prose h1,
   article h1 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: var(--font-weight-bold);
     letter-spacing: -0.025em;
     line-height: 1.25;
     margin-top: 0.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     color: var(--text-primary);
   }
 
@@ -390,7 +376,7 @@
   .lead,
   .prose > p:first-of-type,
   article > p:first-of-type {
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: var(--font-weight-regular);
     line-height: 1.7;
     color: var(--text-lead);
@@ -401,7 +387,7 @@
   h2,
   .prose h2,
   article h2 {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: var(--font-weight-semibold);
     letter-spacing: -0.015em;
     line-height: 1.35;
@@ -416,7 +402,7 @@
   h3,
   .prose h3,
   article h3 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: var(--font-weight-semibold);
     letter-spacing: -0.01em;
     line-height: 1.4;
@@ -431,10 +417,10 @@
   .prose p,
   .prose ul,
   .prose ol {
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: var(--font-weight-regular);
-    line-height: 1.8;
-    margin-bottom: 1.35rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
     color: var(--text-secondary);
   }
 
