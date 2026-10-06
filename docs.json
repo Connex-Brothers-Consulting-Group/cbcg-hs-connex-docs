@@ -10,7 +10,10 @@
     "light": "#003DB3",
     "dark": "#D55E08"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/favicon-light.webp",
+    "dark": "/favicon-dark.webp"
+  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
