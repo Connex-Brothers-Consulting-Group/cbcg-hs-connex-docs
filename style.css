@@ -11,12 +11,13 @@
    stylesheet loads, so they are ordered AFTER `utilities` and win deterministically.
 
    Layout Policy: Mintlify's native grid (navbar / sidebar / content / TOC) is
-   NEVER overridden. Only color, surface, typography and interaction are styled.
+   preserved. Only the outer container width (1440px, FE --page-2x1-max-width)
+   and the center column flex allocation are tuned in `connex-layout`.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 
-@layer connex-base, connex-components, connex-mermaid;
+@layer connex-base, connex-layout, connex-components, connex-mermaid;
 
 /* ──────────────────────────────────────────────────────────────────────────
    1. BASE — Design Tokens & Typography
@@ -102,6 +103,35 @@
 
   html body ::selection {
     background: var(--cnx-accent-soft);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   1.5 LAYOUT — 1440px Container & Flexible Center Body
+   ────────────────────────────────────────────────────────────────────────── */
+@layer connex-layout {
+  :root {
+    --cnx-layout-max-width: 1440px;
+  }
+
+  /* Navbar inner container (aligns logo / CTA with page grid) */
+  html body .max-w-8xl {
+    max-width: var(--cnx-layout-max-width);
+  }
+
+  /* Page grid container (Mintlify peer variant for default layout mode only) */
+  html body header#navbar.is-not-custom.is-not-center ~ div[class*="max-w-8xl"] {
+    max-width: var(--cnx-layout-max-width);
+  }
+
+  /* Center body: fill all space left by sidebar + TOC
+     (replaces Mintlify's fixed `xl:w-[calc(100%-28rem)]` TOC reservation) */
+  @media (min-width: 80rem) {
+    html body #content-area {
+      width: auto;
+      flex: 1 1 0%;
+      min-width: 0;
+    }
   }
 }
 
