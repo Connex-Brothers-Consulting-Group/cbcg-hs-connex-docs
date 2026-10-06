@@ -585,12 +585,13 @@
   html body svg[id^="mermaid"],
   html body [data-component-name="mermaid"] svg {
     background: transparent !important;
+    background-color: transparent !important;
     font-family: var(--cnx-font-family) !important;
     display: block;
     margin: 1.75rem auto;
   }
 
-  /* 3.1 Light Mode Mermaid (Crisp Grey/White Slate + Solid Navy Standard) */
+  /* 3.1 Light Mode Mermaid (Transparent Shapes + Solid Navy #003DB3 Lines) */
   html:not(.dark) body svg[id] g.node rect,
   html:not(.dark) body svg[id] g.node polygon,
   html:not(.dark) body svg[id] g.node circle,
@@ -605,20 +606,21 @@
   html:not(.dark) body [data-component-name="mermaid"] svg rect,
   html.light body svg g.node rect,
   html.light body svg g.node polygon {
-    fill: #ffffff !important;
+    fill: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
     stroke: #003db3 !important;
     stroke-width: 1.25px !important;
     rx: 8px !important;
     ry: 8px !important;
-    filter: drop-shadow(0 1px 3px rgba(0, 61, 179, 0.08)) !important;
   }
 
   html:not(.dark) body svg[id] g.cluster rect,
   html:not(.dark) body svg g.cluster rect,
   html:not(.dark) body .mermaid svg g.cluster rect,
   html:not(.dark) body [data-component-name="mermaid"] svg g.cluster rect {
-    fill: rgba(0, 61, 179, 0.02) !important;
-    stroke: rgba(0, 61, 179, 0.20) !important;
+    fill: transparent !important;
+    stroke: rgba(0, 61, 179, 0.35) !important;
     stroke-width: 1px !important;
     rx: 10px !important;
     ry: 10px !important;
@@ -665,8 +667,8 @@
   html:not(.dark) body svg g.edgeLabel rect,
   html:not(.dark) body svg g.edgeLabel span,
   html:not(.dark) body .mermaid svg .edgeLabel {
-    background: #f1f5f9 !important;
-    fill: #f1f5f9 !important;
+    background: transparent !important;
+    fill: transparent !important;
     color: #334155 !important;
     font-family: var(--cnx-font-family) !important;
     font-size: 10.5px !important;
@@ -674,7 +676,7 @@
     border-radius: 4px !important;
   }
 
-  /* 3.2 Dark Mode Mermaid (Orange #D55E08 + Frost Glass Architecture) */
+  /* 3.2 Dark Mode Mermaid (Transparent Shapes + Orange #D55E08 Lines) */
   html.dark body svg[id] g.node rect,
   html.dark body svg[id] g.node polygon,
   html.dark body svg[id] g.node circle,
@@ -691,19 +693,20 @@
   html.dark body .mermaid svg g.node rect,
   html.dark body .mermaid svg g.node polygon,
   html.dark body [data-component-name="mermaid"] svg g.node rect {
-    fill: #1e293b !important;
-    stroke: rgba(213, 94, 8, 0.65) !important;
+    fill: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    stroke: #d55e08 !important;
     stroke-width: 1.25px !important;
     rx: 8px !important;
     ry: 8px !important;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)) !important;
   }
 
   html.dark body svg g.cluster rect,
   html.dark body .mermaid svg g.cluster rect,
   html.dark body [data-component-name="mermaid"] svg g.cluster rect {
-    fill: rgba(255, 255, 255, 0.03) !important;
-    stroke: rgba(255, 255, 255, 0.12) !important;
+    fill: transparent !important;
+    stroke: rgba(213, 94, 8, 0.45) !important;
     stroke-width: 1px !important;
     rx: 10px !important;
     ry: 10px !important;
@@ -717,8 +720,8 @@
   html.dark body .mermaid svg g.node text,
   html.dark body .mermaid svg g.node span,
   html.dark body .mermaid svg g.node div {
-    fill: #f8fafc !important;
-    color: #f8fafc !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
     font-family: var(--cnx-font-family) !important;
     font-size: 11.5px !important;
     font-weight: 500 !important;
@@ -730,7 +733,7 @@
   html.dark body .mermaid svg .flowchart-link,
   html.dark body .mermaid svg g.edgePath path,
   html.dark body [data-component-name="mermaid"] svg g.edgePath path {
-    stroke: rgba(213, 94, 8, 0.75) !important;
+    stroke: #d55e08 !important;
     stroke-width: 1.25px !important;
   }
 
@@ -745,8 +748,8 @@
   html.dark body svg g.edgeLabel rect,
   html.dark body svg g.edgeLabel span,
   html.dark body .mermaid svg .edgeLabel {
-    background: #0f172a !important;
-    fill: #0f172a !important;
+    background: transparent !important;
+    fill: transparent !important;
     color: #94a3b8 !important;
     font-family: var(--cnx-font-family) !important;
     font-size: 10.5px !important;
