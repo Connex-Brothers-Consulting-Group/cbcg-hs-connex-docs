@@ -238,12 +238,15 @@
   }
 
   /* Card Icon Highlight (Light: #003DB3, Dark: #D55E08) */
+  html body .card [data-component-part="card-icon"],
+  html body a.card [data-component-part="card-icon"] {
+    background: transparent;
+    background-color: transparent;
+  }
+
   html body .card [data-component-part="card-icon"] svg,
-  html body a.card [data-component-part="card-icon"] svg,
-  html body .card [data-component-part="card-icon"] {
+  html body a.card [data-component-part="card-icon"] svg {
     background-color: var(--cnx-accent);
-    color: var(--cnx-accent);
-    fill: var(--cnx-accent);
   }
 
   html:not(.dark) body a.card,
