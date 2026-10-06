@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "sequoia",
+  "theme": "mint",
   "name": "CONNEX",
   "appearance": {
     "default": "dark"
   },
   "colors": {
     "primary": "#003DB3",
-    "light": "#D55E08",
+    "light": "#003DB3",
     "dark": "#D55E08"
   },
   "favicon": {
@@ -102,11 +102,6 @@
       "label": "Launch CONNEX",
       "href": "https://connex.cloud"
     }
-  },
-  "contextual": {
-    "options": [
-      "copy"
-    ]
   },
   "footer": {
     "socials": {

@@ -1,1307 +1,766 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   CONNEX Cloud OS Documentation — Styling Master (style.css)
-   Benchmark: Gōsuto X & AXON Docs (docs.gosutox.com)
+   CONNEX Cloud OS Official Documentation Styling Master (style.css)
    Paired Dual-Theme SSOT: Solid Navy Mirage (Light) & Frost Glass (Dark)
-   Tokens: cbcg-hs-connex-frontend/src/assets/style_global/base/variables.css
-
-   Cascade Strategy (Zero !important):
-   Mintlify (Tailwind v4) declares `@layer theme, base, components, utilities`.
-   Re-using those names would merge our rules INTO Mintlify's layers, where they
-   lose to `utilities`. Namespaced `connex-*` layers are declared after Mintlify's
-   stylesheet loads, so they are ordered AFTER `utilities` and win deterministically.
-
-   Layout Policy: Mintlify `sequoia` theme (benchmark: docs.typesafe.ai) —
-   sidebars pinned to viewport edges, body centered on the viewport. Only the
-   native `--content-width` token is tuned in `connex-layout`.
+   Engine: Mintlify 'mint' Theme — High Specificity & Zero Layout Glitches
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 
-@layer connex-base, connex-layout, connex-components, connex-mermaid;
+:root {
+  --font-family-base: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-base: 13.5px;
+  --font-size-sub: 11.5px;
+  --font-weight-base: 300;
+  --font-weight-emphasis: 500;
+  --cnx-transition: all 0.18s ease;
+}
 
-/* ──────────────────────────────────────────────────────────────────────────
-   1. BASE — Design Tokens & Typography
-   ────────────────────────────────────────────────────────────────────────── */
-@layer connex-base {
-  :root {
-    --cnx-font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --cnx-font-size-base: 13.5px;
-    --cnx-font-size-sub: 11.5px;
-    --cnx-transition: all 0.18s ease;
-  }
+html body,
+html body input,
+html body button,
+html body textarea,
+html body select {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  /* Light Theme Tokens — Solid Navy Mirage (FE variables.css §3) */
-  html:not(.dark) {
-    --cnx-accent: #003db3;
-    --cnx-accent-hover: #002f8c;
-    --cnx-accent-soft: rgba(0, 61, 179, 0.08);
-    --cnx-accent-border: rgba(0, 61, 179, 0.35);
-    --cnx-text-main: #0f172a;
-    --cnx-text-sub: #334155;
-    --cnx-card-bg: #ffffff;
-    --cnx-card-border: rgba(0, 0, 0, 0.08);
+/* Headings & Typography Hierarchy */
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+  font-family: var(--font-family-base);
+  letter-spacing: -0.02em;
+}
 
-    /* Mintlify & Tailwind Primary Token Overrides (Light: #003DB3) */
-    --primary: #003db3;
-    --primary-light: #003db3;
-    --primary-dark: #002f8c;
-    --color-primary: #003db3;
-    --color-primary-light: #003db3;
-    --color-primary-dark: #002f8c;
-  }
+html body h1 {
+  font-size: 26px;
+  font-weight: 500;
+}
 
-  /* Dark Theme Tokens — Translucent Frost Glass (FE variables.css §2) */
-  html.dark {
-    --cnx-accent: #d55e08;
-    --cnx-accent-hover: #f97316;
-    --cnx-accent-frost-bg: rgba(213, 94, 8, 0.28);
-    --cnx-accent-frost-bg-hover: rgba(213, 94, 8, 0.38);
-    --cnx-accent-frost-border: rgba(213, 94, 8, 0.52);
-    --cnx-accent-frost-border-hover: rgba(213, 94, 8, 0.75);
-    --cnx-accent-soft: rgba(213, 94, 8, 0.1);
-    --cnx-text-main: #ffffff;
-    --cnx-text-sub: rgba(255, 255, 255, 0.7);
-    --cnx-card-bg: rgba(255, 255, 255, 0.03);
-    --cnx-card-border: rgba(255, 255, 255, 0.08);
+html body h2 {
+  font-size: 19px;
+  font-weight: 500;
+  margin-top: 1.8rem;
+  padding-bottom: 0.4rem;
+}
 
-    /* Mintlify & Tailwind Primary Token Overrides (Dark: #D55E08) */
-    --primary: #d55e08;
-    --primary-light: #f97316;
-    --primary-dark: #c2410c;
-    --color-primary: #d55e08;
-    --color-primary-light: #f97316;
-    --color-primary-dark: #c2410c;
-  }
+html body h3 {
+  font-size: 15px;
+  font-weight: 500;
+}
 
-  html body,
-  html body input,
-  html body button,
-  html body textarea {
-    font-family: var(--cnx-font-family);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  html body h1,
-  html body h2,
-  html body h3,
-  html body h4 {
-    font-family: var(--cnx-font-family);
-    letter-spacing: -0.02em;
-  }
-
-  html body h1 {
-    font-size: 26px;
-    font-weight: 500;
-  }
-
-  html body #content-area h2 {
-    font-size: 19px;
-    font-weight: 500;
-    margin-top: 1.8rem;
-  }
-
-  html body #content-area h3 {
-    font-size: 15px;
-    font-weight: 500;
-  }
-
-  html body #content-area p,
-  html body #content-area li {
-    font-size: var(--cnx-font-size-base);
-    font-weight: 300;
-    line-height: 1.68;
-  }
-
-  html body #content-area strong {
-    font-weight: 500;
-  }
-
-  html body ::selection {
-    background: var(--cnx-accent-soft);
-  }
+html body p,
+html body li {
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.68;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   1.5 LAYOUT — Sequoia Centered Body Width
+   1. Header & Top Navigation Bar Reset
    ────────────────────────────────────────────────────────────────────────── */
-@layer connex-layout {
-  /* Sequoia centers #content-area via
-     calc(50vw - (var(--content-width, 40.5rem) + 3rem) / 2 - var(--sidebar-width)).
-     Widening the native token keeps the viewport-centered geometry intact. */
-  :root {
-    --content-width: 48rem;
-  }
+html body header#navbar,
+html body header#navbar nav,
+html body header#navbar nav ul,
+html body header#navbar nav ul li,
+html body header#navbar .navbar-link a,
+html body header#navbar nav ul li.navbar-link a,
+html body header#navbar #topbar-cta-button,
+html body header#navbar #topbar-cta-button a {
+  background-image: none;
+  box-shadow: none;
+}
+
+html body header#navbar .navbar-link a,
+html body header#navbar nav ul li.navbar-link a {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 12.5px;
+  transition: var(--cnx-transition);
+}
+
+html body header#navbar #topbar-cta-button,
+html body header#navbar #topbar-cta-button a {
+  background: transparent;
+  border: none;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   2. COMPONENTS — Navbar, CTA, Tabs, Sidebar, Cards, Tables
+   2. Light Mode Theme: Solid Navy Mirage Standard (#003DB3)
    ────────────────────────────────────────────────────────────────────────── */
-@layer connex-components {
-  /* 2.0 Eyebrow, Category Headers & Group Badges (Light: #003DB3, Dark: #D55E08) */
-  html body header#header .eyebrow,
-  html body header#header [data-component-part="eyebrow"],
-  html body #content-area header .eyebrow,
-  html body #content-area [data-component-part="eyebrow"],
-  html body .eyebrow,
-  html body [data-component-part="eyebrow"],
-  html body [data-component-name="eyebrow"],
-  html body div[class*="eyebrow"],
-  html body span[class*="eyebrow"] {
-    color: var(--cnx-accent);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    transition: var(--cnx-transition);
-  }
-
-  html:not(.dark) body header#header .eyebrow,
-  html:not(.dark) body .eyebrow,
-  html:not(.dark) body [data-component-part="eyebrow"] {
-    color: #003db3;
-  }
-
-  html.dark body header#header .eyebrow,
-  html.dark body .eyebrow,
-  html.dark body [data-component-part="eyebrow"],
-  html.dark body div[class*="eyebrow"],
-  html.dark body span[class*="eyebrow"] {
-    color: #d55e08;
-  }
-
-  /* Category Badges & Version Tags */
-  html body [data-component-part="badge"],
-  html body span.badge,
-  html body div.badge {
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 500;
-    transition: var(--cnx-transition);
-  }
-
-  html:not(.dark) body [data-component-part="badge"],
-  html:not(.dark) body span.badge {
-    background: rgba(0, 61, 179, 0.08);
-    color: #003db3;
-    border: 1px solid rgba(0, 61, 179, 0.2);
-  }
-
-  html.dark body [data-component-part="badge"],
-  html.dark body span.badge {
-    background: rgba(213, 94, 8, 0.15);
-    color: #f97316;
-    border: 1px solid rgba(213, 94, 8, 0.35);
-  }
-
-  /* 2.1 Navbar utility links — transparent reset */
-  html body header#navbar .navbar-link a,
-  html body header#navbar nav ul li.navbar-link a,
-  html body header#navbar nav a:not([class*="bg-primary"]):not([data-component-name="button"]) {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    font-size: 12.5px;
-    transition: var(--cnx-transition);
-  }
-
-  html:not(.dark) body header#navbar .navbar-link a,
-  html:not(.dark) body header#navbar nav ul li.navbar-link a,
-  html:not(.dark) body header#navbar nav a:not([class*="bg-primary"]):not([data-component-name="button"]) {
-    color: #374151;
-  }
-
-  html.dark body header#navbar .navbar-link a,
-  html.dark body header#navbar nav ul li.navbar-link a,
-  html.dark body header#navbar nav a:not([class*="bg-primary"]):not([data-component-name="button"]) {
-    color: #d1d5db;
-  }
-
-  html body header#navbar .navbar-link a:hover,
-  html body header#navbar nav a:hover {
-    color: var(--cnx-accent);
-  }
-
-  /* 2.2 Primary CTA (Launch CONNEX) */
-  html body header#navbar #topbar-cta-button,
-  html body header#navbar #topbar-cta-button a,
-  html body header#navbar a[href*="connex.cloud"],
-  html body header#navbar a.bg-primary,
-  html body header#navbar button.bg-primary,
-  html body header#navbar [data-component-name="button"] {
-    border-radius: 9999px;
-    font-size: 13px;
-    font-weight: 500;
-    transition: var(--cnx-transition);
-  }
-
-  html:not(.dark) body header#navbar #topbar-cta-button,
-  html:not(.dark) body header#navbar #topbar-cta-button a,
-  html:not(.dark) body header#navbar a[href*="connex.cloud"],
-  html:not(.dark) body header#navbar a.bg-primary,
-  html:not(.dark) body header#navbar button.bg-primary,
-  html:not(.dark) body header#navbar [data-component-name="button"] {
-    background-color: var(--cnx-accent);
-    background: var(--cnx-accent);
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22);
-  }
-
-  html:not(.dark) body header#navbar #topbar-cta-button:hover,
-  html:not(.dark) body header#navbar #topbar-cta-button a:hover,
-  html:not(.dark) body header#navbar a[href*="connex.cloud"]:hover,
-  html:not(.dark) body header#navbar a.bg-primary:hover,
-  html:not(.dark) body header#navbar button.bg-primary:hover,
-  html:not(.dark) body header#navbar [data-component-name="button"]:hover {
-    background-color: var(--cnx-accent-hover);
-    background: var(--cnx-accent-hover);
-    box-shadow: 0 4px 14px rgba(0, 61, 179, 0.3);
-  }
-
-  html.dark body header#navbar #topbar-cta-button,
-  html.dark body header#navbar #topbar-cta-button a,
-  html.dark body header#navbar a[href*="connex.cloud"],
-  html.dark body header#navbar a.bg-primary,
-  html.dark body header#navbar button.bg-primary,
-  html.dark body header#navbar [data-component-name="button"] {
-    background-color: var(--cnx-accent-frost-bg);
-    background: var(--cnx-accent-frost-bg);
-    border: 1px solid var(--cnx-accent-frost-border);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    color: #ffffff;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-  }
-
-  html.dark body header#navbar #topbar-cta-button:hover,
-  html.dark body header#navbar #topbar-cta-button a:hover,
-  html.dark body header#navbar a[href*="connex.cloud"]:hover,
-  html.dark body header#navbar a.bg-primary:hover,
-  html.dark body header#navbar button.bg-primary:hover,
-  html.dark body header#navbar [data-component-name="button"]:hover {
-    background-color: var(--cnx-accent-frost-bg-hover);
-    background: var(--cnx-accent-frost-bg-hover);
-    border-color: var(--cnx-accent-frost-border-hover);
-    box-shadow: 0 4px 20px rgba(213, 94, 8, 0.3);
-  }
-
-  html body header#navbar #topbar-cta-button * {
-    color: #ffffff;
-  }
-
-  /* 2.2.1 Theme Switcher (Moon / Sun Toggle Button) */
-  html body header button[aria-label*="theme" i],
-  html body header button[aria-label*="mode" i],
-  html body header button[aria-label*="dark" i],
-  html body header button[aria-label*="light" i],
-  html body header [data-component-name="theme-toggle"],
-  html body header [data-component-name="theme-toggle"] button,
-  html body header button:has(svg.lucide-moon),
-  html body header button:has(svg.lucide-sun),
-  html body header button:has(svg[class*="sun"]),
-  html body header button:has(svg[class*="moon"]) {
-    border-radius: 8px !important;
-    transition: var(--cnx-transition);
-  }
-
-  /* Light Mode Theme Switcher (Crisp Minimal Grey Tone — No Orange) */
-  html:not(.dark) body header button[aria-label*="theme" i],
-  html:not(.dark) body header button[aria-label*="mode" i],
-  html:not(.dark) body header button[aria-label*="dark" i],
-  html:not(.dark) body header button[aria-label*="light" i],
-  html:not(.dark) body header [data-component-name="theme-toggle"],
-  html:not(.dark) body header [data-component-name="theme-toggle"] button,
-  html:not(.dark) body header button:has(svg.lucide-moon),
-  html:not(.dark) body header button:has(svg.lucide-sun),
-  html:not(.dark) body header button:has(svg[class*="sun"]),
-  html:not(.dark) body header button:has(svg[class*="moon"]),
-  html:not(.dark) body header .flex.items-center button:has(svg:last-child),
-  html:not(.dark) body header a[href*="connex.cloud"] + button,
-  html:not(.dark) body header a[href*="connex.cloud"] + div button,
-  html:not(.dark) body header a[href*="connex.cloud"] ~ button,
-  html:not(.dark) body header a[href*="connex.cloud"] ~ div button,
-  html.light body header button[aria-label*="theme" i] {
-    background: rgba(0, 0, 0, 0.02) !important;
-    background-color: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    border-color: rgba(0, 0, 0, 0.12) !important;
-    color: #475569 !important;
-    outline: none !important;
-    box-shadow: none !important;
-    --tw-ring-color: transparent !important;
-    --tw-ring-offset-color: transparent !important;
-    --tw-ring-shadow: none !important;
-    --tw-shadow: none !important;
-  }
-
-  html:not(.dark) body header button[aria-label*="theme" i] svg,
-  html:not(.dark) body header [data-component-name="theme-toggle"] svg,
-  html:not(.dark) body header button:has(svg[class*="sun"]) svg,
-  html:not(.dark) body header a[href*="connex.cloud"] ~ button svg {
-    color: #475569 !important;
-    stroke: #475569 !important;
-  }
-
-  html:not(.dark) body header button[aria-label*="theme" i]:hover,
-  html:not(.dark) body header button[aria-label*="mode" i]:hover,
-  html:not(.dark) body header [data-component-name="theme-toggle"]:hover,
-  html:not(.dark) body header a[href*="connex.cloud"] ~ button:hover {
-    border-color: rgba(0, 0, 0, 0.28) !important;
-    background: rgba(0, 0, 0, 0.05) !important;
-    color: #0f172a !important;
-  }
-
-  /* Dark Mode Theme Switcher (Translucent Frost Glass) */
-  html.dark body header button[aria-label*="theme" i],
-  html.dark body header button[aria-label*="mode" i],
-  html.dark body header [data-component-name="theme-toggle"],
-  html.dark body header button:has(svg.lucide-moon),
-  html.dark body header button:has(svg.lucide-sun),
-  html.dark body header a[href*="connex.cloud"] ~ button {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    box-shadow: none !important;
-    --tw-ring-color: transparent !important;
-    --tw-ring-shadow: none !important;
-  }
-
-  html.dark body header button[aria-label*="theme" i]:hover,
-  html.dark body header button[aria-label*="mode" i]:hover,
-  html.dark body header [data-component-name="theme-toggle"]:hover,
-  html.dark body header a[href*="connex.cloud"] ~ button:hover {
-    border-color: var(--cnx-accent-frost-border) !important;
-    background: var(--cnx-accent-soft) !important;
-    color: #ffffff !important;
-  }
-
-  /* 2.2.2 Contextual Copy Page / Action Button (Ultra-Compact Micro-Pill) */
-  /* Prevent Header Flexbox from Stretching the Button/Wrapper */
-  html body header div:has(> button:has(svg.lucide-copy)),
-  html body header div:has(> button:has(svg[class*="copy"])),
-  html body #content-area header div:has(> button:has(svg.lucide-copy)),
-  html body #content-area header div:has(> button:has(svg[class*="copy"])),
-  html body [data-component-name="contextual-options"],
-  html body div[class*="contextual-options"],
-  html body div:has(> button:has(svg.lucide-copy)),
-  html body div:has(> button:has(svg[class*="copy"])) {
-    align-self: flex-start !important;
-    height: auto !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    border: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-  }
-
-  /* Single Compact Copy Page Button (28px Height, 11.5px Font) */
-  html body header button:has(svg.lucide-copy),
-  html body header button:has(svg[class*="copy"]),
-  html body #content-area header button:has(svg.lucide-copy),
-  html body #content-area header button:has(svg[class*="copy"]),
-  html body [data-component-name="contextual-options"] button,
-  html body div[class*="contextual-options"] button,
-  html body div:has(> button:has(svg.lucide-copy)) button {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    align-self: flex-start !important;
-    height: 28px !important;
-    min-height: 28px !important;
-    max-height: 28px !important;
-    padding: 0 10px !important;
-    border-radius: 6px !important;
-    font-size: 11.5px !important;
-    font-weight: 500 !important;
-    margin: 2px 0 0 0 !important;
-    outline: none !important;
-    box-shadow: none !important;
-    cursor: pointer !important;
-    transition: var(--cnx-transition);
-  }
-
-  /* Light Mode Single Copy Button */
-  html:not(.dark) body header button:has(svg.lucide-copy),
-  html:not(.dark) body header button:has(svg[class*="copy"]),
-  html:not(.dark) body #content-area header button:has(svg.lucide-copy),
-  html:not(.dark) body #content-area header button:has(svg[class*="copy"]),
-  html:not(.dark) body [data-component-name="contextual-options"] button,
-  html:not(.dark) body div[class*="contextual-options"] button,
-  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button {
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    background: #ffffff !important;
-    color: #475569 !important;
-  }
-
-  html:not(.dark) body header button:has(svg.lucide-copy) svg,
-  html:not(.dark) body header button:has(svg[class*="copy"]) svg,
-  html:not(.dark) body #content-area header button:has(svg.lucide-copy) svg,
-  html:not(.dark) body [data-component-name="contextual-options"] button svg {
-    width: 12.5px !important;
-    height: 12.5px !important;
-    color: #475569 !important;
-    stroke: #475569 !important;
-    fill: none !important;
-    margin-right: 5px !important;
-  }
-
-  html:not(.dark) body header button:has(svg.lucide-copy):hover,
-  html:not(.dark) body header button:has(svg[class*="copy"]):hover,
-  html:not(.dark) body #content-area header button:has(svg.lucide-copy):hover,
-  html:not(.dark) body [data-component-name="contextual-options"] button:hover {
-    border-color: rgba(0, 61, 179, 0.35) !important;
-    background: rgba(0, 0, 0, 0.04) !important;
-    color: #0f172a !important;
-  }
-
-  /* Dark Mode Single Copy Button */
-  html.dark body header button:has(svg.lucide-copy),
-  html.dark body header button:has(svg[class*="copy"]),
-  html.dark body #content-area header button:has(svg.lucide-copy),
-  html.dark body #content-area header button:has(svg[class*="copy"]),
-  html.dark body [data-component-name="contextual-options"] button,
-  html.dark body div[class*="contextual-options"] button,
-  html.dark body div:has(> button:has(svg.lucide-copy)) button {
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    color: rgba(255, 255, 255, 0.75) !important;
-  }
-
-  html.dark body header button:has(svg.lucide-copy) svg,
-  html.dark body header button:has(svg[class*="copy"]) svg,
-  html.dark body #content-area header button:has(svg.lucide-copy) svg,
-  html.dark body [data-component-name="contextual-options"] button svg {
-    width: 12.5px !important;
-    height: 12.5px !important;
-    color: rgba(255, 255, 255, 0.75) !important;
-    stroke: rgba(255, 255, 255, 0.75) !important;
-    fill: none !important;
-    margin-right: 5px !important;
-  }
-
-  html.dark body header button:has(svg.lucide-copy):hover,
-  html.dark body header button:has(svg[class*="copy"]):hover,
-  html.dark body #content-area header button:has(svg.lucide-copy):hover,
-  html.dark body [data-component-name="contextual-options"] button:hover {
-    border-color: var(--cnx-accent-frost-border) !important;
-    background: var(--cnx-accent-soft) !important;
-    color: #ffffff !important;
-  }
-
-  /* Split Button Handling if multiple options are present */
-  html:not(.dark) body button:has(svg.lucide-copy):has(+ button),
-  html:not(.dark) body button:has(svg.lucide-copy):has(+ div button),
-  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) > button:first-child:not(:only-child) {
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    border-right: 1px solid rgba(0, 0, 0, 0.10) !important;
-    padding: 0 10px !important;
-  }
-
-  html:not(.dark) body button:has(svg.lucide-copy) + button,
-  html:not(.dark) body button:has(svg.lucide-copy) + div button,
-  html:not(.dark) body button:has(svg.lucide-copy) ~ button,
-  html:not(.dark) body button:has(svg.lucide-copy) ~ div button {
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    border-left: none !important;
-    border-top-right-radius: 8px !important;
-    border-bottom-right-radius: 8px !important;
-    border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
-    background: #ffffff !important;
-    color: #475569 !important;
-    padding: 0 8px !important;
-  }
-
-  html.dark body button:has(svg.lucide-copy):has(+ button),
-  html.dark body button:has(svg.lucide-copy):has(+ div button),
-  html.dark body div:has(> button:has(svg.lucide-copy)) > button:first-child:not(:only-child) {
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
-    padding: 0 10px !important;
-  }
-
-  html.dark body button:has(svg.lucide-copy) + button,
-  html.dark body button:has(svg.lucide-copy) + div button,
-  html.dark body button:has(svg.lucide-copy) ~ button,
-  html.dark body button:has(svg.lucide-copy) ~ div button {
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-left: none !important;
-    border-top-right-radius: 8px !important;
-    border-bottom-right-radius: 8px !important;
-    border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    color: rgba(255, 255, 255, 0.75) !important;
-    padding: 0 8px !important;
-  }
-
-  /* 2.2.3 Search Form, Search Bar, Search Input & Modal Dialog */
-  html body button#search-bar-entry,
-  html body #search-bar-entry,
-  html body [data-component-name="search"],
-  html body [data-component-name="search-bar"],
-  html body button:has(svg.lucide-search),
-  html body button:has(svg[class*="search"]),
-  html body button:has(kbd),
-  html body div:has(> input[type="search"]),
-  html body div:has(> input[placeholder*="Search" i]) {
-    border-radius: 8px !important;
-    transition: var(--cnx-transition);
-  }
-
-  /* Light Mode Search Elements (Crisp Slate Grey / Solid Navy Highlights) */
-  html:not(.dark) body button#search-bar-entry,
-  html:not(.dark) body #search-bar-entry,
-  html:not(.dark) body [data-component-name="search"],
-  html:not(.dark) body [data-component-name="search-bar"],
-  html:not(.dark) body button:has(svg.lucide-search),
-  html:not(.dark) body button:has(svg[class*="search"]),
-  html:not(.dark) body button:has(kbd),
-  html:not(.dark) body div:has(> input[type="search"]),
-  html:not(.dark) body div:has(> input[placeholder*="Search" i]) {
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    color: #475569 !important;
-    box-shadow: none !important;
-    --tw-ring-color: transparent !important;
-    --tw-ring-shadow: none !important;
-  }
-
-  html:not(.dark) body button#search-bar-entry:hover,
-  html:not(.dark) body #search-bar-entry:hover,
-  html:not(.dark) body button:has(svg.lucide-search):hover,
-  html:not(.dark) body button:has(kbd):hover {
-    border-color: rgba(0, 61, 179, 0.4) !important;
-    background: rgba(0, 61, 179, 0.04) !important;
-    color: #003db3 !important;
-  }
-
-  html:not(.dark) body button#search-bar-entry svg,
-  html:not(.dark) body #search-bar-entry svg,
-  html:not(.dark) body button:has(svg.lucide-search) svg,
-  html:not(.dark) body button:has(kbd) svg {
-    color: #475569 !important;
-    stroke: #475569 !important;
-  }
-
-  html:not(.dark) body button#search-bar-entry:hover svg,
-  html:not(.dark) body #search-bar-entry:hover svg,
-  html:not(.dark) body button:has(svg.lucide-search):hover svg {
-    color: #003db3 !important;
-    stroke: #003db3 !important;
-  }
-
-  /* Keyboard shortcut badges (⌘K) */
-  html:not(.dark) body kbd,
-  html:not(.dark) body button#search-bar-entry kbd,
-  html:not(.dark) body button:has(kbd) kbd {
-    background: rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid rgba(0, 0, 0, 0.10) !important;
-    color: #475569 !important;
-    border-radius: 4px !important;
-    box-shadow: none !important;
-  }
-
-  /* Light Mode Search Dialog / Modal / Input Focus */
-  html:not(.dark) body [role="dialog"][aria-label*="Search" i],
-  html:not(.dark) body div[role="dialog"]:has(input),
-  html:not(.dark) body [data-component-name="search-dialog"] {
-    background: #ffffff !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
-  }
-
-  html:not(.dark) body input[type="search"],
-  html:not(.dark) body input[placeholder*="Search" i],
-  html:not(.dark) body [role="dialog"] input {
-    color: #0f172a !important;
-    border-color: rgba(0, 0, 0, 0.12) !important;
-  }
-
-  html:not(.dark) body input[type="search"]:focus,
-  html:not(.dark) body input[placeholder*="Search" i]:focus,
-  html:not(.dark) body [role="dialog"] input:focus {
-    border-color: #003db3 !important;
-    --tw-ring-color: rgba(0, 61, 179, 0.2) !important;
-  }
-
-  /* Light Mode Search Dialog Option Selection */
-  html:not(.dark) body [role="dialog"] [role="option"][aria-selected="true"],
-  html:not(.dark) body [role="dialog"] [role="option"][data-active="true"],
-  html:not(.dark) body [role="dialog"] [role="option"]:hover,
-  html:not(.dark) body [role="dialog"] li[data-active="true"],
-  html:not(.dark) body [role="dialog"] li:hover {
-    background: rgba(0, 61, 179, 0.08) !important;
-    color: #003db3 !important;
-  }
-
-  html:not(.dark) body [role="dialog"] [role="option"][aria-selected="true"] *,
-  html:not(.dark) body [role="dialog"] [role="option"]:hover * {
-    color: #003db3 !important;
-  }
-
-  /* Dark Mode Search Elements */
-  html.dark body button#search-bar-entry,
-  html.dark body #search-bar-entry,
-  html.dark body [data-component-name="search"],
-  html.dark body [data-component-name="search-bar"],
-  html.dark body button:has(svg.lucide-search),
-  html.dark body button:has(svg[class*="search"]),
-  html.dark body button:has(kbd) {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: rgba(255, 255, 255, 0.75) !important;
-    box-shadow: none !important;
-    --tw-ring-color: transparent !important;
-    --tw-ring-shadow: none !important;
-  }
-
-  html.dark body button#search-bar-entry:hover,
-  html.dark body #search-bar-entry:hover,
-  html.dark body button:has(svg.lucide-search):hover,
-  html.dark body button:has(kbd):hover {
-    border-color: var(--cnx-accent-frost-border) !important;
-    background: var(--cnx-accent-soft) !important;
-    color: #ffffff !important;
-  }
-
-  html.dark body button#search-bar-entry svg,
-  html.dark body #search-bar-entry svg,
-  html.dark body button:has(svg.lucide-search) svg,
-  html.dark body button:has(kbd) svg {
-    color: rgba(255, 255, 255, 0.75) !important;
-    stroke: rgba(255, 255, 255, 0.75) !important;
-  }
-
-  html.dark body kbd,
-  html.dark body button#search-bar-entry kbd,
-  html.dark body button:has(kbd) kbd {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-  }
-
-  html.dark body [role="dialog"][aria-label*="Search" i],
-  html.dark body div[role="dialog"]:has(input),
-  html.dark body [data-component-name="search-dialog"] {
-    background: #0f172a !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  }
-
-  html.dark body [role="dialog"] [role="option"][aria-selected="true"],
-  html.dark body [role="dialog"] [role="option"][data-active="true"],
-  html.dark body [role="dialog"] [role="option"]:hover {
-    background: rgba(213, 94, 8, 0.15) !important;
-    color: #f97316 !important;
-  }
-
-  html.dark body [role="dialog"] [role="option"][aria-selected="true"] *,
-  html.dark body [role="dialog"] [role="option"]:hover * {
-    color: #f97316 !important;
-  }
-
-  /* 2.3 Top navigation tabs & Category Buttons */
-  html body .nav-tabs,
-  html body nav[aria-label="Tabs"],
-  html body nav[role="tablist"],
-  html body [role="tablist"] {
-    border-bottom: 1px solid var(--cnx-card-border);
-  }
-
-  html body .nav-tabs .nav-tabs-item,
-  html body nav[aria-label="Tabs"] button,
-  html body [role="tablist"] [role="tab"],
-  html body [role="tab"] {
-    font-size: 13px;
-    font-weight: 400;
-    transition: var(--cnx-transition);
-  }
-
-  /* Light Mode Navigation Tabs & Category Buttons (Solid Navy #003DB3) */
-  html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"],
-  html:not(.dark) body nav[aria-label="Tabs"] button[data-active="true"],
-  html:not(.dark) body nav[aria-label="Tabs"] button[aria-selected="true"],
-  html:not(.dark) body [role="tablist"] [role="tab"][aria-selected="true"],
-  html:not(.dark) body [role="tablist"] [role="tab"][data-state="active"],
-  html:not(.dark) body [role="tab"][aria-selected="true"],
-  html:not(.dark) body [role="tab"][data-state="active"] {
-    color: #003db3 !important;
-    border-color: #003db3 !important;
-    font-weight: 500;
-  }
-
-  html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] > div,
-  html:not(.dark) body nav[aria-label="Tabs"] button[data-active="true"] > div,
-  html:not(.dark) body [role="tablist"] [role="tab"][aria-selected="true"] > div {
-    background-color: #003db3 !important;
-  }
-
-  html:not(.dark) body .nav-tabs .nav-tabs-item:hover,
-  html:not(.dark) body nav[aria-label="Tabs"] button:hover,
-  html:not(.dark) body [role="tab"]:hover {
-    color: #003db3 !important;
-  }
-
-  /* Dark Mode Navigation Tabs & Category Buttons (Orange #D55E08) */
-  html.dark body .nav-tabs .nav-tabs-item[data-active="true"],
-  html.dark body nav[aria-label="Tabs"] button[data-active="true"],
-  html.dark body nav[aria-label="Tabs"] button[aria-selected="true"],
-  html.dark body [role="tablist"] [role="tab"][aria-selected="true"],
-  html.dark body [role="tablist"] [role="tab"][data-state="active"],
-  html.dark body [role="tab"][aria-selected="true"],
-  html.dark body [role="tab"][data-state="active"] {
-    color: #ffffff !important;
-    border-color: #d55e08 !important;
-    font-weight: 500;
-  }
-
-  html.dark body .nav-tabs .nav-tabs-item[data-active="true"] > div,
-  html.dark body nav[aria-label="Tabs"] button[data-active="true"] > div,
-  html.dark body [role="tablist"] [role="tab"][aria-selected="true"] > div {
-    background-color: #d55e08 !important;
-  }
-
-  html.dark body .nav-tabs .nav-tabs-item:hover,
-  html.dark body nav[aria-label="Tabs"] button:hover,
-  html.dark body [role="tab"]:hover {
-    color: #f97316 !important;
-  }
-
-  /* 2.4 Sidebar active item */
-  html body ul.sidebar-group a {
-    border-radius: 8px;
-    transition: var(--cnx-transition);
-  }
-
-  html:not(.dark) body ul.sidebar-group a[aria-current="page"] {
-    background: var(--cnx-accent);
-    color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22);
-    font-weight: 500;
-  }
-
-  html.dark body ul.sidebar-group a[aria-current="page"] {
-    background: var(--cnx-accent-frost-bg);
-    border: 1px solid var(--cnx-accent-frost-border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: #ffffff;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    font-weight: 500;
-  }
-
-  html body ul.sidebar-group a[aria-current="page"] * {
-    color: #ffffff;
-  }
-
-  /* 2.4.1 Table of Contents / On this page (Light: #003DB3, Dark: #D55E08) */
-  html body nav#table-of-contents a,
-  html body aside nav a,
-  html body aside a[href^="#"],
-  html body [aria-label="Table of contents"] a,
-  html body [data-component-name="table-of-contents"] a {
-    font-size: 12.5px;
-    font-weight: 400;
-    transition: var(--cnx-transition);
-  }
-
-  /* Light Mode TOC Active & Hover */
-  html:not(.dark) body nav#table-of-contents a[data-active="true"],
-  html:not(.dark) body nav#table-of-contents a[data-active="true"] *,
-  html:not(.dark) body nav#table-of-contents a.text-primary,
-  html:not(.dark) body nav#table-of-contents a.text-primary *,
-  html:not(.dark) body nav#table-of-contents a[aria-current],
-  html:not(.dark) body nav#table-of-contents a[aria-current] *,
-  html:not(.dark) body aside nav a[data-active="true"],
-  html:not(.dark) body aside nav a[data-active="true"] *,
-  html:not(.dark) body aside nav a.text-primary,
-  html:not(.dark) body aside nav a.text-primary *,
-  html:not(.dark) body aside nav a[aria-current],
-  html:not(.dark) body aside nav a[aria-current] *,
-  html:not(.dark) body aside a[href^="#"][class*="primary"],
-  html:not(.dark) body aside a[href^="#"][class*="primary"] *,
-  html:not(.dark) body aside a[href^="#"][aria-current],
-  html:not(.dark) body aside a[href^="#"][aria-current] *,
-  html:not(.dark) body [aria-label="Table of contents"] a[data-active="true"],
-  html:not(.dark) body [aria-label="Table of contents"] a[data-active="true"] *,
-  html:not(.dark) body [aria-label="Table of contents"] a.text-primary,
-  html:not(.dark) body [aria-label="Table of contents"] a.text-primary *,
-  html:not(.dark) body .text-primary,
-  html:not(.dark) body [class*="text-primary"] {
-    color: #003db3;
-    font-weight: 500;
-  }
-
-  html:not(.dark) body nav#table-of-contents a:hover,
-  html:not(.dark) body aside nav a:hover,
-  html:not(.dark) body aside a[href^="#"]:hover,
-  html:not(.dark) body [aria-label="Table of contents"] a:hover {
-    color: #003db3;
-  }
-
-  /* Dark Mode TOC Active & Hover (Orange #D55E08 Standard) */
-  html.dark body nav#table-of-contents a[data-active="true"],
-  html.dark body nav#table-of-contents a[data-active="true"] *,
-  html.dark body nav#table-of-contents a.text-primary,
-  html.dark body nav#table-of-contents a.text-primary *,
-  html.dark body nav#table-of-contents a[aria-current],
-  html.dark body nav#table-of-contents a[aria-current] *,
-  html.dark body aside nav a[data-active="true"],
-  html.dark body aside nav a[data-active="true"] *,
-  html.dark body aside nav a.text-primary,
-  html.dark body aside nav a.text-primary *,
-  html.dark body aside nav a[aria-current],
-  html.dark body aside nav a[aria-current] *,
-  html.dark body aside a[href^="#"][class*="primary"],
-  html.dark body aside a[href^="#"][class*="primary"] *,
-  html.dark body aside a[href^="#"][aria-current],
-  html.dark body aside a[href^="#"][aria-current] *,
-  html.dark body [aria-label="Table of contents"] a[data-active="true"],
-  html.dark body [aria-label="Table of contents"] a[data-active="true"] *,
-  html.dark body [aria-label="Table of contents"] a.text-primary,
-  html.dark body [aria-label="Table of contents"] a.text-primary *,
-  html.dark body [data-component-name="table-of-contents"] a[data-active="true"],
-  html.dark body [data-component-name="table-of-contents"] a[data-active="true"] *,
-  html.dark body [data-component-name="table-of-contents"] a.text-primary,
-  html.dark body [data-component-name="table-of-contents"] a.text-primary *,
-  html.dark body .text-primary,
-  html.dark body [class*="text-primary"],
-  html.dark body [class*="dark:text-primary"] {
-    color: #d55e08;
-    font-weight: 500;
-  }
-
-  html.dark body nav#table-of-contents a:hover,
-  html.dark body aside nav a:hover,
-  html.dark body aside a[href^="#"]:hover,
-  html.dark body [aria-label="Table of contents"] a:hover {
-    color: #f97316;
-  }
-
-  /* 2.5 Content cards (Mintlify <Card>) */
-  html body a.card,
-  html body .card {
-    border-radius: 10px;
-    background: var(--cnx-card-bg);
-    border: 1px solid var(--cnx-card-border);
-    transition: var(--cnx-transition);
-  }
-
-  /* Card Icon Highlight (Light: #003DB3, Dark: #D55E08) */
-  html body .card [data-component-part="card-icon"],
-  html body a.card [data-component-part="card-icon"] {
-    background: transparent;
-    background-color: transparent;
-  }
-
-  html body .card [data-component-part="card-icon"] svg,
-  html body a.card [data-component-part="card-icon"] svg {
-    background-color: var(--cnx-accent);
-  }
-
-  html:not(.dark) body a.card,
-  html:not(.dark) body .card {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-  }
-
-  html.dark body a.card,
-  html.dark body .card {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  }
-
-  html body a.card:hover,
-  html body .card:hover {
-    border-color: var(--cnx-accent-border, var(--cnx-accent-frost-border));
-    transform: translateY(-1px);
-  }
-
-  html body a.card:hover [data-component-part="card-title"],
-  html body .card:hover [data-component-part="card-title"],
-  html body a.card:hover h2,
-  html body .card:hover h2,
-  html body a.card:hover h3,
-  html body .card:hover h3 {
-    color: var(--cnx-accent);
-    transition: var(--cnx-transition);
-  }
-
-  html:not(.dark) body a.card:hover,
-  html:not(.dark) body .card:hover {
-    box-shadow: 0 4px 14px rgba(0, 61, 179, 0.12);
-  }
-
-  html.dark body a.card:hover,
-  html.dark body .card:hover {
-    background: var(--cnx-accent-soft);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  /* 2.6 Steps, Tabs & In-Text Links Highlights */
-  html body #content-area a:not(.card):not([class*="btn"]) {
-    color: var(--cnx-accent);
-    transition: var(--cnx-transition);
-  }
-
-  html body [role="tab"][aria-selected="true"],
-  html body [data-state="active"] {
-    color: var(--cnx-accent);
-    border-color: var(--cnx-accent);
-  }
-
-  html body [data-component-part="step-number"],
-  html body [data-component-part="step-icon"] {
-    color: var(--cnx-accent);
-    border-color: var(--cnx-accent);
-  }
-
-  /* 2.6.1 Pagination Links (Previous / Next) */
-  html body nav[aria-label*="Pagination" i] a,
-  html body footer nav a,
-  html body #content-area nav a {
-    border-radius: 10px;
-    transition: var(--cnx-transition);
-  }
-
-  html:not(.dark) body nav[aria-label*="Pagination" i] a:hover,
-  html:not(.dark) body footer nav a:hover,
-  html:not(.dark) body #content-area nav a:hover {
-    border-color: rgba(0, 61, 179, 0.35);
-  }
-
-  html.dark body nav[aria-label*="Pagination" i] a:hover,
-  html.dark body footer nav a:hover,
-  html.dark body #content-area nav a:hover {
-    border-color: var(--cnx-accent-frost-border);
-    background: var(--cnx-accent-soft);
-  }
-
-  /* 2.7 Tables & badges */
-  html body #content-area table {
-    font-size: 12.5px;
-  }
-
-  html body #content-area th {
-    font-weight: 500;
-    font-size: 11.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  html body #content-area td {
-    font-weight: 300;
-  }
+html.light,
+html[data-theme="light"],
+:root:not(.dark) {
+  --color-primary: #003db3;
+  --color-primary-hover: #002f8c;
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+  --color-border-card: rgba(0, 0, 0, 0.08);
+}
+
+/* Top Navbar Links in Light Mode */
+html.light body header#navbar .navbar-link a,
+html[data-theme="light"] body header#navbar .navbar-link a,
+:root:not(.dark) body header#navbar .navbar-link a {
+  color: #374151;
+}
+
+html.light body header#navbar .navbar-link a:hover,
+html[data-theme="light"] body header#navbar .navbar-link a:hover,
+:root:not(.dark) body header#navbar .navbar-link a:hover {
+  color: #003db3;
+}
+
+/* Global Primary CTA Button in Light Mode: Solid Navy Mirage */
+html.light body header#navbar #topbar-cta-button a span.absolute,
+html.light body header#navbar #topbar-cta-button a > span:first-child,
+html[data-theme="light"] body header#navbar #topbar-cta-button a span.absolute,
+html[data-theme="light"] body header#navbar #topbar-cta-button a > span:first-child,
+:root:not(.dark) body header#navbar #topbar-cta-button a span.absolute,
+:root:not(.dark) body header#navbar #topbar-cta-button a > span:first-child,
+html.light body a.btn-primary,
+html.light body .btn-primary,
+html[data-theme="light"] body a.btn-primary,
+html[data-theme="light"] body .btn-primary {
+  background: linear-gradient(135deg, #003db3, #002066);
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 61, 179, 0.25);
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  opacity: 1;
+  transition: var(--cnx-transition);
+}
+
+html.light body header#navbar #topbar-cta-button a:hover span.absolute,
+html.light body header#navbar #topbar-cta-button a:hover > span:first-child,
+html[data-theme="light"] body header#navbar #topbar-cta-button a:hover span.absolute,
+html[data-theme="light"] body header#navbar #topbar-cta-button a:hover > span:first-child,
+:root:not(.dark) body header#navbar #topbar-cta-button a:hover span.absolute,
+:root:not(.dark) body header#navbar #topbar-cta-button a:hover > span:first-child,
+html.light body a.btn-primary:hover,
+html.light body .btn-primary:hover,
+html[data-theme="light"] body a.btn-primary:hover,
+html[data-theme="light"] body .btn-primary:hover {
+  background: linear-gradient(135deg, #002f8c, #00184d);
+  box-shadow: 0 4px 14px rgba(0, 61, 179, 0.35);
+  transform: translateY(-1px);
+}
+
+html.light body header#navbar #topbar-cta-button a span,
+html[data-theme="light"] body header#navbar #topbar-cta-button a span,
+:root:not(.dark) body header#navbar #topbar-cta-button a span {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* Top Navigation Tabs in Light Mode */
+html.light body .nav-tabs .nav-tabs-item[data-active="true"],
+html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"],
+:root:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+html.light body .nav-tabs .nav-tabs-item[data-active="true"] > div,
+html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"] > div,
+:root:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] > div {
+  background-color: #003db3;
+}
+
+/* Sidebar Active Item in Light Mode: Solid Navy Mirage */
+html.light body ul.sidebar-group a[aria-current="page"],
+html[data-theme="light"] body ul.sidebar-group a[aria-current="page"],
+:root:not(.dark) body ul.sidebar-group a[aria-current="page"] {
+  background: linear-gradient(135deg, #003db3, #002066);
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22);
+  font-weight: 500;
+}
+
+html.light body ul.sidebar-group a[aria-current="page"] *,
+html[data-theme="light"] body ul.sidebar-group a[aria-current="page"] *,
+:root:not(.dark) body ul.sidebar-group a[aria-current="page"] * {
+  color: #ffffff;
+}
+
+/* Table of Contents / On this page in Light Mode */
+html.light body nav#table-of-contents a[data-active="true"],
+html.light body nav#table-of-contents a[data-active="true"] *,
+html.light body aside nav a[data-active="true"],
+html.light body aside nav a[data-active="true"] *,
+:root:not(.dark) body nav#table-of-contents a[data-active="true"],
+:root:not(.dark) body nav#table-of-contents a[data-active="true"] *,
+:root:not(.dark) body aside nav a[data-active="true"],
+:root:not(.dark) body aside nav a[data-active="true"] * {
+  color: #003db3 !important;
+  font-weight: 500;
+}
+
+html.light body nav#table-of-contents a:hover,
+html.light body aside nav a:hover,
+:root:not(.dark) body nav#table-of-contents a:hover,
+:root:not(.dark) body aside nav a:hover {
+  color: #003db3;
+}
+
+/* Light Mode Content Cards */
+html.light body a.card,
+html.light body .card,
+html[data-theme="light"] body a.card,
+html[data-theme="light"] body .card {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: var(--cnx-transition);
+}
+
+html.light body a.card:hover,
+html.light body .card:hover,
+html[data-theme="light"] body a.card:hover,
+html[data-theme="light"] body .card:hover {
+  border-color: rgba(0, 61, 179, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 61, 179, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Eyebrows & Category Badges in Light Mode */
+html.light body .eyebrow,
+html[data-theme="light"] body .eyebrow,
+:root:not(.dark) body .eyebrow {
+  color: #003db3;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Light Mode Search Form & Shortcut Badge */
+:root:not(.dark) body #search-bar-entry,
+:root:not(.dark) body button:has(kbd) {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  color: #475569;
+}
+
+:root:not(.dark) body #search-bar-entry:hover,
+:root:not(.dark) body button:has(kbd):hover {
+  border-color: rgba(0, 61, 179, 0.35);
+  color: #003db3;
+}
+
+:root:not(.dark) body kbd {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  color: #475569;
+  border-radius: 4px;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   3. MERMAID — Paired theme diagrams (Solid Navy vs Translucent Frost)
+   3. Dark Mode Theme: Translucent Frost Glass & Orange Standard (#D55E08)
    ────────────────────────────────────────────────────────────────────────── */
-@layer connex-mermaid {
-  html body svg[id],
-  html body #content-area svg,
-  html body .mermaid svg,
-  html body svg[id^="mermaid"],
-  html body [data-component-name="mermaid"] svg {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-family: var(--cnx-font-family) !important;
-    display: block;
-    margin: 1.75rem auto;
-  }
+html.dark,
+html[data-theme="dark"] {
+  --color-primary: #d55e08;
+  --color-primary-hover: #f97316;
+  --color-text-main: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --color-border-card: rgba(255, 255, 255, 0.08);
+}
 
-  /* 3.1 Light Mode Mermaid (Transparent Background + Solid Navy #003DB3 Strokes & Fonts) */
-  html:not(.dark) body svg[id] g.node rect,
-  html:not(.dark) body svg[id] g.node polygon,
-  html:not(.dark) body svg[id] g.node circle,
-  html:not(.dark) body svg[id] g.node ellipse,
-  html:not(.dark) body svg[id] g.node path,
-  html:not(.dark) body svg g.node rect,
-  html:not(.dark) body svg g.node polygon,
-  html:not(.dark) body svg g.node circle,
-  html:not(.dark) body svg .node rect,
-  html:not(.dark) body svg .node polygon,
-  html:not(.dark) body .mermaid svg rect,
-  html:not(.dark) body [data-component-name="mermaid"] svg rect,
-  html.light body svg g.node rect,
-  html.light body svg g.node polygon {
-    fill: transparent !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    stroke: #003db3 !important;
-    stroke-width: 1.25px !important;
-    rx: 8px !important;
-    ry: 8px !important;
-  }
+/* Top Navbar Links in Dark Mode */
+html.dark body header#navbar .navbar-link a,
+html[data-theme="dark"] body header#navbar .navbar-link a {
+  color: #d1d5db;
+}
 
-  html:not(.dark) body svg[id] g.cluster rect,
-  html:not(.dark) body svg g.cluster rect,
-  html:not(.dark) body .mermaid svg g.cluster rect,
-  html:not(.dark) body [data-component-name="mermaid"] svg g.cluster rect {
-    fill: transparent !important;
-    stroke: rgba(0, 61, 179, 0.45) !important;
-    stroke-width: 1px !important;
-    rx: 10px !important;
-    ry: 10px !important;
-  }
+html.dark body header#navbar .navbar-link a:hover,
+html[data-theme="dark"] body header#navbar .navbar-link a:hover {
+  color: #ffffff;
+}
 
-  html:not(.dark) body svg[id] g.node text,
-  html:not(.dark) body svg[id] g.node tspan,
-  html:not(.dark) body svg[id] g.node span,
-  html:not(.dark) body svg[id] g.node div,
-  html:not(.dark) body svg g.node text,
-  html:not(.dark) body svg g.node tspan,
-  html:not(.dark) body svg g.node span,
-  html:not(.dark) body svg g.node div,
-  html:not(.dark) body svg .node text,
-  html:not(.dark) body .mermaid svg g.node text,
-  html:not(.dark) body .mermaid svg g.node span,
-  html:not(.dark) body .mermaid svg g.node div,
-  html:not(.dark) body svg .edgeLabel,
-  html:not(.dark) body svg g.edgeLabel text,
-  html:not(.dark) body svg g.edgeLabel span,
-  html.light body svg g.node text {
-    fill: #003db3 !important;
-    color: #003db3 !important;
-    font-family: var(--cnx-font-family) !important;
-    font-size: 11.5px !important;
-    font-weight: 500 !important;
-  }
+/* Global Primary CTA Button in Dark Mode: Translucent Frost Glass */
+html.dark body header#navbar #topbar-cta-button a span.absolute,
+html.dark body header#navbar #topbar-cta-button a > span:first-child,
+html[data-theme="dark"] body header#navbar #topbar-cta-button a span.absolute,
+html[data-theme="dark"] body header#navbar #topbar-cta-button a > span:first-child,
+html.dark body a.btn-primary,
+html.dark body .btn-primary,
+html[data-theme="dark"] body a.btn-primary,
+html[data-theme="dark"] body .btn-primary {
+  background: rgba(213, 94, 8, 0.28);
+  border: 1px solid rgba(213, 94, 8, 0.52);
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  opacity: 1;
+  transition: var(--cnx-transition);
+}
 
-  html:not(.dark) body svg .flowchart-link,
-  html:not(.dark) body svg g.edgePath path,
-  html:not(.dark) body svg path.flowchart-link,
-  html:not(.dark) body .mermaid svg .flowchart-link,
-  html:not(.dark) body .mermaid svg g.edgePath path,
-  html:not(.dark) body [data-component-name="mermaid"] svg g.edgePath path {
-    stroke: #003db3 !important;
-    stroke-width: 1.25px !important;
-  }
+html.dark body header#navbar #topbar-cta-button a:hover span.absolute,
+html.dark body header#navbar #topbar-cta-button a:hover > span:first-child,
+html[data-theme="dark"] body header#navbar #topbar-cta-button a:hover span.absolute,
+html[data-theme="dark"] body header#navbar #topbar-cta-button a:hover > span:first-child,
+html.dark body a.btn-primary:hover,
+html.dark body .btn-primary:hover,
+html[data-theme="dark"] body a.btn-primary:hover,
+html[data-theme="dark"] body .btn-primary:hover {
+  background: rgba(213, 94, 8, 0.38);
+  border-color: rgba(213, 94, 8, 0.75);
+  box-shadow: 0 4px 20px rgba(213, 94, 8, 0.3);
+  transform: translateY(-1px);
+}
 
-  /* 3.1.1 Edge Labels Transparency (Light Mode: Solid Navy) */
-  html:not(.dark) body svg .edgeLabel,
-  html:not(.dark) body svg g.edgeLabel,
-  html:not(.dark) body svg g.edgeLabel *,
-  html:not(.dark) body svg g.label,
-  html:not(.dark) body svg g.label *,
-  html:not(.dark) body svg foreignObject,
-  html:not(.dark) body svg foreignObject div,
-  html:not(.dark) body svg foreignObject span,
-  html:not(.dark) body .mermaid svg .edgeLabel,
-  html:not(.dark) body .mermaid svg g.edgeLabel,
-  html:not(.dark) body .mermaid svg g.edgeLabel * {
-    background: transparent !important;
-    background-color: transparent !important;
-    fill: transparent !important;
-    color: #003db3 !important;
-    font-family: var(--cnx-font-family) !important;
-    font-size: 10.5px !important;
-    font-weight: 500 !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
+html.dark body header#navbar #topbar-cta-button a span,
+html[data-theme="dark"] body header#navbar #topbar-cta-button a span {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 13px;
+}
 
-  /* 3.2 Dark Mode Mermaid (Transparent Background + Orange #D55E08 Strokes & Fonts) */
-  html.dark body svg[id] g.node rect,
-  html.dark body svg[id] g.node polygon,
-  html.dark body svg[id] g.node circle,
-  html.dark body svg[id] g.node ellipse,
-  html.dark body svg[id] g.node path,
-  html.dark body svg g.node rect,
-  html.dark body svg g.node polygon,
-  html.dark body svg g.node circle,
-  html.dark body svg g.node ellipse,
-  html.dark body svg g.node path,
-  html.dark body svg .node rect,
-  html.dark body svg .node polygon,
-  html.dark body svg .node path,
-  html.dark body .mermaid svg g.node rect,
-  html.dark body .mermaid svg g.node polygon,
-  html.dark body [data-component-name="mermaid"] svg g.node rect {
-    fill: transparent !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    stroke: #d55e08 !important;
-    stroke-width: 1.25px !important;
-    rx: 8px !important;
-    ry: 8px !important;
-  }
+/* Top Navigation Tabs in Dark Mode */
+html.dark body .nav-tabs .nav-tabs-item[data-active="true"],
+html[data-theme="dark"] body .nav-tabs .nav-tabs-item[data-active="true"] {
+  color: #ffffff;
+  font-weight: 500;
+}
 
-  html.dark body svg g.cluster rect,
-  html.dark body .mermaid svg g.cluster rect,
-  html.dark body [data-component-name="mermaid"] svg g.cluster rect {
-    fill: transparent !important;
-    stroke: rgba(213, 94, 8, 0.45) !important;
-    stroke-width: 1px !important;
-    rx: 10px !important;
-    ry: 10px !important;
-  }
+html.dark body .nav-tabs .nav-tabs-item[data-active="true"] > div,
+html[data-theme="dark"] body .nav-tabs .nav-tabs-item[data-active="true"] > div {
+  background-color: #d55e08;
+}
 
-  html.dark body svg g.node text,
-  html.dark body svg g.node tspan,
-  html.dark body svg g.node span,
-  html.dark body svg g.node div,
-  html.dark body svg .node text,
-  html.dark body .mermaid svg g.node text,
-  html.dark body .mermaid svg g.node span,
-  html.dark body .mermaid svg g.node div {
-    fill: #d55e08 !important;
-    color: #d55e08 !important;
-    font-family: var(--cnx-font-family) !important;
-    font-size: 11.5px !important;
-    font-weight: 500 !important;
-  }
+/* Sidebar Active Item in Dark Mode: Translucent Frost Glass */
+html.dark body ul.sidebar-group a[aria-current="page"],
+html[data-theme="dark"] body ul.sidebar-group a[aria-current="page"] {
+  background: rgba(213, 94, 8, 0.28);
+  border: 1px solid rgba(213, 94, 8, 0.52);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+}
 
-  html.dark body svg .flowchart-link,
-  html.dark body svg g.edgePath path,
-  html.dark body svg path.flowchart-link,
-  html.dark body .mermaid svg .flowchart-link,
-  html.dark body .mermaid svg g.edgePath path,
-  html.dark body [data-component-name="mermaid"] svg g.edgePath path {
-    stroke: #d55e08 !important;
-    stroke-width: 1.25px !important;
-  }
+html.dark body ul.sidebar-group a[aria-current="page"] *,
+html[data-theme="dark"] body ul.sidebar-group a[aria-current="page"] * {
+  color: #ffffff;
+}
 
-  html.dark body svg marker path,
-  html.dark body svg marker circle,
-  html.dark body .mermaid svg marker path {
-    fill: #d55e08 !important;
-    stroke: #d55e08 !important;
-  }
+/* Table of Contents / On this page in Dark Mode */
+html.dark body nav#table-of-contents a[data-active="true"],
+html.dark body nav#table-of-contents a[data-active="true"] *,
+html.dark body aside nav a[data-active="true"],
+html.dark body aside nav a[data-active="true"] * {
+  color: #d55e08 !important;
+  font-weight: 500;
+}
 
-  /* 3.2.1 Edge Labels Transparency (Dark Mode: Orange) */
-  html.dark body svg .edgeLabel,
-  html.dark body svg g.edgeLabel,
-  html.dark body svg g.edgeLabel *,
-  html.dark body svg g.label,
-  html.dark body svg g.label *,
-  html.dark body svg foreignObject,
-  html.dark body svg foreignObject div,
-  html.dark body svg foreignObject span,
-  html.dark body .mermaid svg .edgeLabel,
-  html.dark body .mermaid svg g.edgeLabel,
-  html.dark body .mermaid svg g.edgeLabel * {
-    background: transparent !important;
-    background-color: transparent !important;
-    fill: transparent !important;
-    color: #d55e08 !important;
-    font-family: var(--cnx-font-family) !important;
-    font-size: 10.5px !important;
-    font-weight: 500 !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
+html.dark body nav#table-of-contents a:hover,
+html.dark body aside nav a:hover {
+  color: #f97316;
+}
+
+/* Dark Mode Content Cards */
+html.dark body a.card,
+html.dark body .card,
+html[data-theme="dark"] body a.card,
+html[data-theme="dark"] body .card {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: var(--cnx-transition);
+}
+
+html.dark body a.card:hover,
+html.dark body .card:hover,
+html[data-theme="dark"] body a.card:hover,
+html[data-theme="dark"] body .card:hover {
+  border-color: rgba(213, 94, 8, 0.52);
+  background: rgba(213, 94, 8, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Eyebrows & Category Badges in Dark Mode */
+html.dark body .eyebrow,
+html[data-theme="dark"] body .eyebrow {
+  color: #d55e08;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Dark Mode Search Form & Shortcut Badge */
+html.dark body #search-bar-entry,
+html.dark body button:has(kbd) {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+html.dark body #search-bar-entry:hover,
+html.dark body button:has(kbd):hover {
+  border-color: rgba(213, 94, 8, 0.52);
+  color: #ffffff;
+}
+
+html.dark body kbd {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   4. CALLOUTS & ALERTS — Transparent Background & Mode Highlight Tone
+   4. MERMAID DIAGRAMS — 100% Transparent Background & Mode Highlight Line-Art
    ────────────────────────────────────────────────────────────────────────── */
-@layer connex-callouts {
-  html body [data-component-part="callout"],
-  html body [data-component-name="callout"],
-  html body div.callout,
-  html body div[class*="callout"],
-  html body div[class*="border-amber"],
-  html body div[class*="border-yellow"],
-  html body div[class*="border-blue"],
-  html body div[class*="bg-amber"],
-  html body div[class*="bg-yellow"],
-  html body div[class*="bg-blue"] {
-    border-radius: 10px !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    transition: var(--cnx-transition);
-  }
+html body svg[id],
+html body #content-area svg,
+html body .mermaid svg,
+html body svg[id^="mermaid"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  font-family: var(--font-family-base) !important;
+  display: block;
+  margin: 1.75rem auto;
+}
 
-  /* 4.1 Light Mode Callouts & Warnings (Transparent + Solid Navy #003DB3) */
-  html:not(.dark) body [data-component-part="callout"],
-  html:not(.dark) body [data-component-name="callout"],
-  html:not(.dark) body div.callout,
-  html:not(.dark) body div[class*="callout"],
-  html:not(.dark) body div[class*="border-amber"],
-  html:not(.dark) body div[class*="border-yellow"],
-  html:not(.dark) body div[class*="border-blue"],
-  html:not(.dark) body div[class*="bg-amber"],
-  html:not(.dark) body div[class*="bg-yellow"],
-  html:not(.dark) body div[class*="bg-blue"] {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid rgba(0, 61, 179, 0.35) !important;
-    border-left: 3.5px solid #003db3 !important;
-  }
+/* 4.1 Light Mode Mermaid (Transparent Background + Solid Navy #003DB3 Line-Art) */
+html:not(.dark) body svg[id] g.node rect,
+html:not(.dark) body svg[id] g.node polygon,
+html:not(.dark) body svg[id] g.node circle,
+html:not(.dark) body svg[id] g.node ellipse,
+html:not(.dark) body svg[id] g.node path,
+html:not(.dark) body svg g.node rect,
+html:not(.dark) body svg g.node polygon,
+html:not(.dark) body svg g.node circle,
+html:not(.dark) body svg .node rect,
+html:not(.dark) body svg .node polygon,
+html:not(.dark) body .mermaid svg rect,
+html.light body svg g.node rect {
+  fill: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  stroke: #003db3 !important;
+  stroke-width: 1.25px !important;
+  rx: 8px !important;
+  ry: 8px !important;
+}
 
-  html:not(.dark) body [data-component-part="callout"] svg,
-  html:not(.dark) body div.callout svg,
-  html:not(.dark) body div[class*="callout"] svg,
-  html:not(.dark) body div[class*="border-amber"] svg,
-  html:not(.dark) body div[class*="border-yellow"] svg,
-  html:not(.dark) body div[class*="border-blue"] svg {
-    color: #003db3 !important;
-    fill: #003db3 !important;
-    stroke: #003db3 !important;
-  }
+html:not(.dark) body svg[id] g.cluster rect,
+html:not(.dark) body svg g.cluster rect,
+html:not(.dark) body .mermaid svg g.cluster rect {
+  fill: transparent !important;
+  stroke: rgba(0, 61, 179, 0.45) !important;
+  stroke-width: 1px !important;
+  rx: 10px !important;
+  ry: 10px !important;
+}
 
-  html:not(.dark) body [data-component-part="callout"] p,
-  html:not(.dark) body [data-component-part="callout"] div,
-  html:not(.dark) body [data-component-part="callout"] span,
-  html:not(.dark) body div.callout p,
-  html:not(.dark) body div.callout div,
-  html:not(.dark) body div.callout span,
-  html:not(.dark) body div[class*="callout"] p,
-  html:not(.dark) body div[class*="callout"] div,
-  html:not(.dark) body div[class*="callout"] span {
-    color: #003db3 !important;
-    font-size: 13px !important;
-    line-height: 1.6 !important;
-  }
+html:not(.dark) body svg[id] g.node text,
+html:not(.dark) body svg[id] g.node tspan,
+html:not(.dark) body svg[id] g.node span,
+html:not(.dark) body svg[id] g.node div,
+html:not(.dark) body svg g.node text,
+html:not(.dark) body svg g.node tspan,
+html:not(.dark) body svg g.node span,
+html:not(.dark) body svg g.node div,
+html:not(.dark) body svg .node text,
+html:not(.dark) body .mermaid svg g.node text,
+html:not(.dark) body svg .edgeLabel,
+html:not(.dark) body svg g.edgeLabel text,
+html:not(.dark) body svg g.edgeLabel span,
+html.light body svg g.node text {
+  fill: #003db3 !important;
+  color: #003db3 !important;
+  font-family: var(--font-family-base) !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+}
 
-  /* 4.2 Dark Mode Callouts & Warnings (Transparent + Orange #D55E08) */
-  html.dark body [data-component-part="callout"],
-  html.dark body [data-component-name="callout"],
-  html.dark body div.callout,
-  html.dark body div[class*="callout"],
-  html.dark body div[class*="border-amber"],
-  html.dark body div[class*="border-yellow"],
-  html.dark body div[class*="border-blue"],
-  html.dark body div[class*="bg-amber"],
-  html.dark body div[class*="bg-yellow"],
-  html.dark body div[class*="bg-blue"] {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid rgba(213, 94, 8, 0.45) !important;
-    border-left: 3.5px solid #d55e08 !important;
-  }
+html:not(.dark) body svg .flowchart-link,
+html:not(.dark) body svg g.edgePath path,
+html:not(.dark) body svg path.flowchart-link,
+html:not(.dark) body .mermaid svg .flowchart-link,
+html:not(.dark) body .mermaid svg g.edgePath path {
+  stroke: #003db3 !important;
+  stroke-width: 1.25px !important;
+}
 
-  html.dark body [data-component-part="callout"] svg,
-  html.dark body div.callout svg,
-  html.dark body div[class*="callout"] svg,
-  html.dark body div[class*="border-amber"] svg,
-  html.dark body div[class*="border-yellow"] svg,
-  html.dark body div[class*="border-blue"] svg {
-    color: #d55e08 !important;
-    fill: #d55e08 !important;
-    stroke: #d55e08 !important;
-  }
+html:not(.dark) body svg marker path,
+html:not(.dark) body svg marker circle,
+html:not(.dark) body .mermaid svg marker path {
+  fill: #003db3 !important;
+  stroke: #003db3 !important;
+}
 
-  html.dark body [data-component-part="callout"] p,
-  html.dark body [data-component-part="callout"] div,
-  html.dark body [data-component-part="callout"] span,
-  html.dark body div.callout p,
-  html.dark body div.callout div,
-  html.dark body div.callout span,
-  html.dark body div[class*="callout"] p,
-  html.dark body div[class*="callout"] div,
-  html.dark body div[class*="callout"] span {
-    color: #d55e08 !important;
-    font-size: 13px !important;
-    line-height: 1.6 !important;
-  }
+html:not(.dark) body svg .edgeLabel,
+html:not(.dark) body svg g.edgeLabel,
+html:not(.dark) body svg g.edgeLabel *,
+html:not(.dark) body svg g.label,
+html:not(.dark) body svg g.label *,
+html:not(.dark) body svg foreignObject,
+html:not(.dark) body svg foreignObject div,
+html:not(.dark) body svg foreignObject span,
+html:not(.dark) body .mermaid svg .edgeLabel,
+html:not(.dark) body .mermaid svg g.edgeLabel,
+html:not(.dark) body .mermaid svg g.edgeLabel * {
+  background: transparent !important;
+  background-color: transparent !important;
+  fill: transparent !important;
+  color: #003db3 !important;
+  font-family: var(--font-family-base) !important;
+  font-size: 10.5px !important;
+  font-weight: 500 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 4.2 Dark Mode Mermaid (Transparent Background + Orange #D55E08 Line-Art) */
+html.dark body svg[id] g.node rect,
+html.dark body svg[id] g.node polygon,
+html.dark body svg[id] g.node circle,
+html.dark body svg[id] g.node ellipse,
+html.dark body svg[id] g.node path,
+html.dark body svg g.node rect,
+html.dark body svg g.node polygon,
+html.dark body svg g.node circle,
+html.dark body svg g.node ellipse,
+html.dark body svg g.node path,
+html.dark body svg .node rect,
+html.dark body svg .node polygon,
+html.dark body svg .node path,
+html.dark body .mermaid svg g.node rect,
+html.dark body .mermaid svg g.node polygon {
+  fill: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  stroke: #d55e08 !important;
+  stroke-width: 1.25px !important;
+  rx: 8px !important;
+  ry: 8px !important;
+}
+
+html.dark body svg g.cluster rect,
+html.dark body .mermaid svg g.cluster rect {
+  fill: transparent !important;
+  stroke: rgba(213, 94, 8, 0.45) !important;
+  stroke-width: 1px !important;
+  rx: 10px !important;
+  ry: 10px !important;
+}
+
+html.dark body svg g.node text,
+html.dark body svg g.node tspan,
+html.dark body svg g.node span,
+html.dark body svg g.node div,
+html.dark body svg .node text,
+html.dark body .mermaid svg g.node text,
+html.dark body .mermaid svg g.node span,
+html.dark body .mermaid svg g.node div {
+  fill: #d55e08 !important;
+  color: #d55e08 !important;
+  font-family: var(--font-family-base) !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+}
+
+html.dark body svg .flowchart-link,
+html.dark body svg g.edgePath path,
+html.dark body svg path.flowchart-link,
+html.dark body .mermaid svg .flowchart-link,
+html.dark body .mermaid svg g.edgePath path {
+  stroke: #d55e08 !important;
+  stroke-width: 1.25px !important;
+}
+
+html.dark body svg marker path,
+html.dark body svg marker circle,
+html.dark body .mermaid svg marker path {
+  fill: #d55e08 !important;
+  stroke: #d55e08 !important;
+}
+
+html.dark body svg .edgeLabel,
+html.dark body svg g.edgeLabel,
+html.dark body svg g.edgeLabel *,
+html.dark body svg g.label,
+html.dark body svg g.label *,
+html.dark body svg foreignObject,
+html.dark body svg foreignObject div,
+html.dark body svg foreignObject span,
+html.dark body .mermaid svg .edgeLabel,
+html.dark body .mermaid svg g.edgeLabel,
+html.dark body .mermaid svg g.edgeLabel * {
+  background: transparent !important;
+  background-color: transparent !important;
+  fill: transparent !important;
+  color: #d55e08 !important;
+  font-family: var(--font-family-base) !important;
+  font-size: 10.5px !important;
+  font-weight: 500 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   5. CALLOUTS & ALERTS — 100% Transparent Background & Mode Highlight Tone
+   ────────────────────────────────────────────────────────────────────────── */
+html body [data-component-part="callout"],
+html body [data-component-name="callout"],
+html body div.callout,
+html body div[class*="callout"],
+html body div[class*="border-amber"],
+html body div[class*="border-yellow"],
+html body div[class*="border-blue"],
+html body div[class*="bg-amber"],
+html body div[class*="bg-yellow"],
+html body div[class*="bg-blue"] {
+  border-radius: 10px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: var(--cnx-transition);
+}
+
+/* Light Mode Callouts (Transparent + Solid Navy #003DB3) */
+html:not(.dark) body [data-component-part="callout"],
+html:not(.dark) body [data-component-name="callout"],
+html:not(.dark) body div.callout,
+html:not(.dark) body div[class*="callout"],
+html:not(.dark) body div[class*="border-amber"],
+html:not(.dark) body div[class*="border-yellow"],
+html:not(.dark) body div[class*="border-blue"],
+html:not(.dark) body div[class*="bg-amber"],
+html:not(.dark) body div[class*="bg-yellow"],
+html:not(.dark) body div[class*="bg-blue"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 61, 179, 0.35) !important;
+  border-left: 3.5px solid #003db3 !important;
+}
+
+html:not(.dark) body [data-component-part="callout"] svg,
+html:not(.dark) body div.callout svg,
+html:not(.dark) body div[class*="callout"] svg,
+html:not(.dark) body div[class*="border-amber"] svg,
+html:not(.dark) body div[class*="border-yellow"] svg,
+html:not(.dark) body div[class*="border-blue"] svg {
+  color: #003db3 !important;
+  fill: #003db3 !important;
+  stroke: #003db3 !important;
+}
+
+html:not(.dark) body [data-component-part="callout"] p,
+html:not(.dark) body [data-component-part="callout"] div,
+html:not(.dark) body [data-component-part="callout"] span,
+html:not(.dark) body div.callout p,
+html:not(.dark) body div.callout div,
+html:not(.dark) body div.callout span,
+html:not(.dark) body div[class*="callout"] p,
+html:not(.dark) body div[class*="callout"] div,
+html:not(.dark) body div[class*="callout"] span {
+  color: #003db3 !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+/* Dark Mode Callouts (Transparent + Orange #D55E08) */
+html.dark body [data-component-part="callout"],
+html.dark body [data-component-name="callout"],
+html.dark body div.callout,
+html.dark body div[class*="callout"],
+html.dark body div[class*="border-amber"],
+html.dark body div[class*="border-yellow"],
+html.dark body div[class*="border-blue"],
+html.dark body div[class*="bg-amber"],
+html.dark body div[class*="bg-yellow"],
+html.dark body div[class*="bg-blue"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(213, 94, 8, 0.45) !important;
+  border-left: 3.5px solid #d55e08 !important;
+}
+
+html.dark body [data-component-part="callout"] svg,
+html.dark body div.callout svg,
+html.dark body div[class*="callout"] svg,
+html.dark body div[class*="border-amber"] svg,
+html.dark body div[class*="border-yellow"] svg,
+html.dark body div[class*="border-blue"] svg {
+  color: #d55e08 !important;
+  fill: #d55e08 !important;
+  stroke: #d55e08 !important;
+}
+
+html.dark body [data-component-part="callout"] p,
+html.dark body [data-component-part="callout"] div,
+html.dark body [data-component-part="callout"] span,
+html.dark body div.callout p,
+html.dark body div.callout div,
+html.dark body div.callout span,
+html.dark body div[class*="callout"] p,
+html.dark body div[class*="callout"] div,
+html.dark body div[class*="callout"] span {
+  color: #d55e08 !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   6. Common Components & Typography Polish
+   ────────────────────────────────────────────────────────────────────────── */
+html body table {
+  font-size: 12.5px;
+}
+
+html body th {
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+html body td {
+  font-weight: 300;
+}
+
+html body .badge,
+html body [class*="badge"] {
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+html:not(.dark) body .badge {
+  background: rgba(0, 61, 179, 0.08);
+  color: #003db3;
+  border: 1px solid rgba(0, 61, 179, 0.2);
+}
+
+html.dark body .badge {
+  background: rgba(213, 94, 8, 0.15);
+  color: #f97316;
+  border: 1px solid rgba(213, 94, 8, 0.35);
 }
