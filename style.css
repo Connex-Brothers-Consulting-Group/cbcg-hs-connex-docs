@@ -122,6 +122,62 @@
    2. COMPONENTS — Navbar, CTA, Tabs, Sidebar, Cards, Tables
    ────────────────────────────────────────────────────────────────────────── */
 @layer connex-components {
+  /* 2.0 Eyebrow, Category Headers & Group Badges (Light: #003DB3, Dark: #D55E08) */
+  html body header#header .eyebrow,
+  html body header#header [data-component-part="eyebrow"],
+  html body #content-area header .eyebrow,
+  html body #content-area [data-component-part="eyebrow"],
+  html body .eyebrow,
+  html body [data-component-part="eyebrow"],
+  html body [data-component-name="eyebrow"],
+  html body div[class*="eyebrow"],
+  html body span[class*="eyebrow"] {
+    color: var(--cnx-accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: var(--cnx-transition);
+  }
+
+  html:not(.dark) body header#header .eyebrow,
+  html:not(.dark) body .eyebrow,
+  html:not(.dark) body [data-component-part="eyebrow"] {
+    color: #003db3;
+  }
+
+  html.dark body header#header .eyebrow,
+  html.dark body .eyebrow,
+  html.dark body [data-component-part="eyebrow"],
+  html.dark body div[class*="eyebrow"],
+  html.dark body span[class*="eyebrow"] {
+    color: #d55e08;
+  }
+
+  /* Category Badges & Version Tags */
+  html body [data-component-part="badge"],
+  html body span.badge,
+  html body div.badge {
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    transition: var(--cnx-transition);
+  }
+
+  html:not(.dark) body [data-component-part="badge"],
+  html:not(.dark) body span.badge {
+    background: rgba(0, 61, 179, 0.08);
+    color: #003db3;
+    border: 1px solid rgba(0, 61, 179, 0.2);
+  }
+
+  html.dark body [data-component-part="badge"],
+  html.dark body span.badge {
+    background: rgba(213, 94, 8, 0.15);
+    color: #f97316;
+    border: 1px solid rgba(213, 94, 8, 0.35);
+  }
+
   /* 2.1 Navbar utility links — transparent reset */
   html body header#navbar .navbar-link a,
   html body header#navbar nav ul li.navbar-link a {
