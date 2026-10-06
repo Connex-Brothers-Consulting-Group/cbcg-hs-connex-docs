@@ -291,50 +291,86 @@
   }
 
   /* 2.2.1 Theme Switcher (Moon / Sun Toggle Button) */
-  html body header#navbar button[aria-label*="theme" i],
-  html body header#navbar button[aria-label*="mode" i],
-  html body header#navbar button[aria-label*="dark" i],
-  html body header#navbar button[aria-label*="light" i],
-  html body header#navbar [data-component-name="theme-toggle"],
-  html body header#navbar button:has(svg.lucide-moon),
-  html body header#navbar button:has(svg.lucide-sun) {
+  html body header button[aria-label*="theme" i],
+  html body header button[aria-label*="mode" i],
+  html body header button[aria-label*="dark" i],
+  html body header button[aria-label*="light" i],
+  html body header [data-component-name="theme-toggle"],
+  html body header [data-component-name="theme-toggle"] button,
+  html body header button:has(svg.lucide-moon),
+  html body header button:has(svg.lucide-sun),
+  html body header button:has(svg[class*="sun"]),
+  html body header button:has(svg[class*="moon"]) {
     border-radius: 8px !important;
     transition: var(--cnx-transition);
   }
 
-  /* Light Mode Theme Switcher (Crisp Minimal Grey Tone) */
-  html:not(.dark) body header#navbar button[aria-label*="theme" i],
-  html:not(.dark) body header#navbar button[aria-label*="mode" i],
-  html:not(.dark) body header#navbar [data-component-name="theme-toggle"],
-  html:not(.dark) body header#navbar button:has(svg.lucide-moon),
-  html:not(.dark) body header#navbar button:has(svg.lucide-sun) {
+  /* Light Mode Theme Switcher (Crisp Minimal Grey Tone — No Orange) */
+  html:not(.dark) body header button[aria-label*="theme" i],
+  html:not(.dark) body header button[aria-label*="mode" i],
+  html:not(.dark) body header button[aria-label*="dark" i],
+  html:not(.dark) body header button[aria-label*="light" i],
+  html:not(.dark) body header [data-component-name="theme-toggle"],
+  html:not(.dark) body header [data-component-name="theme-toggle"] button,
+  html:not(.dark) body header button:has(svg.lucide-moon),
+  html:not(.dark) body header button:has(svg.lucide-sun),
+  html:not(.dark) body header button:has(svg[class*="sun"]),
+  html:not(.dark) body header button:has(svg[class*="moon"]),
+  html:not(.dark) body header .flex.items-center button:has(svg:last-child),
+  html:not(.dark) body header a[href*="connex.cloud"] + button,
+  html:not(.dark) body header a[href*="connex.cloud"] + div button,
+  html:not(.dark) body header a[href*="connex.cloud"] ~ button,
+  html:not(.dark) body header a[href*="connex.cloud"] ~ div button,
+  html.light body header button[aria-label*="theme" i] {
     background: rgba(0, 0, 0, 0.02) !important;
+    background-color: rgba(0, 0, 0, 0.02) !important;
     border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
     color: #475569 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-offset-color: transparent !important;
+    --tw-ring-shadow: none !important;
+    --tw-shadow: none !important;
   }
 
-  html:not(.dark) body header#navbar button[aria-label*="theme" i]:hover,
-  html:not(.dark) body header#navbar button[aria-label*="mode" i]:hover,
-  html:not(.dark) body header#navbar [data-component-name="theme-toggle"]:hover {
+  html:not(.dark) body header button[aria-label*="theme" i] svg,
+  html:not(.dark) body header [data-component-name="theme-toggle"] svg,
+  html:not(.dark) body header button:has(svg[class*="sun"]) svg,
+  html:not(.dark) body header a[href*="connex.cloud"] ~ button svg {
+    color: #475569 !important;
+    stroke: #475569 !important;
+  }
+
+  html:not(.dark) body header button[aria-label*="theme" i]:hover,
+  html:not(.dark) body header button[aria-label*="mode" i]:hover,
+  html:not(.dark) body header [data-component-name="theme-toggle"]:hover,
+  html:not(.dark) body header a[href*="connex.cloud"] ~ button:hover {
     border-color: rgba(0, 0, 0, 0.28) !important;
     background: rgba(0, 0, 0, 0.05) !important;
     color: #0f172a !important;
   }
 
   /* Dark Mode Theme Switcher (Translucent Frost Glass) */
-  html.dark body header#navbar button[aria-label*="theme" i],
-  html.dark body header#navbar button[aria-label*="mode" i],
-  html.dark body header#navbar [data-component-name="theme-toggle"],
-  html.dark body header#navbar button:has(svg.lucide-moon),
-  html.dark body header#navbar button:has(svg.lucide-sun) {
+  html.dark body header button[aria-label*="theme" i],
+  html.dark body header button[aria-label*="mode" i],
+  html.dark body header [data-component-name="theme-toggle"],
+  html.dark body header button:has(svg.lucide-moon),
+  html.dark body header button:has(svg.lucide-sun),
+  html.dark body header a[href*="connex.cloud"] ~ button {
     background: rgba(255, 255, 255, 0.04) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     color: rgba(255, 255, 255, 0.85) !important;
+    box-shadow: none !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-shadow: none !important;
   }
 
-  html.dark body header#navbar button[aria-label*="theme" i]:hover,
-  html.dark body header#navbar button[aria-label*="mode" i]:hover,
-  html.dark body header#navbar [data-component-name="theme-toggle"]:hover {
+  html.dark body header button[aria-label*="theme" i]:hover,
+  html.dark body header button[aria-label*="mode" i]:hover,
+  html.dark body header [data-component-name="theme-toggle"]:hover,
+  html.dark body header a[href*="connex.cloud"] ~ button:hover {
     border-color: var(--cnx-accent-frost-border) !important;
     background: var(--cnx-accent-soft) !important;
     color: #ffffff !important;
