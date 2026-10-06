@@ -137,26 +137,26 @@ html body header#navbar #topbar-cta-button a {
   border: none;
 }
 
-/* Light Mode Header: Toned-Down Cool Gray Background (#f1f5f9 / #e2e8f0) */
+/* Light Mode Header: Deeper Toned-Down Slate Gray Background (#e2e8f0 / #cbd5e1) */
 html:not(.dark) body header#navbar,
 html.light body header#navbar,
 html[data-theme="light"] body header#navbar {
-  background-color: #f1f5f9 !important;
-  border-bottom: 1px solid #cbd5e1 !important;
+  background-color: #e2e8f0 !important;
+  border-bottom: 1px solid #94a3b8 !important;
 }
 
 html:not(.dark) body header#navbar .z-0,
 html:not(.dark) body header#navbar div[class*="bg-background-light"],
 html.light body header#navbar .z-0,
 html.light body header#navbar div[class*="bg-background-light"] {
-  background-color: #f1f5f9 !important;
+  background-color: #e2e8f0 !important;
 }
 
 html:not(.dark) body header#navbar div.bg-gray-50,
 html:not(.dark) body header#navbar div[class*="bg-gray-50"],
 html.light body header#navbar div[class*="bg-gray-50"] {
-  background-color: #e2e8f0 !important;
-  border-top: 1px solid #cbd5e1 !important;
+  background-color: #cbd5e1 !important;
+  border-top: 1px solid #94a3b8 !important;
 }
 
 /* Dark Mode Header: Translucent Blur Standard */
@@ -186,13 +186,14 @@ html.dark body header#navbar div[class*="bg-gray-900"] {
 html:not(.dark) body header#navbar .navbar-link a,
 html.light body header#navbar .navbar-link a,
 html[data-theme="light"] body header#navbar .navbar-link a {
-  color: #374151;
+  color: #1e293b !important;
+  font-weight: 500;
 }
 
 html:not(.dark) body header#navbar .navbar-link a:hover,
 html.light body header#navbar .navbar-link a:hover,
 html[data-theme="light"] body header#navbar .navbar-link a:hover {
-  color: #003db3;
+  color: #003db3 !important;
 }
 
 /* Global Primary CTA Button in Light Mode: Solid Navy Mirage */
@@ -247,11 +248,17 @@ html[data-theme="light"] body header#navbar #topbar-cta-button a span {
 }
 
 /* Top Navigation Tabs in Light Mode */
+html:not(.dark) body .nav-tabs .nav-tabs-item,
+html.light body .nav-tabs .nav-tabs-item {
+  color: #334155 !important;
+  font-weight: 500;
+}
+
 html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"],
 html.light body .nav-tabs .nav-tabs-item[data-active="true"],
 html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"] {
   color: #0f172a !important;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] > div,
@@ -381,24 +388,24 @@ html:not(.dark) body #search-bar-entry,
 html:not(.dark) body button:has(kbd),
 html.light body #search-bar-entry {
   background: #ffffff !important;
-  border: 1px solid #cbd5e1 !important;
+  border: 1px solid #94a3b8 !important;
   border-radius: 8px !important;
-  color: #334155 !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
 
 html:not(.dark) body #search-bar-entry:hover,
 html:not(.dark) body button:has(kbd):hover,
 html.light body #search-bar-entry:hover {
-  border-color: rgba(0, 61, 179, 0.45) !important;
+  border-color: rgba(0, 61, 179, 0.55) !important;
   color: #003db3 !important;
 }
 
 html:not(.dark) body kbd,
 html.light body kbd {
-  background: #e2e8f0 !important;
-  border: 1px solid #cbd5e1 !important;
-  color: #475569 !important;
+  background: #cbd5e1 !important;
+  border: 1px solid #94a3b8 !important;
+  color: #334155 !important;
   border-radius: 4px !important;
 }
 
