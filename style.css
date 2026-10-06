@@ -291,15 +291,19 @@ html[data-theme="light"] body header#navbar #topbar-cta-button a span {
 /* Top Navigation Tabs in Light Mode */
 html:not(.dark) body .nav-tabs .nav-tabs-item,
 html.light body .nav-tabs .nav-tabs-item {
-  color: #334155 !important;
+  color: #475569 !important;
   font-weight: 500;
 }
 
 html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"],
+html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] span,
+html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] a,
+html:not(.dark) body [data-component-part="tab-item"][data-active="true"],
 html.light body .nav-tabs .nav-tabs-item[data-active="true"],
+html.light body .nav-tabs .nav-tabs-item[data-active="true"] span,
 html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"] {
-  color: #0f172a !important;
-  font-weight: 600;
+  color: #003db3 !important;
+  font-weight: 600 !important;
 }
 
 html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] > div,
@@ -375,7 +379,6 @@ html.light body #content-area a:not(.card):not([class*="btn"]):not([role="tab"])
 html:not(.dark) body a.card,
 html:not(.dark) body .card,
 html:not(.dark) body [data-component-name="card"],
-html:not(.dark) body div.rounded-xl.border,
 html.light body a.card,
 html.light body .card,
 html[data-theme="light"] body a.card,
@@ -390,7 +393,6 @@ html[data-theme="light"] body .card {
 html:not(.dark) body a.card:hover,
 html:not(.dark) body .card:hover,
 html:not(.dark) body [data-component-name="card"]:hover,
-html:not(.dark) body div.rounded-xl.border:hover,
 html.light body a.card:hover,
 html.light body .card:hover,
 html[data-theme="light"] body a.card:hover,
@@ -412,35 +414,21 @@ html.light body a.card:hover h3 {
 
 /* Light Mode Card Icon Container & Lucide SVGs */
 html:not(.dark) body [data-component-part="card-icon"],
-html:not(.dark) body div.card-icon,
-html:not(.dark) body .card > div:first-child:has(svg),
-html:not(.dark) body a.card > div:first-child:has(svg),
-html:not(.dark) body div[class*="rounded"]:has(> svg.lucide),
 html.light body [data-component-part="card-icon"] {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  margin-bottom: 0.75rem !important;
+  color: #003db3 !important;
+  stroke: #003db3 !important;
+  display: block !important;
+  margin-bottom: 0.875rem !important;
 }
 
-html:not(.dark) body a.card svg,
-html:not(.dark) body .card svg,
-html:not(.dark) body [data-component-name="card"] svg,
 html:not(.dark) body [data-component-part="card-icon"] svg,
-html:not(.dark) body div.card-icon svg,
-html:not(.dark) body div.rounded-xl.border svg,
-html:not(.dark) body svg.lucide,
-html.light body a.card svg,
-html.light body .card svg,
 html.light body [data-component-part="card-icon"] svg {
   color: #003db3 !important;
   stroke: #003db3 !important;
   fill: none !important;
-  width: 22px !important;
-  height: 22px !important;
-  min-width: 22px !important;
-  min-height: 22px !important;
-  display: inline-block !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
   margin: 0 !important;
 }
 
@@ -609,10 +597,19 @@ html[data-theme="dark"] body header#navbar #topbar-cta-button a span {
 }
 
 /* Top Navigation Tabs in Dark Mode */
-html.dark body .nav-tabs .nav-tabs-item[data-active="true"],
-html[data-theme="dark"] body .nav-tabs .nav-tabs-item[data-active="true"] {
-  color: #ffffff !important;
+html.dark body .nav-tabs .nav-tabs-item {
+  color: rgba(255, 255, 255, 0.7) !important;
   font-weight: 500;
+}
+
+html.dark body .nav-tabs .nav-tabs-item[data-active="true"],
+html.dark body .nav-tabs .nav-tabs-item[data-active="true"] span,
+html.dark body .nav-tabs .nav-tabs-item[data-active="true"] a,
+html.dark body [data-component-part="tab-item"][data-active="true"],
+html[data-theme="dark"] body .nav-tabs .nav-tabs-item[data-active="true"],
+html[data-theme="dark"] body .nav-tabs .nav-tabs-item[data-active="true"] span {
+  color: #f97316 !important;
+  font-weight: 600 !important;
 }
 
 html.dark body .nav-tabs .nav-tabs-item[data-active="true"] > div,
@@ -684,7 +681,6 @@ html[data-theme="dark"] body #content-area a:not(.card):not([class*="btn"]):not(
 html.dark body a.card,
 html.dark body .card,
 html.dark body [data-component-name="card"],
-html.dark body div.rounded-xl.border,
 html[data-theme="dark"] body a.card,
 html[data-theme="dark"] body .card {
   border-radius: 8px !important;
@@ -699,7 +695,6 @@ html[data-theme="dark"] body .card {
 html.dark body a.card:hover,
 html.dark body .card:hover,
 html.dark body [data-component-name="card"]:hover,
-html.dark body div.rounded-xl.border:hover,
 html[data-theme="dark"] body a.card:hover,
 html[data-theme="dark"] body .card:hover {
   border-color: rgba(213, 94, 8, 0.52) !important;
@@ -720,34 +715,21 @@ html[data-theme="dark"] body a.card:hover h3 {
 
 /* Dark Mode Card Icon Container & Lucide SVGs */
 html.dark body [data-component-part="card-icon"],
-html.dark body div.card-icon,
-html.dark body .card > div:first-child:has(svg),
-html.dark body a.card > div:first-child:has(svg),
-html.dark body div[class*="rounded"]:has(> svg.lucide),
 html[data-theme="dark"] body [data-component-part="card-icon"] {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  margin-bottom: 0.75rem !important;
+  color: #d55e08 !important;
+  stroke: #d55e08 !important;
+  display: block !important;
+  margin-bottom: 0.875rem !important;
 }
 
-html.dark body a.card svg,
-html.dark body .card svg,
-html.dark body [data-component-name="card"] svg,
 html.dark body [data-component-part="card-icon"] svg,
-html.dark body div.card-icon svg,
-html.dark body div.rounded-xl.border svg,
-html[data-theme="dark"] body a.card svg,
-html[data-theme="dark"] body .card svg,
 html[data-theme="dark"] body [data-component-part="card-icon"] svg {
   color: #d55e08 !important;
   stroke: #d55e08 !important;
   fill: none !important;
-  width: 22px !important;
-  height: 22px !important;
-  min-width: 22px !important;
-  min-height: 22px !important;
-  display: inline-block !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
   margin: 0 !important;
 }
 
