@@ -1,446 +1,351 @@
-/**
- * ════════════════════════════════════════════════════════════════════════════════════════
- * CONNEX Cloud OS Documentation — Master Stylesheet SSOT (W3C @layer)
- * HybridSphere Enterprise System | Connex Brothers Consulting Group (CBCG)
- * NEXUS LAB 126 Engineering Architecture & Gōsuto X Benchmark Standards Aligned
- * 
- * Standards: Zero !important Policy, W3C @layer 3-Tier Cascade, Pitch-Dark Frost Glass
- * ════════════════════════════════════════════════════════════════════════════════════════
- */
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONNEX Cloud OS Documentation — Styling Master (style.css)
+   Benchmark: Gōsuto X & AXON Docs (docs.gosutox.com)
+   Paired Dual-Theme SSOT: Solid Navy Mirage (Light) & Frost Glass (Dark)
+   Tokens: cbcg-hs-connex-frontend/src/assets/style_global/base/variables.css
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
+   Cascade Strategy (Zero !important):
+   Mintlify (Tailwind v4) declares `@layer theme, base, components, utilities`.
+   Re-using those names would merge our rules INTO Mintlify's layers, where they
+   lose to `utilities`. Namespaced `connex-*` layers are declared after Mintlify's
+   stylesheet loads, so they are ordered AFTER `utilities` and win deterministically.
 
-/* ── 0. W3C Cascade Layer Declaration SSOT ── */
-@layer base, components, pages;
+   Layout Policy: Mintlify's native grid (navbar / sidebar / content / TOC) is
+   NEVER overridden. Only color, surface, typography and interaction are styled.
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ═════════════════════════════════════════════════════════════════════════
-   LAYER 1: BASE (Design Tokens, Reset, Core Elements & Typography)
-   ═════════════════════════════════════════════════════════════════════════ */
-@layer base {
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@layer connex-base, connex-components, connex-mermaid;
+
+/* ──────────────────────────────────────────────────────────────────────────
+   1. BASE — Design Tokens & Typography
+   ────────────────────────────────────────────────────────────────────────── */
+@layer connex-base {
   :root {
-    /* 1.1 Master Typography Tokens (SSOT: 13px Base, 11px Meta) */
-    --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-size-base: 13.5px;
-    --font-size-sub: 11px;
-    --font-weight-light: 300;
-    --font-weight-regular: 350;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-
-    /* 1.2 Global Transition Primitives */
-    --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-fast: all 0.15s ease;
-
-    /* 1.3 Gōsuto X / Pitch Dark Master Design Tokens */
-    --bg-canvas: #000000;
-    --bg-surface: rgba(255, 255, 255, 0.04);
-    --bg-surface-hover: rgba(255, 255, 255, 0.07);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-subtle-hover: rgba(255, 255, 255, 0.16);
-
-    --color-accent: #d55e08;
-    --color-accent-hover: #f97316;
-    --color-accent-deep: #b34c04;
-    --color-accent-bg: rgba(213, 94, 8, 0.12);
-    --color-accent-frost-bg: rgba(213, 94, 8, 0.25);
-    --color-accent-frost-bg-hover: rgba(213, 94, 8, 0.4);
-    --color-accent-frost-border: rgba(213, 94, 8, 0.55);
-
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.85);
-    --text-muted: rgba(255, 255, 255, 0.45);
-    --text-lead: rgba(255, 255, 255, 0.72);
-
-    --header-bg: rgba(0, 0, 0, 0.82);
-    --header-border: rgba(255, 255, 255, 0.08);
-    --code-bg: #08090c;
-    --code-border: rgba(255, 255, 255, 0.09);
-
-    --selection-bg: rgba(213, 94, 8, 0.35);
-    --selection-color: #ffffff;
+    --cnx-font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --cnx-font-size-base: 13.5px;
+    --cnx-font-size-sub: 11.5px;
+    --cnx-transition: all 0.18s ease;
   }
 
-  /* 1.4 Global Element Resets & Selection */
-  html {
-    font-family: var(--font-family-base);
-    background-color: var(--bg-canvas);
-    color: var(--text-secondary);
+  /* Light Theme Tokens — Solid Navy Mirage (FE variables.css §3) */
+  html:not(.dark) {
+    --cnx-accent: #003db3;
+    --cnx-accent-hover: #002f8c;
+    --cnx-accent-soft: rgba(0, 61, 179, 0.08);
+    --cnx-accent-border: rgba(0, 61, 179, 0.35);
+    --cnx-text-main: #0f172a;
+    --cnx-text-sub: #334155;
+    --cnx-card-bg: #ffffff;
+    --cnx-card-border: rgba(0, 0, 0, 0.08);
+  }
+
+  /* Dark Theme Tokens — Translucent Frost Glass (FE variables.css §2) */
+  html.dark {
+    --cnx-accent: #d55e08;
+    --cnx-accent-hover: #f97316;
+    --cnx-accent-frost-bg: rgba(213, 94, 8, 0.28);
+    --cnx-accent-frost-bg-hover: rgba(213, 94, 8, 0.38);
+    --cnx-accent-frost-border: rgba(213, 94, 8, 0.52);
+    --cnx-accent-frost-border-hover: rgba(213, 94, 8, 0.75);
+    --cnx-accent-soft: rgba(213, 94, 8, 0.1);
+    --cnx-text-main: #ffffff;
+    --cnx-text-sub: rgba(255, 255, 255, 0.7);
+    --cnx-card-bg: rgba(255, 255, 255, 0.03);
+    --cnx-card-border: rgba(255, 255, 255, 0.08);
+  }
+
+  html body,
+  html body input,
+  html body button,
+  html body textarea {
+    font-family: var(--cnx-font-family);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-    color-scheme: dark;
   }
 
-  body {
-    font-family: var(--font-family-base);
-    background-color: var(--bg-canvas);
-    color: var(--text-secondary);
-    letter-spacing: -0.005em;
-    margin: 0;
-    padding: 0;
+  html body h1,
+  html body h2,
+  html body h3,
+  html body h4 {
+    font-family: var(--cnx-font-family);
+    letter-spacing: -0.02em;
   }
 
-  ::selection {
-    background: var(--selection-bg);
-    color: var(--selection-color);
+  html body h1 {
+    font-size: 26px;
+    font-weight: 500;
   }
 
-  ::-moz-selection {
-    background: var(--selection-bg);
-    color: var(--selection-color);
+  html body #content-area h2 {
+    font-size: 19px;
+    font-weight: 500;
+    margin-top: 1.8rem;
   }
 
-  /* Zero Shadow Standard */
-  button,
-  a,
-  input,
-  div {
-    box-shadow: none;
+  html body #content-area h3 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  html body #content-area p,
+  html body #content-area li {
+    font-size: var(--cnx-font-size-base);
+    font-weight: 300;
+    line-height: 1.68;
+  }
+
+  html body #content-area strong {
+    font-weight: 500;
+  }
+
+  html body ::selection {
+    background: var(--cnx-accent-soft);
   }
 }
 
-/* ═════════════════════════════════════════════════════════════════════════
-   LAYER 2: COMPONENTS (Navbar, Sidebar, CTA, Cards, Accordions, Tables)
-   ═════════════════════════════════════════════════════════════════════════ */
-@layer components {
-  /* ── 2.1 Top Navbar & Global Header ── */
-  header,
-  nav[class*='navbar'],
-  [class*='sticky'] {
-    background: var(--header-bg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid var(--header-border);
-  }
-
-  /* ── 2.2 Top Navigation Tabs ── */
-  nav a[class*='tab'],
-  [class*='nav-tab'] {
-    color: var(--text-muted);
+/* ──────────────────────────────────────────────────────────────────────────
+   2. COMPONENTS — Navbar, CTA, Tabs, Sidebar, Cards, Tables
+   ────────────────────────────────────────────────────────────────────────── */
+@layer connex-components {
+  /* 2.1 Navbar utility links — transparent reset */
+  html body header#navbar .navbar-link a,
+  html body header#navbar nav ul li.navbar-link a {
+    background: transparent;
+    border: none;
+    box-shadow: none;
     font-size: 12.5px;
-    font-weight: var(--font-weight-medium);
-    transition: var(--transition-fast);
-    padding-bottom: 8px;
-    text-decoration: none;
+    transition: var(--cnx-transition);
   }
 
-  nav a[class*='tab']:hover,
-  [class*='nav-tab']:hover {
-    color: var(--text-primary);
+  html:not(.dark) body header#navbar .navbar-link a {
+    color: #374151;
   }
 
-  nav a[class*='tab'][aria-selected='true'],
-  nav a[class*='tab'][aria-current='page'],
-  [class*='nav-tab'].active {
-    color: var(--color-accent);
-    font-weight: var(--font-weight-semibold);
-    border-bottom: 2px solid var(--color-accent);
+  html.dark body header#navbar .navbar-link a {
+    color: #d1d5db;
   }
 
-  /* ── 2.3 Search Button Bar ── */
-  button[class*='search'],
-  [class*='search-button'] {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 9999px;
-    color: var(--text-muted);
-    font-size: 12px;
-    transition: var(--transition-smooth);
+  html body header#navbar .navbar-link a:hover {
+    color: var(--cnx-accent);
+  }
+
+  /* 2.2 Primary CTA (Launch CONNEX) */
+  html body header#navbar #topbar-cta-button,
+  html body header#navbar #topbar-cta-button a {
+    background: transparent;
+    border: none;
     box-shadow: none;
   }
 
-  button[class*='search']:hover,
-  [class*='search-button']:hover {
-    background: var(--bg-surface-hover);
-    border-color: var(--border-subtle-hover);
-    color: var(--text-primary);
+  html body header#navbar #topbar-cta-button a span.absolute,
+  html body header#navbar #topbar-cta-button a > span:first-child {
+    border-radius: 9999px;
+    transition: var(--cnx-transition);
   }
 
-  /* ── 2.4 Primary CTA Launch Button (Gōsuto X Frost Glass Style) ── */
-  a[href*='connex.cloud'],
-  button[class*='primary'] {
-    background: var(--color-accent-frost-bg);
-    border: 1px solid var(--color-accent-frost-border);
-    color: #ffffff;
+  html:not(.dark) body header#navbar #topbar-cta-button a span.absolute,
+  html:not(.dark) body header#navbar #topbar-cta-button a > span:first-child {
+    background: var(--cnx-accent);
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22);
+  }
+
+  html:not(.dark) body header#navbar #topbar-cta-button a:hover span.absolute,
+  html:not(.dark) body header#navbar #topbar-cta-button a:hover > span:first-child {
+    background: var(--cnx-accent-hover);
+    box-shadow: 0 4px 14px rgba(0, 61, 179, 0.3);
+  }
+
+  html.dark body header#navbar #topbar-cta-button a span.absolute,
+  html.dark body header#navbar #topbar-cta-button a > span:first-child {
+    background: var(--cnx-accent-frost-bg);
+    border: 1px solid var(--cnx-accent-frost-border);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(213, 94, 8, 0.2);
-    font-size: 11.5px;
-    font-weight: var(--font-weight-medium);
-    letter-spacing: 0.02em;
-    border-radius: 7px;
-    padding: 6px 14px;
-    text-decoration: none;
-    transition: var(--transition-smooth);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   }
 
-  a[href*='connex.cloud']:hover,
-  button[class*='primary']:hover {
-    background: var(--color-accent-frost-bg-hover);
-    border-color: var(--color-accent-hover);
-    box-shadow: 0 4px 20px rgba(213, 94, 8, 0.35);
-    transform: translateY(-0.5px);
+  html.dark body header#navbar #topbar-cta-button a:hover span.absolute,
+  html.dark body header#navbar #topbar-cta-button a:hover > span:first-child {
+    background: var(--cnx-accent-frost-bg-hover);
+    border-color: var(--cnx-accent-frost-border-hover);
   }
 
-  /* ── 2.5 Sidebar Navigation Groups & Links ── */
-  [class*='group-title'],
-  [class*='sidebar'] h5,
-  nav h5 {
-    font-size: 11px;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 1.5rem;
-    margin-bottom: 0.4rem;
-    padding-left: 8px;
+  html body header#navbar #topbar-cta-button a span {
+    color: #ffffff;
+    font-weight: 500;
   }
 
-  [class*='sidebar'] a {
-    font-size: 13px;
-    font-weight: var(--font-weight-regular);
-    color: var(--text-secondary);
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: var(--transition-fast);
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+  /* 2.3 Top navigation tabs */
+  html body .nav-tabs .nav-tabs-item[data-active="true"] {
+    color: var(--cnx-text-main);
+    font-weight: 500;
   }
 
-  [class*='sidebar'] a:hover:not([aria-current='page']) {
-    color: var(--text-primary);
-    background: var(--bg-surface-hover);
-    transform: translateX(2px);
+  html body .nav-tabs .nav-tabs-item[data-active="true"] > div {
+    background-color: var(--cnx-accent);
   }
 
-  [class*='sidebar'] a[aria-current='page'],
-  [class*='sidebar'] a.active {
-    color: var(--color-accent);
-    font-weight: var(--font-weight-medium);
-    background: var(--color-accent-bg);
-    border-left: 2px solid var(--color-accent);
-    border-radius: 0 6px 6px 0;
-  }
-
-  /* ── 2.6 Right TOC (Table of Contents) ── */
-  [class*='table-of-contents'] h5,
-  [class*='toc'] h5 {
-    font-size: 11px;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  [class*='table-of-contents'] a,
-  [class*='toc'] a {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    transition: var(--transition-fast);
-    display: block;
-    padding: 3px 0;
-    text-decoration: none;
-  }
-
-  [class*='table-of-contents'] a:hover,
-  [class*='toc'] a:hover {
-    color: var(--text-primary);
-    transform: translateX(2px);
-  }
-
-  [class*='table-of-contents'] a[aria-current='true'],
-  [class*='toc'] .active {
-    color: var(--color-accent);
-    font-weight: var(--font-weight-semibold);
-    border-left: 1.5px solid var(--color-accent);
-    padding-left: 6px;
-  }
-
-  /* ── 2.7 Cards, Accordions & Callouts (Gōsuto X Frost Glass Master) ── */
-  [class*='card'],
-  [class*='accordion'],
-  [class*='callout'] {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-radius: 12px;
-    box-shadow: none;
-    transition: var(--transition-smooth);
-  }
-
-  [class*='card']:hover {
-    background: var(--bg-surface-hover);
-    border-color: var(--color-accent-frost-border);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  }
-
-  [class*='card']:hover [class*='title'],
-  [class*='card']:hover h4,
-  [class*='card']:hover h3 {
-    color: var(--color-accent);
-  }
-
-  [class*='accordion']:hover {
-    border-color: var(--border-subtle-hover);
-  }
-
-  /* ── 2.8 Code Blocks ── */
-  pre,
-  code[class*='language-'] {
-    background: var(--code-bg);
-    border: 1px solid var(--code-border);
+  /* 2.4 Sidebar active item */
+  html body ul.sidebar-group a {
     border-radius: 8px;
-    font-size: 12px;
-    line-height: 1.65;
+    transition: var(--cnx-transition);
   }
 
-  /* ── 2.9 Tables (Enterprise Frost Glass Density) ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-    font-size: 13px;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+  html:not(.dark) body ul.sidebar-group a[aria-current="page"] {
+    background: var(--cnx-accent);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22);
+    font-weight: 500;
+  }
+
+  html.dark body ul.sidebar-group a[aria-current="page"] {
+    background: var(--cnx-accent-frost-bg);
+    border: 1px solid var(--cnx-accent-frost-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+  }
+
+  html body ul.sidebar-group a[aria-current="page"] * {
+    color: #ffffff;
+  }
+
+  /* 2.5 Content cards (Mintlify <Card>) */
+  html body a.card,
+  html body .card {
     border-radius: 10px;
-    overflow: hidden;
+    background: var(--cnx-card-bg);
+    border: 1px solid var(--cnx-card-border);
+    transition: var(--cnx-transition);
   }
 
-  th {
-    font-size: 11px;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.06em;
+  html:not(.dark) body a.card,
+  html:not(.dark) body .card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+
+  html.dark body a.card,
+  html.dark body .card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  html body a.card:hover {
+    border-color: var(--cnx-accent-border, var(--cnx-accent-frost-border));
+    transform: translateY(-1px);
+  }
+
+  html:not(.dark) body a.card:hover {
+    box-shadow: 0 4px 14px rgba(0, 61, 179, 0.12);
+  }
+
+  html.dark body a.card:hover {
+    background: var(--cnx-accent-soft);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* 2.6 Tables & badges */
+  html body #content-area table {
+    font-size: 12.5px;
+  }
+
+  html body #content-area th {
+    font-weight: 500;
+    font-size: 11.5px;
     text-transform: uppercase;
-    padding: 10px 14px;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid var(--border-subtle);
-    color: var(--text-muted);
-    text-align: left;
+    letter-spacing: 0.5px;
   }
 
-  td {
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--border-subtle);
-    line-height: 1.6;
-    color: var(--text-secondary);
-  }
-
-  tr:last-child td {
-    border-bottom: none;
-  }
-
-  tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
+  html body #content-area td {
+    font-weight: 300;
   }
 }
 
-/* ═════════════════════════════════════════════════════════════════════════
-   LAYER 3: PAGES (Prose Layout, Pacing, Headings & Content Flow)
-   ═════════════════════════════════════════════════════════════════════════ */
-@layer pages {
-  /* ── 3.1 Spacious Article Container ── */
-  article,
-  main,
-  [class*='content-area'],
-  .prose {
-    max-width: 880px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 1.5rem;
-    padding-bottom: 4rem;
+/* ──────────────────────────────────────────────────────────────────────────
+   3. MERMAID — Paired theme diagrams
+   ────────────────────────────────────────────────────────────────────────── */
+@layer connex-mermaid {
+  html body #content-area svg[id^="mermaid"] {
+    background: transparent;
+    font-family: var(--cnx-font-family);
   }
 
-  /* ── 3.2 Page H1 Title ── */
-  h1,
-  .prose h1,
-  article h1 {
-    font-size: 30px;
-    font-weight: var(--font-weight-bold);
-    letter-spacing: -0.025em;
-    line-height: 1.25;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
+  /* Light */
+  html:not(.dark) body #content-area svg[id] g.node rect,
+  html:not(.dark) body #content-area svg[id] g.node polygon,
+  html:not(.dark) body #content-area svg[id] g.node circle,
+  html:not(.dark) body #content-area svg[id] g.node path {
+    fill: #f8fafc;
+    stroke: rgba(0, 61, 179, 0.28);
+    stroke-width: 1.2px;
   }
 
-  /* ── 3.3 Lead Paragraph Subtitle ── */
-  .lead,
-  .prose > p:first-of-type,
-  article > p:first-of-type {
-    font-size: 14.5px;
-    font-weight: var(--font-weight-regular);
-    line-height: 1.7;
-    color: var(--text-lead);
-    margin-bottom: 2rem;
+  html:not(.dark) body #content-area svg[id] g.cluster rect {
+    fill: rgba(0, 61, 179, 0.04);
+    stroke: rgba(0, 61, 179, 0.2);
   }
 
-  /* ── 3.4 Section H2 Headings ── */
-  h2,
-  .prose h2,
-  article h2 {
-    font-size: 20px;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: -0.015em;
-    line-height: 1.35;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border-subtle);
-    color: var(--text-primary);
+  html:not(.dark) body #content-area svg[id] g.node text,
+  html:not(.dark) body #content-area svg[id] g.node span,
+  html:not(.dark) body #content-area svg[id] g.node div {
+    fill: #0f172a;
+    color: #0f172a;
+    font-size: 11.5px;
   }
 
-  /* ── 3.5 Section H3 Headings ── */
-  h3,
-  .prose h3,
-  article h3 {
-    font-size: 15px;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: -0.01em;
-    line-height: 1.4;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    color: var(--text-primary);
+  html:not(.dark) body #content-area svg[id] .flowchart-link,
+  html:not(.dark) body #content-area svg[id] g.edgePath path {
+    stroke: #003db3;
   }
 
-  /* ── 3.6 Standard Paragraphs & Lists ── */
-  p,
-  li,
-  .prose p,
-  .prose ul,
-  .prose ol {
-    font-size: 13.5px;
-    font-weight: var(--font-weight-regular);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
-    color: var(--text-secondary);
+  html:not(.dark) body #content-area svg[id] marker path {
+    fill: #003db3;
+    stroke: #003db3;
   }
 
-  /* ── 3.7 Strong & Bold Highlights ── */
-  strong,
-  b {
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
+  /* Dark */
+  html.dark body #content-area svg[id] g.node rect,
+  html.dark body #content-area svg[id] g.node polygon,
+  html.dark body #content-area svg[id] g.node circle,
+  html.dark body #content-area svg[id] g.node path {
+    fill: rgba(255, 255, 255, 0.05);
+    stroke: rgba(213, 94, 8, 0.45);
+    stroke-width: 1.2px;
   }
 
-  /* ── 3.8 Prose In-Text Links ── */
-  .prose a:not([class*='card']):not([class*='btn']) {
-    color: var(--color-accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--color-accent-bg);
-    transition: var(--transition-fast);
+  html.dark body #content-area svg[id] g.cluster rect {
+    fill: rgba(255, 255, 255, 0.03);
+    stroke: rgba(255, 255, 255, 0.12);
   }
 
-  .prose a:not([class*='card']):not([class*='btn']):hover {
-    color: var(--color-accent-hover);
-    border-bottom-color: var(--color-accent);
+  html.dark body #content-area svg[id] g.node text,
+  html.dark body #content-area svg[id] g.node span,
+  html.dark body #content-area svg[id] g.node div {
+    fill: #ffffff;
+    color: #ffffff;
+    font-size: 11.5px;
+  }
+
+  html.dark body #content-area svg[id] .flowchart-link,
+  html.dark body #content-area svg[id] g.edgePath path {
+    stroke: rgba(213, 94, 8, 0.65);
+  }
+
+  html.dark body #content-area svg[id] marker path {
+    fill: #d55e08;
+    stroke: #d55e08;
+  }
+
+  html.dark body #content-area svg[id] .edgeLabel,
+  html.dark body #content-area svg[id] g.edgeLabel rect {
+    background: #0f172a;
+    fill: #0f172a;
+    color: #cbd5e1;
   }
 }

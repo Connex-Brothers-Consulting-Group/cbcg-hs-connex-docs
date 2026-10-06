@@ -3,29 +3,12 @@
   "theme": "mint",
   "name": "CONNEX Cloud OS",
   "appearance": {
-    "default": "dark",
-    "strict": true
+    "default": "dark"
   },
   "colors": {
-    "primary": "#D55E08",
+    "primary": "#003DB3",
     "light": "#D55E08",
-    "dark": "#D55E08"
-  },
-  "background": {
-    "color": {
-      "light": "#0A0B0E",
-      "dark": "#0A0B0E"
-    }
-  },
-  "fonts": {
-    "heading": {
-      "family": "Plus Jakarta Sans",
-      "weight": 600
-    },
-    "body": {
-      "family": "Plus Jakarta Sans",
-      "weight": 350
-    }
+    "dark": "#003DB3"
   },
   "favicon": "/favicon.svg",
   "logo": {
