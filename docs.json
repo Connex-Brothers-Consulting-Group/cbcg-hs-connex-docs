@@ -18,6 +18,28 @@
     "light": "/ci/logo-light.webp",
     "dark": "/ci/logo-dark.webp"
   },
+  "redirects": [
+    {
+      "source": "/quickstart",
+      "destination": "/get-started/quickstart"
+    },
+    {
+      "source": "/architecture",
+      "destination": "/get-started/architecture"
+    },
+    {
+      "source": "/releases",
+      "destination": "/support/releases"
+    },
+    {
+      "source": "/notices",
+      "destination": "/support/notices"
+    },
+    {
+      "source": "/faq",
+      "destination": "/support/faq"
+    }
+  ],
   "navigation": {
     "tabs": [
       {
