@@ -137,7 +137,7 @@ html body header#navbar #topbar-cta-button a {
   border: none;
 }
 
-/* Logo Rendering Master: Exact 618:100 Geometry & Zero Distortion */
+/* Logo Rendering Master: Exact 618:100 Geometry & Strict Theme Switching */
 html body .nav-logo,
 html body header#navbar a img.nav-logo,
 html body header#navbar a img,
@@ -146,30 +146,58 @@ html body header#navbar img {
   width: auto !important;
   max-height: 22px !important;
   object-fit: contain !important;
-  display: block !important;
   aspect-ratio: 618 / 100 !important;
 }
 
-/* Light Mode Header: Deeper Toned-Down Slate Gray Background (#e2e8f0 / #cbd5e1) */
+/* Enforce Single Logo Display per Mode (Prevents Double-Stacking) */
+html:not(.dark) body header#navbar img.dark\:block,
+html:not(.dark) body header#navbar img[class*="dark:block"],
+html.light body header#navbar img.dark\:block,
+html.light body header#navbar img[class*="dark:block"] {
+  display: none !important;
+}
+
+html:not(.dark) body header#navbar img.dark\:hidden,
+html:not(.dark) body header#navbar img[class*="dark:hidden"],
+html.light body header#navbar img.dark\:hidden,
+html.light body header#navbar img[class*="dark:hidden"] {
+  display: block !important;
+}
+
+html.dark body header#navbar img.dark\:hidden,
+html.dark body header#navbar img[class*="dark:hidden"],
+html[data-theme="dark"] body header#navbar img.dark\:hidden,
+html[data-theme="dark"] body header#navbar img[class*="dark:hidden"] {
+  display: none !important;
+}
+
+html.dark body header#navbar img.dark\:block,
+html.dark body header#navbar img[class*="dark:block"],
+html[data-theme="dark"] body header#navbar img.dark\:block,
+html[data-theme="dark"] body header#navbar img[class*="dark:block"] {
+  display: block !important;
+}
+
+/* Light Mode Header: Clean Pure White Background (#ffffff) */
 html:not(.dark) body header#navbar,
 html.light body header#navbar,
 html[data-theme="light"] body header#navbar {
-  background-color: #e2e8f0 !important;
-  border-bottom: 1px solid #94a3b8 !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 html:not(.dark) body header#navbar .z-0,
 html:not(.dark) body header#navbar div[class*="bg-background-light"],
 html.light body header#navbar .z-0,
 html.light body header#navbar div[class*="bg-background-light"] {
-  background-color: #e2e8f0 !important;
+  background-color: #ffffff !important;
 }
 
 html:not(.dark) body header#navbar div.bg-gray-50,
 html:not(.dark) body header#navbar div[class*="bg-gray-50"],
 html.light body header#navbar div[class*="bg-gray-50"] {
-  background-color: #cbd5e1 !important;
-  border-top: 1px solid #94a3b8 !important;
+  background-color: #f8fafc !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
 }
 
 /* Dark Mode Header: Translucent Blur Standard */
@@ -400,25 +428,25 @@ html[data-theme="light"] body .eyebrow {
 html:not(.dark) body #search-bar-entry,
 html:not(.dark) body button:has(kbd),
 html.light body #search-bar-entry {
-  background: #ffffff !important;
-  border: 1px solid #94a3b8 !important;
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: 8px !important;
-  color: #0f172a !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+  box-shadow: none !important;
 }
 
 html:not(.dark) body #search-bar-entry:hover,
 html:not(.dark) body button:has(kbd):hover,
 html.light body #search-bar-entry:hover {
-  border-color: rgba(0, 61, 179, 0.55) !important;
+  border-color: rgba(0, 61, 179, 0.35) !important;
   color: #003db3 !important;
 }
 
 html:not(.dark) body kbd,
 html.light body kbd {
-  background: #cbd5e1 !important;
-  border: 1px solid #94a3b8 !important;
-  color: #334155 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.10) !important;
+  color: #475569 !important;
   border-radius: 4px !important;
 }
 

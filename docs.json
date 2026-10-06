@@ -15,8 +15,8 @@
     "dark": "/favicon-dark.webp"
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.webp",
+    "dark": "/logo/dark.webp"
   },
   "navigation": {
     "tabs": [
