@@ -27,25 +27,20 @@ The CONNEX AI Agent is an autonomous enterprise intelligence engine engineered f
 
 The cognitive architecture follows a strict 4-stage pipeline ensuring deterministic business boundary enforcement and capital efficiency.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User as User Prompt
-    participant L1 as L1 Gatekeeper (0.1s)
-    participant Planner as Sub-LLM Planner
-    participant Engine as Flagship Reasoner
-    participant VFS as Isolated VFS
-    participant Output as Stream Typist
-
-    User->>L1: Natural Language Query
-    Note over L1: Intent & Safety Filter
-    L1->>Planner: Validated Intent
-    Planner->>VFS: Fetch Context Chunks
-    VFS-->>Planner: Authoritative Chunks
-    Planner->>Engine: Grounded Context + Prompt
-    Engine-->>Output: Bidirectional SSE Stream
-    Output-->>User: Dynamic UI & Artifacts
-```
+<Steps>
+  <Step title="1. L1 Intent & Safety Gatekeeper (< 100ms)" icon="shield-alert">
+    Evaluates prompt boundary, intercepts out-of-scope traffic, and validates intent without expensive model invocations.
+  </Step>
+  <Step title="2. Sub-LLM Query Planner" icon="git-branch">
+    Targets exact sub-channels and retrieves authoritative context chunks from isolated VFS storage.
+  </Step>
+  <Step title="3. Flagship Deep Reasoner" icon="cpu">
+    Executes grounded synthesis, structured data distillation, and citation fidelity verification.
+  </Step>
+  <Step title="4. Bidirectional Stream Typist" icon="sparkles">
+    Emits real-time SSE token streams, dynamic artifact sandboxes, and interactive charts at 60 FPS.
+  </Step>
+</Steps>
 
 ---
 
@@ -71,13 +66,13 @@ const socket = new WebSocket(`wss://connex.cloud/api/v1/agent/live?token=${sessi
 socket.onmessage = (event) => {
   const envelope = JSON.parse(event.data);
   switch (envelope.type) {
-    case 'TEXT_DELTA':
+    case TEXT_DELTA:
       streamTypist.append(envelope.payload.delta);
       break;
-    case 'ARTIFACT_EMIT':
+    case ARTIFACT_EMIT:
       artifactRegistry.render(envelope.payload.artifact);
       break;
-    case 'CITATIONS_RESOLVED':
+    case CITATIONS_RESOLVED:
       citationBadge.update(envelope.payload.sources);
       break;
   }
