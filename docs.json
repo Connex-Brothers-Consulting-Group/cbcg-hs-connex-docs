@@ -11,12 +11,12 @@
     "dark": "#D55E08"
   },
   "favicon": {
-    "light": "/favicon-light.webp",
-    "dark": "/favicon-dark.webp"
+    "light": "/ci/favicon-light.webp",
+    "dark": "/ci/favicon-dark.webp"
   },
   "logo": {
-    "light": "/logo/light.webp",
-    "dark": "/logo/dark.webp"
+    "light": "/ci/logo-light.webp",
+    "dark": "/ci/logo-dark.webp"
   },
   "navigation": {
     "tabs": [
@@ -27,8 +27,8 @@
             "group": "Get Started",
             "pages": [
               "index",
-              "quickstart",
-              "architecture"
+              "get-started/quickstart",
+              "get-started/architecture"
             ]
           },
           {
@@ -55,9 +55,9 @@
           {
             "group": "Ecosystem Updates",
             "pages": [
-              "releases",
-              "notices",
-              "faq"
+              "support/releases",
+              "support/notices",
+              "support/faq"
             ]
           }
         ]
@@ -82,15 +82,15 @@
     "links": [
       {
         "label": "Releases",
-        "href": "/releases"
+        "href": "/support/releases"
       },
       {
         "label": "Notices",
-        "href": "/notices"
+        "href": "/support/notices"
       },
       {
         "label": "FAQ",
-        "href": "/faq"
+        "href": "/support/faq"
       },
       {
         "label": "Support",
