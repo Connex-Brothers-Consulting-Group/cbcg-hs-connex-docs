@@ -376,9 +376,28 @@
     color: #ffffff !important;
   }
 
-  /* 2.2.2 Contextual Copy Page / Dropdown Split Button */
-  /* 2.2.2 Contextual Copy Page / Action Button */
-  /* Single Clean Copy Page Button (Default & Standalone) */
+  /* 2.2.2 Contextual Copy Page / Action Button (Ultra-Compact Micro-Pill) */
+  /* Prevent Header Flexbox from Stretching the Button/Wrapper */
+  html body header div:has(> button:has(svg.lucide-copy)),
+  html body header div:has(> button:has(svg[class*="copy"])),
+  html body #content-area header div:has(> button:has(svg.lucide-copy)),
+  html body #content-area header div:has(> button:has(svg[class*="copy"])),
+  html body [data-component-name="contextual-options"],
+  html body div[class*="contextual-options"],
+  html body div:has(> button:has(svg.lucide-copy)),
+  html body div:has(> button:has(svg[class*="copy"])) {
+    align-self: flex-start !important;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Single Compact Copy Page Button (28px Height, 11.5px Font) */
   html body header button:has(svg.lucide-copy),
   html body header button:has(svg[class*="copy"]),
   html body #content-area header button:has(svg.lucide-copy),
@@ -389,14 +408,15 @@
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 32px !important;
-    min-height: 32px !important;
-    max-height: 32px !important;
-    padding: 0 12px !important;
-    border-radius: 8px !important;
-    font-size: 12.5px !important;
+    align-self: flex-start !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    padding: 0 10px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
     font-weight: 500 !important;
-    margin: 0 !important;
+    margin: 2px 0 0 0 !important;
     outline: none !important;
     box-shadow: none !important;
     cursor: pointer !important;
@@ -420,10 +440,12 @@
   html:not(.dark) body header button:has(svg[class*="copy"]) svg,
   html:not(.dark) body #content-area header button:has(svg.lucide-copy) svg,
   html:not(.dark) body [data-component-name="contextual-options"] button svg {
+    width: 12.5px !important;
+    height: 12.5px !important;
     color: #475569 !important;
     stroke: #475569 !important;
     fill: none !important;
-    margin-right: 6px !important;
+    margin-right: 5px !important;
   }
 
   html:not(.dark) body header button:has(svg.lucide-copy):hover,
@@ -452,10 +474,12 @@
   html.dark body header button:has(svg[class*="copy"]) svg,
   html.dark body #content-area header button:has(svg.lucide-copy) svg,
   html.dark body [data-component-name="contextual-options"] button svg {
+    width: 12.5px !important;
+    height: 12.5px !important;
     color: rgba(255, 255, 255, 0.75) !important;
     stroke: rgba(255, 255, 255, 0.75) !important;
     fill: none !important;
-    margin-right: 6px !important;
+    margin-right: 5px !important;
   }
 
   html.dark body header button:has(svg.lucide-copy):hover,
