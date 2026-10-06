@@ -237,6 +237,15 @@
     transition: var(--cnx-transition);
   }
 
+  /* Card Icon Highlight (Light: #003DB3, Dark: #D55E08) */
+  html body .card [data-component-part="card-icon"] svg,
+  html body a.card [data-component-part="card-icon"] svg,
+  html body .card [data-component-part="card-icon"] {
+    background-color: var(--cnx-accent);
+    color: var(--cnx-accent);
+    fill: var(--cnx-accent);
+  }
+
   html:not(.dark) body a.card,
   html:not(.dark) body .card {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
@@ -249,21 +258,52 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
   }
 
-  html body a.card:hover {
+  html body a.card:hover,
+  html body .card:hover {
     border-color: var(--cnx-accent-border, var(--cnx-accent-frost-border));
     transform: translateY(-1px);
   }
 
-  html:not(.dark) body a.card:hover {
+  html body a.card:hover [data-component-part="card-title"],
+  html body .card:hover [data-component-part="card-title"],
+  html body a.card:hover h2,
+  html body .card:hover h2,
+  html body a.card:hover h3,
+  html body .card:hover h3 {
+    color: var(--cnx-accent);
+    transition: var(--cnx-transition);
+  }
+
+  html:not(.dark) body a.card:hover,
+  html:not(.dark) body .card:hover {
     box-shadow: 0 4px 14px rgba(0, 61, 179, 0.12);
   }
 
-  html.dark body a.card:hover {
+  html.dark body a.card:hover,
+  html.dark body .card:hover {
     background: var(--cnx-accent-soft);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
-  /* 2.6 Tables & badges */
+  /* 2.6 Steps, Tabs & In-Text Links Highlights */
+  html body #content-area a:not(.card):not([class*="btn"]) {
+    color: var(--cnx-accent);
+    transition: var(--cnx-transition);
+  }
+
+  html body [role="tab"][aria-selected="true"],
+  html body [data-state="active"] {
+    color: var(--cnx-accent);
+    border-color: var(--cnx-accent);
+  }
+
+  html body [data-component-part="step-number"],
+  html body [data-component-part="step-icon"] {
+    color: var(--cnx-accent);
+    border-color: var(--cnx-accent);
+  }
+
+  /* 2.7 Tables & badges */
   html body #content-area table {
     font-size: 12.5px;
   }
