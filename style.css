@@ -137,6 +137,19 @@ html body header#navbar #topbar-cta-button a {
   border: none;
 }
 
+/* Logo Rendering Master: Exact 618:100 Geometry & Zero Distortion */
+html body .nav-logo,
+html body header#navbar a img.nav-logo,
+html body header#navbar a img,
+html body header#navbar img {
+  height: 22px !important;
+  width: auto !important;
+  max-height: 22px !important;
+  object-fit: contain !important;
+  display: block !important;
+  aspect-ratio: 618 / 100 !important;
+}
+
 /* Light Mode Header: Deeper Toned-Down Slate Gray Background (#e2e8f0 / #cbd5e1) */
 html:not(.dark) body header#navbar,
 html.light body header#navbar,

@@ -1,67 +1,16 @@
-<svg viewBox="0 0 618 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .connex-mobius-track {
-      stroke-width: 11;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-      stroke: #ffffff;
-    }
-    .connex-mobius-flow {
-      stroke-width: 11;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-      stroke: #003db3;
-      stroke-dasharray: 202 359;
-      stroke-dashoffset: 0;
-      animation: connexLogoMobiusTrace 4s linear infinite;
-    }
-    @keyframes connexLogoMobiusTrace {
-      0% {
-        stroke-dasharray: 202 359;
-        stroke-dashoffset: 0;
-        animation-timing-function: linear;
-      }
-      22% {
-        stroke-dasharray: 202 359;
-        stroke-dashoffset: 0;
-        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
-      }
-      50% {
-        stroke-dasharray: 260 301;
-        stroke-dashoffset: -252;
-        animation-timing-function: linear;
-      }
-      72% {
-        stroke-dasharray: 260 301;
-        stroke-dashoffset: -252;
-        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
-      }
-      100% {
-        stroke-dasharray: 202 359;
-        stroke-dashoffset: -561;
-      }
-    }
-    .connex-logo-letters {
-      fill: #003db3;
-    }
-  </style>
-
-  <!-- 1. Mobius Track (Extended C arc -> Crossover to O -> O loop -> Crossover back to C) -->
+<svg width="618" height="100" viewBox="0 0 618 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 1. Mobius C/O Track & Loop (Full solid 11px stroke from CONNEX FE) -->
   <path
     d="M 78.9 19.6 A 43 43 0 1 0 78.9 80.4 C 94.9 64.4, 110.6 35.6, 126.6 19.6 A 43 43 0 1 1 126.6 80.4 C 110.6 64.4, 94.9 35.6, 78.9 19.6 Z"
-    class="connex-mobius-track"
+    stroke="#003db3"
+    stroke-width="11"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
   />
 
-  <!-- 2. Animated Mobius Flow -->
-  <path
-    d="M 78.9 19.6 A 43 43 0 1 0 78.9 80.4 C 94.9 64.4, 110.6 35.6, 126.6 19.6 A 43 43 0 1 1 126.6 80.4 C 110.6 64.4, 94.9 35.6, 78.9 19.6 Z"
-    class="connex-mobius-flow"
-  />
-
-  <!-- 3. NNEX Letters -->
-  <g class="connex-logo-letters">
+  <!-- 2. NNEX Letters (Exact geometric paths from CONNEX FE) -->
+  <g fill="#003db3">
     <!-- N1 -->
     <path d="M 232 98 L 232 2 L 243 2 L 243 14 C 248 5, 258 0, 270 0 C 290 0, 306 14, 306 37 L 306 98 L 295 98 L 295 37 C 295 21, 284 11, 269 11 C 254 11, 243 21, 243 37 L 243 98 Z" />
     <!-- N2 -->
