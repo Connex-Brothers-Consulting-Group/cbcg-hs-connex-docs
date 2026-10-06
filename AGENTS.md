@@ -78,36 +78,9 @@ cbcg-hs-docs/
    - **Light Mode**: Pure White (`#ffffff`) background with Solid Navy (`#003DB3`) text and lines.
    - **Dark Mode**: Translucent Dark Glass (`#0d0a0f`) background with CONNEX Orange (`#D55E08` / `#F97316`) text and lines.
 
-### Article 5 (Mode Highlight Line-Art & Base Theme Directive)
-For diagrams rendered on GitHub (such as `README.md`), declare the base theme init directive:
-
-```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'background': 'transparent',
-    'primaryColor': 'transparent',
-    'primaryBorderColor': '#003DB3',
-    'primaryTextColor': '#003DB3',
-    'secondaryColor': 'transparent',
-    'secondaryBorderColor': '#003DB3',
-    'secondaryTextColor': '#003DB3',
-    'tertiaryColor': 'transparent',
-    'tertiaryBorderColor': '#003DB3',
-    'tertiaryTextColor': '#003DB3',
-    'clusterBkg': 'transparent',
-    'clusterBorder': '#003DB3',
-    'lineColor': '#003DB3',
-    'textColor': '#003DB3',
-    'edgeLabelBackground': 'transparent',
-    'nodeBorder': '#003DB3',
-    'nodeTextColor': '#003DB3',
-    'fontFamily': 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-    'fontSize': '12px'
-  }
-}}%%
-
-```
+### Article 5 (Mintlify Native Theme Direct Dynamic Adaptation SSOT)
+1. **Zero Hardcoded Init Directive**: Never embed hardcoded `%%{init: ...}%%` directives into Mermaid diagram blocks. Hardcoding colors in `themeVariables` freezes the SVG at compile time and breaks Mintlify native dual-theme auto-switching.
+2. **Clean Standard Mermaid Protocol**: Write clean, standard Mermaid graph definitions (`graph TD`, `sequenceDiagram`, `stateDiagram`). Mintlify and `style.css` dynamically orchestrate theme highlights (`#003DB3` Light / `#D55E08` Dark) across 100% of devices and mode transitions with zero distortion.
 
 ---
 

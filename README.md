@@ -19,30 +19,6 @@ The apex achievement of this vision is the **CONNEX Agentic Cloud AI OS Platform
 CONNEX is not a monolithic chat box. It is an evolving, symbiotic workspace operating system uniting **four organic core applications: Agent, CoWorx, Brain X, and Studio**.
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'background': 'transparent',
-    'primaryColor': 'transparent',
-    'primaryBorderColor': '#003DB3',
-    'primaryTextColor': '#003DB3',
-    'secondaryColor': 'transparent',
-    'secondaryBorderColor': '#003DB3',
-    'secondaryTextColor': '#003DB3',
-    'tertiaryColor': 'transparent',
-    'tertiaryBorderColor': '#003DB3',
-    'tertiaryTextColor': '#003DB3',
-    'clusterBkg': 'transparent',
-    'clusterBorder': '#003DB3',
-    'lineColor': '#003DB3',
-    'textColor': '#003DB3',
-    'edgeLabelBackground': 'transparent',
-    'nodeBorder': '#003DB3',
-    'nodeTextColor': '#003DB3',
-    'fontFamily': 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-    'fontSize': '12px'
-  }
-}}%%
 graph TD
     subgraph UserLayer ["Human-In-The-Loop (HI)"]
         User["Business Professionals & Enterprise Teams"]
