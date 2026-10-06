@@ -109,17 +109,22 @@
         ]
       },
       {
-        "tab": "Compliance",
+        "tab": "Security",
         "groups": [
           {
-            "group": "Trust & Sovereignty (SOC 2)",
+            "group": "Trust & Data Sovereignty",
             "pages": [
               "governance/compliance",
               "governance/data-sovereignty",
               "governance/zero-trust-auth",
               "governance/cloud-security"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Compliance",
+        "groups": [
           {
             "group": "Legal & Terms",
             "pages": [
