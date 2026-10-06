@@ -62,9 +62,14 @@
               "features/brains",
               "features/vfs"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "User Guides",
+        "groups": [
           {
-            "group": "User Manuals & Guides",
+            "group": "Core User Manuals",
             "pages": [
               "guide/workspace/manual",
               "guide/agent/manual",
@@ -87,16 +92,6 @@
               "use-cases/education-and-training",
               "use-cases/healthcare-and-lifestyle"
             ]
-          },
-          {
-            "group": "User Manuals & Guides",
-            "pages": [
-              "guide/workspace/manual",
-              "guide/agent/manual",
-              "guide/coworx/manual",
-              "guide/brains/manual",
-              "guide/studio/manual"
-            ]
           }
         ]
       },
@@ -109,41 +104,6 @@
               "pricing/subscription-plans",
               "pricing/pay-as-you-go",
               "pricing/token-capital-allocation"
-            ]
-          },
-          {
-            "group": "User Manuals & Guides",
-            "pages": [
-              "guide/workspace/manual",
-              "guide/agent/manual",
-              "guide/coworx/manual",
-              "guide/brains/manual",
-              "guide/studio/manual"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Resources",
-        "groups": [
-          {
-            "group": "Support & Knowledge",
-            "pages": [
-              "resources/docs-center-guide",
-              "resources/support-desk",
-              "support/notices",
-              "support/faq",
-              "support/releases"
-            ]
-          },
-          {
-            "group": "User Manuals & Guides",
-            "pages": [
-              "guide/workspace/manual",
-              "guide/agent/manual",
-              "guide/coworx/manual",
-              "guide/brains/manual",
-              "guide/studio/manual"
             ]
           }
         ]
@@ -168,16 +128,6 @@
               "governance/billing-and-refund",
               "governance/marketing-policy"
             ]
-          },
-          {
-            "group": "User Manuals & Guides",
-            "pages": [
-              "guide/workspace/manual",
-              "guide/agent/manual",
-              "guide/coworx/manual",
-              "guide/brains/manual",
-              "guide/studio/manual"
-            ]
           }
         ]
       },
@@ -200,15 +150,20 @@
               "developers/mcp-server-spec",
               "developers/mcp-tool-catalog"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
           {
-            "group": "User Manuals & Guides",
+            "group": "Support & Operations",
             "pages": [
-              "guide/workspace/manual",
-              "guide/agent/manual",
-              "guide/coworx/manual",
-              "guide/brains/manual",
-              "guide/studio/manual"
+              "resources/docs-center-guide",
+              "resources/support-desk",
+              "support/notices",
+              "support/faq",
+              "support/releases"
             ]
           }
         ]
