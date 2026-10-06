@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "CONNEX Cloud OS",
   "colors": {
-    "primary": "#D55E08",
-    "light": "#003DB3",
-    "dark": "#D55E08"
+    "primary": "#003DB3",
+    "light": "#D55E08",
+    "dark": "#002266"
   },
   "favicon": "/favicon.svg",
   "logo": {
