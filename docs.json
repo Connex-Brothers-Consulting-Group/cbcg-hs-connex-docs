@@ -10,11 +10,11 @@
   "fonts": {
     "heading": {
       "family": "Plus Jakarta Sans",
-      "weight": 500
+      "weight": 600
     },
     "body": {
       "family": "Plus Jakarta Sans",
-      "weight": 300
+      "weight": 350
     }
   },
   "favicon": "/favicon.svg",
@@ -23,37 +23,47 @@
     "dark": "/logo/dark.svg"
   },
   "navigation": {
-    "pages": [
+    "tabs": [
       {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart",
-          "architecture"
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "index",
+              "quickstart",
+              "architecture"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/coworx",
+              "features/agent",
+              "features/vfs"
+            ]
+          },
+          {
+            "group": "Governance & Security",
+            "pages": [
+              "governance/data-sovereignty",
+              "governance/zero-trust-auth",
+              "governance/compliance"
+            ]
+          }
         ]
       },
       {
-        "group": "Core Features",
-        "pages": [
-          "features/coworx",
-          "features/agent",
-          "features/vfs"
-        ]
-      },
-      {
-        "group": "Governance & Security",
-        "pages": [
-          "governance/data-sovereignty",
-          "governance/zero-trust-auth",
-          "governance/compliance"
-        ]
-      },
-      {
-        "group": "Releases & Support",
-        "pages": [
-          "releases",
-          "notices",
-          "faq"
+        "tab": "Releases & Support",
+        "groups": [
+          {
+            "group": "Updates & FAQ",
+            "pages": [
+              "releases",
+              "notices",
+              "faq"
+            ]
+          }
         ]
       }
     ],

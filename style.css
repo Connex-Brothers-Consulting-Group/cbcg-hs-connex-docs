@@ -1,203 +1,355 @@
 /**
  * ════════════════════════════════════════════════════════════════════════════════════════
- * CONNEX Cloud OS Documentation — Global Style Overrides SSOT (Mintlify)
+ * CONNEX Cloud OS Documentation — Global Style System (Mintlify SSOT)
  * HybridSphere Enterprise System | Connex Brothers Consulting Group (CBCG)
  * NEXUS LAB 126 Engineering Architecture & Master Standards Aligned
  * ════════════════════════════════════════════════════════════════════════════════════════
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
 
 :root {
-  /* Master Font & Scale Tokens */
+  /* Master Fonts & Design Tokens */
   --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-size-base: 13px;
-  --font-size-sub: 11px;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 600;
+  --color-accent-dark: #d55e08;
+  --color-accent-light: #003db3;
 }
 
-/* ── 1. Global Typography Scaling (13px Standard Body) ── */
-html,
+/* ─────────────────────────────────────────────────────────────────────────
+   1. GLOBAL CANVAS & BODY PACING (Spacious & Clean Luxury Layout)
+   ───────────────────────────────────────────────────────────────────────── */
+html {
+  font-family: var(--font-family-base) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   font-family: var(--font-family-base) !important;
-  font-size: 13px !important;
-  font-weight: 300 !important;
-  line-height: 1.6 !important;
   letter-spacing: -0.005em !important;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* Headings scale */
-h1,
-.prose h1,
-article h1 {
-  font-size: 20px !important;
-  font-weight: 500 !important;
-  line-height: 1.35 !important;
-  letter-spacing: -0.015em !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 0.75rem !important;
-}
-
-h2,
-.prose h2,
-article h2 {
-  font-size: 16px !important;
-  font-weight: 500 !important;
-  line-height: 1.4 !important;
-  letter-spacing: -0.01em !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 0.6rem !important;
-}
-
-h3,
-.prose h3,
-article h3 {
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  line-height: 1.45 !important;
-  letter-spacing: -0.005em !important;
-  margin-top: 1.25rem !important;
-  margin-bottom: 0.5rem !important;
-}
-
-h4,
-h5,
-h6,
-.prose h4,
-.prose h5,
-.prose h6 {
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  line-height: 1.5 !important;
-}
-
-/* Paragraphs, Lists & Prose */
-p,
-li,
-.prose p,
-.prose ul,
-.prose ol {
-  font-size: 13px !important;
-  font-weight: 300 !important;
-  line-height: 1.65 !important;
-}
-
-/* Small text & captions */
-small,
-.text-sm,
-.text-xs,
-figcaption,
-.prose figcaption {
-  font-size: 11px !important;
-  font-weight: 400 !important;
-  line-height: 1.4 !important;
-}
-
-/* ── 2. Dark Mode Palette & Highlights (#D55E08) ── */
+/* ─────────────────────────────────────────────────────────────────────────
+   2. DARK THEME SPECIFICATION (#0A0B0E Canvas & #D55E08 Highlight)
+   ───────────────────────────────────────────────────────────────────────── */
 .dark,
 html[class~='dark'],
 body[class~='dark'],
 [data-theme='dark'] {
-  --color-accent: #d55e08;
-  --color-accent-hover: #e06a14;
-  --accent-frost-bg: rgba(213, 94, 8, 0.28);
-  --accent-frost-border: rgba(213, 94, 8, 0.52);
+  background-color: #0a0b0e !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 
-  /* Primary action button (e.g. Navbar CTA) */
+  /* Top Navbar & Header */
+  header,
+  nav[class*='navbar'],
+  [class*='sticky'] {
+    background: rgba(10, 11, 14, 0.85) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  /* Search Bar */
+  button[class*='search'],
+  [class*='search-button'] {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 9999px !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* Primary CTA Launch Button */
   a[href*='connex.cloud'],
-  button[class*='primary'],
-  .btn-primary,
-  [class*='bg-primary'] {
+  button[class*='primary'] {
     background: rgba(213, 94, 8, 0.28) !important;
     border: 1px solid rgba(213, 94, 8, 0.52) !important;
     color: #ffffff !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px) !important;
     box-shadow: none !important;
     font-size: 12px !important;
-    font-weight: 400 !important;
-    border-radius: 6px !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    padding: 7px 14px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   a[href*='connex.cloud']:hover,
-  button[class*='primary']:hover,
-  .btn-primary:hover,
-  [class*='bg-primary']:hover {
-    background: rgba(213, 94, 8, 0.38) !important;
+  button[class*='primary']:hover {
+    background: rgba(213, 94, 8, 0.42) !important;
     border-color: rgba(213, 94, 8, 0.75) !important;
-    filter: brightness(1.08);
+    filter: brightness(1.1) !important;
+  }
+
+  /* Sidebar Navigation Group Titles */
+  [class*='group-title'],
+  [class*='sidebar'] h5,
+  nav h5 {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: rgba(255, 255, 255, 0.38) !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Sidebar Links */
+  [class*='sidebar'] a {
+    font-size: 13.5px !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    padding: 6px 0 !important;
+    transition: color 0.15s ease !important;
+  }
+
+  [class*='sidebar'] a:hover {
+    color: #ffffff !important;
+  }
+
+  [class*='sidebar'] a[aria-current='page'],
+  [class*='sidebar'] .active {
+    color: #d55e08 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Right TOC (On this page) */
+  [class*='table-of-contents'] h5,
+  [class*='toc'] h5 {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  [class*='table-of-contents'] a,
+  [class*='toc'] a {
+    font-size: 12.5px !important;
+    color: rgba(255, 255, 255, 0.55) !important;
+    line-height: 1.6 !important;
+  }
+
+  [class*='table-of-contents'] a:hover,
+  [class*='toc'] a:hover {
+    color: #ffffff !important;
+  }
+
+  [class*='table-of-contents'] a[aria-current='true'],
+  [class*='toc'] .active {
+    color: #d55e08 !important;
+    font-weight: 600 !important;
   }
 
   /* Cards, Accordions, Tabs & Steps */
   [class*='card'],
   [class*='accordion'],
-  [class*='step'] {
-    border-radius: 8px !important;
+  [class*='callout'] {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
   }
 
-  /* Active sidebar item & highlighted links */
-  [aria-current='page'],
-  .active {
-    color: #d55e08 !important;
-    font-weight: 500 !important;
+  [class*='card']:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(213, 94, 8, 0.35) !important;
+  }
+
+  /* Code Blocks */
+  pre,
+  code[class*='language-'] {
+    background: rgba(14, 15, 20, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+    font-size: 12.5px !important;
+    line-height: 1.65 !important;
   }
 }
 
-/* ── 3. Light Mode Palette & Highlights (#003DB3) ── */
+/* ─────────────────────────────────────────────────────────────────────────
+   3. LIGHT THEME SPECIFICATION (#F8FAFC Canvas & #003DB3 Accent)
+   ───────────────────────────────────────────────────────────────────────── */
 :root:not(.dark),
 html:not(.dark),
 body:not(.dark),
 [data-theme='light'] {
-  --color-accent: #003db3;
-  --color-accent-hover: #0056cc;
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
 
-  /* Primary action button */
+  /* Header */
+  header,
+  nav[class*='navbar'] {
+    background: rgba(248, 250, 252, 0.85) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* Primary CTA Launch Button */
   a[href*='connex.cloud'],
-  button[class*='primary'],
-  .btn-primary,
-  [class*='bg-primary'] {
+  button[class*='primary'] {
     background: #003db3 !important;
     border: 1px solid transparent !important;
     color: #ffffff !important;
     box-shadow: none !important;
     font-size: 12px !important;
-    font-weight: 400 !important;
-    border-radius: 6px !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    padding: 7px 14px !important;
   }
 
   a[href*='connex.cloud']:hover,
-  button[class*='primary']:hover,
-  .btn-primary:hover,
-  [class*='bg-primary']:hover {
+  button[class*='primary']:hover {
     background: #002266 !important;
   }
 
-  /* Active sidebar item & highlighted links */
-  [aria-current='page'],
-  .active {
+  /* Sidebar */
+  [class*='group-title'],
+  nav h5 {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #64748b !important;
+  }
+
+  [class*='sidebar'] a {
+    font-size: 13.5px !important;
+    color: #475569 !important;
+  }
+
+  [class*='sidebar'] a[aria-current='page'],
+  [class*='sidebar'] .active {
     color: #003db3 !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
   }
 }
 
-/* ── 4. Zero Shadow and Clean Border Discipline ── */
+/* ─────────────────────────────────────────────────────────────────────────
+   4. SPACIOUS ARTICLE PROSE & TYPOGRAPHY SCALING
+   ───────────────────────────────────────────────────────────────────────── */
+article,
+main,
+[class*='content-area'],
+.prose {
+  max-width: 880px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* Page H1 Title */
+h1,
+.prose h1,
+article h1 {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.25 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+/* Subtitle / Lead Paragraph */
+.lead,
+.prose > p:first-of-type,
+article > p:first-of-type {
+  font-size: 15px !important;
+  font-weight: 350 !important;
+  line-height: 1.7 !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  margin-bottom: 2rem !important;
+}
+
+:root:not(.dark) .lead,
+:root:not(.dark) .prose > p:first-of-type {
+  color: #475569 !important;
+}
+
+/* Section H2 Headings */
+h2,
+.prose h2,
+article h2 {
+  font-size: 21px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.35 !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.4rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+:root:not(.dark) h2 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Section H3 Headings */
+h3,
+.prose h3,
+article h3 {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.4 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Standard Paragraphs & Lists */
+p,
+li,
+.prose p,
+.prose ul,
+.prose ol {
+  font-size: 14px !important;
+  font-weight: 350 !important;
+  line-height: 1.8 !important;
+  margin-bottom: 1.35rem !important;
+}
+
+/* Strong / Bold highlights */
+strong,
+b {
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+:root:not(.dark) strong,
+:root:not(.dark) b {
+  color: #0f172a !important;
+}
+
+/* Tables */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  font-size: 13.5px !important;
+}
+
+th {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  text-align: left !important;
+}
+
+td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  line-height: 1.6 !important;
+}
+
+/* Zero Shadow Standard */
 button,
 a,
 input,
 [class*='card'] {
   box-shadow: none !important;
-}
-
-/* Inline code tags */
-code:not([class*='language-']) {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  padding: 2px 5px !important;
-  border-radius: 4px !important;
 }
