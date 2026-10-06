@@ -71,10 +71,12 @@ cbcg-hs-docs/
 
 ## SECTION V. ENTERPRISE MERMAID DIAGRAM STYLING STANDARD (PURE TRANSPARENT LINE-ART SSOT)
 
-### Article 4 (Solid Fill Ban & Zero Text Background Principle)
+### Article 4 (Solid Fill Ban & Symmetrical Edge-Label Backdrop Principle)
 1. **Solid Color Fill Ban**: Heavy solid fill blocks (`fill:#1E293B`, `fill:#007CFF`) and colored subgraph backgrounds are strictly prohibited.
 2. **Pure Transparent Line-Art**: All diagram nodes, clusters, and containers must maintain 100% transparent backgrounds (`fill: transparent`).
-3. **Zero Background Behind Text**: Text elements, tspans, div labels, and edge labels must never display gray or colored background rectangles (`edgeLabelBackground: transparent`). All text renders directly and cleanly over the page background.
+3. **Symmetrical Edge-Label Backdrop**: To eliminate unsightly gray or semi-transparent rectangular artifacts over connector lines, edge-label backdrops must seamlessly match the mode canvas:
+   - **Light Mode**: Pure White (`#ffffff`) background with Solid Navy (`#003DB3`) text and lines.
+   - **Dark Mode**: Translucent Dark Glass (`#0d0a0f`) background with CONNEX Orange (`#D55E08` / `#F97316`) text and lines.
 
 ### Article 5 (Mode Highlight Line-Art & Base Theme Directive)
 For diagrams rendered on GitHub (such as `README.md`), declare the base theme init directive:
