@@ -6,6 +6,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 
+/* ──────────────────────────────────────────────────────────────────────────
+   0. Global Typography & Core System Variables
+   ────────────────────────────────────────────────────────────────────────── */
 :root {
   --font-family-base: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-size-base: 13.5px;
@@ -13,6 +16,48 @@
   --font-weight-base: 300;
   --font-weight-emphasis: 500;
   --cnx-transition: all 0.18s ease;
+
+  /* Default Light Mode Primary Triplet: #003DB3 (Solid Navy) */
+  --primary: 0 61 179;
+  --primary-light: 0 61 179;
+  --primary-dark: 0 47 140;
+  --color-primary: #003db3;
+  --color-primary-hover: #002f8c;
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+  --color-border-card: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark Mode Master Variable Overrides: #D55E08 (CONNEX Orange) */
+html.dark,
+html.dark:root,
+html[data-theme="dark"],
+.dark {
+  --primary: 213 94 8 !important;
+  --primary-light: 249 115 22 !important;
+  --primary-dark: 213 94 8 !important;
+  --color-primary: #d55e08 !important;
+  --color-primary-hover: #f97316 !important;
+  --color-primary-light: #f97316 !important;
+  --color-primary-dark: #d55e08 !important;
+  --color-text-main: #ffffff !important;
+  --color-text-muted: rgba(255, 255, 255, 0.7) !important;
+  --color-border-card: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Light Mode Explicit Master Variable Overrides: #003DB3 (Solid Navy) */
+html.light,
+html:not(.dark),
+html[data-theme="light"],
+:root:not(.dark) {
+  --primary: 0 61 179 !important;
+  --primary-light: 0 61 179 !important;
+  --primary-dark: 0 47 140 !important;
+  --color-primary: #003db3 !important;
+  --color-primary-hover: #002f8c !important;
+  --color-text-main: #0f172a !important;
+  --color-text-muted: #475569 !important;
+  --color-border-card: rgba(0, 0, 0, 0.08) !important;
 }
 
 html body,
@@ -63,7 +108,7 @@ html body li {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   1. Header & Top Navigation Bar Reset
+   1. Header & Top Navigation Bar Reset & Mode Backgrounds
    ────────────────────────────────────────────────────────────────────────── */
 html body header#navbar,
 html body header#navbar nav,
@@ -92,153 +137,239 @@ html body header#navbar #topbar-cta-button a {
   border: none;
 }
 
+/* Light Mode Header: Clean Light Gray Background (#f8fafc / #f1f5f9) */
+html:not(.dark) body header#navbar,
+html.light body header#navbar,
+html[data-theme="light"] body header#navbar {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+html:not(.dark) body header#navbar .z-0,
+html:not(.dark) body header#navbar div[class*="bg-background-light"],
+html.light body header#navbar .z-0,
+html.light body header#navbar div[class*="bg-background-light"] {
+  background-color: #f8fafc !important;
+}
+
+html:not(.dark) body header#navbar div.bg-gray-50,
+html:not(.dark) body header#navbar div[class*="bg-gray-50"],
+html.light body header#navbar div[class*="bg-gray-50"] {
+  background-color: #f1f5f9 !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+/* Dark Mode Header: Translucent Blur Standard */
+html.dark body header#navbar,
+html[data-theme="dark"] body header#navbar {
+  background-color: rgba(13, 10, 15, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark body header#navbar .z-0,
+html.dark body header#navbar div[class*="bg-background-dark"] {
+  background-color: transparent !important;
+}
+
+html.dark body header#navbar div[class*="bg-gray-900"] {
+  background-color: rgba(20, 16, 23, 0.9) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
 /* ──────────────────────────────────────────────────────────────────────────
    2. Light Mode Theme: Solid Navy Mirage Standard (#003DB3)
    ────────────────────────────────────────────────────────────────────────── */
-html.light,
-html[data-theme="light"],
-:root:not(.dark) {
-  --color-primary: #003db3;
-  --color-primary-hover: #002f8c;
-  --color-text-main: #0f172a;
-  --color-text-muted: #475569;
-  --color-border-card: rgba(0, 0, 0, 0.08);
-}
 
 /* Top Navbar Links in Light Mode */
+html:not(.dark) body header#navbar .navbar-link a,
 html.light body header#navbar .navbar-link a,
-html[data-theme="light"] body header#navbar .navbar-link a,
-:root:not(.dark) body header#navbar .navbar-link a {
+html[data-theme="light"] body header#navbar .navbar-link a {
   color: #374151;
 }
 
+html:not(.dark) body header#navbar .navbar-link a:hover,
 html.light body header#navbar .navbar-link a:hover,
-html[data-theme="light"] body header#navbar .navbar-link a:hover,
-:root:not(.dark) body header#navbar .navbar-link a:hover {
+html[data-theme="light"] body header#navbar .navbar-link a:hover {
   color: #003db3;
 }
 
 /* Global Primary CTA Button in Light Mode: Solid Navy Mirage */
+html:not(.dark) body header#navbar #topbar-cta-button a span.absolute,
+html:not(.dark) body header#navbar #topbar-cta-button a > span:first-child,
 html.light body header#navbar #topbar-cta-button a span.absolute,
 html.light body header#navbar #topbar-cta-button a > span:first-child,
 html[data-theme="light"] body header#navbar #topbar-cta-button a span.absolute,
 html[data-theme="light"] body header#navbar #topbar-cta-button a > span:first-child,
-:root:not(.dark) body header#navbar #topbar-cta-button a span.absolute,
-:root:not(.dark) body header#navbar #topbar-cta-button a > span:first-child,
+html:not(.dark) body a[data-component-name="primary-header-button"],
+html:not(.dark) body a.btn-primary,
+html:not(.dark) body .btn-primary,
 html.light body a.btn-primary,
 html.light body .btn-primary,
 html[data-theme="light"] body a.btn-primary,
 html[data-theme="light"] body .btn-primary {
-  background: linear-gradient(135deg, #003db3, #002066);
-  border-radius: 9999px;
-  box-shadow: 0 2px 8px rgba(0, 61, 179, 0.25);
-  border: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: linear-gradient(135deg, #003db3, #002066) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 2px 8px rgba(0, 61, 179, 0.25) !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #ffffff !important;
   opacity: 1;
   transition: var(--cnx-transition);
 }
 
+html:not(.dark) body header#navbar #topbar-cta-button a:hover span.absolute,
+html:not(.dark) body header#navbar #topbar-cta-button a:hover > span:first-child,
 html.light body header#navbar #topbar-cta-button a:hover span.absolute,
 html.light body header#navbar #topbar-cta-button a:hover > span:first-child,
 html[data-theme="light"] body header#navbar #topbar-cta-button a:hover span.absolute,
 html[data-theme="light"] body header#navbar #topbar-cta-button a:hover > span:first-child,
-:root:not(.dark) body header#navbar #topbar-cta-button a:hover span.absolute,
-:root:not(.dark) body header#navbar #topbar-cta-button a:hover > span:first-child,
+html:not(.dark) body a[data-component-name="primary-header-button"]:hover,
+html:not(.dark) body a.btn-primary:hover,
+html:not(.dark) body .btn-primary:hover,
 html.light body a.btn-primary:hover,
 html.light body .btn-primary:hover,
 html[data-theme="light"] body a.btn-primary:hover,
 html[data-theme="light"] body .btn-primary:hover {
-  background: linear-gradient(135deg, #002f8c, #00184d);
-  box-shadow: 0 4px 14px rgba(0, 61, 179, 0.35);
+  background: linear-gradient(135deg, #002f8c, #00184d) !important;
+  box-shadow: 0 4px 14px rgba(0, 61, 179, 0.35) !important;
   transform: translateY(-1px);
 }
 
+html:not(.dark) body header#navbar #topbar-cta-button a span,
 html.light body header#navbar #topbar-cta-button a span,
-html[data-theme="light"] body header#navbar #topbar-cta-button a span,
-:root:not(.dark) body header#navbar #topbar-cta-button a span {
-  color: #ffffff;
+html[data-theme="light"] body header#navbar #topbar-cta-button a span {
+  color: #ffffff !important;
   font-weight: 500;
   font-size: 13px;
 }
 
 /* Top Navigation Tabs in Light Mode */
+html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"],
 html.light body .nav-tabs .nav-tabs-item[data-active="true"],
-html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"],
-:root:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] {
-  color: #0f172a;
+html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"] {
+  color: #0f172a !important;
   font-weight: 500;
 }
 
+html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] > div,
 html.light body .nav-tabs .nav-tabs-item[data-active="true"] > div,
-html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"] > div,
-:root:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] > div {
-  background-color: #003db3;
+html[data-theme="light"] body .nav-tabs .nav-tabs-item[data-active="true"] > div {
+  background-color: #003db3 !important;
 }
 
-/* Sidebar Active Item in Light Mode: Solid Navy Mirage */
+html:not(.dark) body .nav-tabs .nav-tabs-item:hover,
+html.light body .nav-tabs .nav-tabs-item:hover {
+  color: #003db3 !important;
+}
+
+/* Sidebar in Light Mode: Solid Navy Mirage */
+html:not(.dark) body ul.sidebar-group a[aria-current="page"],
+html:not(.dark) body ul.sidebar-group li[data-active="true"] > a,
 html.light body ul.sidebar-group a[aria-current="page"],
-html[data-theme="light"] body ul.sidebar-group a[aria-current="page"],
-:root:not(.dark) body ul.sidebar-group a[aria-current="page"] {
-  background: linear-gradient(135deg, #003db3, #002066);
-  color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22);
+html[data-theme="light"] body ul.sidebar-group a[aria-current="page"] {
+  background: linear-gradient(135deg, #003db3, #002066) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22) !important;
+  border: none !important;
   font-weight: 500;
 }
 
+html:not(.dark) body ul.sidebar-group a[aria-current="page"] *,
+html:not(.dark) body ul.sidebar-group li[data-active="true"] > a *,
 html.light body ul.sidebar-group a[aria-current="page"] *,
-html[data-theme="light"] body ul.sidebar-group a[aria-current="page"] *,
-:root:not(.dark) body ul.sidebar-group a[aria-current="page"] * {
-  color: #ffffff;
+html[data-theme="light"] body ul.sidebar-group a[aria-current="page"] * {
+  color: #ffffff !important;
+}
+
+html:not(.dark) body nav#sidebar-content a:hover,
+html:not(.dark) body ul.sidebar-group a:hover,
+html.light body ul.sidebar-group a:hover {
+  color: #003db3 !important;
 }
 
 /* Table of Contents / On this page in Light Mode */
+html:not(.dark) body nav#table-of-contents a[data-active="true"],
+html:not(.dark) body nav#table-of-contents a[data-active="true"] *,
+html:not(.dark) body aside nav a[data-active="true"],
+html:not(.dark) body aside nav a[data-active="true"] *,
 html.light body nav#table-of-contents a[data-active="true"],
-html.light body nav#table-of-contents a[data-active="true"] *,
-html.light body aside nav a[data-active="true"],
-html.light body aside nav a[data-active="true"] *,
-:root:not(.dark) body nav#table-of-contents a[data-active="true"],
-:root:not(.dark) body nav#table-of-contents a[data-active="true"] *,
-:root:not(.dark) body aside nav a[data-active="true"],
-:root:not(.dark) body aside nav a[data-active="true"] * {
+html.light body aside nav a[data-active="true"] {
   color: #003db3 !important;
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
+html:not(.dark) body nav#table-of-contents a:hover,
+html:not(.dark) body aside nav a:hover,
 html.light body nav#table-of-contents a:hover,
-html.light body aside nav a:hover,
-:root:not(.dark) body nav#table-of-contents a:hover,
-:root:not(.dark) body aside nav a:hover {
-  color: #003db3;
+html.light body aside nav a:hover {
+  color: #003db3 !important;
+}
+
+/* In-Text Links in Light Mode */
+html:not(.dark) body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]),
+html.light body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]) {
+  color: #003db3 !important;
+  text-decoration-color: rgba(0, 61, 179, 0.35) !important;
+  transition: var(--cnx-transition);
+}
+
+html:not(.dark) body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]):hover,
+html.light body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]):hover {
+  color: #002f8c !important;
+  text-decoration-color: #003db3 !important;
 }
 
 /* Light Mode Content Cards */
+html:not(.dark) body a.card,
+html:not(.dark) body .card,
+html:not(.dark) body [data-component-name="card"],
 html.light body a.card,
 html.light body .card,
 html[data-theme="light"] body a.card,
 html[data-theme="light"] body .card {
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
   transition: var(--cnx-transition);
 }
 
+html:not(.dark) body a.card:hover,
+html:not(.dark) body .card:hover,
+html:not(.dark) body [data-component-name="card"]:hover,
 html.light body a.card:hover,
 html.light body .card:hover,
 html[data-theme="light"] body a.card:hover,
 html[data-theme="light"] body .card:hover {
-  border-color: rgba(0, 61, 179, 0.35);
-  box-shadow: 0 4px 14px rgba(0, 61, 179, 0.12);
+  border-color: rgba(0, 61, 179, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(0, 61, 179, 0.12) !important;
   transform: translateY(-1px);
 }
 
+html:not(.dark) body a.card:hover h2,
+html:not(.dark) body a.card:hover h3,
+html:not(.dark) body a.card:hover [data-component-part="card-title"],
+html.light body a.card:hover h2,
+html.light body a.card:hover h3 {
+  color: #003db3 !important;
+}
+
+html:not(.dark) body a.card svg,
+html:not(.dark) body .card svg,
+html:not(.dark) body [data-component-part="card-icon"],
+html.light body a.card svg {
+  color: #003db3 !important;
+}
+
 /* Eyebrows & Category Badges in Light Mode */
+html:not(.dark) body .eyebrow,
 html.light body .eyebrow,
-html[data-theme="light"] body .eyebrow,
-:root:not(.dark) body .eyebrow {
-  color: #003db3;
+html[data-theme="light"] body .eyebrow {
+  color: #003db3 !important;
   font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -246,38 +377,79 @@ html[data-theme="light"] body .eyebrow,
 }
 
 /* Light Mode Search Form & Shortcut Badge */
-:root:not(.dark) body #search-bar-entry,
-:root:not(.dark) body button:has(kbd) {
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  color: #475569;
+html:not(.dark) body #search-bar-entry,
+html:not(.dark) body button:has(kbd),
+html.light body #search-bar-entry {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  color: #475569 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
 }
 
-:root:not(.dark) body #search-bar-entry:hover,
-:root:not(.dark) body button:has(kbd):hover {
-  border-color: rgba(0, 61, 179, 0.35);
-  color: #003db3;
+html:not(.dark) body #search-bar-entry:hover,
+html:not(.dark) body button:has(kbd):hover,
+html.light body #search-bar-entry:hover {
+  border-color: rgba(0, 61, 179, 0.4) !important;
+  color: #003db3 !important;
 }
 
-:root:not(.dark) body kbd {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.10);
-  color: #475569;
+html:not(.dark) body kbd,
+html.light body kbd {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+  border-radius: 4px !important;
+}
+
+/* Light Mode Steps */
+html:not(.dark) body [data-component-name="steps"] [data-component-part="step-number"],
+html:not(.dark) body .step-number,
+html.light body [data-component-name="steps"] [data-component-part="step-number"] {
+  background-color: #003db3 !important;
+  border-color: #002f8c !important;
+  color: #ffffff !important;
+}
+
+/* Light Mode Tabs */
+html:not(.dark) body [role="tab"][aria-selected="true"],
+html:not(.dark) body [data-component-name="tabs"] button[data-state="active"],
+html.light body [role="tab"][aria-selected="true"] {
+  color: #0f172a !important;
+  border-bottom-color: #003db3 !important;
+}
+
+html:not(.dark) body [role="tab"]:hover,
+html.light body [role="tab"]:hover {
+  color: #003db3 !important;
+}
+
+/* Light Mode Accordions */
+html:not(.dark) body [data-component-name="accordion"] svg,
+html:not(.dark) body details svg,
+html.light body [data-component-name="accordion"] svg {
+  color: #003db3 !important;
+}
+
+html:not(.dark) body [data-component-name="accordion"] button:hover,
+html.light body [data-component-name="accordion"] button:hover {
+  color: #003db3 !important;
+}
+
+/* Light Mode Inline Code */
+html:not(.dark) body :not(pre) > code,
+html.light body :not(pre) > code {
+  color: #003db3 !important;
+  background: rgba(0, 61, 179, 0.06) !important;
+  border: 1px solid rgba(0, 61, 179, 0.16) !important;
   border-radius: 4px;
+  padding: 1.5px 5px;
+  font-size: 12px;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
    3. Dark Mode Theme: Translucent Frost Glass & Orange Standard (#D55E08)
    ────────────────────────────────────────────────────────────────────────── */
-html.dark,
-html[data-theme="dark"] {
-  --color-primary: #d55e08;
-  --color-primary-hover: #f97316;
-  --color-text-main: #ffffff;
-  --color-text-muted: rgba(255, 255, 255, 0.7);
-  --color-border-card: rgba(255, 255, 255, 0.08);
-}
 
 /* Top Navbar Links in Dark Mode */
 html.dark body header#navbar .navbar-link a,
@@ -295,16 +467,18 @@ html.dark body header#navbar #topbar-cta-button a span.absolute,
 html.dark body header#navbar #topbar-cta-button a > span:first-child,
 html[data-theme="dark"] body header#navbar #topbar-cta-button a span.absolute,
 html[data-theme="dark"] body header#navbar #topbar-cta-button a > span:first-child,
+html.dark body a[data-component-name="primary-header-button"],
 html.dark body a.btn-primary,
 html.dark body .btn-primary,
 html[data-theme="dark"] body a.btn-primary,
 html[data-theme="dark"] body .btn-primary {
-  background: rgba(213, 94, 8, 0.28);
-  border: 1px solid rgba(213, 94, 8, 0.52);
-  border-radius: 9999px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  background: rgba(213, 94, 8, 0.28) !important;
+  border: 1px solid rgba(213, 94, 8, 0.52) !important;
+  border-radius: 9999px !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+  color: #ffffff !important;
   opacity: 1;
   transition: var(--cnx-transition);
 }
@@ -313,19 +487,20 @@ html.dark body header#navbar #topbar-cta-button a:hover span.absolute,
 html.dark body header#navbar #topbar-cta-button a:hover > span:first-child,
 html[data-theme="dark"] body header#navbar #topbar-cta-button a:hover span.absolute,
 html[data-theme="dark"] body header#navbar #topbar-cta-button a:hover > span:first-child,
+html.dark body a[data-component-name="primary-header-button"]:hover,
 html.dark body a.btn-primary:hover,
 html.dark body .btn-primary:hover,
 html[data-theme="dark"] body a.btn-primary:hover,
 html[data-theme="dark"] body .btn-primary:hover {
-  background: rgba(213, 94, 8, 0.38);
-  border-color: rgba(213, 94, 8, 0.75);
-  box-shadow: 0 4px 20px rgba(213, 94, 8, 0.3);
+  background: rgba(213, 94, 8, 0.38) !important;
+  border-color: rgba(213, 94, 8, 0.75) !important;
+  box-shadow: 0 4px 20px rgba(213, 94, 8, 0.3) !important;
   transform: translateY(-1px);
 }
 
 html.dark body header#navbar #topbar-cta-button a span,
 html[data-theme="dark"] body header#navbar #topbar-cta-button a span {
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: 500;
   font-size: 13px;
 }
@@ -333,31 +508,45 @@ html[data-theme="dark"] body header#navbar #topbar-cta-button a span {
 /* Top Navigation Tabs in Dark Mode */
 html.dark body .nav-tabs .nav-tabs-item[data-active="true"],
 html[data-theme="dark"] body .nav-tabs .nav-tabs-item[data-active="true"] {
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: 500;
 }
 
 html.dark body .nav-tabs .nav-tabs-item[data-active="true"] > div,
 html[data-theme="dark"] body .nav-tabs .nav-tabs-item[data-active="true"] > div {
-  background-color: #d55e08;
+  background-color: #d55e08 !important;
 }
 
-/* Sidebar Active Item in Dark Mode: Translucent Frost Glass */
+html.dark body .nav-tabs .nav-tabs-item:hover {
+  color: #f97316 !important;
+}
+
+/* Sidebar in Dark Mode: Translucent Frost Glass */
 html.dark body ul.sidebar-group a[aria-current="page"],
-html[data-theme="dark"] body ul.sidebar-group a[aria-current="page"] {
-  background: rgba(213, 94, 8, 0.28);
-  border: 1px solid rgba(213, 94, 8, 0.52);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+html.dark body ul.sidebar-group li[data-active="true"] > a,
+html[data-theme="dark"] body ul.sidebar-group a[aria-current="page"],
+html[data-theme="dark"] body ul.sidebar-group li[data-active="true"] > a {
+  background: rgba(213, 94, 8, 0.28) !important;
+  border: 1px solid rgba(213, 94, 8, 0.52) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
   font-weight: 500;
 }
 
 html.dark body ul.sidebar-group a[aria-current="page"] *,
-html[data-theme="dark"] body ul.sidebar-group a[aria-current="page"] * {
-  color: #ffffff;
+html.dark body ul.sidebar-group li[data-active="true"] > a *,
+html[data-theme="dark"] body ul.sidebar-group a[aria-current="page"] *,
+html[data-theme="dark"] body ul.sidebar-group li[data-active="true"] > a * {
+  color: #ffffff !important;
+}
+
+html.dark body nav#sidebar-content a:hover,
+html.dark body ul.sidebar-group a:hover,
+html[data-theme="dark"] body ul.sidebar-group a:hover {
+  color: #f97316 !important;
 }
 
 /* Table of Contents / On this page in Dark Mode */
@@ -366,42 +555,73 @@ html.dark body nav#table-of-contents a[data-active="true"] *,
 html.dark body aside nav a[data-active="true"],
 html.dark body aside nav a[data-active="true"] * {
   color: #d55e08 !important;
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 html.dark body nav#table-of-contents a:hover,
 html.dark body aside nav a:hover {
-  color: #f97316;
+  color: #f97316 !important;
+}
+
+/* In-Text Links in Dark Mode */
+html.dark body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]),
+html[data-theme="dark"] body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]) {
+  color: #f97316 !important;
+  text-decoration-color: rgba(213, 94, 8, 0.4) !important;
+  transition: var(--cnx-transition);
+}
+
+html.dark body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]):hover,
+html[data-theme="dark"] body #content-area a:not(.card):not([class*="btn"]):not([role="tab"]):hover {
+  color: #ff9d54 !important;
+  text-decoration-color: #f97316 !important;
 }
 
 /* Dark Mode Content Cards */
 html.dark body a.card,
 html.dark body .card,
+html.dark body [data-component-name="card"],
 html[data-theme="dark"] body a.card,
 html[data-theme="dark"] body .card {
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
   transition: var(--cnx-transition);
 }
 
 html.dark body a.card:hover,
 html.dark body .card:hover,
+html.dark body [data-component-name="card"]:hover,
 html[data-theme="dark"] body a.card:hover,
 html[data-theme="dark"] body .card:hover {
-  border-color: rgba(213, 94, 8, 0.52);
-  background: rgba(213, 94, 8, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(213, 94, 8, 0.52) !important;
+  background: rgba(213, 94, 8, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
   transform: translateY(-1px);
+}
+
+html.dark body a.card:hover h2,
+html.dark body a.card:hover h3,
+html.dark body a.card:hover [data-component-part="card-title"],
+html[data-theme="dark"] body a.card:hover h2,
+html[data-theme="dark"] body a.card:hover h3 {
+  color: #f97316 !important;
+}
+
+html.dark body a.card svg,
+html.dark body .card svg,
+html.dark body [data-component-part="card-icon"],
+html[data-theme="dark"] body a.card svg {
+  color: #d55e08 !important;
 }
 
 /* Eyebrows & Category Badges in Dark Mode */
 html.dark body .eyebrow,
 html[data-theme="dark"] body .eyebrow {
-  color: #d55e08;
+  color: #d55e08 !important;
   font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -411,23 +631,88 @@ html[data-theme="dark"] body .eyebrow {
 /* Dark Mode Search Form & Shortcut Badge */
 html.dark body #search-bar-entry,
 html.dark body button:has(kbd) {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 html.dark body #search-bar-entry:hover,
 html.dark body button:has(kbd):hover {
-  border-color: rgba(213, 94, 8, 0.52);
-  color: #ffffff;
+  border-color: rgba(213, 94, 8, 0.52) !important;
+  color: #ffffff !important;
 }
 
 html.dark body kbd {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 4px !important;
+}
+
+/* Dark Mode Steps */
+html.dark body [data-component-name="steps"] [data-component-part="step-number"],
+html.dark body .step-number,
+html.dark body [data-component-name="steps"] [data-component-part="step-number"] span,
+html[data-theme="dark"] body [data-component-name="steps"] [data-component-part="step-number"] {
+  background-color: rgba(213, 94, 8, 0.25) !important;
+  border-color: #d55e08 !important;
+  color: #ffffff !important;
+}
+
+html.dark body [data-component-name="steps"] li::after,
+html.dark body [data-component-name="steps"] div.border-l {
+  border-color: rgba(213, 94, 8, 0.35) !important;
+}
+
+/* Dark Mode Tabs */
+html.dark body [role="tab"][aria-selected="true"],
+html.dark body [data-component-name="tabs"] button[data-state="active"],
+html[data-theme="dark"] body [role="tab"][aria-selected="true"] {
+  color: #ffffff !important;
+  border-bottom-color: #d55e08 !important;
+}
+
+html.dark body [role="tab"]:hover,
+html[data-theme="dark"] body [role="tab"]:hover {
+  color: #f97316 !important;
+}
+
+/* Dark Mode Accordions */
+html.dark body [data-component-name="accordion"] svg,
+html.dark body details svg,
+html[data-theme="dark"] body [data-component-name="accordion"] svg {
+  color: #d55e08 !important;
+}
+
+html.dark body [data-component-name="accordion"] button:hover,
+html[data-theme="dark"] body [data-component-name="accordion"] button:hover {
+  color: #f97316 !important;
+}
+
+/* Dark Mode Inline Code */
+html.dark body :not(pre) > code,
+html[data-theme="dark"] body :not(pre) > code {
+  color: #f97316 !important;
+  background: rgba(213, 94, 8, 0.12) !important;
+  border: 1px solid rgba(213, 94, 8, 0.25) !important;
   border-radius: 4px;
+  padding: 1.5px 5px;
+  font-size: 12px;
+}
+
+/* Dark Mode Updates / Changelog */
+html.dark body [data-component-name="update"] [data-component-part="update-label"],
+html.dark body div.update span[class*="badge"] {
+  background: rgba(213, 94, 8, 0.2) !important;
+  color: #f97316 !important;
+  border: 1px solid rgba(213, 94, 8, 0.45) !important;
+}
+
+html.dark body [data-component-name="update"] [data-component-part="update-dot"],
+html.dark body div.update div[class*="rounded-full"] {
+  background-color: #d55e08 !important;
+  border-color: #d55e08 !important;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -729,7 +1014,105 @@ html.dark body div[class*="callout"] span {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   6. Common Components & Typography Polish
+   6. Tailwind Primary Utility Catch-All (Guarantees Complete Isolation)
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* 6.1 Dark Mode Tailwind Primary Overrides (Forces Orange #D55E08 / #F97316) */
+html.dark body .text-primary,
+html.dark body [class*="text-primary"],
+html.dark body [class*="dark:text-primary"],
+html.dark body [class*="dark:text-primary-light"],
+html.dark body [class*="dark:text-primary-dark"] {
+  color: #d55e08 !important;
+}
+
+html.dark body .hover\:text-primary:hover,
+html.dark body [class*="hover:text-primary"]:hover,
+html.dark body [class*="hover:dark:text-primary"]:hover,
+html.dark body [class*="hover:dark:text-primary-light"]:hover {
+  color: #f97316 !important;
+}
+
+html.dark body .bg-primary,
+html.dark body [class*="bg-primary"],
+html.dark body [class*="dark:bg-primary"],
+html.dark body [class*="dark:bg-primary-dark"],
+html.dark body [class*="dark:bg-primary-light"] {
+  background-color: #d55e08 !important;
+}
+
+html.dark body .border-primary,
+html.dark body [class*="border-primary"],
+html.dark body [class*="dark:border-primary"],
+html.dark body [class*="dark:border-primary-dark"] {
+  border-color: rgba(213, 94, 8, 0.52) !important;
+}
+
+html.dark body .ring-primary,
+html.dark body [class*="ring-primary"],
+html.dark body [class*="dark:ring-primary"] {
+  --tw-ring-color: rgba(213, 94, 8, 0.52) !important;
+}
+
+html.dark body .fill-primary,
+html.dark body [class*="fill-primary"] {
+  fill: #d55e08 !important;
+}
+
+html.dark body .stroke-primary,
+html.dark body [class*="stroke-primary"] {
+  stroke: #d55e08 !important;
+}
+
+/* 6.2 Light Mode Tailwind Primary Overrides (Forces Navy #003DB3 / #002F8C) */
+html:not(.dark) body .text-primary,
+html:not(.dark) body [class*="text-primary"],
+html.light body .text-primary,
+html.light body [class*="text-primary"] {
+  color: #003db3 !important;
+}
+
+html:not(.dark) body .hover\:text-primary:hover,
+html:not(.dark) body [class*="hover:text-primary"]:hover,
+html.light body [class*="hover:text-primary"]:hover {
+  color: #002f8c !important;
+}
+
+html:not(.dark) body .bg-primary,
+html:not(.dark) body [class*="bg-primary"],
+html.light body .bg-primary,
+html.light body [class*="bg-primary"] {
+  background-color: #003db3 !important;
+}
+
+html:not(.dark) body .border-primary,
+html:not(.dark) body [class*="border-primary"],
+html.light body .border-primary,
+html.light body [class*="border-primary"] {
+  border-color: rgba(0, 61, 179, 0.35) !important;
+}
+
+html:not(.dark) body .ring-primary,
+html:not(.dark) body [class*="ring-primary"],
+html.light body .ring-primary,
+html.light body [class*="ring-primary"] {
+  --tw-ring-color: rgba(0, 61, 179, 0.35) !important;
+}
+
+html:not(.dark) body .fill-primary,
+html:not(.dark) body [class*="fill-primary"],
+html.light body [class*="fill-primary"] {
+  fill: #003db3 !important;
+}
+
+html:not(.dark) body .stroke-primary,
+html:not(.dark) body [class*="stroke-primary"],
+html.light body [class*="stroke-primary"] {
+  stroke: #003db3 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   7. Common Components, Tables, Badges & Pagination
    ────────────────────────────────────────────────────────────────────────── */
 html body table {
   font-size: 12.5px;
@@ -763,4 +1146,37 @@ html.dark body .badge {
   background: rgba(213, 94, 8, 0.15);
   color: #f97316;
   border: 1px solid rgba(213, 94, 8, 0.35);
+}
+
+/* Pagination / Footer Next & Prev Cards */
+html:not(.dark) body nav[aria-label="Pagination"] a:hover,
+html:not(.dark) body div.pagination a:hover {
+  border-color: rgba(0, 61, 179, 0.35) !important;
+  color: #003db3 !important;
+}
+
+html.dark body nav[aria-label="Pagination"] a:hover,
+html.dark body div.pagination a:hover {
+  border-color: rgba(213, 94, 8, 0.52) !important;
+  background: rgba(213, 94, 8, 0.08) !important;
+  color: #f97316 !important;
+}
+
+/* Global Selection & Focus Outlines */
+html:not(.dark) ::selection {
+  background: rgba(0, 61, 179, 0.2) !important;
+  color: #0f172a !important;
+}
+
+html.dark ::selection {
+  background: rgba(213, 94, 8, 0.35) !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) *:focus-visible {
+  outline-color: #003db3 !important;
+}
+
+html.dark *:focus-visible {
+  outline-color: #d55e08 !important;
 }
