@@ -324,84 +324,231 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   3. MERMAID — Paired theme diagrams
+   3. MERMAID — Paired theme diagrams (Solid Navy vs Translucent Frost)
    ────────────────────────────────────────────────────────────────────────── */
 @layer connex-mermaid {
-  html body #content-area svg[id^="mermaid"] {
+  html body svg[id],
+  html body #content-area svg[id],
+  html body .mermaid svg,
+  html body svg[id^="mermaid"] {
     background: transparent;
     font-family: var(--cnx-font-family);
+    display: block;
+    margin: 1.75rem auto;
   }
 
-  /* Light */
-  html:not(.dark) body #content-area svg[id] g.node rect,
-  html:not(.dark) body #content-area svg[id] g.node polygon,
-  html:not(.dark) body #content-area svg[id] g.node circle,
-  html:not(.dark) body #content-area svg[id] g.node path {
-    fill: #f8fafc;
-    stroke: rgba(0, 61, 179, 0.28);
-    stroke-width: 1.2px;
+  /* 3.1 Light Mode Mermaid (Navy Blue #003DB3 Architecture) */
+  html:not(.dark) body svg[id] g.node rect,
+  html:not(.dark) body svg[id] g.node polygon,
+  html:not(.dark) body svg[id] g.node circle,
+  html:not(.dark) body svg[id] g.node ellipse,
+  html:not(.dark) body svg[id] g.node path,
+  html:not(.dark) body .mermaid svg g.node rect,
+  html:not(.dark) body .mermaid svg g.node polygon,
+  html:not(.dark) body .mermaid svg g.node circle,
+  html:not(.dark) body .mermaid svg g.node path {
+    fill: #ffffff;
+    stroke: rgba(0, 61, 179, 0.35);
+    stroke-width: 1.25px;
+    rx: 8px;
+    ry: 8px;
+    filter: drop-shadow(0 1px 2px rgba(0, 61, 179, 0.06));
   }
 
-  html:not(.dark) body #content-area svg[id] g.cluster rect {
-    fill: rgba(0, 61, 179, 0.04);
-    stroke: rgba(0, 61, 179, 0.2);
+  html:not(.dark) body svg[id] g.cluster rect,
+  html:not(.dark) body .mermaid svg g.cluster rect {
+    fill: rgba(0, 61, 179, 0.03);
+    stroke: rgba(0, 61, 179, 0.18);
+    stroke-width: 1px;
+    rx: 10px;
+    ry: 10px;
   }
 
-  html:not(.dark) body #content-area svg[id] g.node text,
-  html:not(.dark) body #content-area svg[id] g.node span,
-  html:not(.dark) body #content-area svg[id] g.node div {
+  html:not(.dark) body svg[id] g.node text,
+  html:not(.dark) body svg[id] g.node tspan,
+  html:not(.dark) body svg[id] g.node span,
+  html:not(.dark) body svg[id] g.node div,
+  html:not(.dark) body .mermaid svg g.node text,
+  html:not(.dark) body .mermaid svg g.node span,
+  html:not(.dark) body .mermaid svg g.node div {
     fill: #0f172a;
     color: #0f172a;
     font-size: 11.5px;
+    font-weight: 500;
   }
 
-  html:not(.dark) body #content-area svg[id] .flowchart-link,
-  html:not(.dark) body #content-area svg[id] g.edgePath path {
+  html:not(.dark) body svg[id] .flowchart-link,
+  html:not(.dark) body svg[id] g.edgePath path,
+  html:not(.dark) body .mermaid svg .flowchart-link,
+  html:not(.dark) body .mermaid svg g.edgePath path {
     stroke: #003db3;
+    stroke-width: 1.25px;
   }
 
-  html:not(.dark) body #content-area svg[id] marker path {
+  html:not(.dark) body svg[id] marker path,
+  html:not(.dark) body svg[id] marker circle,
+  html:not(.dark) body .mermaid svg marker path {
     fill: #003db3;
     stroke: #003db3;
   }
 
-  /* Dark */
-  html.dark body #content-area svg[id] g.node rect,
-  html.dark body #content-area svg[id] g.node polygon,
-  html.dark body #content-area svg[id] g.node circle,
-  html.dark body #content-area svg[id] g.node path {
-    fill: rgba(255, 255, 255, 0.05);
-    stroke: rgba(213, 94, 8, 0.45);
-    stroke-width: 1.2px;
+  html:not(.dark) body svg[id] .edgeLabel,
+  html:not(.dark) body svg[id] g.edgeLabel rect,
+  html:not(.dark) body svg[id] g.edgeLabel span,
+  html:not(.dark) body .mermaid svg .edgeLabel {
+    background: #f1f5f9;
+    fill: #f1f5f9;
+    color: #334155;
+    font-size: 10.5px;
+    font-weight: 500;
+    border-radius: 4px;
   }
 
-  html.dark body #content-area svg[id] g.cluster rect {
+  /* 3.2 Dark Mode Mermaid (Orange #D55E08 + Frost Glass Architecture) */
+  html.dark body svg[id] g.node rect,
+  html.dark body svg[id] g.node polygon,
+  html.dark body svg[id] g.node circle,
+  html.dark body svg[id] g.node ellipse,
+  html.dark body svg[id] g.node path,
+  html.dark body .mermaid svg g.node rect,
+  html.dark body .mermaid svg g.node polygon,
+  html.dark body .mermaid svg g.node circle,
+  html.dark body .mermaid svg g.node path {
+    fill: #1e293b;
+    stroke: rgba(213, 94, 8, 0.48);
+    stroke-width: 1.25px;
+    rx: 8px;
+    ry: 8px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  }
+
+  html.dark body svg[id] g.cluster rect,
+  html.dark body .mermaid svg g.cluster rect {
     fill: rgba(255, 255, 255, 0.03);
     stroke: rgba(255, 255, 255, 0.12);
+    stroke-width: 1px;
+    rx: 10px;
+    ry: 10px;
   }
 
-  html.dark body #content-area svg[id] g.node text,
-  html.dark body #content-area svg[id] g.node span,
-  html.dark body #content-area svg[id] g.node div {
-    fill: #ffffff;
-    color: #ffffff;
+  html.dark body svg[id] g.node text,
+  html.dark body svg[id] g.node tspan,
+  html.dark body svg[id] g.node span,
+  html.dark body svg[id] g.node div,
+  html.dark body .mermaid svg g.node text,
+  html.dark body .mermaid svg g.node span,
+  html.dark body .mermaid svg g.node div {
+    fill: #f8fafc;
+    color: #f8fafc;
     font-size: 11.5px;
+    font-weight: 500;
   }
 
-  html.dark body #content-area svg[id] .flowchart-link,
-  html.dark body #content-area svg[id] g.edgePath path {
-    stroke: rgba(213, 94, 8, 0.65);
+  html.dark body svg[id] .flowchart-link,
+  html.dark body svg[id] g.edgePath path,
+  html.dark body .mermaid svg .flowchart-link,
+  html.dark body .mermaid svg g.edgePath path {
+    stroke: rgba(213, 94, 8, 0.75);
+    stroke-width: 1.25px;
   }
 
-  html.dark body #content-area svg[id] marker path {
+  html.dark body svg[id] marker path,
+  html.dark body svg[id] marker circle,
+  html.dark body .mermaid svg marker path {
     fill: #d55e08;
     stroke: #d55e08;
   }
 
-  html.dark body #content-area svg[id] .edgeLabel,
-  html.dark body #content-area svg[id] g.edgeLabel rect {
+  html.dark body svg[id] .edgeLabel,
+  html.dark body svg[id] g.edgeLabel rect,
+  html.dark body svg[id] g.edgeLabel span,
+  html.dark body .mermaid svg .edgeLabel {
     background: #0f172a;
     fill: #0f172a;
-    color: #cbd5e1;
+    color: #94a3b8;
+    font-size: 10.5px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   4. CALLOUTS & ALERTS — Paired theme alerts (Warning / Note / Tip / Info)
+   ────────────────────────────────────────────────────────────────────────── */
+@layer connex-callouts {
+  html body [data-component-part="callout"],
+  html body [data-component-name="callout"],
+  html body div.callout,
+  html body div[class*="callout"],
+  html body div[class*="border-amber"],
+  html body div[class*="border-yellow"],
+  html body div[class*="bg-amber"],
+  html body div[class*="bg-yellow"] {
+    border-radius: 10px;
+    transition: var(--cnx-transition);
+  }
+
+  /* 4.1 Light Mode Warning / Note */
+  html:not(.dark) body [data-component-part="callout"],
+  html:not(.dark) body [data-component-name="callout"],
+  html:not(.dark) body div.callout,
+  html:not(.dark) body div[class*="callout"],
+  html:not(.dark) body div[class*="border-amber"],
+  html:not(.dark) body div[class*="border-yellow"],
+  html:not(.dark) body div[class*="bg-amber"],
+  html:not(.dark) body div[class*="bg-yellow"] {
+    background-color: rgba(213, 94, 8, 0.04);
+    border: 1px solid rgba(213, 94, 8, 0.25);
+    border-left: 3px solid #d55e08;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  html:not(.dark) body [data-component-part="callout"] svg,
+  html:not(.dark) body div.callout svg,
+  html:not(.dark) body div[class*="callout"] svg {
+    color: #d55e08;
+    fill: #d55e08;
+  }
+
+  html:not(.dark) body [data-component-part="callout"] p,
+  html:not(.dark) body [data-component-part="callout"] div,
+  html:not(.dark) body div.callout p,
+  html:not(.dark) body div[class*="callout"] p {
+    color: #1e293b;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* 4.2 Dark Mode Warning / Note (Translucent Frost Glass) */
+  html.dark body [data-component-part="callout"],
+  html.dark body [data-component-name="callout"],
+  html.dark body div.callout,
+  html.dark body div[class*="callout"],
+  html.dark body div[class*="border-amber"],
+  html.dark body div[class*="border-yellow"],
+  html.dark body div[class*="bg-amber"],
+  html.dark body div[class*="bg-yellow"] {
+    background-color: rgba(213, 94, 8, 0.08);
+    border: 1px solid rgba(213, 94, 8, 0.35);
+    border-left: 3px solid #d55e08;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  html.dark body [data-component-part="callout"] svg,
+  html.dark body div.callout svg,
+  html.dark body div[class*="callout"] svg {
+    color: #f97316;
+    fill: #f97316;
+  }
+
+  html.dark body [data-component-part="callout"] p,
+  html.dark body [data-component-part="callout"] div,
+  html.dark body div.callout p,
+  html.dark body div[class*="callout"] p {
+    color: #f1f5f9;
+    font-size: 13px;
+    line-height: 1.6;
   }
 }
