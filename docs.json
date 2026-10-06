@@ -29,15 +29,79 @@
     },
     {
       "source": "/releases",
-      "destination": "/support/releases"
+      "destination": "/resources/releases"
     },
     {
       "source": "/notices",
-      "destination": "/support/notices"
+      "destination": "/resources/notices"
     },
     {
       "source": "/faq",
-      "destination": "/support/faq"
+      "destination": "/resources/faq"
+    },
+    {
+      "source": "/guide/workspace/manual",
+      "destination": "/guide/workspace"
+    },
+    {
+      "source": "/guide/agent/manual",
+      "destination": "/guide/agent"
+    },
+    {
+      "source": "/guide/coworx/manual",
+      "destination": "/guide/coworx"
+    },
+    {
+      "source": "/guide/brains/manual",
+      "destination": "/guide/brains"
+    },
+    {
+      "source": "/guide/studio/manual",
+      "destination": "/guide/studio"
+    },
+    {
+      "source": "/governance/compliance",
+      "destination": "/security/soc2-controls"
+    },
+    {
+      "source": "/governance/data-sovereignty",
+      "destination": "/security/data-sovereignty"
+    },
+    {
+      "source": "/governance/zero-trust-auth",
+      "destination": "/security/zero-trust-auth"
+    },
+    {
+      "source": "/governance/cloud-security",
+      "destination": "/security/cloud-security"
+    },
+    {
+      "source": "/governance/terms-of-service",
+      "destination": "/compliance/terms-of-service"
+    },
+    {
+      "source": "/governance/privacy-policy",
+      "destination": "/compliance/privacy-policy"
+    },
+    {
+      "source": "/governance/billing-and-refund",
+      "destination": "/compliance/billing-and-refund"
+    },
+    {
+      "source": "/governance/marketing-policy",
+      "destination": "/compliance/marketing-policy"
+    },
+    {
+      "source": "/support/notices",
+      "destination": "/resources/notices"
+    },
+    {
+      "source": "/support/faq",
+      "destination": "/resources/faq"
+    },
+    {
+      "source": "/support/releases",
+      "destination": "/resources/releases"
     }
   ],
   "navigation": {
@@ -71,11 +135,11 @@
           {
             "group": "Core User Manuals",
             "pages": [
-              "guide/workspace/manual",
-              "guide/agent/manual",
-              "guide/coworx/manual",
-              "guide/brains/manual",
-              "guide/studio/manual"
+              "guide/workspace",
+              "guide/agent",
+              "guide/coworx",
+              "guide/brains",
+              "guide/studio"
             ]
           }
         ]
@@ -114,10 +178,10 @@
           {
             "group": "Trust & Data Sovereignty",
             "pages": [
-              "governance/compliance",
-              "governance/data-sovereignty",
-              "governance/zero-trust-auth",
-              "governance/cloud-security"
+              "security/soc2-controls",
+              "security/data-sovereignty",
+              "security/zero-trust-auth",
+              "security/cloud-security"
             ]
           }
         ]
@@ -126,12 +190,12 @@
         "tab": "Compliance",
         "groups": [
           {
-            "group": "Legal & Terms",
+            "group": "Legal & Policies",
             "pages": [
-              "governance/terms-of-service",
-              "governance/privacy-policy",
-              "governance/billing-and-refund",
-              "governance/marketing-policy"
+              "compliance/terms-of-service",
+              "compliance/privacy-policy",
+              "compliance/billing-and-refund",
+              "compliance/marketing-policy"
             ]
           }
         ]
@@ -144,9 +208,9 @@
             "pages": [
               "resources/docs-center-guide",
               "resources/support-desk",
-              "support/notices",
-              "support/faq",
-              "support/releases"
+              "resources/notices",
+              "resources/faq",
+              "resources/releases"
             ]
           }
         ]
@@ -193,15 +257,15 @@
     "links": [
       {
         "label": "Notices",
-        "href": "/support/notices"
+        "href": "/resources/notices"
       },
       {
         "label": "FAQ",
-        "href": "/support/faq"
+        "href": "/resources/faq"
       },
       {
         "label": "Release Notes",
-        "href": "/support/releases"
+        "href": "/resources/releases"
       },
       {
         "label": "Support",
