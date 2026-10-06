@@ -6,9 +6,23 @@ description: "Integration architecture, public REST interfaces, WebSocket stream
 
 The CONNEX Developer Hub provides the tools and protocols required to embed agentic intelligence and virtual file storage into third-party enterprise applications.
 
-```mermaid
-graph LR
-Client["External Client / Service"] --> API["Public REST & Webhook APIs"]
-    Client --> MCP["Model Context Protocol (MCP)"]
-    MCP --> OS["CONNEX Cloud OS Engines"]
-```
+## Integration Protocols
+
+<CardGroup cols={2}>
+  <Card title="Public REST & Webhook APIs" icon="globe" href="/developers/authentication-api">
+    Standard HTTP/JSON interfaces for user provisioning, VFS asset manipulation, and CoWorx message dispatching.
+  </Card>
+  <Card title="Model Context Protocol (MCP)" icon="cpu" href="/developers/mcp-server-spec">
+    Official standardized server specifications enabling AI agents and IDEs to execute CONNEX tools.
+  </Card>
+</CardGroup>
+
+---
+
+## Developer Architecture
+
+All public integrations adhere to three inviolable engineering standards:
+
+1. **Zero-Trust Token Verification**: Every HTTP request and WebSocket connection must present a cryptographically signed JWT token signed by Hybrid SSO.
+2. **Deterministic 3-Tier Caching**: Repetitive queries are served via L1 Memory or L2 Redis to maintain sub-300ms SLA.
+3. **Stateless Ticket Handshake (120s TTL)**: Cross-domain authentication flows utilize single-use UUIDv4 tickets burned upon initial consumption.

@@ -6,13 +6,22 @@ description: "Mastering CONNEX Agent autonomous orchestration, sub-channel promp
 
 The CONNEX Agent transcends single-turn prompt-response interactions. It autonomously deconstructs complex business intents, coordinates with Brain X knowledge assets, and leverages Studio VFS to deliver verified, high-density business deliverables.
 
-```mermaid
-graph LR
-Q["Natural Language Query"] --> Gate["L1 Gatekeeper (0.1s)"]
-    Gate --> Planner["Sub-LLM Query Planner"]
-    Planner --> Exec["Flagship Reasoning Core"]
-    Exec --> Out["Streaming & 18 Visual Charts"]
-```
+## Query Resolution Lifecycle
+
+<Steps>
+  <Step title="1. Natural Language Query Ingestion" icon="message-square">
+    User enters prompt via the bottom input dock, optionally attaching VFS context badges.
+  </Step>
+  <Step title="2. L1 Sub-100ms Gatekeeper" icon="zap">
+    Evaluates query intent and security boundary at near-zero latency.
+  </Step>
+  <Step title="3. Flagship Reasoning Execution" icon="cpu">
+    Synthesizes domain data with citation-grounded references and analytical models.
+  </Step>
+  <Step title="4. Real-Time Streaming & 18 Visual Charts" icon="sparkles">
+    Renders structured reports, interactive Recharts widgets, and live artifact codeblocks.
+  </Step>
+</Steps>
 
 ---
 

@@ -27,14 +27,20 @@ CoWorx is an enterprise-grade collaboration engine providing structured project 
 
 CoWorx integrates real-time messaging with the CONNEX 3-tier caching hierarchy to deliver sub-50ms message delivery across multi-device enterprise sessions.
 
-```mermaid
-graph LR
-
-    A["Client UI (React/SWR)"] -->|"SSE / HTTP POST"| B["FastAPI Async Gateway"]
-    B -->|"L1 Memory / L2 Redis"| C["Pub/Sub Message Bus"]
-    C -->|"Persistent Sync"| D["Isolated Firestore (KR/US)"]
-    C -->|"Broadcast"| E["Active Session Streams"]
-```
+<Steps>
+  <Step title="1. Dispatch Layer (React UI & SWR)" icon="message-square">
+    Optimistic UI dispatch over HTTP POST with instant local message append.
+  </Step>
+  <Step title="2. Async Ingestion (FastAPI Gateway)" icon="server">
+    Non-blocking validation and session token claim verification under 10ms.
+  </Step>
+  <Step title="3. Pub/Sub Message Bus (L2 Redis)" icon="database">
+    High-throughput Fanout queue broadcasting messages across active cluster nodes.
+  </Step>
+  <Step title="4. Real-Time Propagation & Persistence" icon="radio">
+    Broadcasts SSE events to active client sessions while persisting records to regional Firestore (`accounts-kr` / `accounts-us`).
+  </Step>
+</Steps>
 
 ---
 

@@ -6,13 +6,20 @@ description: "Defense-in-depth architecture leveraging GKE L7 Gateway API, Cloud
 
 CONNEX Cloud OS is deployed across private Google Kubernetes Engine (GKE) clusters and hardened cloud infrastructures engineered to meet the strictest enterprise security and compliance standards.
 
-```mermaid
-graph TD
-    Ingress["Cloud Armor WAF L7 Inspection"] --> GW["GKE L7 External Managed Gateway"]
-    GW --> Pod["Private GKE Workload Pods (WIF Identity)"]
-    Pod --> Enc["Zero-Knowledge Envelope Encryption Engine"]
-    Enc --> KMS["Cloud KMS (Customer-Managed Encryption Key - CMEK)"]
-```
+<CardGroup cols={2}>
+  <Card title="Cloud Armor L7 WAF" icon="shield-check">
+    Intercepts SQLi, XSS, and DDoS traffic before reaching internal Kubernetes clusters.
+  </Card>
+  <Card title="GKE Gateway API" icon="network">
+    Managed L7 routing with dynamic multi-region IP and Google-managed certificate maps.
+  </Card>
+  <Card title="Workload Identity (WIF)" icon="key-round">
+    Zero static JSON keys; pods authenticate directly via least-privilege IAM roles.
+  </Card>
+  <Card title="KMS Envelope Encryption" icon="lock">
+    Two-tier AES-256-GCM + Customer-Managed Encryption Keys (CMEK) residing in Cloud KMS.
+  </Card>
+</CardGroup>
 
 ---
 
@@ -28,13 +35,20 @@ graph TD
 
 For mission-critical enterprise workloads, CONNEX implements a storage- and framework-agnostic **Zero-Knowledge Envelope Encryption** architecture. This mechanism ensures that neither platform operators nor cloud providers can access customer file contents in plaintext.
 
-```mermaid
-graph LR
-    Plaintext["Customer Asset"] -->|AES-256-GCM| Ciphertext["Encrypted Blob (VFS / GCS)"]
-    DEK["Unique Ephemeral DEK"] --> Plaintext
-    DEK -->|Wrapped by KEK| WrappedDEK["Wrapped DEK Metadata"]
-    KEK["Cloud KMS Sovereign KEK (CMEK)"] --> DEK
-```
+<Steps>
+  <Step title="1. Unique Ephemeral DEK Generation" icon="key">
+    A random AES-256-GCM Data Encryption Key (DEK) is generated with a unique 96-bit nonce for the asset.
+  </Step>
+  <Step title="2. Client-Side Asset Encryption" icon="lock">
+    The customer document is encrypted directly in-memory; plaintext never touches persistent storage.
+  </Step>
+  <Step title="3. Hardware KEK Wrapping (CMEK)" icon="shield">
+    The DEK is wrapped by the Customer-Managed Key Encryption Key (KEK) inside Cloud KMS HSM.
+  </Step>
+  <Step title="4. Ciphertext & Wrapped DEK Persistence" icon="database">
+    Encrypted blob and wrapped metadata are stored in isolated regional Firestore/GCS buckets.
+  </Step>
+</Steps>
 
 ### 1. Two-Tier Key Architecture
 - **Data Encryption Key (DEK)**: Each document and file version is encrypted using a unique, cryptographically random AES-256-GCM key with a 96-bit per-blob nonce. Nonces are never reused, even when re-encrypting updated file revisions.
@@ -50,13 +64,20 @@ graph LR
 
 The cornerstone of CONNEX data sovereignty is the **Instant Cryptographic Kill Switch**. If an enterprise client detects an internal incident, terminates a contract, or experiences an administrative compliance trigger, they can revoke platform data access instantaneously without relying on provider intervention.
 
-```mermaid
-graph TD
-    Action["Customer Disables/Destroys Key in KMS"] --> ReadReq["User / Agent Read Request"]
-    ReadReq --> KMSCheck["Envelope Engine Requests KEK Unwrap"]
-    KMSCheck -->|KMS Returns 403 / Disabled| Revoked["KeyAccessRevokedError Triggered"]
-    Revoked -->|Immediate Fail-Closed| Response["HTTP 423 Locked (Access Cryptographically Terminated)"]
-```
+<Steps>
+  <Step title="1. Customer Key Revocation" icon="ban">
+    Customer disables or destroys their CMEK key in Google Cloud KMS / AWS KMS.
+  </Step>
+  <Step title="2. Read Request & Hardware KMS Check" icon="search">
+    Upon subsequent user/agent access, the envelope engine requests KEK unwrapping from Cloud KMS.
+  </Step>
+  <Step title="3. KeyAccessRevokedError Triggered" icon="alert-triangle">
+    Cloud KMS returns 403 / Disabled; the platform raises `KeyAccessRevokedError` with zero retry fallthrough.
+  </Step>
+  <Step title="4. Fail-Closed HTTP 423 Response" icon="lock">
+    All downstream reads immediately terminate with **HTTP 423 Locked / Key Revoked**.
+  </Step>
+</Steps>
 
 ### 1. Zero-Delay Hardware Enforcement
 When a customer disables or destroys their KMS key (or revokes the platform's IAM access grant), Cloud KMS immediately denies all subsequent `cryptoKeys.decrypt` requests.

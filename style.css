@@ -852,282 +852,31 @@ html body div[class*="mermaid"] svg {
   margin: 1.75rem auto;
 }
 
-/* 4.1 Light Mode Mermaid (Pure White #ffffff EdgeLabel Backdrop + Solid Navy #003DB3 Line-Art) */
-html:not(.dark) body #__next svg[id^="mermaid"] g.node rect,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node polygon,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node circle,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node ellipse,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node path,
-html:not(.dark) body #__next svg[id^="mermaid"] .node rect,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="node"] rect,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="node"] path,
-html:not(.dark) body svg[id^="mermaid"] g.node rect,
-html:not(.dark) body svg[id^="mermaid"] g.node polygon,
-html:not(.dark) body svg[id^="mermaid"] g.node circle,
-html:not(.dark) body svg[id^="mermaid"] g.node ellipse,
-html:not(.dark) body svg[id^="mermaid"] g.node path,
-html:not(.dark) body svg[id^="mermaid"] [class*="node"] rect,
-html:not(.dark) body svg[id^="mermaid"] [class*="node"] path,
-html:not(.dark) body .mermaid svg g.node rect,
-html.light body .mermaid svg rect {
-  fill: transparent;
+/* ──────────────────────────────────────────────────────────────────────────
+   4. HYBRID NATIVE ARCHITECTURE & CLEAN FALLBACK DIAGRAM STANDARD
+   ────────────────────────────────────────────────────────────────────────── */
+html body .mermaid svg,
+html body svg[id^="mermaid"] {
   background: transparent;
-  background-color: transparent;
-  stroke: #003db3;
-  stroke-width: 1.25px;
-  rx: 8px;
-  ry: 8px;
+  font-family: var(--font-family-base);
+  display: block;
+  margin: 1.75rem auto;
 }
 
-html:not(.dark) body #__next svg[id^="mermaid"] g.cluster rect,
-html:not(.dark) body #__next svg[id^="mermaid"] g.subgraph rect,
-html:not(.dark) body #__next svg[id^="mermaid"] .cluster rect,
-html:not(.dark) body svg[id^="mermaid"] g.cluster rect,
-html:not(.dark) body svg[id^="mermaid"] g.subgraph rect,
-html:not(.dark) body svg[id^="mermaid"] .cluster rect {
-  fill: transparent;
-  background: transparent;
-  background-color: transparent;
-  stroke: rgba(0, 61, 179, 0.45);
-  stroke-width: 1px;
-  rx: 10px;
-  ry: 10px;
-}
-
-html:not(.dark) body #__next svg[id^="mermaid"] g.node text,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node tspan,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node span,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node div,
-html:not(.dark) body #__next svg[id^="mermaid"] g.node p,
-html:not(.dark) body #__next svg[id^="mermaid"] .node text,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="node"] text,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="node"] tspan,
-html:not(.dark) body svg[id^="mermaid"] g.node text,
-html:not(.dark) body svg[id^="mermaid"] g.node tspan,
-html:not(.dark) body svg[id^="mermaid"] g.node span,
-html:not(.dark) body svg[id^="mermaid"] g.node div,
-html:not(.dark) body svg[id^="mermaid"] [class*="node"] text,
-html:not(.dark) body svg[id^="mermaid"] [class*="node"] tspan,
-html.light body .mermaid svg g.node text {
+/* Light Mode Clean Fallback */
+html:not(.dark) body .mermaid svg text,
+html:not(.dark) body svg[id^="mermaid"] text {
   fill: #003db3;
   color: #003db3;
   font-family: var(--font-family-base);
-  font-size: 11.5px;
-  font-weight: 500;
 }
 
-html:not(.dark) body #__next svg[id^="mermaid"] .flowchart-link,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgePath path,
-html:not(.dark) body #__next svg[id^="mermaid"] path.flowchart-link,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="edgePath"] path,
-html:not(.dark) body #__next svg[id^="mermaid"] path.path,
-html:not(.dark) body svg[id^="mermaid"] .flowchart-link,
-html:not(.dark) body svg[id^="mermaid"] g.edgePath path,
-html:not(.dark) body svg[id^="mermaid"] [class*="edgePath"] path,
-html:not(.dark) body svg[id^="mermaid"] path.path,
-html:not(.dark) body svg[id^="mermaid"] path.flowchart-link {
-  stroke: #003db3;
-  stroke-width: 1.25px;
-}
-
-html:not(.dark) body #__next svg[id^="mermaid"] marker path,
-html:not(.dark) body #__next svg[id^="mermaid"] marker circle,
-html:not(.dark) body #__next svg[id^="mermaid"] marker polygon,
-html:not(.dark) body svg[id^="mermaid"] marker path,
-html:not(.dark) body svg[id^="mermaid"] marker circle,
-html:not(.dark) body svg[id^="mermaid"] marker polygon {
-  fill: #003db3;
-  stroke: #003db3;
-}
-
-/* Light Mode: Seamless Pure White (#ffffff) Edge Label Backdrop */
-html:not(.dark) body #__next svg[id^="mermaid"] .edgeLabel,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel rect,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel .label,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel foreignObject,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel foreignObject div,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel foreignObject span,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel foreignObject p,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="edgeLabel"] rect,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="edgeLabel"] div,
-html:not(.dark) body #__next svg[id^="mermaid"] [class*="edgeLabel"] span,
-html:not(.dark) body svg[id^="mermaid"] .edgeLabel,
-html:not(.dark) body svg[id^="mermaid"] g.edgeLabel,
-html:not(.dark) body svg[id^="mermaid"] g.edgeLabel rect,
-html:not(.dark) body svg[id^="mermaid"] g.edgeLabel foreignObject div,
-html:not(.dark) body svg[id^="mermaid"] [class*="edgeLabel"] rect,
-html:not(.dark) body svg[id^="mermaid"] [class*="edgeLabel"] div,
-html:not(.dark) body .mermaid svg .edgeLabel,
-html:not(.dark) body .mermaid svg g.edgeLabel rect,
-html:not(.dark) body .mermaid svg foreignObject div {
-  background: #ffffff;
-  background-color: #ffffff;
-  fill: #ffffff;
-  color: #003db3;
-  font-family: var(--font-family-base);
-  font-size: 10.5px;
-  font-weight: 500;
-  border-radius: 4px;
-  border: none;
-  box-shadow: none;
-}
-
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel text,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel tspan,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel span,
-html:not(.dark) body #__next svg[id^="mermaid"] g.edgeLabel div,
-html:not(.dark) body svg[id^="mermaid"] g.edgeLabel text,
-html:not(.dark) body svg[id^="mermaid"] g.edgeLabel tspan,
-html:not(.dark) body svg[id^="mermaid"] g.edgeLabel span,
-html:not(.dark) body svg[id^="mermaid"] g.edgeLabel div {
-  fill: #003db3;
-  color: #003db3;
-}
-
-/* 4.2 Dark Mode Mermaid (Translucent Dark Glass #0d0a0f EdgeLabel Backdrop + Orange #D55E08 Line-Art) */
-html.dark body #__next svg[id^="mermaid"] g.node rect,
-html.dark body #__next svg[id^="mermaid"] g.node polygon,
-html.dark body #__next svg[id^="mermaid"] g.node circle,
-html.dark body #__next svg[id^="mermaid"] g.node ellipse,
-html.dark body #__next svg[id^="mermaid"] g.node path,
-html.dark body #__next svg[id^="mermaid"] .node rect,
-html.dark body #__next svg[id^="mermaid"] [class*="node"] rect,
-html.dark body #__next svg[id^="mermaid"] [class*="node"] path,
-html.dark body svg[id^="mermaid"] g.node rect,
-html.dark body svg[id^="mermaid"] g.node polygon,
-html.dark body svg[id^="mermaid"] g.node circle,
-html.dark body svg[id^="mermaid"] g.node ellipse,
-html.dark body svg[id^="mermaid"] g.node path,
-html.dark body svg[id^="mermaid"] [class*="node"] rect,
-html.dark body svg[id^="mermaid"] [class*="node"] path,
-html.dark body .mermaid svg g.node rect,
-html[data-theme="dark"] body #__next svg[id^="mermaid"] g.node rect,
-html[data-theme="dark"] body svg[id^="mermaid"] g.node rect {
-  fill: transparent;
-  background: transparent;
-  background-color: transparent;
-  stroke: #d55e08;
-  stroke-width: 1.25px;
-  rx: 8px;
-  ry: 8px;
-}
-
-html.dark body #__next svg[id^="mermaid"] g.cluster rect,
-html.dark body #__next svg[id^="mermaid"] g.subgraph rect,
-html.dark body #__next svg[id^="mermaid"] .cluster rect,
-html.dark body svg[id^="mermaid"] g.cluster rect,
-html.dark body svg[id^="mermaid"] g.subgraph rect,
-html.dark body svg[id^="mermaid"] .cluster rect,
-html[data-theme="dark"] body #__next svg[id^="mermaid"] g.cluster rect,
-html[data-theme="dark"] body svg[id^="mermaid"] g.cluster rect {
-  fill: transparent;
-  background: transparent;
-  background-color: transparent;
-  stroke: rgba(213, 94, 8, 0.45);
-  stroke-width: 1px;
-  rx: 10px;
-  ry: 10px;
-}
-
-html.dark body #__next svg[id^="mermaid"] g.node text,
-html.dark body #__next svg[id^="mermaid"] g.node tspan,
-html.dark body #__next svg[id^="mermaid"] g.node span,
-html.dark body #__next svg[id^="mermaid"] g.node div,
-html.dark body #__next svg[id^="mermaid"] g.node p,
-html.dark body #__next svg[id^="mermaid"] .node text,
-html.dark body #__next svg[id^="mermaid"] [class*="node"] text,
-html.dark body #__next svg[id^="mermaid"] [class*="node"] tspan,
-html.dark body svg[id^="mermaid"] g.node text,
-html.dark body svg[id^="mermaid"] g.node tspan,
-html.dark body svg[id^="mermaid"] g.node span,
-html.dark body svg[id^="mermaid"] g.node div,
-html.dark body svg[id^="mermaid"] [class*="node"] text,
-html.dark body svg[id^="mermaid"] [class*="node"] tspan,
-html[data-theme="dark"] body #__next svg[id^="mermaid"] g.node text,
-html[data-theme="dark"] body svg[id^="mermaid"] g.node text {
+/* Dark Mode Clean Fallback */
+html.dark body .mermaid svg text,
+html.dark body svg[id^="mermaid"] text {
   fill: #f97316;
   color: #f97316;
   font-family: var(--font-family-base);
-  font-size: 11.5px;
-  font-weight: 500;
-}
-
-html.dark body #__next svg[id^="mermaid"] .flowchart-link,
-html.dark body #__next svg[id^="mermaid"] g.edgePath path,
-html.dark body #__next svg[id^="mermaid"] path.flowchart-link,
-html.dark body #__next svg[id^="mermaid"] [class*="edgePath"] path,
-html.dark body #__next svg[id^="mermaid"] path.path,
-html.dark body svg[id^="mermaid"] .flowchart-link,
-html.dark body svg[id^="mermaid"] g.edgePath path,
-html.dark body svg[id^="mermaid"] [class*="edgePath"] path,
-html.dark body svg[id^="mermaid"] path.path,
-html.dark body svg[id^="mermaid"] path.flowchart-link,
-html[data-theme="dark"] body #__next svg[id^="mermaid"] g.edgePath path,
-html[data-theme="dark"] body svg[id^="mermaid"] g.edgePath path {
-  stroke: #d55e08;
-  stroke-width: 1.25px;
-}
-
-html.dark body #__next svg[id^="mermaid"] marker path,
-html.dark body #__next svg[id^="mermaid"] marker circle,
-html.dark body #__next svg[id^="mermaid"] marker polygon,
-html.dark body svg[id^="mermaid"] marker path,
-html.dark body svg[id^="mermaid"] marker circle,
-html.dark body svg[id^="mermaid"] marker polygon,
-html[data-theme="dark"] body #__next svg[id^="mermaid"] marker path,
-html[data-theme="dark"] body svg[id^="mermaid"] marker path {
-  fill: #d55e08;
-  stroke: #d55e08;
-}
-
-/* Dark Mode: Seamless Frost Dark Glass (#0d0a0f / #000000) Edge Label Backdrop */
-html.dark body #__next svg[id^="mermaid"] .edgeLabel,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel rect,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel .label,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel foreignObject,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel foreignObject div,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel foreignObject span,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel foreignObject p,
-html.dark body #__next svg[id^="mermaid"] [class*="edgeLabel"] rect,
-html.dark body #__next svg[id^="mermaid"] [class*="edgeLabel"] div,
-html.dark body #__next svg[id^="mermaid"] [class*="edgeLabel"] span,
-html.dark body svg[id^="mermaid"] .edgeLabel,
-html.dark body svg[id^="mermaid"] g.edgeLabel,
-html.dark body svg[id^="mermaid"] g.edgeLabel rect,
-html.dark body svg[id^="mermaid"] g.edgeLabel foreignObject div,
-html.dark body svg[id^="mermaid"] [class*="edgeLabel"] rect,
-html.dark body svg[id^="mermaid"] [class*="edgeLabel"] div,
-html.dark body .mermaid svg .edgeLabel,
-html.dark body .mermaid svg g.edgeLabel rect,
-html.dark body .mermaid svg foreignObject div,
-html[data-theme="dark"] body #__next svg[id^="mermaid"] .edgeLabel,
-html[data-theme="dark"] body svg[id^="mermaid"] .edgeLabel {
-  background: #0d0a0f;
-  background-color: #0d0a0f;
-  fill: #0d0a0f;
-  color: #f97316;
-  font-family: var(--font-family-base);
-  font-size: 10.5px;
-  font-weight: 500;
-  border-radius: 4px;
-  border: none;
-  box-shadow: none;
-}
-
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel text,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel tspan,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel span,
-html.dark body #__next svg[id^="mermaid"] g.edgeLabel div,
-html.dark body svg[id^="mermaid"] g.edgeLabel text,
-html.dark body svg[id^="mermaid"] g.edgeLabel tspan,
-html.dark body svg[id^="mermaid"] g.edgeLabel span,
-html.dark body svg[id^="mermaid"] g.edgeLabel div,
-html[data-theme="dark"] body #__next svg[id^="mermaid"] g.edgeLabel text,
-html[data-theme="dark"] body svg[id^="mermaid"] g.edgeLabel text {
-  fill: #f97316;
-  color: #f97316;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────

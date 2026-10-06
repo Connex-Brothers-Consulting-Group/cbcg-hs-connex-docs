@@ -69,18 +69,15 @@ cbcg-hs-docs/
 
 ---
 
-## SECTION V. ENTERPRISE MERMAID DIAGRAM STYLING STANDARD (PURE TRANSPARENT LINE-ART SSOT)
+## SECTION V. HYBRID NATIVE ARCHITECTURE & VISUALIZATION STANDARD (SSOT)
 
-### Article 4 (Solid Fill Ban & Symmetrical Edge-Label Backdrop Principle)
-1. **Solid Color Fill Ban**: Heavy solid fill blocks (`fill:#1E293B`, `fill:#007CFF`) and colored subgraph backgrounds are strictly prohibited.
-2. **Pure Transparent Line-Art**: All diagram nodes, clusters, and containers must maintain 100% transparent backgrounds (`fill: transparent`).
-3. **Symmetrical Edge-Label Backdrop**: To eliminate unsightly gray or semi-transparent rectangular artifacts over connector lines, edge-label backdrops must seamlessly match the mode canvas:
-   - **Light Mode**: Pure White (`#ffffff`) background with Solid Navy (`#003DB3`) text and lines.
-   - **Dark Mode**: Translucent Dark Glass (`#0d0a0f`) background with CONNEX Orange (`#D55E08` / `#F97316`) text and lines.
+### Article 4 (Mintlify Native Architecture Components - Stripe & Anthropic Standard)
+1. **Native Component-First Principle**: System architectures, infrastructure topologies, and data lifecycles must be declared primarily using Mintlify native components (`<Steps>`, `<CardGroup>`, `<Tabs>`, `<AccordionGroup>`) coupled with Lucide vector icons.
+2. **Infinite Resolution & Zero CSS Hacking**: Mintlify native components guarantee 100% reactive dual-theme adaptation (Solid Navy `#003DB3` in Light / CONNEX Orange `#D55E08` in Dark), 60 FPS mobile responsiveness, full accessibility, and `Cmd+K` global search indexability without complex CSS overrides.
 
-### Article 5 (Mintlify Native Theme Direct Dynamic Adaptation SSOT)
-1. **Zero Hardcoded Init Directive**: Never embed hardcoded `%%{init: ...}%%` directives into Mermaid diagram blocks. Hardcoding colors in `themeVariables` freezes the SVG at compile time and breaks Mintlify native dual-theme auto-switching.
-2. **Clean Standard Mermaid Protocol**: Write clean, standard Mermaid graph definitions (`graph TD`, `sequenceDiagram`, `stateDiagram`). Mintlify and `style.css` dynamically orchestrate theme highlights (`#003DB3` Light / `#D55E08` Dark) across 100% of devices and mode transitions with zero distortion.
+### Article 5 (Clean Sequence & Protocol Diagram Protocol)
+1. **Targeted Flow Applications**: Sequential API handshakes (e.g., ticket exchanges) or state transitions use clean, standard Mermaid syntax (`sequenceDiagram`, `stateDiagram`) without hardcoded init directives.
+2. **Zero `%%{init: ...}%%` Hardcoding**: Never embed static theme init directives inside MDX files to preserve native runtime theme flexibility.
 
 ---
 

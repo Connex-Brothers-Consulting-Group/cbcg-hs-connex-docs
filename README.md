@@ -1,14 +1,17 @@
-# CONNEX Cloud OS Documentation
+# CONNEX Cloud OS Documentation Center (SSOT)
 
-> **CONNEX CLOUD OS: ENTERPRISE AGENTIC CLOUD WORKSPACE PLATFORM (V31.0)**  
-> *NEXUS LAB 126 Constitutional & 88 Master Engineering Standards Aligned*  
-> *Flagship Ecosystem of HybridSphere | Connex Brothers Consulting Group Inc.*
+> **Flagship Ecosystem of HybridSphere | Connex Brothers Consulting Group Inc.**  
+> *NEXUS LAB 126 Constitutional & 88 Master Engineering Standards Aligned (V31.0)*
 
-## I. Constitutional Vision for the AI Era: NEXUS LAB 126 & ROIC Maximization
+[![Documentation Portal](https://img.shields.io/badge/Docs-docs.connex.hybridsphere.io-003DB3?style=for-the-badge&logo=google-chrome&logoColor=white)](https://docs.connex.hybridsphere.io)
+[![Enterprise App](https://img.shields.io/badge/Launch-CONNEX%20Cloud%20OS-D55E08?style=for-the-badge&logo=rocket&logoColor=white)](https://connex.hybridsphere.io)
+[![License](https://img.shields.io/badge/Governance-SOC%202%20Type%20II-green?style=for-the-badge&logo=shield)](https://docs.connex.hybridsphere.io/governance/compliance)
 
-Amid the exponential surge of artificial intelligence technologies, the vast majority of commercial AI offerings remain superficial **"Simple Wrappers"** around commodity native Large Language Models (LLMs). These shallow wrappers fail critically in mission-critical enterprise environments—exhibiting pervasive hallucinations, catastrophic token cost hemorrhage, and a complete absence of authentic domain expertise.
+---
 
-Under the **HybridSphere** enterprise brand of **Connex Brothers Consulting Group Inc. (CBCG)**, and grounded in the local **NEXUS LAB 126 Constitution for the AI Era**, we engineered an enterprise system designed to empower business professionals in complex problem-solving and executive decision-making. 
+## I. Apex Constitutional Vision: Human-AI Symbiosis
+
+Under the **HybridSphere** enterprise brand of **Connex Brothers Consulting Group Inc. (CBCG)**, and grounded in the **NEXUS LAB 126 Constitution for the AI Era**, we engineered an enterprise system designed to empower business professionals in complex problem-solving and executive decision-making. 
 
 The apex achievement of this vision is the **CONNEX Agentic Cloud AI OS Platform**—a symbiotic operating system combining **Human Intelligence (HI)** and **Artificial Intelligence (AI)** to systematically **maximize Return on Invested Capital (ROIC)** through optimized architecture and sovereign orchestration.
 
@@ -16,51 +19,14 @@ The apex achievement of this vision is the **CONNEX Agentic Cloud AI OS Platform
 
 ## II. The Organic Four-Pillar Ecosystem (Core 4 Pillars)
 
-CONNEX is not a monolithic chat box. It is an evolving, symbiotic workspace operating system uniting **four organic core applications: Agent, CoWorx, Brain X, and Studio**.
+CONNEX is an evolving, symbiotic workspace operating system uniting **four organic core applications: Agent, CoWorx, Brain X, and Studio**.
 
-```mermaid
-graph TD
-    subgraph UserLayer ["Human-In-The-Loop (HI)"]
-        User["Business Professionals & Enterprise Teams"]
-    end
-
-    subgraph CoreOS ["CONNEX Cloud OS Four Core Pillars"]
-        Agent["CONNEX Agent<br/>(Autonomous Orchestration)"]
-        CoWorx["CoWorx<br/>(Human-Agent Real-Time Collaboration)"]
-        BrainX["Brain X<br/>(Expertise & Experiential Intelligence)"]
-        Studio["Studio VFS<br/>(Zero-Hallucination Data Processing)"]
-    end
-
-    subgraph EnterpriseValue ["Business Impact"]
-        Value["ROIC Maximization & Flawless Executive Decisions"]
-    end
-
-    User <-->|High-Efficiency Collaboration| CoWorx
-    CoWorx <--> Agent
-    Agent <-->|Mass-Customized Domain Assets| BrainX
-    Agent <-->|Atomic File Mutations & Cost Optimization| Studio
-    Agent --> Value
-```
-
-### 1. CONNEX Agent (Autonomous Enterprise Orchestrator)
-- **Autonomous Ecosystem Navigation**: Independently traverses Brain X, Studio VFS, and CoWorx to execute complex multi-turn reasoning workflows.
-- **Apex Speed, Cost & Quality**: Governed by an ultra-fast sub-100ms L1 gatekeeper and a sub-LLM query planner that prevents wasteful token bleed, enforced by a deterministic 5-turn budget cap.
-- **Tiki-Taka Real-Time Streaming**: Delivers sub-50ms bidirectional streaming over WebSocket/SSE, accompanied by 18 dynamic Recharts analytical visualization layers.
-
-### 2. CoWorx (Human-Agent Symbiotic Collaboration)
-- **High-Efficiency Communication**: Facilitates real-time, context-aware collaboration between human team members and specialized autonomous agents within unified conversation threads.
-- **Enterprise Channel Governance & RBAC**: Features strict logical segmentation across Public Project, Confidential Executive, and Federated B2B channels, enforced by 7 enterprise roles.
-- **1-Click VFS Context Binding**: Seamlessly attaches isolated Virtual File System (VFS) folders and documents directly into chat threads without context distortion.
-
-### 3. Brain X (Qualitative Evolution of LLMs via Proprietary Knowledge Assets)
-- **Mass-Customized Problem Solving Beyond Basic RAG**: Injects CBCG’s 30 years of global management consulting acumen and structured domain experience into the semantic reasoning layer, transforming commodity LLMs into specialized decision partners.
-- **3-Step Brain Creator Wizard**: Empowers non-technical operators to build custom AI personas by collecting internal policies, agreements, and technical patents into isolated vector spaces.
-- **Strict Citation Fidelity**: Enforces mandatory chunk citations (`[ref:filename#section]`) for every factual assertion, eliminating speculative hallucination.
-
-### 4. Studio (Near-Zero Hallucination & Token Cost Minimization via VFS)
-- **Deterministic Data Processing**: Prevents raw, uncurated document flooding into LLM context windows; Studio parses, indexes, and serves only verified data chunks through a 3-tier caching hierarchy.
-- **7 Core Atomic Mutations**: Enforces atomic transaction safety (`create_folder`, `upload_file`, `delete_item_recursive`, `rename_item`, `move_items`, `move_item`, `clone_file`) with zero-latency synchronization via SSE `VFS_CHANGED` broadcasts.
-- **In-Browser Smart Editor & Multimodal Viewers**: Provides an OS-like workspace for viewing and editing code, Markdown, PDF, CSV, and media files directly in the browser.
+| Pillar | Core Mission | Key Differentiator |
+| :--- | :--- | :--- |
+| **1. CONNEX Agent** | Autonomous Enterprise Orchestration | Sub-100ms L1 gatekeeper, 5-turn budget cap, 18 Recharts dynamic visual charts |
+| **2. CoWorx** | Human-Agent Symbiotic Collaboration | Real-time channel messaging, thread context isolation, instant VFS file binding |
+| **3. Brain X** | Experiential Knowledge Engine | 30-year management consulting heuristics, 3-step wizard, mandatory chunk citations |
+| **4. Studio VFS** | Virtual File System & Storage | 7 core atomic mutations, 3-tier caching (L1/L2/L3), instant SSE `VFS_CHANGED` sync |
 
 ---
 

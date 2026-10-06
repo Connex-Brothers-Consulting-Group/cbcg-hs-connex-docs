@@ -6,11 +6,19 @@ description: "Virtual File System (VFS) operations, 7 core atomic mutations, and
 
 Studio is the dedicated Virtual File System (VFS) workspace for CONNEX Cloud OS, engineered to eliminate model hallucination and minimize intercontinental token transfer costs.
 
-```mermaid
-graph LR
-Tree["VFS Directory Tree"] --> Action["7 Core Atomic Mutations"]
-    Action --> SSE["SSE VFS_CHANGED Broadcast"]
-```
+## Real-Time Directory & Cache Lifecycle
+
+<Steps>
+  <Step title="1. Directory Tree Navigation" icon="folder-tree">
+    Hierarchical file explorer renders folder structures with zero frontend expansion overhead.
+  </Step>
+  <Step title="2. Atomic Mutation Execution" icon="wrench">
+    User actions invoke one of 7 verified atomic transactional handlers.
+  </Step>
+  <Step title="3. Instant SSE Broadcast" icon="radio">
+    Emits `VFS_CHANGED` event to synchronize all open browser sessions and IDE workspaces in real time.
+  </Step>
+</Steps>
 
 ---
 

@@ -6,16 +6,36 @@ description: "NEXUS LAB 126 Master Standards & HybridSphere Enterprise Architect
 
 CONNEX Cloud OS is built upon the **NEXUS LAB 126 Constitution** and **88 Master Engineering Standards (V31.0)**, delivering zero-defect reliability across multi-region cloud infrastructures.
 
-```mermaid
-graph TD
-Client["Client (Browser / PWA)"] -->|HTTPS 443 / WSS| Gateway["GKE L7 Gateway API"]
-    Gateway --> FastRouter["FastAPI Thin Orchestrator"]
-    FastRouter --> Auth["Hybrid SSO / Firebase Auth"]
-    FastRouter --> L1Cache["L1 In-Memory LRU Cache"]
-    FastRouter --> L2Cache["L2 Redis Cluster"]
-    FastRouter --> L3Storage["L3 Firestore / GCS (Multi-Region)"]
-    FastRouter --> AI["Semantic Kernel / Gemini Models"]
-```
+## End-to-End Request Lifecycle
+
+<Steps>
+  <Step title="1. Client Layer (Browser / PWA)" icon="globe">
+    Single-page React application delivering 60 FPS streaming, SWR zero-flicker state caching, and optimistic UI updates over HTTPS 443 & WSS.
+  </Step>
+  <Step title="2. Edge Security & Ingress (GKE L7 Gateway API)" icon="shield-check">
+    Managed GKE Gateway API with Google Cloud Armor WAF, SSL certificate mapping, and region-targeted fast-path dispatching.
+  </Step>
+  <Step title="3. Orchestration Engine (FastAPI Thin Orchestrator)" icon="server">
+    Ultra-low latency asynchronous API gateway routing requests under 300ms across distributed multi-region backend services.
+  </Step>
+</Steps>
+
+## Core Distributed Infrastructure
+
+<CardGroup cols={2}>
+  <Card title="Hybrid SSO & Zero-Trust Auth" icon="key" href="/governance/zero-trust-auth">
+    Firebase Auth credential decoupling with cryptographically signed 7-role JWT token claims.
+  </Card>
+  <Card title="3-Tier Caching & VFS Hierarchy" icon="database" href="/features/vfs">
+    L1 In-Memory LRU + L2 Redis cluster + L3 Cloud Storage with real-time SSE cache invalidation.
+  </Card>
+  <Card title="Multi-Region Data Sovereignty" icon="globe" href="/governance/data-sovereignty">
+    Physical database isolation between Seoul (`accounts-kr`) and Iowa (`accounts-us`) complying with PIPA/CCPA/GDPR.
+  </Card>
+  <Card title="Semantic Kernel & AI Models" icon="cpu" href="/features/agent">
+    Agentic RCAG document retrieval, citation fidelity verification, and standalone MCP tool protocol execution.
+  </Card>
+</CardGroup>
 
 ---
 

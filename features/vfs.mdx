@@ -27,14 +27,20 @@ The CONNEX Virtual File System (VFS) provides a cloud-native, hierarchical stora
 
 To ensure strict zero-drift synchronization across distributed sessions, all VFS mutations execute through atomic transactional handlers.
 
-```mermaid
-graph TD
-
-    A["VFS Mutation Request"] --> B["Atomic Storage Handler"]
-    B --> C["Invalidate L2 Redis Keys"]
-    C --> D["Publish SSE VFS_CHANGED Event"]
-    D --> E["Client React/SWR Tree Revalidation"]
-```
+<Steps>
+  <Step title="1. Mutation Dispatch" icon="file-plus">
+    Client triggers one of 7 atomic operations (`create_folder`, `upload_file`, `delete_item_recursive`, etc.).
+  </Step>
+  <Step title="2. Atomic Handler & Redis Invalidation" icon="trash-2">
+    Executes transactional storage mutation and instantly flushes user-scoped L2 Redis keys (`_invalidate_vfs_cache(user_id)`).
+  </Step>
+  <Step title="3. Real-Time SSE Broadcast" icon="radio">
+    Publishes global `VFS_CHANGED` event to all active sessions via Redis Pub/Sub.
+  </Step>
+  <Step title="4. 0ms Client Tree Revalidation" icon="refresh-cw">
+    Frontend SWR subscribers catch the SSE event and hydrate the updated file tree with zero manual refresh.
+  </Step>
+</Steps>
 
 | Operation | Action Trigger | Redis Invalidation | SSE Propagation |
 | :--- | :--- | :--- | :--- |
@@ -51,13 +57,13 @@ graph TD
 ## Context Injection & Single-Badge Governance
 
 <Steps>
-  <Step title="1. Select Document or Folder">
+  <Step title="1. Select Document or Folder" icon="cursor-click">
     In the explorer interface, click a folder or individual document. When a folder is selected, the input header renders **strictly a single folder badge**.
   </Step>
-  <Step title="2. Dynamic Backend Expansion">
+  <Step title="2. Dynamic Backend Expansion" icon="cpu">
     Frontends transmit the root folder identifier directly to the backend. The backend resolves child node pointers dynamically, avoiding payload bloat in client state.
   </Step>
-  <Step title="3. Grounded Citation Extraction">
+  <Step title="3. Grounded Citation Extraction" icon="quote">
     During agent generation, documents are sliced into vector embeddings and chunked with explicit section anchors (`[ref:filename#section]`).
   </Step>
 </Steps>
