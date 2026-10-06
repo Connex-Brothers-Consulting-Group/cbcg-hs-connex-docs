@@ -15,7 +15,7 @@
   "navigation": {
     "pages": [
       {
-        "group": "시작하기 (Getting Started)",
+        "group": "Getting Started",
         "pages": [
           "index",
           "quickstart",
@@ -23,7 +23,7 @@
         ]
       },
       {
-        "group": "핵심 기능 (Core Features)",
+        "group": "Core Features",
         "pages": [
           "features/coworx",
           "features/agent",
@@ -31,7 +31,7 @@
         ]
       },
       {
-        "group": "거버넌스 & 보안 (Governance & Security)",
+        "group": "Governance & Security",
         "pages": [
           "governance/data-sovereignty",
           "governance/zero-trust-auth",
@@ -39,7 +39,7 @@
         ]
       },
       {
-        "group": "릴리즈 & 지원 (Releases & Support)",
+        "group": "Releases & Support",
         "pages": [
           "releases",
           "notices",
@@ -65,25 +65,25 @@
   "navbar": {
     "links": [
       {
-        "label": "릴리즈 노트",
+        "label": "Releases",
         "href": "/releases"
       },
       {
-        "label": "공지사항",
+        "label": "Notices",
         "href": "/notices"
       },
       {
-        "label": "자주 묻는 질문",
+        "label": "FAQ",
         "href": "/faq"
       },
       {
-        "label": "지원 문의",
+        "label": "Support",
         "href": "mailto:support@hybridsphere.io"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "CONNEX 시작하기",
+      "label": "Launch CONNEX",
       "href": "https://connex.cloud"
     }
   },

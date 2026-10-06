@@ -1,21 +1,21 @@
 ---
-title: "제로 트러스트 인증 및 SSO"
-sidebarTitle: "제로 트러스트 인증"
-description: "암호화된 JWT 토큰 클레임과 120초 단일 사용 티켓 핸드셰이크 프로토콜"
+title: "Zero-Trust Authentication & SSO"
+sidebarTitle: "Zero-Trust Auth"
+description: "Cryptographically signed JWT token claims and 120-second single-use ticket handshake protocol"
 ---
 
-# 제로 트러스트 인증 (Zero-Trust Auth)
+# Zero-Trust Authentication & Identity
 
-CONNEX Cloud OS는 자체 데이터베이스에 비밀번호를 저장하지 않으며, 전 세계 보안 표준인 Firebase Auth 및 Google Identity를 통해 인증을 위임합니다.
+CONNEX Cloud OS maintains a strict zero internal password storage policy, delegating core credential validation entirely to Firebase Authentication and Google Identity.
 
 <Steps>
-  <Step title="120초 단일 사용 티켓 핸드셰이크">
-    크로스 도메인 SSO 리다이렉션 시 재전송 공격(Replay Attack)을 방지하기 위해 Redis에 매핑된 UUIDv4 티켓을 사용하며, 1회 교환 즉시 소각(Burn)됩니다.
+  <Step title="120-Second Single-Use Ticket Handshake">
+    Cross-domain SSO handshakes utilize cryptographically secure UUIDv4 tickets mapped in Redis with a 120-second TTL. Tickets are burned immediately upon first exchange (`/api/v1/auth/exchange`), preventing replay attacks.
   </Step>
-  <Step title="수학적 토큰 레벨 권한 검증">
-    사용자의 역할(`role`), 관할 국가(`home_country`), 관리자 권한 등이 JWT ID 토큰 클레임에 서명되어 주입되므로, 다운스트림 마이크로서비스는 DB 조회 없이 헤더 검증만으로 sub-1ms 인가를 수행합니다.
+  <Step title="Mathematical Token-Level Authorization">
+    User roles (`role`), jurisdictional tenancy (`home_country`), and admin privileges are signed directly into JWT ID token Custom Claims. Downstream microservices perform sub-1ms authorization checks without hitting central databases.
   </Step>
-  <Step title="7대 플랫폼 표준 역할 (RBAC)">
-    `super_admin`, `founders`, `devops`, `bizops`, `demo_cx`, `customer_b2b`, `customer_b2c`의 7대 권한 계층을 엄격히 통제합니다.
+  <Step title="7 Standard Enterprise RBAC Roles">
+    Access is rigorously governed across 7 explicit roles: `super_admin`, `founders`, `devops`, `bizops`, `demo_cx`, `customer_b2b`, and `customer_b2c`.
   </Step>
 </Steps>

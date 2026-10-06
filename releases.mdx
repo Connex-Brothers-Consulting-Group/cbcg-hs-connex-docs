@@ -1,45 +1,45 @@
 ---
-title: "CONNEX Cloud OS 릴리즈 노트"
-sidebarTitle: "릴리즈 노트 (Releases)"
-description: "CONNEX Cloud OS의 최신 버전 업데이트 및 개발 로드맵"
+title: "CONNEX Cloud OS Releases"
+sidebarTitle: "Release Notes"
+description: "Changelog, latest version improvements, and engineering roadmaps for CONNEX Cloud OS"
 ---
 
-# 릴리즈 히스토리 & 로드맵
+# Release History & Roadmap
 
-CONNEX Cloud OS의 버전별 주요 기능 개선 및 아키텍처 업데이트 내역입니다.
+Official changelog and version milestones for CONNEX Cloud OS.
 
-## Version 3.8.0 (2026.10.05) - 최신 안정 버전
+## Version 3.8.0 (2026.10.05) - Current Stable
 
-<Update label="V3.8.0" description="2026년 10월 05일 정식 릴리즈">
-### 🚀 주요 개선 사항 (Highlights)
-- **2x1 범용 그리드 레이아웃 표준화**: 반응형 뷰포트 전환 시 레이아웃 흔들림 없는 대칭형 2x1 그리드 적용
-- **3대 리소스 허브 (Resources Hub) 개편**:
-  - `01. 라이브 지원`: 4대 전문 지원 인박스 2x2 카드 그리드
-  - `02. 커뮤니케이션`: 중요 공지, 릴리즈 노트, GKE 클러스터 실시간 가동 현황
-  - `03. 문서센터`: docs.hybridsphere.io Mintlify SSOT 지식 엔진 연동
-- **SWR Zero-Flicker 캐시 안정화**: 캐시 재검증 시 텍스트 깜빡임 현상 원천 차단
-- **W3C `@layer` 3계층 CSS 고도화**: `!important` 0건의 순수 디자인 시스템 토큰 완결
+<Update label="V3.8.0" description="Official GA Release — October 05, 2026">
+### 🚀 Key Improvements & Highlights
+- **Universal 2x1 Grid Layout Architecture**: Standardized symmetrical 2x1 grid system eliminating viewport shifts during panel transitions
+- **3-Pillar Resources Hub Transformation**:
+  - `01. Live Support`: Dedicated 2x2 grid for 4 specialized support inboxes
+  - `02. Communication`: Official platform announcements, release notes, and GKE multi-region SLA telemetry
+  - `03. Documentation Center`: Direct deep-linking to Mintlify SSOT knowledge portal
+- **SWR Zero-Flicker Hydration Protocol**: Eliminates content flickering during background cache revalidation
+- **W3C `@layer` 3-Tier CSS Standardization**: Zero `!important` declarations across all global design tokens
 </Update>
 
 ---
 
 ## Version 3.7.0 (2026.09.28)
 
-<Update label="V3.7.0" description="2026년 9월 28일 정식 릴리즈">
-- **멀티 리전 GKE Gateway API 배포**: 서울(KR) 및 아이오와(US) 클러스터 L7 HTTPRoute 트래픽 스위칭
-- **초저지연 SSO 티켓 교환 프로토콜**: 120초 TTL 단일 사용 티켓 및 0ms 자동 소각 적용
-- **CoWorx 채널 아카이빙 기능 추가**: 비활성 협업 채널 보관 및 검색 지원
+<Update label="V3.7.0" description="Official Release — September 28, 2026">
+- **Multi-Region GKE Gateway API**: Seoul (KR) and Iowa (US) L7 HTTPRoute cross-cluster traffic switching
+- **Ultra-Low-Latency SSO Handshakes**: 120-second single-use UUIDv4 ticket exchange protocol with sub-millisecond burning
+- **CoWorx Channel Archiving**: Support for archiving and searching inactive collaboration channels
 </Update>
 
 ---
 
-## 향후 개발 로드맵 (Roadmap)
+## Engineering Roadmap
 
 <CardGroup cols={2}>
-  <Card title="Q4 2026: 모바일 반응형 터치 최적화" icon="mobile">
-    태블릿 및 모바일 기기를 위한 PWA 터치 인터랙션과 플로팅 에이전트 컨트롤 고도화
+  <Card title="Q4 2026: Mobile Responsive Touch Optimization" icon="mobile">
+    Enhanced PWA touch interactions and universal floating agent controls for tablets and mobile viewports
   </Card>
-  <Card title="Q1 2027: 온프레미스 에어갭 배포판" icon="server">
-    금융 및 국방 등 폐쇄망 환경을 위한 컨테이너 번들 독립 패키징 지원
+  <Card title="Q1 2027: Air-Gapped Enterprise Distribution" icon="server">
+    Independent container bundling and offline deployment packages for banking and regulated defense environments
   </Card>
 </CardGroup>

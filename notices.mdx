@@ -1,30 +1,30 @@
 ---
-title: "플랫폼 중요 공지사항"
-sidebarTitle: "공지사항 (Notices)"
-description: "CONNEX Cloud OS 및 HybridSphere 생태계의 주요 정책 변경, 보안 패치 및 점검 일정"
+title: "Platform Notices & Maintenance"
+sidebarTitle: "Notices"
+description: "Important platform announcements, scheduled maintenance windows, and security updates"
 ---
 
-# 중요 공지사항 (Platform Notices)
+# Platform Notices & Operational Logs
 
 <AccordionGroup>
-  <Accordion title="[점검] 2026년 10월 글로벌 인프라 및 DB 정기 보안 패치 안내 (2026.10.04)">
-    **일시**: 2026.10.04 02:00 ~ 03:00 (KST)  
-    **대상**: 서울(KR) 및 아이오와(US) GKE 클러스터, Firestore 데이터베이스  
-    **내용**: 글로벌 인프라 정기 보안 패치 및 데이터베이스 인덱스 최적화가 무중단으로 완료되었습니다.
+  <Accordion title="[Maintenance] October 2026 Global Infrastructure & DB Security Patches (2026.10.04)">
+    **Schedule**: 2026.10.04 02:00 ~ 03:00 (KST) / 2026.10.03 17:00 ~ 18:00 (UTC)  
+    **Scope**: Seoul (KR) & Iowa (US) GKE Clusters, Firestore Multi-Region Databases  
+    **Details**: Scheduled kernel security updates and multi-region database composite index optimizations completed with zero downtime.
   </Accordion>
 
-  <Accordion title="[안내] 서울(KR) - 아이오와(US) 리전 간 초저지연 백본망 증설 완료 (2026.10.03)">
-    **일시**: 2026.10.03 18:30 (KST)  
-    **내용**: 아시아-북미 간 전용 인터커넥트 백본망 대역폭을 확장하여 크로스 리전 메타데이터 동기화 지연을 120ms 미만으로 단축하였습니다.
+  <Accordion title="[Notice] Seoul (KR) — Iowa (US) Inter-Region Backbone Capacity Expansion (2026.10.03)">
+    **Time**: 2026.10.03 18:30 (KST)  
+    **Details**: Dedicated intercontinental interconnect bandwidth doubled, reducing cross-region metadata synchronization latency below 120ms.
   </Accordion>
 
-  <Accordion title="[공지] SOC 2 Type II 및 ISO 27001 연례 보안 인증 갱신 완료 (2026.10.01)">
-    **일시**: 2026.10.01 09:00 (KST)  
-    **내용**: 독립 감사기관을 통한 2026년도 SOC 2 Type II 및 ISO 27001 인증 갱신 감사가 성공적으로 완료되었습니다.
+  <Accordion title="[Notice] SOC 2 Type II & ISO 27001 Annual Recertification Completed (2026.10.01)">
+    **Time**: 2026.10.01 09:00 (KST)  
+    **Details**: Annual comprehensive third-party audit for SOC 2 Type II (CC8.1/CC8.2) and ISO/IEC 27001 was successfully concluded with zero non-conformities.
   </Accordion>
 
-  <Accordion title="[완료] 긴급 데이터베이스 인덱스 최적화 및 쿼리 지연 해소 조치 (2026.09.29)">
-    **일시**: 2026.09.29 23:45 (KST)  
-    **내용**: 고밀도 동시 접속 시 발생하던 특정 VFS 메타데이터 쿼리 지연을 복합 인덱스 추가를 통해 5ms 미만으로 완전 해소하였습니다.
+  <Accordion title="[Completed] Urgent Database Index Optimization & Query Latency Remediation (2026.09.29)">
+    **Time**: 2026.09.29 23:45 (KST)  
+    **Details**: Resolved transient VFS query contention under peak loads by deploying compound indexes, bringing p99 latency under 5ms.
   </Accordion>
 </AccordionGroup>

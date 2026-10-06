@@ -1,21 +1,21 @@
 ---
-title: "SOC 2 Type II 및 규정 준수"
-sidebarTitle: "컴플라이언스 & 감사"
-description: "SOC 2 Type II 및 ISO 27001 엔터프라이즈 보안 감사 및 변경 관리 거버넌스"
+title: "SOC 2 Type II & Statutory Compliance"
+sidebarTitle: "Compliance & Auditing"
+description: "SOC 2 Type II dual-stage PR deployment gates and enterprise cloud security perimeters"
 ---
 
-# 규정 준수 및 보안 감사 (Compliance)
+# Statutory Compliance & Auditing
 
-CONNEX Cloud OS 및 HybridSphere 생태계는 글로벌 최고 수준의 보안 컴플라이언스 기준을 준수합니다.
+CONNEX Cloud OS and the HybridSphere enterprise ecosystem are audited and engineered to satisfy world-class security benchmarks.
 
 <AccordionGroup>
-  <Accordion title="SOC 2 Type II 이중 PR 릴리즈 게이트 (CC8.1/CC8.2)">
-    모든 애플리케이션 코드 및 인프라 배포는 인간 관리자(HITL)의 소스 PR 승인과 ArgoCD 선언적 매니페스트 PR 승인을 거쳐야만 배포되는 엄격한 분리 통제를 따릅니다.
+  <Accordion title="SOC 2 Type II Dual-PR Release Gate (CC8.1/CC8.2)">
+    Every code change and infrastructure modification requires a dual-stage review process: Stage 1 Human-In-The-Loop source PR approval in the application repository, followed by Stage 2 declarative Kustomize deployment PR approval in ArgoCD.
   </Accordion>
-  <Accordion title="정적 키(JSON Key) 영구 금지 (Workload Identity)">
-    소스코드나 클라우드 환경에 정적 GCP 서비스 어카운트 JSON 키를 저장하는 행위를 영구 금지하며, GKE Workload Identity를 통해서만 임시 권한을 획득합니다.
+  <Accordion title="Zero Static JSON Service Account Keys (Workload Identity)">
+    Downloading, storing, or committing static GCP service account JSON keys is permanently banned. All Kubernetes pods authenticate dynamically via Workload Identity Federation.
   </Accordion>
-  <Accordion title="Cloud Armor WAF 및 DDoS 방어">
-    GKE 외부 L7 Gateway 전면에 Cloud Armor WAF 보안 정책을 적용하여 비정상 트래픽 및 웹 공격을 원천 차단합니다.
+  <Accordion title="Cloud Armor WAF & Multi-Region GKE Gateway">
+    External traffic traverses Google Cloud Armor WAF security policies and L7 Gateway API endpoints, intercepting DDoS vectors and malicious exploits at the perimeter.
   </Accordion>
 </AccordionGroup>
