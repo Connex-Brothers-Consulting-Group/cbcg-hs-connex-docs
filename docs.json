@@ -7,6 +7,16 @@
     "light": "#D55E08",
     "dark": "#002266"
   },
+  "fonts": {
+    "heading": {
+      "family": "Plus Jakarta Sans",
+      "weight": 500
+    },
+    "body": {
+      "family": "Plus Jakarta Sans",
+      "weight": 300
+    }
+  },
   "favicon": "/favicon.svg",
   "logo": {
     "light": "/logo/light.svg",
