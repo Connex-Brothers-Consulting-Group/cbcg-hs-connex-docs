@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "sequoia",
-  "name": "CONNEX Cloud OS",
+  "name": "CONNEX",
   "appearance": {
     "default": "dark"
   },
@@ -116,5 +116,6 @@
     "socials": {
       "github": "https://github.com/Connex-Brothers-Consulting-Group"
     }
-  }
+  },
+  "description": "AGENTIC WORKSPACE AI OS PLATFORM 2.0"
 }
