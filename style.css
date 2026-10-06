@@ -180,7 +180,8 @@
 
   /* 2.1 Navbar utility links — transparent reset */
   html body header#navbar .navbar-link a,
-  html body header#navbar nav ul li.navbar-link a {
+  html body header#navbar nav ul li.navbar-link a,
+  html body header#navbar nav a:not([class*="bg-primary"]):not([data-component-name="button"]) {
     background: transparent;
     border: none;
     box-shadow: none;
@@ -188,63 +189,137 @@
     transition: var(--cnx-transition);
   }
 
-  html:not(.dark) body header#navbar .navbar-link a {
+  html:not(.dark) body header#navbar .navbar-link a,
+  html:not(.dark) body header#navbar nav ul li.navbar-link a,
+  html:not(.dark) body header#navbar nav a:not([class*="bg-primary"]):not([data-component-name="button"]) {
     color: #374151;
   }
 
-  html.dark body header#navbar .navbar-link a {
+  html.dark body header#navbar .navbar-link a,
+  html.dark body header#navbar nav ul li.navbar-link a,
+  html.dark body header#navbar nav a:not([class*="bg-primary"]):not([data-component-name="button"]) {
     color: #d1d5db;
   }
 
-  html body header#navbar .navbar-link a:hover {
+  html body header#navbar .navbar-link a:hover,
+  html body header#navbar nav a:hover {
     color: var(--cnx-accent);
   }
 
   /* 2.2 Primary CTA (Launch CONNEX) */
   html body header#navbar #topbar-cta-button,
-  html body header#navbar #topbar-cta-button a {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
-
-  html body header#navbar #topbar-cta-button a span.absolute,
-  html body header#navbar #topbar-cta-button a > span:first-child {
+  html body header#navbar #topbar-cta-button a,
+  html body header#navbar a[href*="connex.cloud"],
+  html body header#navbar a.bg-primary,
+  html body header#navbar button.bg-primary,
+  html body header#navbar [data-component-name="button"] {
     border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 500;
     transition: var(--cnx-transition);
   }
 
-  html:not(.dark) body header#navbar #topbar-cta-button a span.absolute,
-  html:not(.dark) body header#navbar #topbar-cta-button a > span:first-child {
+  html:not(.dark) body header#navbar #topbar-cta-button,
+  html:not(.dark) body header#navbar #topbar-cta-button a,
+  html:not(.dark) body header#navbar a[href*="connex.cloud"],
+  html:not(.dark) body header#navbar a.bg-primary,
+  html:not(.dark) body header#navbar button.bg-primary,
+  html:not(.dark) body header#navbar [data-component-name="button"] {
+    background-color: var(--cnx-accent);
     background: var(--cnx-accent);
+    color: #ffffff;
     border: none;
     box-shadow: 0 2px 8px rgba(0, 61, 179, 0.22);
   }
 
-  html:not(.dark) body header#navbar #topbar-cta-button a:hover span.absolute,
-  html:not(.dark) body header#navbar #topbar-cta-button a:hover > span:first-child {
+  html:not(.dark) body header#navbar #topbar-cta-button:hover,
+  html:not(.dark) body header#navbar #topbar-cta-button a:hover,
+  html:not(.dark) body header#navbar a[href*="connex.cloud"]:hover,
+  html:not(.dark) body header#navbar a.bg-primary:hover,
+  html:not(.dark) body header#navbar button.bg-primary:hover,
+  html:not(.dark) body header#navbar [data-component-name="button"]:hover {
+    background-color: var(--cnx-accent-hover);
     background: var(--cnx-accent-hover);
     box-shadow: 0 4px 14px rgba(0, 61, 179, 0.3);
   }
 
-  html.dark body header#navbar #topbar-cta-button a span.absolute,
-  html.dark body header#navbar #topbar-cta-button a > span:first-child {
+  html.dark body header#navbar #topbar-cta-button,
+  html.dark body header#navbar #topbar-cta-button a,
+  html.dark body header#navbar a[href*="connex.cloud"],
+  html.dark body header#navbar a.bg-primary,
+  html.dark body header#navbar button.bg-primary,
+  html.dark body header#navbar [data-component-name="button"] {
+    background-color: var(--cnx-accent-frost-bg);
     background: var(--cnx-accent-frost-bg);
     border: 1px solid var(--cnx-accent-frost-border);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    color: #ffffff;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   }
 
-  html.dark body header#navbar #topbar-cta-button a:hover span.absolute,
-  html.dark body header#navbar #topbar-cta-button a:hover > span:first-child {
+  html.dark body header#navbar #topbar-cta-button:hover,
+  html.dark body header#navbar #topbar-cta-button a:hover,
+  html.dark body header#navbar a[href*="connex.cloud"]:hover,
+  html.dark body header#navbar a.bg-primary:hover,
+  html.dark body header#navbar button.bg-primary:hover,
+  html.dark body header#navbar [data-component-name="button"]:hover {
+    background-color: var(--cnx-accent-frost-bg-hover);
     background: var(--cnx-accent-frost-bg-hover);
     border-color: var(--cnx-accent-frost-border-hover);
+    box-shadow: 0 4px 20px rgba(213, 94, 8, 0.3);
   }
 
-  html body header#navbar #topbar-cta-button a span {
+  html body header#navbar #topbar-cta-button * {
     color: #ffffff;
-    font-weight: 500;
+  }
+
+  /* 2.2.1 Theme Switcher (Moon / Sun Toggle Button) */
+  html body header#navbar button[aria-label*="theme" i],
+  html body header#navbar button[aria-label*="mode" i],
+  html body header#navbar button[aria-label*="dark" i],
+  html body header#navbar button[aria-label*="light" i],
+  html body header#navbar [data-component-name="theme-toggle"],
+  html body header#navbar button:has(svg.lucide-moon),
+  html body header#navbar button:has(svg.lucide-sun) {
+    border-radius: 8px;
+    transition: var(--cnx-transition);
+  }
+
+  html:not(.dark) body header#navbar button[aria-label*="theme" i],
+  html:not(.dark) body header#navbar button[aria-label*="mode" i],
+  html:not(.dark) body header#navbar [data-component-name="theme-toggle"],
+  html:not(.dark) body header#navbar button:has(svg.lucide-moon),
+  html:not(.dark) body header#navbar button:has(svg.lucide-sun) {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    color: #475569;
+  }
+
+  html:not(.dark) body header#navbar button[aria-label*="theme" i]:hover,
+  html:not(.dark) body header#navbar button[aria-label*="mode" i]:hover,
+  html:not(.dark) body header#navbar [data-component-name="theme-toggle"]:hover {
+    border-color: rgba(0, 61, 179, 0.35);
+    background: rgba(0, 61, 179, 0.06);
+    color: #003db3;
+  }
+
+  html.dark body header#navbar button[aria-label*="theme" i],
+  html.dark body header#navbar button[aria-label*="mode" i],
+  html.dark body header#navbar [data-component-name="theme-toggle"],
+  html.dark body header#navbar button:has(svg.lucide-moon),
+  html.dark body header#navbar button:has(svg.lucide-sun) {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  html.dark body header#navbar button[aria-label*="theme" i]:hover,
+  html.dark body header#navbar button[aria-label*="mode" i]:hover,
+  html.dark body header#navbar [data-component-name="theme-toggle"]:hover {
+    border-color: var(--cnx-accent-frost-border);
+    background: var(--cnx-accent-soft);
+    color: #ffffff;
   }
 
   /* 2.3 Top navigation tabs */
@@ -282,6 +357,56 @@
 
   html body ul.sidebar-group a[aria-current="page"] * {
     color: #ffffff;
+  }
+
+  /* 2.4.1 Table of Contents / On this page (Light: #003DB3, Dark: #D55E08) */
+  html body nav#table-of-contents a,
+  html body aside nav a,
+  html body [aria-label="Table of contents"] a,
+  html body [data-component-name="table-of-contents"] a {
+    font-size: 12.5px;
+    font-weight: 400;
+    transition: var(--cnx-transition);
+  }
+
+  /* Light Mode TOC Active & Hover */
+  html:not(.dark) body nav#table-of-contents a[data-active="true"],
+  html:not(.dark) body nav#table-of-contents a.text-primary,
+  html:not(.dark) body nav#table-of-contents a[aria-current="true"],
+  html:not(.dark) body aside nav a[data-active="true"],
+  html:not(.dark) body aside nav a.text-primary,
+  html:not(.dark) body aside nav a[aria-current="true"],
+  html:not(.dark) body [aria-label="Table of contents"] a[data-active="true"],
+  html:not(.dark) body [aria-label="Table of contents"] a.text-primary {
+    color: #003db3;
+    font-weight: 500;
+  }
+
+  html:not(.dark) body nav#table-of-contents a:hover,
+  html:not(.dark) body aside nav a:hover,
+  html:not(.dark) body [aria-label="Table of contents"] a:hover {
+    color: #003db3;
+  }
+
+  /* Dark Mode TOC Active & Hover (Orange #D55E08 Standard) */
+  html.dark body nav#table-of-contents a[data-active="true"],
+  html.dark body nav#table-of-contents a.text-primary,
+  html.dark body nav#table-of-contents a[aria-current="true"],
+  html.dark body aside nav a[data-active="true"],
+  html.dark body aside nav a.text-primary,
+  html.dark body aside nav a[aria-current="true"],
+  html.dark body [aria-label="Table of contents"] a[data-active="true"],
+  html.dark body [aria-label="Table of contents"] a.text-primary,
+  html.dark body [data-component-name="table-of-contents"] a[data-active="true"],
+  html.dark body [data-component-name="table-of-contents"] a.text-primary {
+    color: #d55e08;
+    font-weight: 500;
+  }
+
+  html.dark body nav#table-of-contents a:hover,
+  html.dark body aside nav a:hover,
+  html.dark body [aria-label="Table of contents"] a:hover {
+    color: #f97316;
   }
 
   /* 2.5 Content cards (Mintlify <Card>) */
@@ -360,6 +485,27 @@
   html body [data-component-part="step-icon"] {
     color: var(--cnx-accent);
     border-color: var(--cnx-accent);
+  }
+
+  /* 2.6.1 Pagination Links (Previous / Next) */
+  html body nav[aria-label*="Pagination" i] a,
+  html body footer nav a,
+  html body #content-area nav a {
+    border-radius: 10px;
+    transition: var(--cnx-transition);
+  }
+
+  html:not(.dark) body nav[aria-label*="Pagination" i] a:hover,
+  html:not(.dark) body footer nav a:hover,
+  html:not(.dark) body #content-area nav a:hover {
+    border-color: rgba(0, 61, 179, 0.35);
+  }
+
+  html.dark body nav[aria-label*="Pagination" i] a:hover,
+  html.dark body footer nav a:hover,
+  html.dark body #content-area nav a:hover {
+    border-color: var(--cnx-accent-frost-border);
+    background: var(--cnx-accent-soft);
   }
 
   /* 2.7 Tables & badges */
