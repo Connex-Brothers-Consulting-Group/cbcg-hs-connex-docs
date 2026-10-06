@@ -31,7 +31,7 @@
 
 ---
 
-## SECTION III. COLOR ISOLATION & DUAL-THEME SYMMETRY
+## SECTION III. COLOR ISOLATION, CASCADE & ZERO !IMPORTANT GOVERNANCE
 
 ### Article 3 (Strict Mode Highlight Separation)
 1. **Light Mode (#003DB3)**:
@@ -42,6 +42,10 @@
    - Primary Highlight: CONNEX Orange (`#D55E08` / `#f97316`)
    - Header Background: Translucent Frost Dark Glass (`rgba(13, 10, 15, 0.85)`)
    - Zero Blue elements permitted in Dark Mode.
+
+### Article 3-1 (Zero !important Policy & CSS Specificity SSOT - Standard 02-01)
+1. **Zero `!important` Policy**: The use of `!important` is strictly forbidden across all documentation stylesheets (`style.css`).
+2. **Cascade & High-Specificity Architecture**: All styling overrides against default theme and utility classes must be resolved purely through structured CSS selector specificity (e.g., `html:not(.dark) body header#navbar .navbar-link a`, `html:not(.dark) body [data-component-part="card-icon"]`).
 
 ---
 
