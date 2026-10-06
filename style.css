@@ -584,42 +584,50 @@
   html body .mermaid svg,
   html body svg[id^="mermaid"],
   html body [data-component-name="mermaid"] svg {
-    background: transparent;
-    font-family: var(--cnx-font-family);
+    background: transparent !important;
+    font-family: var(--cnx-font-family) !important;
     display: block;
     margin: 1.75rem auto;
   }
 
-  /* 3.1 Light Mode Mermaid (Solid Navy Blue #003DB3 Standard) */
+  /* 3.1 Light Mode Mermaid (Crisp Grey/White Slate + Solid Navy Standard) */
+  html:not(.dark) body svg[id] g.node rect,
+  html:not(.dark) body svg[id] g.node polygon,
+  html:not(.dark) body svg[id] g.node circle,
+  html:not(.dark) body svg[id] g.node ellipse,
+  html:not(.dark) body svg[id] g.node path,
   html:not(.dark) body svg g.node rect,
   html:not(.dark) body svg g.node polygon,
   html:not(.dark) body svg g.node circle,
-  html:not(.dark) body svg g.node ellipse,
-  html:not(.dark) body svg g.node path,
   html:not(.dark) body svg .node rect,
   html:not(.dark) body svg .node polygon,
-  html:not(.dark) body svg .node path,
-  html:not(.dark) body .mermaid svg g.node rect,
-  html:not(.dark) body .mermaid svg g.node polygon,
-  html:not(.dark) body [data-component-name="mermaid"] svg g.node rect {
-    fill: #ffffff;
-    stroke: #003db3;
-    stroke-width: 1.25px;
-    rx: 8px;
-    ry: 8px;
-    filter: drop-shadow(0 1px 3px rgba(0, 61, 179, 0.08));
+  html:not(.dark) body .mermaid svg rect,
+  html:not(.dark) body [data-component-name="mermaid"] svg rect,
+  html.light body svg g.node rect,
+  html.light body svg g.node polygon {
+    fill: #ffffff !important;
+    stroke: #003db3 !important;
+    stroke-width: 1.25px !important;
+    rx: 8px !important;
+    ry: 8px !important;
+    filter: drop-shadow(0 1px 3px rgba(0, 61, 179, 0.08)) !important;
   }
 
+  html:not(.dark) body svg[id] g.cluster rect,
   html:not(.dark) body svg g.cluster rect,
   html:not(.dark) body .mermaid svg g.cluster rect,
   html:not(.dark) body [data-component-name="mermaid"] svg g.cluster rect {
-    fill: rgba(0, 61, 179, 0.03);
-    stroke: rgba(0, 61, 179, 0.22);
-    stroke-width: 1px;
-    rx: 10px;
-    ry: 10px;
+    fill: rgba(0, 61, 179, 0.02) !important;
+    stroke: rgba(0, 61, 179, 0.20) !important;
+    stroke-width: 1px !important;
+    rx: 10px !important;
+    ry: 10px !important;
   }
 
+  html:not(.dark) body svg[id] g.node text,
+  html:not(.dark) body svg[id] g.node tspan,
+  html:not(.dark) body svg[id] g.node span,
+  html:not(.dark) body svg[id] g.node div,
   html:not(.dark) body svg g.node text,
   html:not(.dark) body svg g.node tspan,
   html:not(.dark) body svg g.node span,
@@ -627,44 +635,51 @@
   html:not(.dark) body svg .node text,
   html:not(.dark) body .mermaid svg g.node text,
   html:not(.dark) body .mermaid svg g.node span,
-  html:not(.dark) body .mermaid svg g.node div {
-    fill: #0f172a;
-    color: #0f172a;
-    font-family: var(--cnx-font-family);
-    font-size: 11.5px;
-    font-weight: 500;
+  html:not(.dark) body .mermaid svg g.node div,
+  html.light body svg g.node text {
+    fill: #0f172a !important;
+    color: #0f172a !important;
+    font-family: var(--cnx-font-family) !important;
+    font-size: 11.5px !important;
+    font-weight: 500 !important;
   }
 
   html:not(.dark) body svg .flowchart-link,
   html:not(.dark) body svg g.edgePath path,
+  html:not(.dark) body svg path.flowchart-link,
   html:not(.dark) body .mermaid svg .flowchart-link,
   html:not(.dark) body .mermaid svg g.edgePath path,
   html:not(.dark) body [data-component-name="mermaid"] svg g.edgePath path {
-    stroke: #003db3;
-    stroke-width: 1.25px;
+    stroke: #003db3 !important;
+    stroke-width: 1.25px !important;
   }
 
   html:not(.dark) body svg marker path,
   html:not(.dark) body svg marker circle,
   html:not(.dark) body .mermaid svg marker path {
-    fill: #003db3;
-    stroke: #003db3;
+    fill: #003db3 !important;
+    stroke: #003db3 !important;
   }
 
   html:not(.dark) body svg .edgeLabel,
   html:not(.dark) body svg g.edgeLabel rect,
   html:not(.dark) body svg g.edgeLabel span,
   html:not(.dark) body .mermaid svg .edgeLabel {
-    background: #f1f5f9;
-    fill: #f1f5f9;
-    color: #334155;
-    font-family: var(--cnx-font-family);
-    font-size: 10.5px;
-    font-weight: 500;
-    border-radius: 4px;
+    background: #f1f5f9 !important;
+    fill: #f1f5f9 !important;
+    color: #334155 !important;
+    font-family: var(--cnx-font-family) !important;
+    font-size: 10.5px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
   }
 
   /* 3.2 Dark Mode Mermaid (Orange #D55E08 + Frost Glass Architecture) */
+  html.dark body svg[id] g.node rect,
+  html.dark body svg[id] g.node polygon,
+  html.dark body svg[id] g.node circle,
+  html.dark body svg[id] g.node ellipse,
+  html.dark body svg[id] g.node path,
   html.dark body svg g.node rect,
   html.dark body svg g.node polygon,
   html.dark body svg g.node circle,
@@ -676,22 +691,22 @@
   html.dark body .mermaid svg g.node rect,
   html.dark body .mermaid svg g.node polygon,
   html.dark body [data-component-name="mermaid"] svg g.node rect {
-    fill: #1e293b;
-    stroke: rgba(213, 94, 8, 0.65);
-    stroke-width: 1.25px;
-    rx: 8px;
-    ry: 8px;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    fill: #1e293b !important;
+    stroke: rgba(213, 94, 8, 0.65) !important;
+    stroke-width: 1.25px !important;
+    rx: 8px !important;
+    ry: 8px !important;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)) !important;
   }
 
   html.dark body svg g.cluster rect,
   html.dark body .mermaid svg g.cluster rect,
   html.dark body [data-component-name="mermaid"] svg g.cluster rect {
-    fill: rgba(255, 255, 255, 0.03);
-    stroke: rgba(255, 255, 255, 0.12);
-    stroke-width: 1px;
-    rx: 10px;
-    ry: 10px;
+    fill: rgba(255, 255, 255, 0.03) !important;
+    stroke: rgba(255, 255, 255, 0.12) !important;
+    stroke-width: 1px !important;
+    rx: 10px !important;
+    ry: 10px !important;
   }
 
   html.dark body svg g.node text,
@@ -702,40 +717,41 @@
   html.dark body .mermaid svg g.node text,
   html.dark body .mermaid svg g.node span,
   html.dark body .mermaid svg g.node div {
-    fill: #f8fafc;
-    color: #f8fafc;
-    font-family: var(--cnx-font-family);
-    font-size: 11.5px;
-    font-weight: 500;
+    fill: #f8fafc !important;
+    color: #f8fafc !important;
+    font-family: var(--cnx-font-family) !important;
+    font-size: 11.5px !important;
+    font-weight: 500 !important;
   }
 
   html.dark body svg .flowchart-link,
   html.dark body svg g.edgePath path,
+  html.dark body svg path.flowchart-link,
   html.dark body .mermaid svg .flowchart-link,
   html.dark body .mermaid svg g.edgePath path,
   html.dark body [data-component-name="mermaid"] svg g.edgePath path {
-    stroke: rgba(213, 94, 8, 0.75);
-    stroke-width: 1.25px;
+    stroke: rgba(213, 94, 8, 0.75) !important;
+    stroke-width: 1.25px !important;
   }
 
   html.dark body svg marker path,
   html.dark body svg marker circle,
   html.dark body .mermaid svg marker path {
-    fill: #d55e08;
-    stroke: #d55e08;
+    fill: #d55e08 !important;
+    stroke: #d55e08 !important;
   }
 
   html.dark body svg .edgeLabel,
   html.dark body svg g.edgeLabel rect,
   html.dark body svg g.edgeLabel span,
   html.dark body .mermaid svg .edgeLabel {
-    background: #0f172a;
-    fill: #0f172a;
-    color: #94a3b8;
-    font-family: var(--cnx-font-family);
-    font-size: 10.5px;
-    font-weight: 500;
-    border-radius: 4px;
+    background: #0f172a !important;
+    fill: #0f172a !important;
+    color: #94a3b8 !important;
+    font-family: var(--cnx-font-family) !important;
+    font-size: 10.5px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
   }
 }
 
