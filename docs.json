@@ -6,8 +6,8 @@
     "default": "dark"
   },
   "colors": {
-    "primary": "#D55E08",
-    "light": "#003DB3",
+    "primary": "#003DB3",
+    "light": "#D55E08",
     "dark": "#D55E08"
   },
   "favicon": {

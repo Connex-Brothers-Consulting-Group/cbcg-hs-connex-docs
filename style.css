@@ -565,14 +565,236 @@
     color: #ffffff !important;
   }
 
-  /* 2.3 Top navigation tabs */
-  html body .nav-tabs .nav-tabs-item[data-active="true"] {
-    color: var(--cnx-text-main);
+  /* 2.2.3 Search Form, Search Bar, Search Input & Modal Dialog */
+  html body button#search-bar-entry,
+  html body #search-bar-entry,
+  html body [data-component-name="search"],
+  html body [data-component-name="search-bar"],
+  html body button:has(svg.lucide-search),
+  html body button:has(svg[class*="search"]),
+  html body button:has(kbd),
+  html body div:has(> input[type="search"]),
+  html body div:has(> input[placeholder*="Search" i]) {
+    border-radius: 8px !important;
+    transition: var(--cnx-transition);
+  }
+
+  /* Light Mode Search Elements (Crisp Slate Grey / Solid Navy Highlights) */
+  html:not(.dark) body button#search-bar-entry,
+  html:not(.dark) body #search-bar-entry,
+  html:not(.dark) body [data-component-name="search"],
+  html:not(.dark) body [data-component-name="search-bar"],
+  html:not(.dark) body button:has(svg.lucide-search),
+  html:not(.dark) body button:has(svg[class*="search"]),
+  html:not(.dark) body button:has(kbd),
+  html:not(.dark) body div:has(> input[type="search"]),
+  html:not(.dark) body div:has(> input[placeholder*="Search" i]) {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    color: #475569 !important;
+    box-shadow: none !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-shadow: none !important;
+  }
+
+  html:not(.dark) body button#search-bar-entry:hover,
+  html:not(.dark) body #search-bar-entry:hover,
+  html:not(.dark) body button:has(svg.lucide-search):hover,
+  html:not(.dark) body button:has(kbd):hover {
+    border-color: rgba(0, 61, 179, 0.4) !important;
+    background: rgba(0, 61, 179, 0.04) !important;
+    color: #003db3 !important;
+  }
+
+  html:not(.dark) body button#search-bar-entry svg,
+  html:not(.dark) body #search-bar-entry svg,
+  html:not(.dark) body button:has(svg.lucide-search) svg,
+  html:not(.dark) body button:has(kbd) svg {
+    color: #475569 !important;
+    stroke: #475569 !important;
+  }
+
+  html:not(.dark) body button#search-bar-entry:hover svg,
+  html:not(.dark) body #search-bar-entry:hover svg,
+  html:not(.dark) body button:has(svg.lucide-search):hover svg {
+    color: #003db3 !important;
+    stroke: #003db3 !important;
+  }
+
+  /* Keyboard shortcut badges (⌘K) */
+  html:not(.dark) body kbd,
+  html:not(.dark) body button#search-bar-entry kbd,
+  html:not(.dark) body button:has(kbd) kbd {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.10) !important;
+    color: #475569 !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+  }
+
+  /* Light Mode Search Dialog / Modal / Input Focus */
+  html:not(.dark) body [role="dialog"][aria-label*="Search" i],
+  html:not(.dark) body div[role="dialog"]:has(input),
+  html:not(.dark) body [data-component-name="search-dialog"] {
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  html:not(.dark) body input[type="search"],
+  html:not(.dark) body input[placeholder*="Search" i],
+  html:not(.dark) body [role="dialog"] input {
+    color: #0f172a !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+  }
+
+  html:not(.dark) body input[type="search"]:focus,
+  html:not(.dark) body input[placeholder*="Search" i]:focus,
+  html:not(.dark) body [role="dialog"] input:focus {
+    border-color: #003db3 !important;
+    --tw-ring-color: rgba(0, 61, 179, 0.2) !important;
+  }
+
+  /* Light Mode Search Dialog Option Selection */
+  html:not(.dark) body [role="dialog"] [role="option"][aria-selected="true"],
+  html:not(.dark) body [role="dialog"] [role="option"][data-active="true"],
+  html:not(.dark) body [role="dialog"] [role="option"]:hover,
+  html:not(.dark) body [role="dialog"] li[data-active="true"],
+  html:not(.dark) body [role="dialog"] li:hover {
+    background: rgba(0, 61, 179, 0.08) !important;
+    color: #003db3 !important;
+  }
+
+  html:not(.dark) body [role="dialog"] [role="option"][aria-selected="true"] *,
+  html:not(.dark) body [role="dialog"] [role="option"]:hover * {
+    color: #003db3 !important;
+  }
+
+  /* Dark Mode Search Elements */
+  html.dark body button#search-bar-entry,
+  html.dark body #search-bar-entry,
+  html.dark body [data-component-name="search"],
+  html.dark body [data-component-name="search-bar"],
+  html.dark body button:has(svg.lucide-search),
+  html.dark body button:has(svg[class*="search"]),
+  html.dark body button:has(kbd) {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    box-shadow: none !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-shadow: none !important;
+  }
+
+  html.dark body button#search-bar-entry:hover,
+  html.dark body #search-bar-entry:hover,
+  html.dark body button:has(svg.lucide-search):hover,
+  html.dark body button:has(kbd):hover {
+    border-color: var(--cnx-accent-frost-border) !important;
+    background: var(--cnx-accent-soft) !important;
+    color: #ffffff !important;
+  }
+
+  html.dark body button#search-bar-entry svg,
+  html.dark body #search-bar-entry svg,
+  html.dark body button:has(svg.lucide-search) svg,
+  html.dark body button:has(kbd) svg {
+    color: rgba(255, 255, 255, 0.75) !important;
+    stroke: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  html.dark body kbd,
+  html.dark body button#search-bar-entry kbd,
+  html.dark body button:has(kbd) kbd {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  html.dark body [role="dialog"][aria-label*="Search" i],
+  html.dark body div[role="dialog"]:has(input),
+  html.dark body [data-component-name="search-dialog"] {
+    background: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
+  html.dark body [role="dialog"] [role="option"][aria-selected="true"],
+  html.dark body [role="dialog"] [role="option"][data-active="true"],
+  html.dark body [role="dialog"] [role="option"]:hover {
+    background: rgba(213, 94, 8, 0.15) !important;
+    color: #f97316 !important;
+  }
+
+  html.dark body [role="dialog"] [role="option"][aria-selected="true"] *,
+  html.dark body [role="dialog"] [role="option"]:hover * {
+    color: #f97316 !important;
+  }
+
+  /* 2.3 Top navigation tabs & Category Buttons */
+  html body .nav-tabs,
+  html body nav[aria-label="Tabs"],
+  html body nav[role="tablist"],
+  html body [role="tablist"] {
+    border-bottom: 1px solid var(--cnx-card-border);
+  }
+
+  html body .nav-tabs .nav-tabs-item,
+  html body nav[aria-label="Tabs"] button,
+  html body [role="tablist"] [role="tab"],
+  html body [role="tab"] {
+    font-size: 13px;
+    font-weight: 400;
+    transition: var(--cnx-transition);
+  }
+
+  /* Light Mode Navigation Tabs & Category Buttons (Solid Navy #003DB3) */
+  html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"],
+  html:not(.dark) body nav[aria-label="Tabs"] button[data-active="true"],
+  html:not(.dark) body nav[aria-label="Tabs"] button[aria-selected="true"],
+  html:not(.dark) body [role="tablist"] [role="tab"][aria-selected="true"],
+  html:not(.dark) body [role="tablist"] [role="tab"][data-state="active"],
+  html:not(.dark) body [role="tab"][aria-selected="true"],
+  html:not(.dark) body [role="tab"][data-state="active"] {
+    color: #003db3 !important;
+    border-color: #003db3 !important;
     font-weight: 500;
   }
 
-  html body .nav-tabs .nav-tabs-item[data-active="true"] > div {
-    background-color: var(--cnx-accent);
+  html:not(.dark) body .nav-tabs .nav-tabs-item[data-active="true"] > div,
+  html:not(.dark) body nav[aria-label="Tabs"] button[data-active="true"] > div,
+  html:not(.dark) body [role="tablist"] [role="tab"][aria-selected="true"] > div {
+    background-color: #003db3 !important;
+  }
+
+  html:not(.dark) body .nav-tabs .nav-tabs-item:hover,
+  html:not(.dark) body nav[aria-label="Tabs"] button:hover,
+  html:not(.dark) body [role="tab"]:hover {
+    color: #003db3 !important;
+  }
+
+  /* Dark Mode Navigation Tabs & Category Buttons (Orange #D55E08) */
+  html.dark body .nav-tabs .nav-tabs-item[data-active="true"],
+  html.dark body nav[aria-label="Tabs"] button[data-active="true"],
+  html.dark body nav[aria-label="Tabs"] button[aria-selected="true"],
+  html.dark body [role="tablist"] [role="tab"][aria-selected="true"],
+  html.dark body [role="tablist"] [role="tab"][data-state="active"],
+  html.dark body [role="tab"][aria-selected="true"],
+  html.dark body [role="tab"][data-state="active"] {
+    color: #ffffff !important;
+    border-color: #d55e08 !important;
+    font-weight: 500;
+  }
+
+  html.dark body .nav-tabs .nav-tabs-item[data-active="true"] > div,
+  html.dark body nav[aria-label="Tabs"] button[data-active="true"] > div,
+  html.dark body [role="tablist"] [role="tab"][aria-selected="true"] > div {
+    background-color: #d55e08 !important;
+  }
+
+  html.dark body .nav-tabs .nav-tabs-item:hover,
+  html.dark body nav[aria-label="Tabs"] button:hover,
+  html.dark body [role="tab"]:hover {
+    color: #f97316 !important;
   }
 
   /* 2.4 Sidebar active item */
