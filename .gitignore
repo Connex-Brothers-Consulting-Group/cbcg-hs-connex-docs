@@ -1,0 +1,13 @@
+# Operating System & Local IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node & Mintlify Local Caches
+node_modules/
+.mintlify/
+*.log
+
+# Internal AI Agent & Corporate Governance (Confidential SSOT)
+.agents/

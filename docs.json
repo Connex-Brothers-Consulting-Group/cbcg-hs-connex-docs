@@ -247,7 +247,7 @@
         },
         {
           "anchor": "Docs GitHub",
-          "href": "https://github.com/Connex-Brothers-Consulting-Group/cbcg-hs-connex-docs",
+          "href": "https://github.com/HybridSphere-CBCG/cbcg-hs-connex-docs",
           "icon": "github"
         }
       ]
@@ -280,7 +280,7 @@
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/Connex-Brothers-Consulting-Group/cbcg-hs-connex-docs"
+      "github": "https://github.com/HybridSphere-CBCG/cbcg-hs-connex-docs"
     }
   },
   "description": "Enterprise Agentic Cloud Workspace OS Platform 2.0",

@@ -76,7 +76,7 @@ Rendered persistently in the left sidebar across all documentation tabs:
 | **CONNEX Web App** | `https://connex.hybridsphere.io` | Flagship Agentic Cloud Workspace OS production application |
 | **Documentation Center** | `https://docs.connex.hybridsphere.io` | Authoritative Mintlify SSOT technical documentation portal |
 | **Enterprise Support** | `support@connexbrothers.com` | Global 24/7 technical assistance and SLA dispatch |
-| **Public Docs Repository** | `https://github.com/Connex-Brothers-Consulting-Group/cbcg-hs-connex-docs` | Open-source community and developer documentation codebase |
+| **Public Docs Repository** | `https://github.com/HybridSphere-CBCG/cbcg-hs-connex-docs` | Open-source community and developer documentation codebase |
 
 ---
 *© 2026 Connex Brothers Consulting Group Inc. (CBCG). All rights reserved. NEXUS LAB 126 Constitution Certified.*
