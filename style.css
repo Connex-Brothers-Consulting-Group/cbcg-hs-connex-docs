@@ -298,44 +298,129 @@
   html body header#navbar [data-component-name="theme-toggle"],
   html body header#navbar button:has(svg.lucide-moon),
   html body header#navbar button:has(svg.lucide-sun) {
-    border-radius: 8px;
+    border-radius: 8px !important;
     transition: var(--cnx-transition);
   }
 
+  /* Light Mode Theme Switcher (Crisp Minimal Grey Tone) */
   html:not(.dark) body header#navbar button[aria-label*="theme" i],
   html:not(.dark) body header#navbar button[aria-label*="mode" i],
   html:not(.dark) body header#navbar [data-component-name="theme-toggle"],
   html:not(.dark) body header#navbar button:has(svg.lucide-moon),
   html:not(.dark) body header#navbar button:has(svg.lucide-sun) {
-    background: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    color: #475569;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    color: #475569 !important;
   }
 
   html:not(.dark) body header#navbar button[aria-label*="theme" i]:hover,
   html:not(.dark) body header#navbar button[aria-label*="mode" i]:hover,
   html:not(.dark) body header#navbar [data-component-name="theme-toggle"]:hover {
-    border-color: rgba(0, 61, 179, 0.35);
-    background: rgba(0, 61, 179, 0.06);
-    color: #003db3;
+    border-color: rgba(0, 0, 0, 0.28) !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: #0f172a !important;
   }
 
+  /* Dark Mode Theme Switcher (Translucent Frost Glass) */
   html.dark body header#navbar button[aria-label*="theme" i],
   html.dark body header#navbar button[aria-label*="mode" i],
   html.dark body header#navbar [data-component-name="theme-toggle"],
   html.dark body header#navbar button:has(svg.lucide-moon),
   html.dark body header#navbar button:has(svg.lucide-sun) {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
   }
 
   html.dark body header#navbar button[aria-label*="theme" i]:hover,
   html.dark body header#navbar button[aria-label*="mode" i]:hover,
   html.dark body header#navbar [data-component-name="theme-toggle"]:hover {
-    border-color: var(--cnx-accent-frost-border);
-    background: var(--cnx-accent-soft);
-    color: #ffffff;
+    border-color: var(--cnx-accent-frost-border) !important;
+    background: var(--cnx-accent-soft) !important;
+    color: #ffffff !important;
+  }
+
+  /* 2.2.2 Contextual Copy Page / Dropdown Split Button */
+  html body div:has(> button:has(svg.lucide-copy)),
+  html body div:has(> button:has(svg[class*="lucide-copy"])),
+  html body [data-component-name="contextual-options"],
+  html body div[class*="contextual-options"] {
+    display: inline-flex !important;
+    align-items: stretch !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transition: var(--cnx-transition);
+  }
+
+  /* Split button children reset */
+  html body div:has(> button:has(svg.lucide-copy)) button,
+  html body [data-component-name="contextual-options"] button,
+  html body div[class*="contextual-options"] button {
+    border-radius: 0 !important;
+    margin: 0 !important;
+    height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 12.5px !important;
+    font-weight: 500 !important;
+    padding: 0 10px !important;
+    box-shadow: none !important;
+    transition: var(--cnx-transition);
+  }
+
+  /* Light Mode Copy Page Button */
+  html:not(.dark) body div:has(> button:has(svg.lucide-copy)),
+  html:not(.dark) body [data-component-name="contextual-options"],
+  html:not(.dark) body div[class*="contextual-options"] {
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    background: transparent !important;
+  }
+
+  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button,
+  html:not(.dark) body [data-component-name="contextual-options"] button,
+  html:not(.dark) body div[class*="contextual-options"] button {
+    background: transparent !important;
+    border: none !important;
+    color: #475569 !important;
+  }
+
+  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button:first-child,
+  html:not(.dark) body [data-component-name="contextual-options"] button:first-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.10) !important;
+  }
+
+  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button:hover,
+  html:not(.dark) body [data-component-name="contextual-options"] button:hover {
+    background: rgba(0, 0, 0, 0.04) !important;
+    color: #0f172a !important;
+  }
+
+  /* Dark Mode Copy Page Button */
+  html.dark body div:has(> button:has(svg.lucide-copy)),
+  html.dark body [data-component-name="contextual-options"],
+  html.dark body div[class*="contextual-options"] {
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: transparent !important;
+  }
+
+  html.dark body div:has(> button:has(svg.lucide-copy)) button,
+  html.dark body [data-component-name="contextual-options"] button,
+  html.dark body div[class*="contextual-options"] button {
+    background: transparent !important;
+    border: none !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  html.dark body div:has(> button:has(svg.lucide-copy)) button:first-child,
+  html.dark body [data-component-name="contextual-options"] button:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
+  }
+
+  html.dark body div:has(> button:has(svg.lucide-copy)) button:hover,
+  html.dark body [data-component-name="contextual-options"] button:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
   }
 
   /* 2.3 Top navigation tabs */
