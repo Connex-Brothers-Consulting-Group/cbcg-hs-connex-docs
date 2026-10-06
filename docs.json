@@ -132,6 +132,21 @@
         ]
       },
       {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Support & Operations",
+            "pages": [
+              "resources/docs-center-guide",
+              "resources/support-desk",
+              "support/notices",
+              "support/faq",
+              "support/releases"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Developers",
         "groups": [
           {
@@ -149,21 +164,6 @@
             "pages": [
               "developers/mcp-server-spec",
               "developers/mcp-tool-catalog"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Resources",
-        "groups": [
-          {
-            "group": "Support & Operations",
-            "pages": [
-              "resources/docs-center-guide",
-              "resources/support-desk",
-              "support/notices",
-              "support/faq",
-              "support/releases"
             ]
           }
         ]
