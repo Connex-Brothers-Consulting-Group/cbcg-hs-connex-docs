@@ -1,53 +1,90 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "CONNEX Cloud OS",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#D55E08",
+    "light": "#003DB3",
+    "dark": "#D55E08"
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
   "navigation": {
     "pages": [
       {
-        "group": "Getting Started",
+        "group": "시작하기 (Getting Started)",
         "pages": [
           "index",
-          "quickstart"
+          "quickstart",
+          "architecture"
+        ]
+      },
+      {
+        "group": "핵심 기능 (Core Features)",
+        "pages": [
+          "features/coworx",
+          "features/agent",
+          "features/vfs"
+        ]
+      },
+      {
+        "group": "거버넌스 & 보안 (Governance & Security)",
+        "pages": [
+          "governance/data-sovereignty",
+          "governance/zero-trust-auth",
+          "governance/compliance"
+        ]
+      },
+      {
+        "group": "릴리즈 & 지원 (Releases & Support)",
+        "pages": [
+          "releases",
+          "notices",
+          "faq"
         ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "CONNEX Web App",
+          "href": "https://connex.cloud",
+          "icon": "globe"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "HybridSphere Portal",
+          "href": "https://hybridsphere.io",
+          "icon": "shield-check"
         }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:support@mintlify.com"
+        "label": "릴리즈 노트",
+        "href": "/releases"
+      },
+      {
+        "label": "공지사항",
+        "href": "/notices"
+      },
+      {
+        "label": "자주 묻는 질문",
+        "href": "/faq"
+      },
+      {
+        "label": "지원 문의",
+        "href": "mailto:support@hybridsphere.io"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "CONNEX 시작하기",
+      "href": "https://connex.cloud"
     }
   },
   "contextual": {
@@ -64,9 +101,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/Connex-Brothers-Consulting-Group"
     }
   }
 }

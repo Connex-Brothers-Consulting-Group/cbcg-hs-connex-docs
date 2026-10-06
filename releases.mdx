@@ -1,0 +1,45 @@
+---
+title: "CONNEX Cloud OS 릴리즈 노트"
+sidebarTitle: "릴리즈 노트 (Releases)"
+description: "CONNEX Cloud OS의 최신 버전 업데이트 및 개발 로드맵"
+---
+
+# 릴리즈 히스토리 & 로드맵
+
+CONNEX Cloud OS의 버전별 주요 기능 개선 및 아키텍처 업데이트 내역입니다.
+
+## Version 3.8.0 (2026.10.05) - 최신 안정 버전
+
+<Update label="V3.8.0" description="2026년 10월 05일 정식 릴리즈">
+### 🚀 주요 개선 사항 (Highlights)
+- **2x1 범용 그리드 레이아웃 표준화**: 반응형 뷰포트 전환 시 레이아웃 흔들림 없는 대칭형 2x1 그리드 적용
+- **3대 리소스 허브 (Resources Hub) 개편**:
+  - `01. 라이브 지원`: 4대 전문 지원 인박스 2x2 카드 그리드
+  - `02. 커뮤니케이션`: 중요 공지, 릴리즈 노트, GKE 클러스터 실시간 가동 현황
+  - `03. 문서센터`: docs.hybridsphere.io Mintlify SSOT 지식 엔진 연동
+- **SWR Zero-Flicker 캐시 안정화**: 캐시 재검증 시 텍스트 깜빡임 현상 원천 차단
+- **W3C `@layer` 3계층 CSS 고도화**: `!important` 0건의 순수 디자인 시스템 토큰 완결
+</Update>
+
+---
+
+## Version 3.7.0 (2026.09.28)
+
+<Update label="V3.7.0" description="2026년 9월 28일 정식 릴리즈">
+- **멀티 리전 GKE Gateway API 배포**: 서울(KR) 및 아이오와(US) 클러스터 L7 HTTPRoute 트래픽 스위칭
+- **초저지연 SSO 티켓 교환 프로토콜**: 120초 TTL 단일 사용 티켓 및 0ms 자동 소각 적용
+- **CoWorx 채널 아카이빙 기능 추가**: 비활성 협업 채널 보관 및 검색 지원
+</Update>
+
+---
+
+## 향후 개발 로드맵 (Roadmap)
+
+<CardGroup cols={2}>
+  <Card title="Q4 2026: 모바일 반응형 터치 최적화" icon="mobile">
+    태블릿 및 모바일 기기를 위한 PWA 터치 인터랙션과 플로팅 에이전트 컨트롤 고도화
+  </Card>
+  <Card title="Q1 2027: 온프레미스 에어갭 배포판" icon="server">
+    금융 및 국방 등 폐쇄망 환경을 위한 컨테이너 번들 독립 패키징 지원
+  </Card>
+</CardGroup>

@@ -1,0 +1,21 @@
+---
+title: "가상 파일 시스템 (VFS)"
+sidebarTitle: "VFS 스토리지"
+description: "고성능 분산 클라우드 가상 파일 시스템 및 3-Tier 캐싱 엔진"
+---
+
+# 가상 파일 시스템 (VFS)
+
+CONNEX VFS(Virtual File System)는 클라우드 상의 문서를 폴더 계층으로 안전하게 격리 보관하고 에이전트와 즉시 연동하는 고성능 스토리지 시스템입니다.
+
+<Steps>
+  <Step title="문서 업로드 및 파싱">
+    PDF, Word, Markdown, CSV 등 다양한 형식의 문서를 드래그 앤 드롭으로 업로드합니다.
+  </Step>
+  <Step title="3-Tier 캐시 즉시 무효화">
+    파일 추가/수정/삭제 시 Redis L2 캐시 및 L1 메모리 캐시를 0초 만에 무효화하여 모든 디바이스에서 최신 상태를 유지합니다.
+  </Step>
+  <Step title="에이전트 인라인 컨텍스트 주입">
+    VFS 탐색기에서 선택된 파일 및 폴더 뱃지를 프롬프트 헤더에 바인딩하여 심층 분석을 수행합니다.
+  </Step>
+</Steps>

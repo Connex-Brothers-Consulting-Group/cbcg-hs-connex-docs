@@ -1,0 +1,117 @@
+---
+title: "자주 묻는 질문 (FAQ)"
+description: "CONNEX Cloud OS 및 HybridSphere 엔터프라이즈 플랫폼에 대해 가장 자주 묻는 질문과 답변입니다."
+icon: "circle-question"
+---
+
+## 01. 플랫폼 개요 및 비전 (Platform & Vision)
+
+<AccordionGroup>
+  <Accordion title="CONNEX Cloud OS는 기존 AI 챗봇 도구들과 어떻게 다른가요?">
+    **CONNEX Cloud OS**는 단순한 대화형 챗봇이 아닌, 기업의 전략적 의사결정과 지식 자산화를 위한 **에이전틱 클라우드 워크스페이스 OS**입니다.
+
+    * **풀스택 클라우드 OS 기능:** 가상 파일 시스템(VFS), 실시간 협업 캔버스(CoWorx), 에이전트 스튜디오, 지식 허브(Brain X)를 유기적으로 통합 제공합니다.
+    * **결정론적 보안 경계:** 한국 개인정보보호법(PIPA) 및 미국 CCPA 데이터 주권, 세션 토큰 보안을 결정론적 하드코드로 엄격히 통제합니다.
+    * **실시간 지식 동기화:** Git 저장소 및 Mintlify 글로벌 문서 포털과 유기적으로 연동되어 지식의 진부화를 방지합니다.
+  </Accordion>
+
+  <Accordion title="CONNEX 플랫폼의 주요 대상 고객 및 사용자는 누구인가요?">
+    CONNEX는 기업 경영진부터 전문 연구원, 개인에 이르기까지 **듀얼 스펙트럼 인텔리전스**를 제공합니다:
+
+    * **기업 경영진 및 전략 부서:** 고밀도 ERP/CRM/BI 통합 분석, M&A 실사 지원, 법률/세무 문서 작성 및 전략적 의사결정.
+    * **R&D 및 엔지니어링 팀:** 108개 이상의 다이내믹 API 툴체이닝, MCP 에이전트 연동 및 코드 자동 합성.
+    * **가족 및 일상 라이프스타일:** 자녀 교육 로드맵 수립, 여행 계획 및 일상 업무의 지능형 비서 기능.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 02. 데이터 주권 및 보안 (Data Sovereignty & Security)
+
+<AccordionGroup>
+  <Accordion title="한국(PIPA)과 미국(CCPA/GDPR) 사용자 데이터의 물리적 격리는 어떻게 이루어지나요?">
+    CONNEX는 국가별 데이터 주권 법률을 준수하기 위해 **리전별 물리적 데이터베이스 완전 분리 원칙**을 시행합니다:
+
+    * **대한민국 관할 (PIPA 준수):** 대한민국 거주자의 모든 식별정보와 프로필은 서울(`asia-northeast3`) 리전의 전용 `accounts-kr` Firestore DB에만 물리적으로 격리 저장됩니다.
+    * **미국 및 글로벌 관할 (CCPA/GDPR 준수):** 미국 및 해외 사용자의 데이터는 아이오와(`us-central1`) 리전의 `accounts-us` Firestore DB에 독립 보관됩니다.
+    * **교차 오염 방지:** 대륙 간 순차 순회 조회를 영구 금지하고, 사용자의 `home_country`에 따라 단일 리전으로 직결 라우팅됩니다.
+  </Accordion>
+
+  <Accordion title="단일 사용 UUIDv4 티켓 핸드셰이크 프로토콜이란 무엇이며, 리플레이 공격을 어떻게 방지하나요?">
+    도메인 간 싱글 사인온(SSO) 전환 시 보안을 위해 **단일 사용(Single-Use) 티켓 프로토콜**을 적용합니다:
+
+    * **티켓 발급:** 인증 서버가 암호학적으로 안전한 UUIDv4 티켓을 생성하고 Redis에 **120초 유효시간(TTL)**으로 세션 메타데이터를 매핑합니다.
+    * **즉시 파기(Burn):** 최초 1회 교환 엔드포인트(`/api/v1/auth/exchange`) 호출 즉시 Redis에서 티켓을 영구 삭제합니다.
+    * **재전송 공격 차단:** 이미 사용된 티켓으로 재요청 시 즉시 거부되어 패킷 탈취 및 리플레이 공격이 원천 차단됩니다.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 03. 글로벌 인프라 및 아키텍처 (Global Infrastructure)
+
+<AccordionGroup>
+  <Accordion title="글로벌 인증 및 실시간 스트리밍의 응답 지연시간(SLA) 기준은 어떻게 되나요?">
+    CONNEX는 글로벌 어디서나 300ms 이내의 초저지연 인증과 부드러운 스트리밍 성능을 보장합니다:
+
+    * **인증 응답 SLA:** 전 세계 어디서나 **300ms 미만**에 완료되며, JWT 토큰 자체에 인가 클레임을 임베딩하여 불필요한 DB 조회를 제거했습니다.
+    * **실시간 스트리밍:** 순수 ASGI 기반 씬 오케스트레이터 구조로 지연 없는 양방향 웹소켓/SSE 스트리밍을 제공합니다.
+    * **GKE Gateway API:** 레거시 Ingress 대신 최신 쿠버네티스 Gateway API와 Google Certificate Manager를 통해 안전하게 서빙됩니다.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 04. 에이전틱 AI 및 MCP 스펙 (Agentic AI & MCP Specs)
+
+<AccordionGroup>
+  <Accordion title="CONNEX는 AI 환각(Hallucination)을 어떻게 방지하고 인용 무결성을 보장하나요?">
+    CONNEX는 엄격한 **인용 무결성(Citation Fidelity) 필터**를 통해 근거 없는 환각을 차단합니다:
+
+    * **정밀 본문 인용:** 문서 기반 응답은 반드시 `[ref:파일명#섹션]` 형태의 출처 청크를 본문에 명시합니다.
+    * **대체 소스 투명 공시:** 외부 API 장애 등으로 대체 검색 엔진을 사용할 경우, 응답 최상단에 투명한 공시 배너(`⚠️ [Data Source Contingency Notice]`)를 즉시 표출합니다.
+    * **결정론적 경계:** 법률 조항, 과금 산출, 권한 검증은 AI의 추론에 맡기지 않고 100% 코드로 강제합니다.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 05. CoWorx 협업 및 VFS 파일시스템 (CoWorx & Cloud VFS)
+
+<AccordionGroup>
+  <Accordion title="가상 파일 시스템(VFS)은 여러 사용자 세션 간에 파일 변경 사항을 어떻게 실시간 동기화하나요?">
+    CONNEX VFS는 이벤트 기반 3계층 캐시 무효화 및 브로드캐스트 파이프라인으로 작동합니다:
+
+    * **7대 파일 변경 연산:** 폴더 생성, 업로드, 삭제, 이름 변경, 이동, 복제 시 L2 Redis 캐시를 즉시 무효화(Flush)합니다.
+    * **SSE VFS_CHANGED 전파:** `VFS_CHANGED` 글로벌 SSE 이벤트를 즉각 브로드캐스트하여 모든 접속자의 파일 트리를 0초대에 자동 갱신합니다.
+    * **단일 배지 표준:** 폴더 선택 시 프론트엔드에서 수백 개 파일로 무리하게 전개하지 않고 깔끔한 단일 폴더 배지로 전송합니다.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 06. 계정, 권한 및 싱글 사인온 (Identity, RBAC & SSO)
+
+<AccordionGroup>
+  <Accordion title="CONNEX 플랫폼은 내부 데이터베이스에 사용자 비밀번호를 저장하나요?">
+    **아닙니다. CONNEX 플랫폼은 내부 DB에 사용자 비밀번호를 단 1건도 저장하지 않습니다.**
+
+    * **100% Firebase 위임:** 자격 증명 검증, MFA(다중 인증), 패스워드 암호화는 Google Identity / Firebase Auth에 전적으로 위임되어 안전하게 관리됩니다.
+    * **인증-프로필 분리:** 핵심 자격 증명은 구글 IAM 인프라에서 격리 처리되며, Firestore에는 비자격성 프로필 메타데이터만 저장됩니다.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 07. 자본 효율성 및 토큰 이코노미 (Capital Efficiency & Billing)
+
+<AccordionGroup>
+  <Accordion title="CONNEX는 AI 토큰 소비를 어떻게 최적화하고 운영 비용을 절감(FinOps)하나요?">
+    CONNEX는 **토큰 자본 배분 4대 원칙**을 통해 기업의 운영 비용(COGS)을 극적으로 절감합니다:
+
+    * **1-턴 1-채널 정밀 타겟팅:** 무작위 도구 호출을 배제하고, 0.1초 쿼리 플래너가 정확히 필요한 단일 서브채널만을 호출합니다.
+    * **5-턴 예산 상한선:** 에이전트의 모든 추론 루프는 최대 5턴 이내에 강제 종료되어 토큰 낭비 루프를 원천 차단합니다.
+    * **L1 프론트도어 게이트키퍼:** 단순 인사나 메타데이터 조회는 저비용 L1 레이어에서 0.1초 만에 조기 종료 처리합니다.
+    * **3계층 캐싱:** 동일 질의나 반복 요청은 L1 메모리 및 L2 Redis 캐시에서 즉시 반환되어 토큰 소모가 0으로 수렴합니다.
+  </Accordion>
+</AccordionGroup>

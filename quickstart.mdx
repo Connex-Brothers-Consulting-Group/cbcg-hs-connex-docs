@@ -1,47 +1,41 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "빠른 시작 가이드"
+sidebarTitle: "빠른 시작 (Quickstart)"
+description: "CONNEX Cloud OS를 시작하고 첫 번째 워크스페이스를 구성하는 3단계 가이드"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+# CONNEX 시작하기
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+CONNEX Cloud OS는 복잡한 설치 없이 브라우저를 통해 즉시 사용할 수 있는 에이전틱 클라우드 워크스페이스입니다.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="관할 국가 및 계정 로그인">
+    [CONNEX 웹 앱](https://connex.cloud)에 접속하여 본인의 거주 국가(대한민국 서울 리전 또는 미국 아이오와 리전)를 선택하고 소버린 OIDC / Google 계정으로 로그인합니다.
 
-    ```bash
-    npm install your-package
-    ```
+    <Info>
+      선택한 국가의 개인정보보호 법률(한국 PIPA, 미국 CCPA)에 따라 데이터가 물리적으로 분리된 전용 인프라에 안전하게 격리 보관됩니다.
+    </Info>
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
+  <Step title="CoWorx 협업 채널 또는 AI 에이전트 선택">
+    좌측 글로벌 사이드바에서 목적에 맞는 작업 공간을 선택합니다:
+    - **CoWorx**: 조직 팀원들과 실시간 메시징 및 파일 공유
+    - **CONNEX Agent**: 지능형 문서 작성, 데이터 분석, 코딩 및 멀티모달 추론
+    - **VFS Storage**: 격리된 클라우드 가상 파일 시스템 탐색기
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
+  <Step title="AI 파트너와 심층 업무 시작">
+    프롬프트 입력창에 업무 지시나 분석할 데이터 파일을 첨부하고 즉각적인 다차원 인텔리전스 응답을 확인하세요.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+---
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+## 추천 다음 단계
+
+<CardGroup cols={2}>
+  <Card title="시스템 아키텍처 이해하기" icon="layer-group" href="/architecture">
+    CONNEX의 30년 비즈니스 규칙과 결정론적 네이티브 도메인 설계
+  </Card>
+  <Card title="가상 파일 시스템(VFS) 활용" icon="folder-tree" href="/features/vfs">
+    고속 VFS 캐싱과 데이터 업로드 가이드
+  </Card>
+</CardGroup>
