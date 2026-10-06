@@ -377,6 +377,8 @@
   }
 
   /* 2.2.2 Contextual Copy Page / Dropdown Split Button */
+  /* 2.2.2 Contextual Copy Page / Dropdown Split Button */
+  /* Parent Container Reset */
   html body header#header div:has(> button:has(svg.lucide-copy)),
   html body header#header div:has(> button:has(svg[class*="copy"])),
   html body #content-area header div:has(> button:has(svg.lucide-copy)),
@@ -384,27 +386,30 @@
   html body [data-component-name="contextual-options"],
   html body div[class*="contextual-options"],
   html body div:has(> button:has(svg.lucide-copy)),
-  html body div:has(> button:has(svg[class*="copy"])) {
+  html body div:has(> button:has(svg[class*="copy"])),
+  html body div:has(> button):has(button:has(svg.lucide-copy)) {
     display: inline-flex !important;
-    align-items: stretch !important;
+    align-items: center !important;
     height: 32px !important;
     min-height: 32px !important;
     max-height: 32px !important;
-    border-radius: 8px !important;
+    border: none !important;
+    background: transparent !important;
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
     overflow: visible !important;
     position: relative !important;
-    transition: var(--cnx-transition);
   }
 
-  /* Universal reset for intermediate wrapper divs (e.g. dropdown trigger wrappers) */
+  /* Intermediate wrappers reset */
   html body div:has(> button:has(svg.lucide-copy)) > div:not([role="menu"]):not([class*="menu"]):not([class*="popover"]),
   html body div:has(> button:has(svg[class*="copy"])) > div:not([role="menu"]):not([class*="menu"]):not([class*="popover"]),
-  html body [data-component-name="contextual-options"] > div:not([role="menu"]):not([class*="menu"]):not([class*="popover"]) {
+  html body [data-component-name="contextual-options"] > div:not([role="menu"]):not([class*="menu"]):not([class*="popover"]),
+  html body button:has(svg.lucide-copy) + div,
+  html body button:has(svg[class*="copy"]) + div {
     display: inline-flex !important;
-    align-items: stretch !important;
+    align-items: center !important;
     height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -414,153 +419,200 @@
     background: transparent !important;
   }
 
-  /* All buttons inside the contextual split group */
+  /* Universal Common Button Dimensions */
+  html body button:has(svg.lucide-copy),
+  html body button:has(svg[class*="copy"]),
+  html body button:has(svg.lucide-copy) + button,
+  html body button:has(svg[class*="copy"]) + button,
+  html body button:has(svg.lucide-copy) + div button,
+  html body button:has(svg[class*="copy"]) + div button,
+  html body button:has(svg.lucide-copy) ~ button,
+  html body button:has(svg[class*="copy"]) ~ button,
+  html body button:has(svg.lucide-copy) ~ div button,
+  html body button:has(svg[class*="copy"]) ~ div button,
   html body div:has(> button:has(svg.lucide-copy)) button,
   html body div:has(> button:has(svg[class*="copy"])) button,
   html body [data-component-name="contextual-options"] button,
-  html body div[class*="contextual-options"] button,
-  html body header button:has(svg.lucide-copy),
-  html body #content-area header button:has(svg.lucide-copy) {
+  html body div[class*="contextual-options"] button {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 100% !important;
-    min-height: 30px !important;
+    height: 32px !important;
+    min-height: 32px !important;
     max-height: 32px !important;
     font-size: 12.5px !important;
     font-weight: 500 !important;
     margin: 0 !important;
-    border: none !important;
     outline: none !important;
     box-shadow: none !important;
     cursor: pointer !important;
     transition: var(--cnx-transition);
   }
 
-  /* Light Mode Container & Buttons */
-  html:not(.dark) body header#header div:has(> button:has(svg.lucide-copy)),
-  html:not(.dark) body header#header div:has(> button:has(svg[class*="copy"])),
-  html:not(.dark) body #content-area header div:has(> button:has(svg.lucide-copy)),
-  html:not(.dark) body #content-area header div:has(> button:has(svg[class*="copy"])),
-  html:not(.dark) body [data-component-name="contextual-options"],
-  html:not(.dark) body div[class*="contextual-options"],
-  html:not(.dark) body div:has(> button:has(svg.lucide-copy)),
-  html:not(.dark) body div:has(> button:has(svg[class*="copy"])) {
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    background: #ffffff !important;
-  }
-
-  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button,
-  html:not(.dark) body div:has(> button:has(svg[class*="copy"])) button,
-  html:not(.dark) body [data-component-name="contextual-options"] button,
-  html:not(.dark) body div[class*="contextual-options"] button {
-    border: none !important;
-    background: transparent !important;
-    color: #475569 !important;
-  }
-
-  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button svg,
-  html:not(.dark) body div:has(> button:has(svg[class*="copy"])) button svg,
-  html:not(.dark) body [data-component-name="contextual-options"] button svg {
-    color: #475569 !important;
-    stroke: #475569 !important;
-  }
-
-  /* Left button: Copy Page */
+  /* ───────────────────────────────────────────────────────────
+     LIGHT MODE: Split Button Styling (Solid Navy / Slate Standard)
+     ─────────────────────────────────────────────────────────── */
+  /* Left Button: Copy Page */
+  html:not(.dark) body button:has(svg.lucide-copy),
+  html:not(.dark) body button:has(svg[class*="copy"]),
   html:not(.dark) body div:has(> button:has(svg.lucide-copy)) > button:first-child,
   html:not(.dark) body div:has(> button:has(svg[class*="copy"])) > button:first-child,
-  html:not(.dark) body [data-component-name="contextual-options"] > button:first-child,
-  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button:has(svg.lucide-copy) {
-    border-top-left-radius: 7px !important;
-    border-bottom-left-radius: 7px !important;
+  html:not(.dark) body [data-component-name="contextual-options"] > button:first-child {
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.10) !important;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
-    border-right: 1px solid rgba(0, 0, 0, 0.10) !important;
+    background: #ffffff !important;
+    color: #475569 !important;
     padding: 0 10px !important;
   }
 
-  /* Right button: Dropdown Chevron */
+  html:not(.dark) body button:has(svg.lucide-copy) svg,
+  html:not(.dark) body button:has(svg[class*="copy"]) svg,
+  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) > button:first-child svg {
+    color: #475569 !important;
+    stroke: #475569 !important;
+    fill: none !important;
+  }
+
+  /* Right Button: Dropdown Chevron (No Blue Border, Matches Left) */
+  html:not(.dark) body button:has(svg.lucide-copy) + button,
+  html:not(.dark) body button:has(svg[class*="copy"]) + button,
+  html:not(.dark) body button:has(svg.lucide-copy) + div button,
+  html:not(.dark) body button:has(svg[class*="copy"]) + div button,
+  html:not(.dark) body button:has(svg.lucide-copy) ~ button,
+  html:not(.dark) body button:has(svg[class*="copy"]) ~ button,
+  html:not(.dark) body button:has(svg.lucide-copy) ~ div button,
+  html:not(.dark) body button:has(svg[class*="copy"]) ~ div button,
   html:not(.dark) body div:has(> button:has(svg.lucide-copy)) > button:last-child,
   html:not(.dark) body div:has(> button:has(svg.lucide-copy)) > div:last-child button,
   html:not(.dark) body div:has(> button:has(svg[class*="copy"])) > button:last-child,
   html:not(.dark) body div:has(> button:has(svg[class*="copy"])) > div:last-child button,
   html:not(.dark) body [data-component-name="contextual-options"] > button:last-child,
   html:not(.dark) body [data-component-name="contextual-options"] > div:last-child button {
-    border-top-right-radius: 7px !important;
-    border-bottom-right-radius: 7px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-left: none !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
-    border: none !important;
+    background: #ffffff !important;
+    color: #475569 !important;
     padding: 0 8px !important;
   }
 
-  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) button:hover,
-  html:not(.dark) body div:has(> button:has(svg[class*="copy"])) button:hover,
-  html:not(.dark) body [data-component-name="contextual-options"] button:hover {
+  html:not(.dark) body button:has(svg.lucide-copy) + button svg,
+  html:not(.dark) body button:has(svg[class*="copy"]) + button svg,
+  html:not(.dark) body button:has(svg.lucide-copy) + div button svg,
+  html:not(.dark) body button:has(svg[class*="copy"]) + div button svg,
+  html:not(.dark) body button:has(svg.lucide-copy) ~ button svg,
+  html:not(.dark) body button:has(svg[class*="copy"]) ~ button svg,
+  html:not(.dark) body button:has(svg.lucide-copy) ~ div button svg,
+  html:not(.dark) body button:has(svg[class*="copy"]) ~ div button svg,
+  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) > button:last-child svg,
+  html:not(.dark) body div:has(> button:has(svg.lucide-copy)) > div:last-child button svg {
+    color: #475569 !important;
+    stroke: #475569 !important;
+    fill: none !important;
+  }
+
+  /* Light Mode Hover States */
+  html:not(.dark) body button:has(svg.lucide-copy):hover,
+  html:not(.dark) body button:has(svg[class*="copy"]):hover,
+  html:not(.dark) body button:has(svg.lucide-copy) + button:hover,
+  html:not(.dark) body button:has(svg[class*="copy"]) + button:hover,
+  html:not(.dark) body button:has(svg.lucide-copy) + div button:hover,
+  html:not(.dark) body button:has(svg[class*="copy"]) + div button:hover,
+  html:not(.dark) body button:has(svg.lucide-copy) ~ button:hover,
+  html:not(.dark) body button:has(svg[class*="copy"]) ~ button:hover,
+  html:not(.dark) body button:has(svg.lucide-copy) ~ div button:hover,
+  html:not(.dark) body button:has(svg[class*="copy"]) ~ div button:hover {
     background: rgba(0, 0, 0, 0.04) !important;
     color: #0f172a !important;
   }
 
-  /* Dark Mode Container & Buttons */
-  html.dark body header#header div:has(> button:has(svg.lucide-copy)),
-  html.dark body header#header div:has(> button:has(svg[class*="copy"])),
-  html.dark body #content-area header div:has(> button:has(svg.lucide-copy)),
-  html.dark body #content-area header div:has(> button:has(svg[class*="copy"])),
-  html.dark body [data-component-name="contextual-options"],
-  html.dark body div[class*="contextual-options"],
-  html.dark body div:has(> button:has(svg.lucide-copy)),
-  html.dark body div:has(> button:has(svg[class*="copy"])) {
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    background: rgba(255, 255, 255, 0.03) !important;
-  }
-
-  html.dark body div:has(> button:has(svg.lucide-copy)) button,
-  html.dark body div:has(> button:has(svg[class*="copy"])) button,
-  html.dark body [data-component-name="contextual-options"] button,
-  html.dark body div[class*="contextual-options"] button {
-    border: none !important;
-    background: transparent !important;
-    color: rgba(255, 255, 255, 0.75) !important;
-  }
-
-  html.dark body div:has(> button:has(svg.lucide-copy)) button svg,
-  html.dark body div:has(> button:has(svg[class*="copy"])) button svg,
-  html.dark body [data-component-name="contextual-options"] button svg {
-    color: rgba(255, 255, 255, 0.75) !important;
-    stroke: rgba(255, 255, 255, 0.75) !important;
-  }
-
-  /* Left button: Copy Page */
+  /* ───────────────────────────────────────────────────────────
+     DARK MODE: Split Button Styling (Translucent Frost Standard)
+     ─────────────────────────────────────────────────────────── */
+  /* Left Button: Copy Page */
+  html.dark body button:has(svg.lucide-copy),
+  html.dark body button:has(svg[class*="copy"]),
   html.dark body div:has(> button:has(svg.lucide-copy)) > button:first-child,
   html.dark body div:has(> button:has(svg[class*="copy"])) > button:first-child,
-  html.dark body [data-component-name="contextual-options"] > button:first-child,
-  html.dark body div:has(> button:has(svg.lucide-copy)) button:has(svg.lucide-copy) {
-    border-top-left-radius: 7px !important;
-    border-bottom-left-radius: 7px !important;
+  html.dark body [data-component-name="contextual-options"] > button:first-child {
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
     padding: 0 10px !important;
   }
 
-  /* Right button: Dropdown Chevron */
+  html.dark body button:has(svg.lucide-copy) svg,
+  html.dark body button:has(svg[class*="copy"]) svg,
+  html.dark body div:has(> button:has(svg.lucide-copy)) > button:first-child svg {
+    color: rgba(255, 255, 255, 0.75) !important;
+    stroke: rgba(255, 255, 255, 0.75) !important;
+    fill: none !important;
+  }
+
+  /* Right Button: Dropdown Chevron */
+  html.dark body button:has(svg.lucide-copy) + button,
+  html.dark body button:has(svg[class*="copy"]) + button,
+  html.dark body button:has(svg.lucide-copy) + div button,
+  html.dark body button:has(svg[class*="copy"]) + div button,
+  html.dark body button:has(svg.lucide-copy) ~ button,
+  html.dark body button:has(svg[class*="copy"]) ~ button,
+  html.dark body button:has(svg.lucide-copy) ~ div button,
+  html.dark body button:has(svg[class*="copy"]) ~ div button,
   html.dark body div:has(> button:has(svg.lucide-copy)) > button:last-child,
   html.dark body div:has(> button:has(svg.lucide-copy)) > div:last-child button,
   html.dark body div:has(> button:has(svg[class*="copy"])) > button:last-child,
   html.dark body div:has(> button:has(svg[class*="copy"])) > div:last-child button,
   html.dark body [data-component-name="contextual-options"] > button:last-child,
   html.dark body [data-component-name="contextual-options"] > div:last-child button {
-    border-top-right-radius: 7px !important;
-    border-bottom-right-radius: 7px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-left: none !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
-    border: none !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
     padding: 0 8px !important;
   }
 
-  html.dark body div:has(> button:has(svg.lucide-copy)) button:hover,
-  html.dark body div:has(> button:has(svg[class*="copy"])) button:hover,
-  html.dark body [data-component-name="contextual-options"] button:hover {
+  html.dark body button:has(svg.lucide-copy) + button svg,
+  html.dark body button:has(svg[class*="copy"]) + button svg,
+  html.dark body button:has(svg.lucide-copy) + div button svg,
+  html.dark body button:has(svg[class*="copy"]) + div button svg,
+  html.dark body button:has(svg.lucide-copy) ~ button svg,
+  html.dark body button:has(svg[class*="copy"]) ~ button svg,
+  html.dark body button:has(svg.lucide-copy) ~ div button svg,
+  html.dark body button:has(svg[class*="copy"]) ~ div button svg,
+  html.dark body div:has(> button:has(svg.lucide-copy)) > button:last-child svg,
+  html.dark body div:has(> button:has(svg.lucide-copy)) > div:last-child button svg {
+    color: rgba(255, 255, 255, 0.75) !important;
+    stroke: rgba(255, 255, 255, 0.75) !important;
+    fill: none !important;
+  }
+
+  /* Dark Mode Hover States */
+  html.dark body button:has(svg.lucide-copy):hover,
+  html.dark body button:has(svg[class*="copy"]):hover,
+  html.dark body button:has(svg.lucide-copy) + button:hover,
+  html.dark body button:has(svg[class*="copy"]) + button:hover,
+  html.dark body button:has(svg.lucide-copy) + div button:hover,
+  html.dark body button:has(svg[class*="copy"]) + div button:hover,
+  html.dark body button:has(svg.lucide-copy) ~ button:hover,
+  html.dark body button:has(svg[class*="copy"]) ~ button:hover,
+  html.dark body button:has(svg.lucide-copy) ~ div button:hover,
+  html.dark body button:has(svg[class*="copy"]) ~ div button:hover {
     background: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
   }
