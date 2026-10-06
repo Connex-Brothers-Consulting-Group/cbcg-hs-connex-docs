@@ -40,6 +40,14 @@
     --cnx-text-sub: #334155;
     --cnx-card-bg: #ffffff;
     --cnx-card-border: rgba(0, 0, 0, 0.08);
+
+    /* Mintlify & Tailwind Primary Token Overrides (Light: #003DB3) */
+    --primary: #003db3;
+    --primary-light: #003db3;
+    --primary-dark: #002f8c;
+    --color-primary: #003db3;
+    --color-primary-light: #003db3;
+    --color-primary-dark: #002f8c;
   }
 
   /* Dark Theme Tokens — Translucent Frost Glass (FE variables.css §2) */
@@ -55,6 +63,14 @@
     --cnx-text-sub: rgba(255, 255, 255, 0.7);
     --cnx-card-bg: rgba(255, 255, 255, 0.03);
     --cnx-card-border: rgba(255, 255, 255, 0.08);
+
+    /* Mintlify & Tailwind Primary Token Overrides (Dark: #D55E08) */
+    --primary: #d55e08;
+    --primary-light: #f97316;
+    --primary-dark: #c2410c;
+    --color-primary: #d55e08;
+    --color-primary-light: #f97316;
+    --color-primary-dark: #c2410c;
   }
 
   html body,
@@ -362,6 +378,7 @@
   /* 2.4.1 Table of Contents / On this page (Light: #003DB3, Dark: #D55E08) */
   html body nav#table-of-contents a,
   html body aside nav a,
+  html body aside a[href^="#"],
   html body [aria-label="Table of contents"] a,
   html body [data-component-name="table-of-contents"] a {
     font-size: 12.5px;
@@ -371,40 +388,73 @@
 
   /* Light Mode TOC Active & Hover */
   html:not(.dark) body nav#table-of-contents a[data-active="true"],
+  html:not(.dark) body nav#table-of-contents a[data-active="true"] *,
   html:not(.dark) body nav#table-of-contents a.text-primary,
-  html:not(.dark) body nav#table-of-contents a[aria-current="true"],
+  html:not(.dark) body nav#table-of-contents a.text-primary *,
+  html:not(.dark) body nav#table-of-contents a[aria-current],
+  html:not(.dark) body nav#table-of-contents a[aria-current] *,
   html:not(.dark) body aside nav a[data-active="true"],
+  html:not(.dark) body aside nav a[data-active="true"] *,
   html:not(.dark) body aside nav a.text-primary,
-  html:not(.dark) body aside nav a[aria-current="true"],
+  html:not(.dark) body aside nav a.text-primary *,
+  html:not(.dark) body aside nav a[aria-current],
+  html:not(.dark) body aside nav a[aria-current] *,
+  html:not(.dark) body aside a[href^="#"][class*="primary"],
+  html:not(.dark) body aside a[href^="#"][class*="primary"] *,
+  html:not(.dark) body aside a[href^="#"][aria-current],
+  html:not(.dark) body aside a[href^="#"][aria-current] *,
   html:not(.dark) body [aria-label="Table of contents"] a[data-active="true"],
-  html:not(.dark) body [aria-label="Table of contents"] a.text-primary {
+  html:not(.dark) body [aria-label="Table of contents"] a[data-active="true"] *,
+  html:not(.dark) body [aria-label="Table of contents"] a.text-primary,
+  html:not(.dark) body [aria-label="Table of contents"] a.text-primary *,
+  html:not(.dark) body .text-primary,
+  html:not(.dark) body [class*="text-primary"] {
     color: #003db3;
     font-weight: 500;
   }
 
   html:not(.dark) body nav#table-of-contents a:hover,
   html:not(.dark) body aside nav a:hover,
+  html:not(.dark) body aside a[href^="#"]:hover,
   html:not(.dark) body [aria-label="Table of contents"] a:hover {
     color: #003db3;
   }
 
   /* Dark Mode TOC Active & Hover (Orange #D55E08 Standard) */
   html.dark body nav#table-of-contents a[data-active="true"],
+  html.dark body nav#table-of-contents a[data-active="true"] *,
   html.dark body nav#table-of-contents a.text-primary,
-  html.dark body nav#table-of-contents a[aria-current="true"],
+  html.dark body nav#table-of-contents a.text-primary *,
+  html.dark body nav#table-of-contents a[aria-current],
+  html.dark body nav#table-of-contents a[aria-current] *,
   html.dark body aside nav a[data-active="true"],
+  html.dark body aside nav a[data-active="true"] *,
   html.dark body aside nav a.text-primary,
-  html.dark body aside nav a[aria-current="true"],
+  html.dark body aside nav a.text-primary *,
+  html.dark body aside nav a[aria-current],
+  html.dark body aside nav a[aria-current] *,
+  html.dark body aside a[href^="#"][class*="primary"],
+  html.dark body aside a[href^="#"][class*="primary"] *,
+  html.dark body aside a[href^="#"][aria-current],
+  html.dark body aside a[href^="#"][aria-current] *,
   html.dark body [aria-label="Table of contents"] a[data-active="true"],
+  html.dark body [aria-label="Table of contents"] a[data-active="true"] *,
   html.dark body [aria-label="Table of contents"] a.text-primary,
+  html.dark body [aria-label="Table of contents"] a.text-primary *,
   html.dark body [data-component-name="table-of-contents"] a[data-active="true"],
-  html.dark body [data-component-name="table-of-contents"] a.text-primary {
+  html.dark body [data-component-name="table-of-contents"] a[data-active="true"] *,
+  html.dark body [data-component-name="table-of-contents"] a.text-primary,
+  html.dark body [data-component-name="table-of-contents"] a.text-primary *,
+  html.dark body .text-primary,
+  html.dark body [class*="text-primary"],
+  html.dark body [class*="dark:text-primary"] {
     color: #d55e08;
     font-weight: 500;
   }
 
   html.dark body nav#table-of-contents a:hover,
   html.dark body aside nav a:hover,
+  html.dark body aside a[href^="#"]:hover,
   html.dark body [aria-label="Table of contents"] a:hover {
     color: #f97316;
   }
